@@ -1,10 +1,11 @@
 """Vangasht Instagram bot.
 
 Every day it publishes (through the official Instagram Graph API):
-  10:00  story 1  -> today's exchange rates, read live from vangasht.com
+  11:00  story 1  -> today's exchange rates, read live from vangasht.com
                      (if the rates on the site are older than RATES_MAX_AGE_H hours,
                       a story from the library is used instead, so stale prices are never posted)
-  17:00  story 2  -> next story from content/stories.json
+  17:00  story 2  -> the oldest photo/video you uploaded to the stories/ folder that is not published yet;
+                     if the folder is empty, the next designed story from stories.json
   20:00  post     -> next post (image + caption) from content/posts.json
 
 Usage:
@@ -179,6 +180,76 @@ def rates_fresh(d):
     except Exception:
         return False
 
+MEDIA = ROOT / "stories"
+IMG_EXT, VID_EXT = {".jpg", ".jpeg", ".png", ".webp", ".heic"}, {".mp4", ".mov"}
+
+def added_time(f):
+    """When the file was first uploaded to the repo (needs full git history)."""
+    try:
+        import subprocess
+        out = subprocess.run(["git", "log", "--diff-filter=A", "--format=%ct", "--", str(f)],
+                             cwd=ROOT, capture_output=True, text=True).stdout.split()
+        return int(out[-1]) if out else int(f.stat().st_mtime)
+    except Exception:
+        return int(f.stat().st_mtime)
+
+def drive_media(st):
+    """Oldest unpublished photo/video in the shared Google Drive folder (downloaded to dl/)."""
+    key, folder = os.environ.get("GDRIVE_KEY"), os.environ.get("GDRIVE_FOLDER")
+    if not key or not folder:
+        return None
+    q = f"'{folder}' in parents and trashed=false and (mimeType contains 'image/' or mimeType contains 'video/')"
+    url = "https://www.googleapis.com/drive/v3/files?" + urllib.parse.urlencode(
+        {"q": q, "orderBy": "createdTime", "pageSize": 200, "key": key,
+         "fields": "files(id,name,mimeType,createdTime,size)"})
+    try:
+        with urllib.request.urlopen(url, timeout=60) as r:
+            files = json.load(r).get("files", [])
+    except urllib.error.HTTPError as e:
+        print("! Google Drive error:", e.code, e.read().decode(errors="replace")[:300]); return None
+    done = set(st.get("media_done", []))
+    files = [f for f in files if "gdrive:" + f["id"] not in done]
+    print(f"{len(files)} photo/video(s) waiting in Google Drive")
+    if not files:
+        return None
+    f = files[0]
+    ext = Path(f["name"]).suffix.lower() or (".mp4" if f["mimeType"].startswith("video/") else ".jpg")
+    dl = ROOT / "dl"; dl.mkdir(exist_ok=True)
+    local = dl / (f["id"] + ext)
+    src = f"https://www.googleapis.com/drive/v3/files/{f['id']}?alt=media&key={key}"
+    with urllib.request.urlopen(src, timeout=600) as r, open(local, "wb") as w:
+        while chunk := r.read(1 << 20):
+            w.write(chunk)
+    print("downloaded from Drive:", f["name"])
+    return local, "gdrive:" + f["id"], f["name"]
+
+def next_media(st):
+    got = drive_media(st)
+    if got:
+        return got
+    if not MEDIA.is_dir():
+        return None
+    done = set(st.get("media_done", []))
+    files = [f for f in MEDIA.iterdir() if f.suffix.lower() in IMG_EXT | VID_EXT and f.name not in done]
+    files.sort(key=lambda f: (added_time(f), f.name))
+    print(f"{len(files)} uploaded photo/video(s) waiting in stories/")
+    return (files[0], files[0].name, files[0].name) if files else None
+
+def story_image(src, dst):
+    """Fit any photo into a 1080x1920 story; a blurred copy fills the empty space."""
+    from PIL import Image, ImageOps, ImageFilter
+    if src.suffix.lower() == ".heic":
+        from pillow_heif import register_heif_opener; register_heif_opener()
+    im = ImageOps.exif_transpose(Image.open(src)).convert("RGB")
+    W, H = 1080, 1920
+    bg = ImageOps.fit(im, (W, H)).filter(ImageFilter.GaussianBlur(40))
+    bg = Image.blend(bg, Image.new("RGB", (W, H), (10, 30, 38)), 0.35)
+    fg = im.copy(); fg.thumbnail((W, H))
+    if abs(im.width / im.height - W / H) < 0.06:
+        fg = ImageOps.fit(im, (W, H))
+    bg.paste(fg, ((W - fg.width) // 2, (H - fg.height) // 2))
+    bg.save(dst, "JPEG", quality=92)
+
 def render(slot):
     d, st = site(), load_state()
     v = vars_for(d)
@@ -199,6 +270,15 @@ def render(slot):
     elif slot == "story1" and rates_fresh(d):
         render_html(rates_html(d, v), 1080, 1920, path)
         job.update(item="rates")
+    elif slot == "story2" and (got := next_media(st)):
+        m, mid, label = got
+        if m.suffix.lower() in VID_EXT:
+            job.update(file=None, video=str(m.relative_to(ROOT)), item=label, media=mid)
+            print("using your video", label)
+        else:
+            story_image(m, path)
+            job.update(item=label, media=mid)
+            print("using your photo", label)
     else:
         if slot == "story1":
             print("! rates on the site are old -> using a library story instead (update the rates in admin)")
@@ -208,7 +288,7 @@ def render(slot):
         render_html(html, 1080, 1920, path)
         job.update(advance="story", item=it["id"])
     (OUT / "pending.json").write_text(json.dumps(job, ensure_ascii=False, indent=1))
-    print("rendered", path.name, "->", job["item"])
+    print("ready:", job["file"] or job.get("video"), "->", job["item"])
 
 # ---------------------------------------------------------------- Instagram Graph API
 def api(method, path, **params):
@@ -237,6 +317,20 @@ def ig_user():
             return ig["id"]
     raise SystemExit("No Instagram account found on this token. Check the Page and Instagram are assigned to the system user.")
 
+def upload_video(ig, f):
+    """Instagram's resumable upload: the video goes straight from here to Meta, no public link needed."""
+    size = f.stat().st_size
+    print(f"uploading video {f.name} ({size // 1024 // 1024} MB)")
+    r = api("POST", f"{ig}/media", media_type="STORIES", upload_type="resumable")
+    req = urllib.request.Request(r["uri"], data=f.read_bytes(), method="POST", headers={
+        "Authorization": "OAuth " + os.environ["IG_TOKEN"], "offset": "0", "file_size": str(size)})
+    try:
+        with urllib.request.urlopen(req, timeout=600) as resp:
+            print("upload:", resp.read().decode(errors="replace")[:200])
+    except urllib.error.HTTPError as e:
+        raise SystemExit(f"Video upload failed {e.code}: {e.read().decode(errors='replace')}")
+    return r["id"]
+
 def publish():
     job = json.loads((OUT / "pending.json").read_text())
     st = load_state()
@@ -249,13 +343,16 @@ def publish():
     repo, ref = os.environ["GITHUB_REPOSITORY"], os.environ.get("GITHUB_REF_NAME", "main")
     url = f"https://raw.githubusercontent.com/{repo}/{ref}/out/{job['file']}"
     ig = ig_user()
-    params = {"image_url": url}
-    if job["slot"] == "post":
-        params["caption"] = job["caption"]
+    if job.get("video"):
+        cid = upload_video(ig, ROOT / job["video"])
     else:
-        params["media_type"] = "STORIES"
-    cid = api("POST", f"{ig}/media", **params)["id"]
-    for _ in range(30):
+        params = {"image_url": url}
+        if job["slot"] == "post":
+            params["caption"] = job["caption"]
+        else:
+            params["media_type"] = "STORIES"
+        cid = api("POST", f"{ig}/media", **params)["id"]
+    for _ in range(120):
         s = api("GET", cid, fields="status_code").get("status_code")
         if s == "FINISHED":
             break
@@ -266,6 +363,8 @@ def publish():
     print("published media", mid)
     if job.get("advance"):
         st[job["advance"]] += 1
+    if job.get("media"):
+        st.setdefault("media_done", []).append(job["media"])
     st["log"].append({"at": dt.datetime.now(TR).isoformat(timespec="minutes"), "slot": job["slot"], "item": job["item"], "media": mid})
     save_state(st)
     job["done"] = True
