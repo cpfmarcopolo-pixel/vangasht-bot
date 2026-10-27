@@ -1,0 +1,72 @@
+name: Vangasht Instagram bot
+
+on:
+  schedule:
+    - cron: "48 6 * * *"
+    - cron: "48 13 * * *"
+    - cron: "48 16 * * *"
+  workflow_dispatch:
+    inputs:
+      slot:
+        description: "What to publish now"
+        type: choice
+        options: [story1, story2, post]
+        default: story2
+
+permissions:
+  contents: write
+
+concurrency:
+  group: vangasht-bot
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Pick slot
+        id: slot
+        run: |
+          case "${{ github.event.schedule }}" in
+            "48 6 * * *")  echo "slot=story1" >> "$GITHUB_OUTPUT" ;;
+            "48 13 * * *") echo "slot=story2" >> "$GITHUB_OUTPUT" ;;
+            "48 16 * * *") echo "slot=post"   >> "$GITHUB_OUTPUT" ;;
+            *)             echo "slot=${{ inputs.slot }}" >> "$GITHUB_OUTPUT" ;;
+          esac
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install browser and fonts
+        run: |
+          pip install playwright==1.47.0
+          python -m playwright install --with-deps chromium
+          sudo apt-get install -y fonts-noto-color-emoji
+
+      - name: Make the image
+        run: python bot.py render ${{ steps.slot.outputs.slot }}
+
+      - name: Upload the image to this repository
+        run: |
+          git config user.name "vangasht-bot"
+          git config user.email "bot@vangasht.com"
+          git add out
+          git commit -m "image ${{ steps.slot.outputs.slot }}" || true
+          git push
+
+      - name: Publish to Instagram
+        env:
+          IG_TOKEN: ${{ secrets.IG_TOKEN }}
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+        run: python bot.py publish
+
+      - name: Save progress
+        if: always()
+        run: |
+          git add out state.json || true
+          git commit -m "published ${{ steps.slot.outputs.slot }}" || true
+          git push || true
