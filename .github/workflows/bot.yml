@@ -2,7 +2,7 @@ name: Vangasht Instagram bot
 
 on:
   schedule:
-    - cron: "48 6 * * *"
+    - cron: "52 7 * * *"
     - cron: "48 13 * * *"
     - cron: "48 16 * * *"
   workflow_dispatch:
@@ -26,12 +26,14 @@ jobs:
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Pick slot
         id: slot
         run: |
           case "${{ github.event.schedule }}" in
-            "48 6 * * *")  echo "slot=story1" >> "$GITHUB_OUTPUT" ;;
+            "52 7 * * *")  echo "slot=story1" >> "$GITHUB_OUTPUT" ;;
             "48 13 * * *") echo "slot=story2" >> "$GITHUB_OUTPUT" ;;
             "48 16 * * *") echo "slot=post"   >> "$GITHUB_OUTPUT" ;;
             *)             echo "slot=${{ inputs.slot }}" >> "$GITHUB_OUTPUT" ;;
@@ -43,11 +45,14 @@ jobs:
 
       - name: Install browser and fonts
         run: |
-          pip install playwright==1.47.0
+          pip install playwright==1.47.0 pillow pillow-heif
           python -m playwright install --with-deps chromium
           sudo apt-get install -y fonts-noto-color-emoji
 
       - name: Make the image
+        env:
+          GDRIVE_KEY: ${{ secrets.GDRIVE_KEY }}
+          GDRIVE_FOLDER: ${{ secrets.GDRIVE_FOLDER }}
         run: python bot.py render ${{ steps.slot.outputs.slot }}
 
       - name: Upload the image to this repository
