@@ -1,8 +1,9 @@
 {
- "slot": "story1",
- "file": "2026-10-28-story1.jpg",
+ "slot": "story2",
+ "file": null,
  "caption": null,
  "advance": null,
- "item": "rates",
- "done": true
+ "item": "Video from markopoloturizm",
+ "video": "dl/1tkTZ0Og42HjsK91Q58qVwlYwCHU6lYjm.mp4",
+ "media": "gdrive:1tkTZ0Og42HjsK91Q58qVwlYwCHU6lYjm"
 }
