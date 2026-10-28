@@ -49,6 +49,7 @@ jobs:
         env:
           GDRIVE_KEY: ${{ secrets.GDRIVE_KEY }}
           GDRIVE_FOLDER: ${{ secrets.GDRIVE_FOLDER }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: python bot.py render ${{ steps.slot.outputs.slot }}
 
       - name: Upload the image to this repository
