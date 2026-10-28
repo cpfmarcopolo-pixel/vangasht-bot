@@ -31,10 +31,22 @@
    "slot": "story2",
    "item": "Video from markopoloturizm",
    "media": "17990385522111342"
+  },
+  {
+   "at": "2026-10-28T19:51+03:00",
+   "slot": "post",
+   "item": "ai:صبحانه وانی در یک صبح پاییزی",
+   "media": "18130118869877279"
   }
  ],
  "media_done": [
   "gdrive:1Ta_jx31NNs1b3vSbmQ23lxbtzmOGdKSG",
   "gdrive:1tkTZ0Og42HjsK91Q58qVwlYwCHU6lYjm"
+ ],
+ "ai_log": [
+  {
+   "day": "2026-10-28",
+   "topic": "صبحانه وانی در یک صبح پاییزی"
+  }
  ]
 }
