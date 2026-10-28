@@ -25,9 +25,16 @@
    "slot": "story1",
    "item": "rates",
    "media": "17890621926619342"
+  },
+  {
+   "at": "2026-10-28T17:01+03:00",
+   "slot": "story2",
+   "item": "Video from markopoloturizm",
+   "media": "17990385522111342"
   }
  ],
  "media_done": [
-  "gdrive:1Ta_jx31NNs1b3vSbmQ23lxbtzmOGdKSG"
+  "gdrive:1Ta_jx31NNs1b3vSbmQ23lxbtzmOGdKSG",
+  "gdrive:1tkTZ0Og42HjsK91Q58qVwlYwCHU6lYjm"
  ]
 }
