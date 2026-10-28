@@ -1,9 +1,7 @@
 {
- "slot": "story2",
- "file": "2026-10-28-story2.jpg",
+ "slot": "story1",
+ "file": "2026-10-28-story1.jpg",
  "caption": null,
  "advance": null,
- "item": "IMG-20261028-WA0000.jpg",
- "media": "gdrive:1Ta_jx31NNs1b3vSbmQ23lxbtzmOGdKSG",
- "done": true
+ "item": "rates"
 }
