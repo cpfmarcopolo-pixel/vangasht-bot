@@ -236,6 +236,38 @@ def next_media(st):
     print(f"{len(files)} uploaded photo/video(s) waiting in stories/")
     return (files[0], files[0].name, files[0].name) if files else None
 
+def ffmpeg_bin():
+    import shutil, subprocess
+    b = shutil.which("ffmpeg")
+    if b:
+        return b
+    subprocess.run([sys.executable, "-m", "pip", "install", "-q", "imageio-ffmpeg"], check=False)
+    try:
+        import imageio_ffmpeg
+        return imageio_ffmpeg.get_ffmpeg_exe()
+    except Exception:
+        return None
+
+def story_video(src, dst):
+    """Re-encode any phone video to what Instagram stories accept: H.264/AAC MP4, 1080x1920 (blurred fill), 30 fps, max 59 s."""
+    import subprocess
+    ff = ffmpeg_bin()
+    if not ff:
+        raise RuntimeError("ffmpeg not available")
+    vf = ("split[a][b];[a]scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,boxblur=20:2[bg];"
+          "[b]scale=1080:1920:force_original_aspect_ratio=decrease[fg];[bg][fg]overlay=(W-w)/2:(H-h)/2,fps=30,format=yuv420p")
+    cmd = [ff, "-y", "-i", str(src), "-t", "59", "-filter_complex", vf, "-c:v", "libx264", "-preset", "veryfast",
+           "-profile:v", "high", "-b:v", "5M", "-maxrate", "6M", "-bufsize", "10M", "-c:a", "aac", "-b:a", "128k",
+           "-ar", "44100", "-ac", "2", "-movflags", "+faststart", "-shortest", str(dst)]
+    r = subprocess.run(cmd, capture_output=True, text=True)
+    if r.returncode != 0:
+        # video without an audio track: try again without audio mapping problems
+        cmd2 = [c for c in cmd if c not in ("-shortest",)]
+        r = subprocess.run(cmd2, capture_output=True, text=True)
+    if r.returncode != 0 or not Path(dst).exists():
+        raise RuntimeError("ffmpeg failed: " + r.stderr[-400:])
+    print(f"video re-encoded for Instagram ({Path(dst).stat().st_size // 1024 // 1024} MB)")
+
 def story_image(src, dst):
     """Fit any photo into a 1080x1920 story; a blurred copy fills the empty space."""
     from PIL import Image, ImageOps, ImageFilter
@@ -342,6 +374,21 @@ def ai_remember(st, it):
         st["ai_log"] = st["ai_log"][-40:]
         save_state(st)
 
+def try_video(got, st, job):
+    m, mid, label = got
+    dst = ROOT / "dl" / (m.stem + "-ig.mp4")
+    try:
+        dst.parent.mkdir(exist_ok=True)
+        story_video(m, dst)
+        job.update(file=None, video=str(dst.relative_to(ROOT)), item=label, media=mid)
+        return True
+    except Exception as e:
+        print("! could not prepare the video, skipping it:", e)
+        st.setdefault("media_done", []).append(mid)
+        st.setdefault("media_failed", []).append({"media": mid, "item": label, "error": str(e)[:300]})
+        save_state(st)
+        return False
+
 def render(slot):
     d, st = site(), load_state()
     v = vars_for(d)
@@ -366,10 +413,9 @@ def render(slot):
     elif slot == "story1" and rates_fresh(d):
         render_html(rates_html(d, v), 1080, 1920, path)
         job.update(item="rates")
-    elif slot == "story2" and (got := next_media(st)):
+    elif slot == "story2" and (got := next_media(st)) and not (got[0].suffix.lower() in VID_EXT and not try_video(got, st, job)):
         m, mid, label = got
         if m.suffix.lower() in VID_EXT:
-            job.update(file=None, video=str(m.relative_to(ROOT)), item=label, media=mid)
             print("using your video", label)
         else:
             story_image(m, path)
@@ -432,6 +478,23 @@ def upload_video(ig, f):
     return r["id"]
 
 def publish():
+    try:
+        _publish()
+    except BaseException as e:
+        st = load_state()
+        job = json.loads((OUT / "pending.json").read_text())
+        st["last_error"] = {"at": dt.datetime.now(TR).isoformat(timespec="minutes"), "slot": job.get("slot"),
+                            "item": job.get("item"), "error": str(e)[:600]}
+        if job.get("media"):
+            fails = st.setdefault("media_fail_count", {})
+            fails[job["media"]] = fails.get(job["media"], 0) + 1
+            if fails[job["media"]] >= 2:
+                st.setdefault("media_done", []).append(job["media"])
+                st.setdefault("media_failed", []).append({"media": job["media"], "item": job.get("item"), "error": str(e)[:300]})
+        save_state(st)
+        raise
+
+def _publish():
     job = json.loads((OUT / "pending.json").read_text())
     st = load_state()
     if job.get("done"):
@@ -457,7 +520,7 @@ def publish():
         if s == "FINISHED":
             break
         if s == "ERROR":
-            raise SystemExit("Instagram could not process the image " + url)
+            raise SystemExit("Instagram could not process the media " + (job.get("video") or url) + " " + str(api("GET", cid, fields="status").get("status")))
         time.sleep(5)
     mid = api("POST", f"{ig}/media_publish", creation_id=cid)["id"]
     print("published media", mid)
