@@ -55,6 +55,12 @@
    "slot": "story1",
    "item": "rates",
    "media": "17892514779458046"
+  },
+  {
+   "at": "2026-10-30T11:11+03:00",
+   "slot": "story1",
+   "item": "rates",
+   "media": "18117533837098960"
   }
  ],
  "media_done": [
@@ -100,5 +106,8 @@
    }
   ],
   "others": []
- }
+ },
+ "photos_used": [
+  "File:Van City, Turkey overview 2011.jpg"
+ ]
 }
