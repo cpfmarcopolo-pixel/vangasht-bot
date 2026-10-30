@@ -1,9 +1,7 @@
 {
- "slot": "story2",
- "file": null,
+ "slot": "story1",
+ "file": "2026-10-30-story1.jpg",
  "caption": null,
  "advance": null,
- "item": "877c08f489604214b495a2ab6444c9a5.mp4",
- "video": "dl/1uUiPQIh_fONP7XWF-S1htwR98tawnTjz.mp4",
- "media": "gdrive:1uUiPQIh_fONP7XWF-S1htwR98tawnTjz"
+ "item": "rates"
 }
