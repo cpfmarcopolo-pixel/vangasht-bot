@@ -61,6 +61,12 @@
    "slot": "story1",
    "item": "rates",
    "media": "18117533837098960"
+  },
+  {
+   "at": "2026-10-30T20:01+03:00",
+   "slot": "post",
+   "item": "ai:گربهٔ وان و دانستنی‌های دیدنش",
+   "media": "18648343354022239"
   }
  ],
  "media_done": [
@@ -75,6 +81,10 @@
   {
    "day": "2026-10-29",
    "topic": "غروب پاییزی و قلعهٔ وان برای عصر آخر هفت"
+  },
+  {
+   "day": "2026-10-30",
+   "topic": "گربهٔ وان و دانستنی‌های دیدنش"
   }
  ],
  "inspo": {
@@ -108,7 +118,12 @@
   "others": []
  },
  "photos_used": [
-  "File:Van City, Turkey overview 2011.jpg"
+  "File:Van City, Turkey overview 2011.jpg",
+  "File:Turkish Van, black variety.jpg",
+  "File:Morris, a cat of the Turkish Van.jpg",
+  "File:Nike, turkish van.jpg",
+  "File:Turecki van.jpg",
+  "File:Van Gogh - Starry Night - Google Art Project.jpg"
  ],
  "last_error": {
   "at": "2026-10-30T16:53+03:00",
