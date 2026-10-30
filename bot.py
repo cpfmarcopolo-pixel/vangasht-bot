@@ -158,8 +158,6 @@ def rates_html(d, v):
     rows = []
     if "TRY" in R:
         rows.append(("۱ لیر ترکیه", "به تومان", R["TRY"]))
-    if "IRT" in R:
-        rows.append(("۱ میلیون تومان", "به لیر", R["IRT"]))
     for c in ("USD", "EUR", "GBP"):
         if c in R:
             rows.append((NAMES[c], "به لیر", R[c]))
@@ -604,6 +602,95 @@ def render_post(it, v, st, day):
         files.append(f.name)
     return files
 
+# ---------------------------------------------------------------- animated rates story (video)
+FLAGS = {"TRY": "🇹🇷", "IRT": "🇮🇷", "USD": "🇺🇸", "EUR": "🇪🇺", "GBP": "🇬🇧"}
+EN_MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+
+def rates_rows(d):
+    R = {r["code"]: r for r in d.get("rates", [])}
+    rows = []
+    if "TRY" in R:
+        rows.append(("TRY", "لیر ترکیه", "تومان", R["TRY"]))
+    for c in ("USD", "EUR"):
+        if c in R:
+            rows.append((c, NAMES[c], "لیر", R[c]))
+    if "GBP" in R:
+        rows.append(("GBP", NAMES["GBP"], "لیر", R["GBP"]))
+    return rows[:4]
+
+def rates_layer_html(d, v, show):
+    """One transparent 1080x1920 layer of the rates story; `show` = which part is visible
+    ('head', 'row0'..'rowN', 'foot') so ffmpeg can fade them in one after another."""
+    now = dt.datetime.now(TR)
+    vis = lambda k: "visible" if (show == "all" or show == k) else "hidden"
+    rows = ""
+    for i, (code, name, unit, r) in enumerate(rates_rows(d)):
+        rows += f"""<div style="visibility:{vis(f'row{i}')};display:grid;grid-template-columns:1fr 210px 210px;align-items:center;gap:18px;padding:26px 0;border-bottom:2px solid rgba(255,255,255,.14)">
+<div style="display:flex;align-items:center;gap:22px"><div style="width:86px;height:86px;border-radius:50%;overflow:hidden;display:grid;place-items:center;box-shadow:0 0 0 4px rgba(255,255,255,.85);flex-shrink:0"><span style="font-size:104px;line-height:1">{FLAGS[code]}</span></div>
+<span style="font-size:50px;font-weight:800">{name}</span></div>
+<div style="text-align:center"><div style="font-size:56px;font-weight:900">{num(r['buy'])}</div><div style="font-size:24px;opacity:.75">{unit}</div></div>
+<div style="text-align:center"><div style="font-size:56px;font-weight:900;color:#f2ad3d">{num(r['sell'])}</div><div style="font-size:24px;opacity:.75">{unit}</div></div></div>"""
+    return f"""<div style="position:absolute;inset:0;color:#fff;text-shadow:0 3px 18px rgba(0,0,0,.55)">
+<div style="visibility:{vis('head')};position:absolute;top:250px;left:0;right:0;text-align:center">
+<div style="font:700 64px Georgia,serif;direction:ltr">{now.day} {EN_MONTHS[now.month - 1]} {now.year}</div>
+<div style="font-size:52px;font-weight:800;margin-top:10px">{WEEKDAYS[now.weekday()]} {jalali(now.date())}</div>
+<div style="display:inline-block;margin-top:34px;background:#f2ad3d;color:#12222a;text-shadow:none;font-size:40px;font-weight:900;border-radius:20px;padding:10px 34px">نرخ امروز صرافی وان گشت</div></div>
+<div style="position:absolute;top:620px;left:70px;right:70px">
+<div style="visibility:{vis('head')};display:grid;grid-template-columns:1fr 210px 210px;gap:18px;font-size:34px;font-weight:800;opacity:.85"><span></span><span style="text-align:center">خرید ما</span><span style="text-align:center">فروش ما</span></div>
+{rows}</div>
+<div style="visibility:{vis('foot')};position:absolute;bottom:230px;left:0;right:0;text-align:center">
+<div style="display:inline-flex;align-items:center;gap:16px;background:#fff;color:#0d5b6f;text-shadow:none;border-radius:60px;padding:22px 48px;font-size:46px;font-weight:900">💱 خرید و فروش ارز · <span dir=ltr>vangasht.com</span></div>
+<div style="font-size:34px;font-weight:700;margin-top:26px">💳 کارتخوان ایرانی در دفتر · واتس‌اپ <span dir=ltr>{v['wa']}</span></div></div>
+<div style="visibility:{vis('foot')};position:absolute;bottom:90px;left:0;right:0;display:flex;justify-content:center">{brand().replace('right:48px;top:44px', 'position:static')}</div></div>"""
+
+def rates_video(d, v, st, dst):
+    """25 s story (RATES_SECONDS) with music: a slow zoom over a beautiful Van photo, darkened, with the date, each rate row and the footer fading in."""
+    import subprocess
+    ff = ffmpeg_bin()
+    if not ff:
+        raise RuntimeError("ffmpeg not available")
+    work = ROOT / "dl"; work.mkdir(exist_ok=True)
+    ph = pick_photos(random.choice(["lake", "akdamar", "edremit", "suphan", "city"]), "منظرهٔ زیبای وان برای پس‌زمینهٔ استوری نرخ ارز", 1, st)
+    bg = ph[0][0] if ph else A / "akdamar.jpg"
+    parts = ["head"] + [f"row{i}" for i in range(len(rates_rows(d)))] + ["foot"]
+    from playwright.sync_api import sync_playwright
+    with sync_playwright() as p:
+        b = p.chromium.launch()
+        pg = b.new_page(viewport={"width": 1080, "height": 1920})
+        for k in parts:
+            pg.set_content(f"<html dir=rtl><head><meta charset=utf-8><style>{css()}html,body{{background:transparent}}body{{width:1080px;height:1920px}}</style></head><body>{rates_layer_html(d, v, k)}</body></html>")
+            pg.wait_for_timeout(250)
+            pg.screenshot(path=str(work / f"layer-{k}.png"), omit_background=True)
+        b.close()
+    T = int(os.environ.get("RATES_SECONDS", "25"))
+    cmd = [ff, "-y", "-loop", "1", "-i", str(bg)]
+    for k in parts:
+        cmd += ["-loop", "1", "-t", str(T), "-i", str(work / f"layer-{k}.png")]
+    f = (f"[0:v]scale=-2:2300,crop=1300:2300,zoompan=z='min(zoom+0.0006,1.18)':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d={T*30}:s=1080x1920:fps=30,"
+         f"eq=brightness=-0.10:saturation=1.15,drawbox=x=0:y=0:w=iw:h=ih:color=black@0.36:t=fill,fade=in:st=0:d=0.6[b0];")
+    last = "b0"
+    for i, k in enumerate(parts):
+        st_ = 0.8 + i * 0.7
+        f += f"[{i+1}:v]format=rgba,fade=in:st={st_:.2f}:d=0.5:alpha=1,fade=out:st={T-0.8}:d=0.6:alpha=1[l{i}];[{last}][l{i}]overlay=0:0[b{i+1}];"
+        last = f"b{i+1}"
+    f += f"[{last}]format=yuv420p[out]"
+    # music: a random track from the music/ folder (royalty-free files you add), else a soft generated ambient pad
+    tracks = [m for m in (ROOT / "music").glob("*") if m.suffix.lower() in (".mp3", ".m4a", ".aac", ".wav", ".ogg")] if (ROOT / "music").is_dir() else []
+    n_in = 1 + len(parts)
+    if tracks:
+        cmd += ["-stream_loop", "-1", "-i", str(random.choice(tracks))]
+        f += f";[{n_in}:a]atrim=0:{T},afade=t=in:st=0:d=1,afade=t=out:st={T-2}:d=2,volume=0.9[aout]"
+    else:
+        pad = "+".join(f"0.06*sin(2*PI*{hz}*t)" for hz in (110, 164.81, 220, 261.63, 329.63)) + "+0.025*sin(2*PI*392*t)*(0.5+0.5*sin(2*PI*0.25*t))"
+        cmd += ["-f", "lavfi", "-t", str(T), "-i", f"aevalsrc='({pad})*(0.7+0.3*sin(2*PI*0.1*t))':s=44100"]
+        f += f";[{n_in}:a]lowpass=f=1800,aecho=0.8:0.7:400|700:0.25|0.18,afade=t=in:st=0:d=2,afade=t=out:st={T-2.5}:d=2.5,volume=3.2[aout]"
+    cmd += ["-filter_complex", f, "-map", "[out]", "-map", "[aout]", "-t", str(T), "-c:v", "libx264", "-preset", "veryfast", "-crf", "20",
+            "-profile:v", "high", "-c:a", "aac", "-b:a", "128k", "-ar", "44100", "-ac", "2", "-movflags", "+faststart", str(dst)]
+    r = subprocess.run(cmd, capture_output=True, text=True)
+    if r.returncode != 0 or not Path(dst).exists():
+        raise RuntimeError("ffmpeg failed: " + r.stderr[-500:])
+    print("animated rates story ready")
+
 def render(slot):
     d, st = site(), load_state()
     v = vars_for(d)
@@ -627,8 +714,14 @@ def render(slot):
         job.update(caption=fill(it["caption"], v) + "\n\n" + tags, item=it["id"])
         ai_remember(st, it)
     elif slot == "story1" and rates_fresh(d):
-        render_html(rates_html(d, v), 1080, 1920, path)
-        job.update(item="rates")
+        try:
+            mp4 = ROOT / "dl" / f"{day}-rates.mp4"
+            rates_video(d, v, st, mp4)
+            job.update(file=None, video=str(mp4.relative_to(ROOT)), item="rates")
+        except Exception as e:
+            print("! animated rates story failed, using the still image:", str(e)[:300])
+            render_html(rates_html(d, v), 1080, 1920, path)
+            job.update(item="rates")
     elif slot == "story2" and (got := next_media(st)) and not (got[0].suffix.lower() in VID_EXT and not try_video(got, st, job)):
         m, mid, label = got
         if m.suffix.lower() in VID_EXT:
