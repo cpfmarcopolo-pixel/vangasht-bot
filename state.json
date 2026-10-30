@@ -109,5 +109,14 @@
  },
  "photos_used": [
   "File:Van City, Turkey overview 2011.jpg"
- ]
+ ],
+ "last_error": {
+  "at": "2026-10-30T16:53+03:00",
+  "slot": "story2",
+  "item": "877c08f489604214b495a2ab6444c9a5.mp4",
+  "error": "Video upload failed 400: {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}"
+ },
+ "media_fail_count": {
+  "gdrive:1uUiPQIh_fONP7XWF-S1htwR98tawnTjz": 1
+ }
 }
