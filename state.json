@@ -79,6 +79,12 @@
    "slot": "story2",
    "item": "877c08f489604214b495a2ab6444c9a5.mp4",
    "media": "18146907589603413"
+  },
+  {
+   "at": "2026-10-31T20:01+03:00",
+   "slot": "post",
+   "item": "ai:قلعهٔ هوشاب؛ نکته‌های سفر یک‌روزه از وان",
+   "media": "18158978107515776"
   }
  ],
  "media_done": [
@@ -102,6 +108,10 @@
   {
    "day": "2026-10-31",
    "topic": "جزیرهٔ آکدامار، پیشنهاد آخر هفته"
+  },
+  {
+   "day": "2026-10-31",
+   "topic": "قلعهٔ هوشاب؛ نکته‌های سفر یک‌روزه از وان"
   }
  ],
  "inspo": {
@@ -141,7 +151,13 @@
   "File:Nike, turkish van.jpg",
   "File:Turecki van.jpg",
   "File:Van Gogh - Starry Night - Google Art Project.jpg",
-  "File:Akdamar adası ve artos.jpg"
+  "File:Akdamar adası ve artos.jpg",
+  "File:Güzelsu, Burg Hoşap (kurdisch, 17. Jhdt.) (39526275785).jpg",
+  "File:Güzelsu, Burg Hoşap (kurdisch, 17. Jhdt.) (38611354250).jpg",
+  "File:Hosap-castle (13).jpg",
+  "File:Hosap Castle 3.jpg",
+  "File:Güzelsu, Burg Hoşap (kurdisch, 17. Jhdt.) (39526276495).jpg",
+  "File:Güzelsu, Burg Hoşap (kurdisch, 17. Jhdt.) (26551030028).jpg"
  ],
  "last_error": {
   "at": "2026-10-30T16:53+03:00",
