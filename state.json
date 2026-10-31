@@ -67,6 +67,12 @@
    "slot": "post",
    "item": "ai:گربهٔ وان و دانستنی‌های دیدنش",
    "media": "18648343354022239"
+  },
+  {
+   "at": "2026-10-31T11:01+03:00",
+   "slot": "story1",
+   "item": "ai:جزیرهٔ آکدامار، پیشنهاد آخر هفته",
+   "media": "18108578717169342"
   }
  ],
  "media_done": [
@@ -85,10 +91,14 @@
   {
    "day": "2026-10-30",
    "topic": "گربهٔ وان و دانستنی‌های دیدنش"
+  },
+  {
+   "day": "2026-10-31",
+   "topic": "جزیرهٔ آکدامار، پیشنهاد آخر هفته"
   }
  ],
  "inspo": {
-  "day": "2026-10-30",
+  "day": "2026-10-31",
   "own": [
    {
     "user": null,
@@ -123,7 +133,8 @@
   "File:Morris, a cat of the Turkish Van.jpg",
   "File:Nike, turkish van.jpg",
   "File:Turecki van.jpg",
-  "File:Van Gogh - Starry Night - Google Art Project.jpg"
+  "File:Van Gogh - Starry Night - Google Art Project.jpg",
+  "File:Akdamar adası ve artos.jpg"
  ],
  "last_error": {
   "at": "2026-10-30T16:53+03:00",
