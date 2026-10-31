@@ -1,8 +1,9 @@
 {
- "slot": "story1",
- "file": "2026-10-31-story1.jpg",
+ "slot": "story2",
+ "file": null,
  "caption": null,
  "advance": null,
- "item": "ai:جزیرهٔ آکدامار، پیشنهاد آخر هفته",
- "done": true
+ "item": "877c08f489604214b495a2ab6444c9a5.mp4",
+ "video": "dl/1uUiPQIh_fONP7XWF-S1htwR98tawnTjz-ig.mp4",
+ "media": "gdrive:1uUiPQIh_fONP7XWF-S1htwR98tawnTjz"
 }
