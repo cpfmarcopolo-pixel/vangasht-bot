@@ -73,11 +73,18 @@
    "slot": "story1",
    "item": "ai:جزیرهٔ آکدامار، پیشنهاد آخر هفته",
    "media": "18108578717169342"
+  },
+  {
+   "at": "2026-10-31T17:03+03:00",
+   "slot": "story2",
+   "item": "877c08f489604214b495a2ab6444c9a5.mp4",
+   "media": "18146907589603413"
   }
  ],
  "media_done": [
   "gdrive:1Ta_jx31NNs1b3vSbmQ23lxbtzmOGdKSG",
-  "gdrive:1tkTZ0Og42HjsK91Q58qVwlYwCHU6lYjm"
+  "gdrive:1tkTZ0Og42HjsK91Q58qVwlYwCHU6lYjm",
+  "gdrive:1uUiPQIh_fONP7XWF-S1htwR98tawnTjz"
  ],
  "ai_log": [
   {
