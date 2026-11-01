@@ -85,6 +85,12 @@
    "slot": "post",
    "item": "ai:قلعهٔ هوشاب؛ نکته‌های سفر یک‌روزه از وان",
    "media": "18158978107515776"
+  },
+  {
+   "at": "2026-11-01T11:00+03:00",
+   "slot": "story1",
+   "item": "rates",
+   "media": "18119800318999302"
   }
  ],
  "media_done": [
@@ -115,7 +121,7 @@
   }
  ],
  "inspo": {
-  "day": "2026-10-31",
+  "day": "2026-11-01",
   "own": [
    {
     "user": null,
@@ -157,7 +163,8 @@
   "File:Hosap-castle (13).jpg",
   "File:Hosap Castle 3.jpg",
   "File:Güzelsu, Burg Hoşap (kurdisch, 17. Jhdt.) (39526276495).jpg",
-  "File:Güzelsu, Burg Hoşap (kurdisch, 17. Jhdt.) (26551030028).jpg"
+  "File:Güzelsu, Burg Hoşap (kurdisch, 17. Jhdt.) (26551030028).jpg",
+  "File:Lago Kluane, Destruction Bay, Yukón, Canadá, 2017-08-25, DD 70-76 PAN.jpg"
  ],
  "last_error": {
   "at": "2026-10-30T16:53+03:00",
