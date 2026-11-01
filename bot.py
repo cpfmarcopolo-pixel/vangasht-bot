@@ -225,7 +225,8 @@ def drive_media(st):
     except urllib.error.HTTPError as e:
         print("! Google Drive error:", e.code, e.read().decode(errors="replace")[:300]); return None
     done = set(st.get("media_done", []))
-    files = [f for f in files if "gdrive:" + f["id"] not in done]
+    seen = set(st.get("media_seen", []))
+    files = [f for f in files if "gdrive:" + f["id"] not in done and f"{f['name']}|{f.get('size')}" not in seen]
     print(f"{len(files)} photo/video(s) waiting in Google Drive")
     if not files:
         return None
@@ -238,6 +239,8 @@ def drive_media(st):
         while chunk := r.read(1 << 20):
             w.write(chunk)
     print("downloaded from Drive:", f["name"])
+    st.setdefault("media_seen", []).append(f"{f['name']}|{f.get('size')}")
+    st["media_seen"] = st["media_seen"][-500:]
     return local, "gdrive:" + f["id"], f["name"]
 
 def next_media(st):
@@ -397,6 +400,7 @@ def refresh_inspo(ig, st):
             others += rows(r.get("business_discovery", {}).get("media"), u)[:3]
         except BaseException as e:
             print(f"! could not read @{u} (it must be a public business/creator account):", str(e)[:160])
+            new.setdefault("errors", {})[u] = str(e)[:300]
     new["others"] = sorted(others, key=lambda p: p["likes"] + 3 * p["comments"], reverse=True)[:8]
     st["inspo"] = new
     print(f"inspiration: {len(new['own'])} own, {len(new['others'])} from other pages")
@@ -472,11 +476,16 @@ def _get(url, timeout=60):
     with urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=timeout) as r:
         return r.read()
 
+VAN_WORDS = ("lake van", "van gölü", "van golu", "lake_van", "akdamar", "akhtamar", "aghtamar", "ahtamar", "van province",
+             "van, turkey", "van (turkey)", "van fortress", "van kalesi", "fortress of van", "muradiye", "hoşap", "hosap", "hoshap",
+             "van cat", "van kedisi", "turkish van", "erek", "süphan", "suphan", "edremit", "tushpa", "tuşba", "tusba", "ipekyolu",
+             "gevaş", "gevas", "çaldıran", "caldiran", "van city", "van ili", "province of van")
+
 def commons_candidates(query, used):
     import html as _h, re as _re
     url = "https://commons.wikimedia.org/w/api.php?" + urllib.parse.urlencode({
         "action": "query", "format": "json", "generator": "search", "gsrnamespace": "6", "gsrlimit": "40",
-        "gsrsearch": f"filetype:bitmap {query}", "prop": "imageinfo", "iiprop": "url|size|extmetadata", "iiurlwidth": "1600"})
+        "gsrsearch": f"filetype:bitmap {query} Van Turkey", "prop": "imageinfo", "iiprop": "url|size|extmetadata", "iiurlwidth": "1600"})
     pages = json.loads(_get(url)).get("query", {}).get("pages", {}).values()
     out = []
     for pg in pages:
@@ -488,6 +497,10 @@ def commons_candidates(query, used):
             continue
         if ii.get("width", 0) < 1500 or ii.get("height", 0) < 1000 or pg["title"] in used or not ii.get("thumburl"):
             continue
+        about = (pg["title"] + " " + _re.sub(r"<[^>]+>", " ", _h.unescape((md.get("ImageDescription", {}).get("value") or "")))
+                 + " " + (md.get("Categories", {}).get("value") or "")).lower()
+        if not any(k in about for k in VAN_WORDS):
+            continue   # only photos that are really from Van (no Alps or Himalaya)
         artist = _re.sub(r"<[^>]+>", "", _h.unescape(md.get("Artist", {}).get("value") or "")).strip()[:40] or "Wikimedia Commons"
         out.append({"title": pg["title"], "url": ii["thumburl"], "credit": f"{artist} · {lic}"})
     random.shuffle(out)
@@ -509,6 +522,7 @@ def claude_pick(cands, topic, k):
     content.append({"type": "text", "text": (
         f"موضوع پست: {topic}\nاز بین این عکس‌ها {k} عکسِ زیبا، چشم‌گیر و حرفه‌ای (نور خوب، رنگ زنده، ترکیب‌بندی قوی، بدون نوشته و واترمارک، "
         f"بدون صورت واضح آدم‌ها، تار و تاریخی و سیاه‌سفید نباشد) را که به موضوع می‌خورد انتخاب کن. "
+        f"عکس باید حتماً از شهر یا استان وان ترکیه باشد (دریاچهٔ وان، آکدامار، قلعهٔ وان، مرادیه، گربهٔ وان…)؛ کوه‌های آلپ، هیمالیا یا جاهای دیگر را هرگز انتخاب نکن. "
         f'فقط JSON: {{"pick": [شماره‌ها به ترتیب بهترین]}}')})
     body = json.dumps({"model": AI_MODEL, "max_tokens": 200, "messages": [{"role": "user", "content": content}]}).encode()
     req = urllib.request.Request("https://api.anthropic.com/v1/messages", data=body, method="POST", headers={
@@ -523,16 +537,16 @@ def claude_pick(cands, topic, k):
         return list(range(k))
 
 def pick_photos(key, topic, k, st):
-    """Returns up to k (path, credit) pairs of fresh, beautiful photos for the subject; [] if none could be fetched."""
+    """Returns up to k (path, credit) pairs of fresh, beautiful Van photos; tops up with our own Van photos."""
     used = set(st.get("photos_used", []))
     q = COMMONS_Q.get(key) or COMMONS_Q["lake"]
     try:
         cands = commons_candidates(q, used)[:9]
         if len(cands) < k:
-            cands += [c for c in commons_candidates(COMMONS_Q["lake"], used) if c not in cands][: 9 - len(cands)]
+            cands += [c for c in commons_candidates(COMMONS_Q["lake"], used) if c["title"] not in {x["title"] for x in cands}][: 9 - len(cands)]
     except Exception as e:
         print("! could not search photos:", e)
-        return []
+        cands = []
     res = []
     dl = ROOT / "dl"; dl.mkdir(exist_ok=True)
     for i in claude_pick(cands, topic, k):
@@ -548,23 +562,28 @@ def pick_photos(key, topic, k, st):
         except Exception as e:
             print("! photo download failed:", e)
     st["photos_used"] = st.get("photos_used", [])[-300:]
+    for loc in ["akdamar", "lake", "fortress", "muradiye", "hosap", "cat"]:   # top up with our own Van photos, never random places
+        if len(res) >= k:
+            break
+        if not any(str(r[0]).endswith(f"{loc}.jpg") for r in res):
+            res.append((A / f"{loc}.jpg", PHOTOS[loc]))
     print(f"photos: {len(res)} picked for '{topic}'")
     return res
 
 # ---------------------------------------------------------------- carousel slides
 def slide_html(sl, i, n, photo, v):
-    img = ""
-    if photo:
-        img = f'<div style="position:absolute;left:0;right:0;top:0;height:640px;background:url({b64(photo[0], "image/jpeg")}) center/cover"></div><div class="cr" style="top:600px;bottom:auto">عکس: {photo[1]}</div>'
-    top = 700 if photo else 240
     body = fill(sl.get("body", ""), v).replace("\n", "<br>")
-    return f"""<div class="teal"></div>{img}{'' if photo else brand()}
-<div style="position:absolute;right:70px;left:70px;top:{top}px">
-<div style="display:flex;align-items:center;gap:22px"><span style="background:#f2ad3d;color:#12222a;font-weight:900;font-size:46px;border-radius:50%;width:84px;height:84px;display:grid;place-items:center">{fa(i)}</span>
-<span style="font-size:28px;opacity:.7;font-weight:700">{fa(i)} از {fa(n)}</span></div>
-<h1 style="font-size:{80 if photo else 90}px;font-weight:900;line-height:1.25;margin:26px 0 22px">{hl(sl, v)}</h1>
-<p style="font-size:{44 if photo else 50}px;font-weight:600;line-height:1.6;opacity:.95">{body}</p></div>
-<div style="position:absolute;left:70px;bottom:56px;font-size:30px;font-weight:800;color:#f2ad3d">ورق بزن ←</div>"""
+    head = f"""<div style="display:flex;align-items:center;gap:22px"><span style="background:#f2ad3d;color:#12222a;font-weight:900;font-size:56px;border-radius:50%;width:104px;height:104px;display:grid;place-items:center">{fa(i)}</span>
+<span style="font-size:30px;opacity:.85;font-weight:800">{fa(i)} از {fa(n)}</span></div>
+<h1 style="font-size:92px;font-weight:900;line-height:1.2;margin:28px 0 24px;text-shadow:0 4px 24px rgba(0,0,0,.5)">{hl(sl, v)}</h1>
+<p style="font-size:50px;font-weight:700;line-height:1.55;text-shadow:0 2px 14px rgba(0,0,0,.6)">{body}</p>"""
+    if photo:
+        return f"""<div class="bg" style="background-image:url({b64(photo[0], "image/jpeg")})"></div>
+<div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,30,38,.10) 0%,rgba(8,30,38,.25) 35%,rgba(8,30,38,.92) 72%)"></div>{brand()}
+<div style="position:absolute;right:70px;left:70px;bottom:150px">{head}</div>
+<div style="position:absolute;left:70px;bottom:62px;font-size:34px;font-weight:900;color:#f2ad3d">ورق بزن ←</div><div class="cr">عکس: {photo[1]}</div>"""
+    return f"""<div class="teal"></div>{brand()}<div style="position:absolute;right:70px;left:70px;top:330px">{head}</div>
+<div style="position:absolute;left:70px;bottom:62px;font-size:34px;font-weight:900;color:#f2ad3d">ورق بزن ←</div>"""
 
 def cta_html(it, v):
     cta = fill(it.get("cta") or "سیوش کن که تو سفر یادت نره", v)
