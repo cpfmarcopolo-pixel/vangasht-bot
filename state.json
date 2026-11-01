@@ -91,12 +91,19 @@
    "slot": "story1",
    "item": "rates",
    "media": "18119800318999302"
+  },
+  {
+   "at": "2026-11-01T17:03+03:00",
+   "slot": "story2",
+   "item": "877c08f489604214b495a2ab6444c9a5.mp4",
+   "media": "18110613217925591"
   }
  ],
  "media_done": [
   "gdrive:1Ta_jx31NNs1b3vSbmQ23lxbtzmOGdKSG",
   "gdrive:1tkTZ0Og42HjsK91Q58qVwlYwCHU6lYjm",
-  "gdrive:1uUiPQIh_fONP7XWF-S1htwR98tawnTjz"
+  "gdrive:1uUiPQIh_fONP7XWF-S1htwR98tawnTjz",
+  "gdrive:1cir0xFN1GhY3C0bPBtSl7T9_Py_wMviC"
  ],
  "ai_log": [
   {
