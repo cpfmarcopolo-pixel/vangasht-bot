@@ -6,7 +6,7 @@ on:
       slot:
         description: "What to publish now"
         type: choice
-        options: [story1, story2, story3, story4, post, test]
+        options: [story1, story2, story3, story4, post, test, testreel]
         default: story2
 
 permissions:
@@ -50,6 +50,8 @@ jobs:
           GDRIVE_KEY: ${{ secrets.GDRIVE_KEY }}
           GDRIVE_FOLDER: ${{ secrets.GDRIVE_FOLDER }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          PEXELS_KEY: ${{ secrets.PEXELS_KEY }}
+          PIXABAY_KEY: ${{ secrets.PIXABAY_KEY }}
         run: python bot.py render ${{ steps.slot.outputs.slot }}
 
       - name: Upload the image to this repository
