@@ -715,10 +715,10 @@ def rates_video(d, v, st, dst):
         last = f"b{i+1}"
     f += f"[{last}]format=yuv420p[out]"
     # music: a random track from the music/ folder (royalty-free files you add), else a soft generated ambient pad
-    tracks = [m for m in (ROOT / "music").glob("*") if m.suffix.lower() in (".mp3", ".m4a", ".aac", ".wav", ".ogg")] if (ROOT / "music").is_dir() else []
+    tracks = music_tracks(st)
     n_in = 1 + len(parts)
     if tracks:
-        cmd += ["-stream_loop", "-1", "-i", str(random.choice(tracks))]
+        cmd += music_input(tracks, st)
         f += f";[{n_in}:a]atrim=0:{T},afade=t=in:st=0:d=1,afade=t=out:st={T-2}:d=2,volume=0.9[aout]"
     else:
         pad = "+".join(f"0.06*sin(2*PI*{hz}*t)" for hz in (110, 164.81, 220, 261.63, 329.63)) + "+0.025*sin(2*PI*392*t)*(0.5+0.5*sin(2*PI*0.25*t))"
@@ -873,6 +873,41 @@ def pixabay_video(query, used, scene=""):
         return None
     return dst, "x" + str(h["id"])
 
+AUDIO_EXT = (".mp3", ".m4a", ".aac", ".wav", ".ogg")
+
+def music_tracks(st):
+    """Royalty-free songs: the Drive sub-folder "Music" (easiest: upload from your phone) plus the repo's music/ folder."""
+    tracks = [m for m in (ROOT / "music").glob("*") if m.suffix.lower() in AUDIO_EXT] if (ROOT / "music").is_dir() else []
+    key, folder = os.environ.get("GDRIVE_KEY"), os.environ.get("GDRIVE_FOLDER")
+    if key and folder:
+        try:
+            sub = [f for f in drive_list(folder, key) if f["mimeType"] == "application/vnd.google-apps.folder" and f["name"].strip().lower() == "music"]
+            if sub:
+                files = [f for f in drive_list(sub[0]["id"], key) if f["mimeType"].startswith("audio/") or Path(f["name"]).suffix.lower() in AUDIO_EXT]
+                # least recently used first, so the same song does not repeat day after day
+                last = st.get("music_last", {})
+                files.sort(key=lambda f: last.get(f["id"], ""))
+                for f in files[:3]:
+                    d_ = ROOT / "dl" / ("m_" + f["id"] + (Path(f["name"]).suffix.lower() or ".mp3")); d_.parent.mkdir(exist_ok=True)
+                    if not d_.exists():
+                        with urllib.request.urlopen(f"https://www.googleapis.com/drive/v3/files/{f['id']}?alt=media&key={key}", timeout=300) as r:
+                            d_.write_bytes(r.read())
+                    tracks.append(d_)
+                print(f"music: {len(files)} song(s) in Drive/Music")
+        except Exception as e:
+            print("! could not read Drive/Music:", str(e)[:150])
+    return tracks
+
+def music_input(tracks, st):
+    """Pick the song used least recently; skip a long intro so the reel starts on the lively part."""
+    last = st.setdefault("music_last", {})
+    t = min(tracks, key=lambda m: last.get(m.stem.replace("m_", ""), ""))
+    last[t.stem.replace("m_", "")] = dt.datetime.now(TR).isoformat(timespec="minutes")
+    L = vid_duration(ffmpeg_bin(), t)
+    start = 12 if L > 90 else (6 if L > 45 else 0)
+    print("music:", t.name, f"(from {start}s)")
+    return ["-ss", str(start), "-stream_loop", "-1", "-i", str(t)]
+
 def reel_overlay_html(kind, text, hl_word, v, i=0, n=0, credit=None):
     t = html_escape(text)
     if hl_word and hl_word in text:
@@ -997,10 +1032,10 @@ def make_reel(plan, v, st, dst):
         last = f"x{i}"
     T = sum(durs) - X * (len(segs) - 1)
     f += f"[{last}]format=yuv420p[vout]"
-    tracks = [m for m in (ROOT / "music").glob("*") if m.suffix.lower() in (".mp3", ".m4a", ".aac", ".wav", ".ogg")] if (ROOT / "music").is_dir() else []
+    tracks = music_tracks(st)
     n = len(segs)
     if tracks:
-        cmd += ["-stream_loop", "-1", "-i", str(random.choice(tracks))]
+        cmd += music_input(tracks, st)
         f += f";[{n}:a]atrim=0:{T:.2f},afade=t=in:st=0:d=0.5,afade=t=out:st={T-1.5:.2f}:d=1.5,volume=0.9[aout]"
     else:
         pad = "+".join(f"0.06*sin(2*PI*{hz}*t)" for hz in (130.81, 196, 261.63, 329.63)) + "+0.03*sin(2*PI*392*t)*(0.5+0.5*sin(2*PI*2*t))"
