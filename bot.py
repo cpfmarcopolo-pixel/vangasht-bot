@@ -376,10 +376,10 @@ def inspo_text(st):
     lines = []
     if ins.get("own"):
         lines.append("پست‌های خود پیج ما که بیشترین لایک را گرفته‌اند (بفهم مخاطب ما چه دوست دارد):")
-        lines += [f"- ❤{p['likes']} 💬{p['comments']}: {p['caption'][:220]}" for p in ins["own"][:4]]
+        lines += [f"- [{p.get('type', '')}] ❤{p['likes']} 💬{p['comments']}: {p['caption'][:220]}" for p in ins["own"][:4]]
     if ins.get("others"):
         lines.append("نمونه پست‌های موفق پیج‌های دیگر (فقط برای ایده گرفتن از سبک و قالب؛ کپی نکن):")
-        lines += [f"- @{p['user']} ❤{p['likes']} 💬{p['comments']}: {p['caption'][:260]}" for p in ins["others"][:8]]
+        lines += [f"- @{p['user']} [{p.get('type', '')}] ❤{p['likes']} 💬{p['comments']}: {p['caption'][:260]}" for p in ins["others"][:8]]
     return ("\n".join(lines) + "\n\n") if lines else ""
 
 def refresh_inspo(ig, st):
@@ -387,13 +387,14 @@ def refresh_inspo(ig, st):
     ins = st.get("inspo") or {}
     if ins.get("day") == dt.datetime.now(TR).strftime("%Y-%m-%d"):
         return
-    F = "caption,like_count,comments_count"
+    F = "caption,like_count,comments_count,media_type,media_product_type"
     def rows(media, user=None):
         out = []
         for m in (media or {}).get("data", []):
             c = (m.get("caption") or "").strip()
             if len(c) > 30:
-                out.append({"user": user, "likes": m.get("like_count", 0), "comments": m.get("comments_count", 0), "caption": c.replace("\n", " / ")})
+                out.append({"user": user, "likes": m.get("like_count", 0), "comments": m.get("comments_count", 0), "caption": c.replace("\n", " / "),
+                            "type": "ریلز" if m.get("media_product_type") == "REELS" else ("کاروسل" if m.get("media_type") == "CAROUSEL_ALBUM" else "عکس")})
         return sorted(out, key=lambda p: p["likes"] + 3 * p["comments"], reverse=True)
     new = {"day": dt.datetime.now(TR).strftime("%Y-%m-%d"), "own": [], "others": []}
     try:
@@ -496,6 +497,9 @@ VAN_WORDS = ("lake van", "van gölü", "van golu", "lake_van", "akdamar", "akhta
              "van cat", "van kedisi", "turkish van", "erek", "süphan", "suphan", "edremit", "tushpa", "tuşba", "tusba", "ipekyolu",
              "gevaş", "gevas", "çaldıran", "caldiran", "van city", "van ili", "province of van")
 
+NOT_PHOTO = ("satellite", "sentinel", "copernicus", "landsat", "nasa", "iss0", "from space", "astronaut", "earth observatory",
+             "map", "harita", "karte", "diagram", "plan of", "drawing", "engraving", "postcard", "1900", "19th century")
+
 def commons_candidates(query, used):
     import html as _h, re as _re
     url = "https://commons.wikimedia.org/w/api.php?" + urllib.parse.urlencode({
@@ -516,6 +520,8 @@ def commons_candidates(query, used):
                  + " " + (md.get("Categories", {}).get("value") or "")).lower()
         if not any(k in about for k in VAN_WORDS):
             continue   # only photos that are really from Van (no Alps or Himalaya)
+        if any(k in about for k in NOT_PHOTO):
+            continue   # no satellite / space / map images: they look bad on a post
         artist = _re.sub(r"<[^>]+>", "", _h.unescape(md.get("Artist", {}).get("value") or "")).strip()[:40] or "Wikimedia Commons"
         out.append({"title": pg["title"], "url": ii["thumburl"], "credit": f"{artist} · {lic}"})
     random.shuffle(out)
@@ -537,7 +543,7 @@ def claude_pick(cands, topic, k):
     content.append({"type": "text", "text": (
         f"موضوع پست: {topic}\nاز بین این عکس‌ها {k} عکسِ زیبا، چشم‌گیر و حرفه‌ای (نور خوب، رنگ زنده، ترکیب‌بندی قوی، بدون نوشته و واترمارک، "
         f"بدون صورت واضح آدم‌ها، تار و تاریخی و سیاه‌سفید نباشد) را که به موضوع می‌خورد انتخاب کن. "
-        f"عکس باید حتماً از شهر یا استان وان ترکیه باشد (دریاچهٔ وان، آکدامار، قلعهٔ وان، مرادیه، گربهٔ وان…)؛ کوه‌های آلپ، هیمالیا یا جاهای دیگر را هرگز انتخاب نکن. "
+        f"عکس باید حتماً از شهر یا استان وان ترکیه باشد (دریاچهٔ وان، آکدامار، قلعهٔ وان، مرادیه، گربهٔ وان…)؛ کوه‌های آلپ، هیمالیا یا جاهای دیگر را هرگز انتخاب نکن. عکس ماهواره‌ای، عکس از فضا، نقشه یا عکس تاریک شب را هم انتخاب نکن. "
         f'فقط JSON: {{"pick": [شماره‌ها به ترتیب بهترین]}}')})
     body = json.dumps({"model": AI_MODEL, "max_tokens": 200, "messages": [{"role": "user", "content": content}]}).encode()
     req = urllib.request.Request("https://api.anthropic.com/v1/messages", data=body, method="POST", headers={
@@ -725,6 +731,296 @@ def rates_video(d, v, st, dst):
         raise RuntimeError("ffmpeg failed: " + r.stderr[-500:])
     print("animated rates story ready")
 
+# ---------------------------------------------------------------- Reels: short edited videos from real footage
+# Footage, in this order: 1) your own videos/photos in the Drive sub-folder "Reels" (also videos you got
+# PERMISSION to repost: put the page name in the file name, e.g. "@vanbuyuksehir65 akdamar.mp4" -> it is credited),
+# 2) free Pexels / Pixabay videos (PEXELS_KEY or PIXABAY_KEY secret, free accounts), 3) beautiful Van photos with a slow zoom.
+REEL_W, REEL_H, FPS = 1080, 1920, 30
+
+def vid_duration(ff, f):
+    import subprocess, re
+    r = subprocess.run([ff, "-i", str(f)], capture_output=True, text=True)
+    m = re.search(r"Duration: (\d+):(\d+):([\d.]+)", r.stderr)
+    return int(m.group(1)) * 3600 + int(m.group(2)) * 60 + float(m.group(3)) if m else 0.0
+
+def drive_list(parent, key):
+    url = "https://www.googleapis.com/drive/v3/files?" + urllib.parse.urlencode(
+        {"q": f"'{parent}' in parents and trashed=false", "orderBy": "createdTime", "pageSize": 300, "key": key,
+         "fields": "files(id,name,mimeType,createdTime,size)"})
+    with urllib.request.urlopen(url, timeout=60) as r:
+        return json.load(r).get("files", [])
+
+def drive_reel_files():
+    key, folder = os.environ.get("GDRIVE_KEY"), os.environ.get("GDRIVE_FOLDER")
+    if not key or not folder:
+        return []
+    try:
+        sub = [f for f in drive_list(folder, key) if f["mimeType"] == "application/vnd.google-apps.folder" and f["name"].strip().lower() == "reels"]
+        if not sub:
+            print("no 'Reels' folder in Drive yet"); return []
+        return [f for f in drive_list(sub[0]["id"], key) if f["mimeType"].startswith(("video/", "image/"))]
+    except Exception as e:
+        print("! could not read the Drive Reels folder:", str(e)[:200]); return []
+
+def drive_download(f):
+    key = os.environ.get("GDRIVE_KEY")
+    ext = Path(f["name"]).suffix.lower() or (".mp4" if f["mimeType"].startswith("video/") else ".jpg")
+    dl = ROOT / "dl"; dl.mkdir(exist_ok=True)
+    local = dl / ("r_" + f["id"] + ext)
+    if not local.exists():
+        with urllib.request.urlopen(f"https://www.googleapis.com/drive/v3/files/{f['id']}?alt=media&key={key}", timeout=600) as r, open(local, "wb") as w:
+            while chunk := r.read(1 << 20):
+                w.write(chunk)
+    if ext == ".heic":
+        from PIL import Image, ImageOps
+        from pillow_heif import register_heif_opener; register_heif_opener()
+        jpg = local.with_suffix(".jpg"); ImageOps.exif_transpose(Image.open(local)).convert("RGB").save(jpg, quality=92); local = jpg
+    return local
+
+def credit_of(name):
+    import re
+    m = re.search(r"@([A-Za-z0-9_.]{2,30})", name)
+    return "@" + m.group(1).rstrip(".") if m else None
+
+def pexels_video(query, used):
+    key = os.environ.get("PEXELS_KEY")
+    if not key:
+        return None
+    try:
+        url = "https://api.pexels.com/videos/search?" + urllib.parse.urlencode({"query": query, "orientation": "portrait", "per_page": 20})
+        req = urllib.request.Request(url, headers={"Authorization": key, **UA})
+        with urllib.request.urlopen(req, timeout=60) as r:
+            vids = json.load(r).get("videos", [])
+    except Exception as e:
+        print("! Pexels search failed:", str(e)[:150]); return None
+    for v_ in vids:
+        if str(v_["id"]) in used or not (4 <= v_.get("duration", 0) <= 60):
+            continue
+        files = [f for f in v_.get("video_files", []) if f.get("file_type") == "video/mp4" and f.get("height", 0) >= 1280 and f.get("width", 1) < f.get("height", 0)]
+        if not files:
+            continue
+        f = min(files, key=lambda f: abs(f["height"] - 1920))
+        dst = ROOT / "dl" / f"px_{v_['id']}.mp4"; dst.parent.mkdir(exist_ok=True)
+        try:
+            dst.write_bytes(_get(f["link"], timeout=180))
+        except Exception:
+            continue
+        return dst, str(v_["id"])
+    return None
+
+def pixabay_video(query, used):
+    """Free Pixabay videos (PIXABAY_KEY secret, free account: pixabay.com/api/docs). Landscape clips are cropped to vertical."""
+    key = os.environ.get("PIXABAY_KEY")
+    if not key:
+        return None
+    try:
+        url = "https://pixabay.com/api/videos/?" + urllib.parse.urlencode({"key": key, "q": query[:90], "per_page": 30, "safesearch": "true", "order": "popular"})
+        with urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=60) as r:
+            hits = json.load(r).get("hits", [])
+    except Exception as e:
+        print("! Pixabay search failed:", str(e)[:150]); return None
+    random.shuffle(hits)
+    for h in hits:
+        if "x" + str(h["id"]) in used or not (4 <= h.get("duration", 0) <= 60):
+            continue
+        vs = h.get("videos", {})
+        cands = [vs.get(k) for k in ("large", "medium") if vs.get(k, {}).get("url") and vs[k].get("height", 0) >= 1080 and vs[k].get("size", 0) < 80_000_000]
+        if not cands:
+            continue
+        dst = ROOT / "dl" / f"pb_{h['id']}.mp4"; dst.parent.mkdir(exist_ok=True)
+        try:
+            dst.write_bytes(_get(cands[0]["url"], timeout=300))
+        except Exception:
+            continue
+        return dst, "x" + str(h["id"])
+    return None
+
+def reel_overlay_html(kind, text, hl_word, v, i=0, n=0, credit=None):
+    t = html_escape(text)
+    if hl_word and hl_word in text:
+        t = t.replace(html_escape(hl_word), f'<span style="color:#f2ad3d">{html_escape(hl_word)}</span>', 1)
+    cr = f'<div style="position:absolute;left:40px;bottom:70px;font-size:28px;color:#fff;opacity:.85;direction:ltr">🎥 {html_escape(credit)}</div>' if credit else ""
+    if kind == "hook":
+        return f"""<div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.0) 35%,rgba(0,0,0,.55) 100%)"></div>{brand()}
+<div style="position:absolute;left:60px;right:60px;top:1060px;text-align:center"><h1 style="font-size:104px;line-height:1.25;font-weight:900;margin:0;color:#fff;text-shadow:0 6px 30px rgba(0,0,0,.6)">{t}</h1></div>{cr}"""
+    if kind == "end":
+        return f"""<div style="position:absolute;inset:0;background:rgba(9,38,46,.78)"></div>
+<div style="position:absolute;left:70px;right:70px;top:620px;text-align:center;color:#fff">
+<img src="{b64(C / 'logo.svg', 'image/svg+xml')}" style="width:150px;height:170px;background:#fff;border-radius:34px;padding:16px">
+<h1 style="font-size:76px;line-height:1.35;font-weight:900;margin:40px 0 24px">{t}</h1>
+<p style="font-size:50px;font-weight:900;color:#f2ad3d;margin:0;direction:ltr">vangasht.com</p>
+<p style="font-size:40px;font-weight:700;margin:18px 0 0;opacity:.95">واتس‌اپ: <span dir=ltr>{v['wa']}</span></p></div>"""
+    return f"""<div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 50%,rgba(0,0,0,.6) 100%)"></div>{brand()}
+<div style="position:absolute;left:60px;right:60px;bottom:250px;text-align:center"><span style="display:inline-block;background:rgba(9,38,46,.82);color:#fff;font-size:68px;line-height:1.4;font-weight:900;padding:22px 40px;border-radius:30px;box-shadow:0 10px 40px rgba(0,0,0,.35)">{t}</span></div>{cr}"""
+
+def html_escape(x):
+    return str(x).replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+
+def reel_segment(ff, src, is_video, dur, overlay_png, dst, start=0.0):
+    import subprocess
+    grade = "eq=contrast=1.06:saturation=1.15:brightness=0.01"
+    if is_video:
+        inp = ["-ss", f"{start:.2f}", "-t", f"{dur:.2f}", "-i", str(src)]
+        base = f"[0:v]scale={REEL_W}:{REEL_H}:force_original_aspect_ratio=increase,crop={REEL_W}:{REEL_H},fps={FPS},{grade},setsar=1[bg]"
+    else:
+        inp = ["-loop", "1", "-t", f"{dur:.2f}", "-i", str(src)]
+        frames = int(dur * FPS)
+        zoom_in = random.random() < 0.6
+        z = "min(1.0+0.0009*on,1.12)" if zoom_in else "max(1.12-0.0009*on,1.0)"
+        base = (f"[0:v]scale=-2:2400,crop='min(iw,1350)':2400,zoompan=z='{z}':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d={frames}:s={REEL_W}x{REEL_H}:fps={FPS},"
+                f"{grade},setsar=1[bg]")
+    f = base + f";[1:v]format=rgba,fade=in:st=0.25:d=0.35:alpha=1[ov];[bg][ov]overlay=0:0,format=yuv420p[out]"
+    cmd = [ff, "-y", *inp, "-loop", "1", "-t", f"{dur:.2f}", "-i", str(overlay_png), "-filter_complex", f, "-map", "[out]", "-an",
+           "-t", f"{dur:.2f}", "-c:v", "libx264", "-preset", "veryfast", "-crf", "19", "-r", str(FPS), str(dst)]
+    r = subprocess.run(cmd, capture_output=True, text=True)
+    if r.returncode != 0 or not Path(dst).exists():
+        raise RuntimeError("segment failed: " + r.stderr[-400:])
+
+def make_reel(plan, v, st, dst):
+    """plan = {"hook", "hl", "scenes": [{"text", "hl", "query"}], "cta"} -> edited 1080x1920 Reel with music."""
+    import subprocess
+    ff = ffmpeg_bin()
+    if not ff:
+        raise RuntimeError("ffmpeg not available")
+    work = ROOT / "dl"; work.mkdir(exist_ok=True)
+    used = st.setdefault("reel_used", {})
+    drive = drive_reel_files()
+    # own / permitted footage first: least used, then oldest
+    drive.sort(key=lambda f: (used.get("d:" + f["id"], 0), f["createdTime"]))
+    scenes = [{"text": plan["hook"], "hl": plan.get("hl", ""), "query": plan["scenes"][0].get("query", "Lake Van"), "kind": "hook"}]
+    scenes += [dict(x, kind="scene") for x in plan["scenes"][:5]]
+    clips, credits, px_used = [], set(), set(st.get("pexels_used", []))
+    for i, sc in enumerate(scenes):
+        src = None
+        while drive and not src:
+            f = drive.pop(0)
+            try:
+                src = (drive_download(f), f["mimeType"].startswith("video/"), credit_of(f["name"]), "d:" + f["id"])
+            except Exception as e:
+                print("! Drive download failed:", str(e)[:120])
+        if not src:
+            q = sc.get("query") or "Turkey lake"
+            got = pexels_video(q, px_used) or pixabay_video(q, px_used) or pixabay_video(" ".join(q.split()[:2]), px_used)
+            if got:
+                px_used.add(got[1]); src = (got[0], True, None, "p:" + got[1])
+        if not src:
+            ph = pick_photos(random.choice(list(COMMONS_Q)), sc["text"], 1, st)
+            seen_src = {str(c[1]) for c in clips}
+            if ph and str(ph[0][0]) not in seen_src:
+                src = (ph[0][0], False, None, "c")
+            else:   # never repeat the same picture inside one reel
+                left = [A / x for x in ("lake.jpg", "fortress.jpg", "muradiye.jpg", "hosap.jpg", "akdamar.jpg", "cat.jpg") if str(A / x) not in seen_src]
+                src = (random.choice(left or [A / "lake.jpg"]), False, None, "c")
+        clips.append((sc, *src))
+    # overlays (transparent PNGs drawn with the browser so Persian text is perfect)
+    from playwright.sync_api import sync_playwright
+    over = []
+    with sync_playwright() as p:
+        b = p.chromium.launch(); pg = b.new_page(viewport={"width": REEL_W, "height": REEL_H})
+        items = [(sc["kind"], sc["text"], sc.get("hl", ""), cr) for sc, _, _, cr, _ in clips] + [("end", plan.get("cta") or "سیوش کن و برای همسفرت بفرست", "", None)]
+        for i, (k, t, h, cr) in enumerate(items):
+            pg.set_content(f"<html dir=rtl><head><meta charset=utf-8><style>{css()}html,body{{background:transparent}}body{{width:{REEL_W}px;height:{REEL_H}px}}</style></head><body>{reel_overlay_html(k, t, h, v, credit=cr)}</body></html>")
+            pg.wait_for_timeout(200)
+            o = work / f"ov{i}.png"; pg.screenshot(path=str(o), omit_background=True); over.append(o)
+        b.close()
+    segs, durs = [], []
+    for i, (sc, src, is_vid, cr, uid) in enumerate(clips):
+        dur = 2.6 if sc["kind"] == "hook" else 3.0
+        start = 0.0
+        if is_vid:
+            L = vid_duration(ff, src)
+            if L and L > dur + 0.5:
+                start = random.uniform(min(0.8, L * 0.1), max(min(0.8, L * 0.1), L - dur - 0.3))
+            elif L:
+                dur = max(1.5, L - 0.1)
+        seg = work / f"seg{i}.mp4"
+        reel_segment(ff, src, is_vid, dur, over[i], seg, start)
+        segs.append(seg); durs.append(dur)
+        if cr: credits.add(cr)
+        if uid.startswith("d:"): used[uid] = used.get(uid, 0) + 1
+    # end card over the last clip's frame, blurred
+    endbg = work / "endbg.jpg"   # blurred frame of the first clip, without any text on it
+    first_src, first_vid = clips[0][1], clips[0][2]
+    subprocess.run([ff, "-y", *(["-ss", "1"] if first_vid else []), "-i", str(first_src), "-frames:v", "1",
+                    "-vf", f"scale={REEL_W}:{REEL_H}:force_original_aspect_ratio=increase,crop={REEL_W}:{REEL_H},boxblur=30:2", str(endbg)], capture_output=True)
+    if not endbg.exists():
+        endbg = A / "lake.jpg"
+    seg = work / "seg_end.mp4"; reel_segment(ff, endbg, False, 2.8, over[-1], seg); segs.append(seg); durs.append(2.8)
+    # join with short crossfades
+    X = 0.35
+    cmd = [ff, "-y"]
+    for sgm in segs:
+        cmd += ["-i", str(sgm)]
+    f, last, off = "", "0:v", 0.0
+    for i in range(1, len(segs)):
+        off += durs[i - 1] - X
+        f += f"[{last}][{i}:v]xfade=transition={random.choice(['fade', 'smoothleft', 'fadeblack', 'circleopen'])}:duration={X}:offset={off:.2f}[x{i}];"
+        last = f"x{i}"
+    T = sum(durs) - X * (len(segs) - 1)
+    f += f"[{last}]format=yuv420p[vout]"
+    tracks = [m for m in (ROOT / "music").glob("*") if m.suffix.lower() in (".mp3", ".m4a", ".aac", ".wav", ".ogg")] if (ROOT / "music").is_dir() else []
+    n = len(segs)
+    if tracks:
+        cmd += ["-stream_loop", "-1", "-i", str(random.choice(tracks))]
+        f += f";[{n}:a]atrim=0:{T:.2f},afade=t=in:st=0:d=0.5,afade=t=out:st={T-1.5:.2f}:d=1.5,volume=0.9[aout]"
+    else:
+        pad = "+".join(f"0.06*sin(2*PI*{hz}*t)" for hz in (130.81, 196, 261.63, 329.63)) + "+0.03*sin(2*PI*392*t)*(0.5+0.5*sin(2*PI*2*t))"
+        cmd += ["-f", "lavfi", "-t", f"{T:.2f}", "-i", f"aevalsrc='({pad})':s=44100"]
+        f += f";[{n}:a]lowpass=f=2200,aecho=0.8:0.6:300|600:0.2|0.15,afade=t=in:st=0:d=1,afade=t=out:st={T-1.5:.2f}:d=1.5,volume=3[aout]"
+    cmd += ["-filter_complex", f, "-map", "[vout]", "-map", "[aout]", "-t", f"{T:.2f}", "-c:v", "libx264", "-preset", "medium", "-crf", "20",
+            "-profile:v", "high", "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "128k", "-ar", "44100", "-ac", "2", "-movflags", "+faststart", str(dst)]
+    r = subprocess.run(cmd, capture_output=True, text=True)
+    if r.returncode != 0 or not Path(dst).exists():
+        raise RuntimeError("reel join failed: " + r.stderr[-500:])
+    st["pexels_used"] = list(px_used)[-400:]
+    print(f"reel ready: {T:.1f}s, {len(clips)} scenes, credits: {credits or '-'}")
+    return T, sorted(credits)
+
+def ai_reel(d, v, st):
+    recent = [x["topic"] for x in st.get("ai_log", [])[-20:]]
+    shape = ('{"topic": "موضوع کوتاه برای ثبت", "hook": "جملهٔ قلاب ۳ تا ۶ کلمه که آدم را نگه دارد", "hl": "یک کلمه از هوک برای رنگ طلایی", '
+             '"scenes": [{"text": "متن روی صحنه، حداکثر ۷ کلمه، خودمانی", "hl": "", "query": "English stock-video search words for this scene, e.g. lake van boat / turkish breakfast / city night street"}, ... دقیقاً ۵ صحنه], '
+             '"cta": "جملهٔ کارت آخر، حداکثر ۷ کلمه", "caption": "کپشن ۵ تا ۱۰ خط کوتاه، خط اول قلاب، آخر دعوت به کامنت/سیو + لینک vangasht.com؛ بدون هشتگ"}')
+    prompt = (f"{ai_context(d, v)}\n\nموضوع‌های اخیر (تکرار نکن): {'، '.join(recent) or '—'}\n\n{inspo_text(st)}"
+              "یک ریلز ۱۵ تا ۲۰ ثانیه‌ای اینستاگرام برای امروز طراحی کن، با همان ریتم و سبک پست‌های موفق بالا (به‌خصوص ریلزها): "
+              "هوک قوی در ۲ ثانیهٔ اول، هر صحنه یک نکتهٔ کوتاه، پایان با دعوت به سیو/اشتراک. متن‌ها باید روی ویدیو خوانا و کوتاه باشند. "
+              f"شکل خروجی (فقط JSON):\n{shape}")
+    it = claude(prompt)
+    try:
+        assert isinstance(it, dict) and it.get("hook") and len(it.get("scenes", [])) >= 3 and len(it.get("caption", "")) > 30
+        clean = lambda x, n: str(x or "")[:n].replace("<", "").replace(">", "")
+        it["hook"], it["hl"], it["cta"] = clean(it["hook"], 60), clean(it.get("hl"), 25), clean(it.get("cta"), 60)
+        it["scenes"] = [{"text": clean(x.get("text"), 60), "hl": clean(x.get("hl"), 25), "query": clean(x.get("query"), 60)} for x in it["scenes"][:5] if isinstance(x, dict) and x.get("text")]
+        it["caption"] = it["caption"].replace("<", "").replace(">", "")
+        it["id"] = "ai:" + clean(it.get("topic") or it["hook"], 40)
+        print("AI reel plan:", it["id"])
+        return it
+    except Exception as e:
+        st["ai_error"] = {"at": dt.datetime.now(TR).strftime("%Y-%m-%dT%H:%M"), "slot": "reel", "error": AI_ERROR or ("unusable reel plan: " + repr(e)[:150])}
+        return None
+
+REEL_DAYS = {int(x) for x in os.environ.get("REEL_DAYS", "0,2,4,6").split(",") if x.strip().isdigit()}   # Mon=0 ... Sun=6
+
+def build_reel(d, v, st, day, test):
+    """Plan with AI, edit the video, save a cover. Returns job fields, or None (then a carousel is made instead)."""
+    try:
+        plan = ai_reel(d, v, st)
+        if not plan:
+            return None
+        mp4 = (OUT if test else ROOT / "dl") / f"{day}-reel.mp4"; mp4.parent.mkdir(exist_ok=True)
+        T, credits = make_reel(plan, v, st, mp4)
+        import subprocess
+        subprocess.run([ffmpeg_bin(), "-y", "-ss", "1.2", "-i", str(mp4), "-frames:v", "1", "-q:v", "3", str(OUT / f"{day}-post.jpg")], capture_output=True)
+        tags = "#وان #وان_ترکیه #سفر_به_وان #صرافی_وان #سوئیت_وان #تور_وان #خرید_از_وان #ترکیه #VanTurkey #Van #VanGölü #وان_گشت"
+        cap = fill(plan["caption"], v) + ("\n\n🎥 ویدیو: " + " ".join(credits) if credits else "") + "\n\n" + tags
+        if test:
+            (OUT / f"{day}-caption.txt").write_text(cap)
+        return {"video": str(mp4.relative_to(ROOT)), "reel": True, "caption": cap, "item": plan["id"], "file": None, "done": True if test else None}
+    except Exception as e:
+        print("! reel failed, making a carousel instead:", str(e)[:400])
+        st["reel_error"] = {"at": dt.datetime.now(TR).strftime("%Y-%m-%dT%H:%M"), "error": str(e)[:400]}
+        return None
+
 def newpost_story_html(cover, v):
     """Story that points followers to tonight's new post (the API cannot press Instagram's Repost button)."""
     img = b64(cover, "image/jpeg")
@@ -743,15 +1039,23 @@ def render(slot):
         if time.time() - old.stat().st_mtime > 7 * 86400:
             old.unlink()
     day = dt.datetime.now(TR).strftime("%Y-%m-%d")
-    test = slot == "test"          # test = make tonight's AI post now, but do NOT publish it
+    test = slot in ("test", "testreel")   # test = make tonight's post now, but do NOT publish it
+    want_reel = slot == "testreel" or (slot == "post" and dt.datetime.now(TR).weekday() in REEL_DAYS)
     if test:
         slot, day = "post", day + "-test"
+    for old in list(OUT.glob("*.mp4")):
+        if time.time() - old.stat().st_mtime > 3 * 86400:
+            old.unlink()
     cover = OUT / f"{day}-post.jpg"
     path = OUT / f"{day}-{slot}.jpg"
     job = {"slot": slot, "file": path.name, "caption": None, "advance": None, "item": None}
     if slot == "story4" and cover.exists():
         render_html(newpost_story_html(cover, v), 1080, 1920, path)
         job.update(item="newpost")
+    elif slot == "post" and want_reel and (reel := build_reel(d, v, st, day, test)):
+        job.update(reel)
+        if not test:
+            ai_remember(st, {"id": reel["item"]})
     elif slot == "post":
         it = ai_item("post", d, v, st)
         if not it:
@@ -833,11 +1137,12 @@ def ig_user():
             return ig["id"]
     raise SystemExit("No Instagram account found on this token. Check the Page and Instagram are assigned to the system user.")
 
-def upload_video(ig, f):
+def upload_video(ig, f, kind="STORIES", caption=None):
     """Instagram's resumable upload: the video goes straight from here to Meta, no public link needed."""
     size = f.stat().st_size
-    print(f"uploading video {f.name} ({size // 1024 // 1024} MB)")
-    r = api("POST", f"{ig}/media", media_type="STORIES", upload_type="resumable")
+    print(f"uploading {kind.lower()} video {f.name} ({size // 1024 // 1024} MB)")
+    extra = {"caption": caption, "share_to_feed": "true", "thumb_offset": "1200"} if kind == "REELS" else {}
+    r = api("POST", f"{ig}/media", media_type=kind, upload_type="resumable", **extra)
     req = urllib.request.Request(r["uri"], data=f.read_bytes(), method="POST", headers={
         "Authorization": "OAuth " + os.environ["IG_TOKEN"], "offset": "0", "file_size": str(size)})
     try:
@@ -877,7 +1182,7 @@ def _publish():
     url = f"https://raw.githubusercontent.com/{repo}/{ref}/out/{job['file']}"
     ig = ig_user()
     if job.get("video"):
-        cid = upload_video(ig, ROOT / job["video"])
+        cid = upload_video(ig, ROOT / job["video"], "REELS" if job.get("reel") else "STORIES", job.get("caption"))
     elif job.get("files"):
         base = f"https://raw.githubusercontent.com/{repo}/{ref}/out/"
         kids = [api("POST", f"{ig}/media", image_url=base + f, is_carousel_item="true")["id"] for f in job["files"]]
