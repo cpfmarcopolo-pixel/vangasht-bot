@@ -6,7 +6,7 @@ on:
       slot:
         description: "What to publish now"
         type: choice
-        options: [story1, story2, post]
+       options: [story1, story2, story3, story4, post, test]
         default: story2
 
 permissions:
