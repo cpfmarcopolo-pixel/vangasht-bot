@@ -949,6 +949,35 @@ def reel_segment(ff, src, is_video, dur, overlay_png, dst, start=0.0):
     if r.returncode != 0 or not Path(dst).exists():
         raise RuntimeError("segment failed: " + r.stderr[-400:])
 
+def assign_drive(thumbs, scenes):
+    """For each scene pick one of your own Drive files that fits it (or -1). Each file is used at most once."""
+    key = os.environ.get("ANTHROPIC_API_KEY")
+    if not key:
+        return list(range(min(len(thumbs), len(scenes)))) + [-1] * max(0, len(scenes) - len(thumbs))
+    content = []
+    for i, t in enumerate(thumbs):
+        content += [{"type": "text", "text": f"فایل {i}"}, {"type": "image", "source": {"type": "base64", "media_type": "image/jpeg", "data": base64.b64encode(Path(t).read_bytes()).decode()}}]
+    sc = "\n".join(f"صحنه {i}: {t}" for i, t in enumerate(scenes))
+    content.append({"type": "text", "text": (
+        "این‌ها فایل‌های خود پیج «وان گشت» (گردشگری و صرافی در وان ترکیه) است و این‌ها صحنه‌های یک ریلز:\n" + sc + "\n"
+        "برای هر صحنه فایلی را انتخاب کن که واقعاً به متن آن صحنه بخورد و زیبا باشد. قوانین: سلفی یا عکسی که صورت یک آدم سوژهٔ اصلی است را انتخاب نکن؛ "
+        "طرح تبلیغاتی یا عکس پر از نوشته را انتخاب نکن؛ عکسی که معلوم است مال وان نیست (مثل جنگل برفی یا شهر دیگر) را برای صحنه‌ای دربارهٔ وان انتخاب نکن؛ "
+        "هر فایل حداکثر یک بار. اگر برای صحنه‌ای فایل مناسب نیست -1 بگذار (ما برایش ویدیوی دیگری پیدا می‌کنیم). "
+        'فقط JSON: {"assign": [شمارهٔ فایل برای صحنهٔ ۰، برای صحنهٔ ۱، ...]}')})
+    body = json.dumps({"model": AI_MODEL, "max_tokens": 120, "messages": [{"role": "user", "content": content}]}).encode()
+    req = urllib.request.Request("https://api.anthropic.com/v1/messages", data=body, method="POST", headers={
+        "x-api-key": key, "anthropic-version": "2023-06-01", "content-type": "application/json"})
+    try:
+        with urllib.request.urlopen(req, timeout=120) as r:
+            txt = "".join(b.get("text", "") for b in json.load(r).get("content", []))
+        a = [int(x) for x in json.loads(txt[txt.find("{"): txt.rfind("}") + 1])["assign"]][:len(scenes)]
+        seen, out = set(), []
+        for x in a + [-1] * (len(scenes) - len(a)):
+            out.append(x if 0 <= x < len(thumbs) and x not in seen else -1); seen.add(x)
+        return out
+    except Exception as e:
+        print("! matching your files failed:", str(e)[:120]); return [-1] * len(scenes)
+
 def make_reel(plan, v, st, dst):
     """plan = {"hook", "hl", "scenes": [{"text", "hl", "query"}], "cta"} -> edited 1080x1920 Reel with music."""
     import subprocess
@@ -963,14 +992,23 @@ def make_reel(plan, v, st, dst):
     scenes = [{"text": plan["hook"], "hl": plan.get("hl", ""), "query": plan["scenes"][0].get("query", "Lake Van"), "kind": "hook"}]
     scenes += [dict(x, kind="scene") for x in plan["scenes"][:5]]
     clips, credits, px_used = [], set(), set(st.get("pexels_used", []))
+    # look at up to 10 of your Drive files and let AI match them to the scenes (no selfies / ads / unrelated shots)
+    pool = []
+    for f in [f for f in drive if int(f.get("size") or 0) < 200_000_000][:10]:
+        try:
+            loc = drive_download(f); is_v = f["mimeType"].startswith("video/")
+            th = work / f"th_{f['id']}.jpg"
+            subprocess.run([ff, "-y", *(["-ss", "1"] if is_v else []), "-i", str(loc), "-frames:v", "1", "-vf", "scale=400:-2", str(th)], capture_output=True)
+            if th.exists():
+                pool.append((loc, is_v, credit_of(f["name"]), "d:" + f["id"], th))
+        except Exception as e:
+            print("! Drive download failed:", str(e)[:120])
+    assign = assign_drive([p_[4] for p_ in pool], [sc["text"] for sc in scenes]) if pool else [-1] * len(scenes)
+    print("your Drive files used for scenes:", assign)
     for i, sc in enumerate(scenes):
         src = None
-        while drive and not src:
-            f = drive.pop(0)
-            try:
-                src = (drive_download(f), f["mimeType"].startswith("video/"), credit_of(f["name"]), "d:" + f["id"])
-            except Exception as e:
-                print("! Drive download failed:", str(e)[:120])
+        if i < len(assign) and 0 <= assign[i] < len(pool):
+            src = pool[assign[i]][:4]
         if not src:
             q = sc.get("query") or "Turkey lake"
             got = (pexels_video(q, px_used) or pixabay_video(q, px_used, sc["text"])
