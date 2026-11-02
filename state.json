@@ -1,5 +1,5 @@
 {
- "post": 0,
+ "post": 1,
  "story": 1,
  "log": [
   {
@@ -115,6 +115,12 @@
    "slot": "story2",
    "item": "vanbuyuksehir65_0610b38b3ec74c359d0d81ba44cb8bdb.mp4",
    "media": "17981151741140365"
+  },
+  {
+   "at": "2026-11-02T19:57+03:00",
+   "slot": "post",
+   "item": "exchange-card",
+   "media": "17909677152669170"
   }
  ],
  "media_done": [
