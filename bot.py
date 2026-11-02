@@ -808,32 +808,70 @@ def pexels_video(query, used):
         return dst, str(v_["id"])
     return None
 
-def pixabay_video(query, used):
-    """Free Pixabay videos (PIXABAY_KEY secret, free account: pixabay.com/api/docs). Landscape clips are cropped to vertical."""
+def clip_vision_pick(thumbs, scene):
+    """Claude looks at clip previews and picks one that is real (not CGI/AI), fits the scene and does not show another country's city. -1 = none."""
+    key = os.environ.get("ANTHROPIC_API_KEY")
+    if not key or not thumbs:
+        return 0 if thumbs else -1
+    content = []
+    for i, u in enumerate(thumbs):
+        try:
+            content += [{"type": "text", "text": f"ویدیو {i}"}, {"type": "image", "source": {"type": "base64", "media_type": "image/jpeg", "data": base64.b64encode(_get(u, 30)).decode()}}]
+        except Exception:
+            pass
+    content.append({"type": "text", "text": (
+        f"این‌ها پیش‌نمایش ویدیوهای رایگان برای یک صحنه از ریلز پیج گردشگری «وان ترکیه» است. متن صحنه: «{scene}».\n"
+        "یکی را انتخاب کن که: ۱) فیلم واقعی باشد، نه انیمیشن/CGI/تصویر ساخت هوش مصنوعی یا منظرهٔ خیالی و اغراق‌شده؛ "
+        "۲) هیچ شهر، ساختمان یا منظرهٔ شناختنیِ کشور دیگری (مثل شهرهای اروپایی، ونیز، دریاچه‌های ایتالیا، کوه‌های آلپ، ساحل گرمسیری) نشان ندهد — "
+        "صحنه‌های عمومی مثل سطح آب، موج، غروب، قایق، چای، صبحانه، دست‌ها، جاده، آسمان، کوه خشک و ساده خوب است؛ ۳) زیبا و حرفه‌ای باشد و به متن بخورد. "
+        'اگر هیچ‌کدام مناسب نیست -1 بده. فقط JSON: {"pick": شماره}')})
+    body = json.dumps({"model": AI_MODEL, "max_tokens": 60, "messages": [{"role": "user", "content": content}]}).encode()
+    req = urllib.request.Request("https://api.anthropic.com/v1/messages", data=body, method="POST", headers={
+        "x-api-key": key, "anthropic-version": "2023-06-01", "content-type": "application/json"})
+    try:
+        with urllib.request.urlopen(req, timeout=90) as r:
+            txt = "".join(b.get("text", "") for b in json.load(r).get("content", []))
+        n = int(json.loads(txt[txt.find("{"): txt.rfind("}") + 1])["pick"])
+        return n if -1 <= n < len(thumbs) else -1
+    except Exception as e:
+        print("! clip check failed:", str(e)[:120]); return -1
+
+def pixabay_video(query, used, scene=""):
+    """Free Pixabay videos (PIXABAY_KEY secret). Only real film footage that Claude approved for a Van page."""
     key = os.environ.get("PIXABAY_KEY")
     if not key:
         return None
     try:
-        url = "https://pixabay.com/api/videos/?" + urllib.parse.urlencode({"key": key, "q": query[:90], "per_page": 30, "safesearch": "true", "order": "popular"})
+        url = "https://pixabay.com/api/videos/?" + urllib.parse.urlencode({"key": key, "q": query[:90], "per_page": 40, "safesearch": "true", "video_type": "film"})
         with urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=60) as r:
             hits = json.load(r).get("hits", [])
     except Exception as e:
         print("! Pixabay search failed:", str(e)[:150]); return None
-    random.shuffle(hits)
+    ok = []
     for h in hits:
-        if "x" + str(h["id"]) in used or not (4 <= h.get("duration", 0) <= 60):
+        if "x" + str(h["id"]) in used or h.get("type", "film") != "film" or not (4 <= h.get("duration", 0) <= 60):
             continue
         vs = h.get("videos", {})
-        cands = [vs.get(k) for k in ("large", "medium") if vs.get(k, {}).get("url") and vs[k].get("height", 0) >= 1080 and vs[k].get("size", 0) < 80_000_000]
-        if not cands:
-            continue
-        dst = ROOT / "dl" / f"pb_{h['id']}.mp4"; dst.parent.mkdir(exist_ok=True)
-        try:
-            dst.write_bytes(_get(cands[0]["url"], timeout=300))
-        except Exception:
-            continue
-        return dst, "x" + str(h["id"])
-    return None
+        c = [vs.get(k) for k in ("large", "medium") if vs.get(k, {}).get("url") and vs[k].get("height", 0) >= 1080 and vs[k].get("size", 0) < 80_000_000]
+        if c:
+            thumb = next((vs[k].get("thumbnail") for k in ("small", "medium", "tiny", "large") if vs.get(k, {}).get("thumbnail")), None)
+            ok.append((h, c[0], thumb))
+    random.shuffle(ok)
+    ok = ok[:6]
+    if not ok:
+        return None
+    if all(t for _, _, t in ok):
+        i = clip_vision_pick([t for _, _, t in ok], scene or query)
+        if i < 0:
+            print(f"  no suitable clip for '{query}'"); return None
+        ok = [ok[i]]
+    h, f, _ = ok[0]
+    dst = ROOT / "dl" / f"pb_{h['id']}.mp4"; dst.parent.mkdir(exist_ok=True)
+    try:
+        dst.write_bytes(_get(f["url"], timeout=300))
+    except Exception:
+        return None
+    return dst, "x" + str(h["id"])
 
 def reel_overlay_html(kind, text, hl_word, v, i=0, n=0, credit=None):
     t = html_escape(text)
@@ -900,7 +938,8 @@ def make_reel(plan, v, st, dst):
                 print("! Drive download failed:", str(e)[:120])
         if not src:
             q = sc.get("query") or "Turkey lake"
-            got = pexels_video(q, px_used) or pixabay_video(q, px_used) or pixabay_video(" ".join(q.split()[:2]), px_used)
+            got = (pexels_video(q, px_used) or pixabay_video(q, px_used, sc["text"])
+                   or pixabay_video(" ".join(q.split()[:2]), px_used, sc["text"]) or pixabay_video("lake water sunset", px_used, sc["text"]))
             if got:
                 px_used.add(got[1]); src = (got[0], True, None, "p:" + got[1])
         if not src:
@@ -979,7 +1018,7 @@ def make_reel(plan, v, st, dst):
 def ai_reel(d, v, st):
     recent = [x["topic"] for x in st.get("ai_log", [])[-20:]]
     shape = ('{"topic": "موضوع کوتاه برای ثبت", "hook": "جملهٔ قلاب ۳ تا ۶ کلمه که آدم را نگه دارد", "hl": "یک کلمه از هوک برای رنگ طلایی", '
-             '"scenes": [{"text": "متن روی صحنه، حداکثر ۷ کلمه، خودمانی", "hl": "", "query": "English stock-video search words for this scene, e.g. lake van boat / turkish breakfast / city night street"}, ... دقیقاً ۵ صحنه], '
+             '"scenes": [{"text": "متن روی صحنه، حداکثر ۷ کلمه، خودمانی", "hl": "", "query": "2-3 English stock-video words for a GENERIC scene with no recognizable city, e.g. lake water waves / tea glass / breakfast table / boat sunset / mountain road"}, ... دقیقاً ۵ صحنه], '
              '"cta": "جملهٔ کارت آخر، حداکثر ۷ کلمه", "caption": "کپشن ۵ تا ۱۰ خط کوتاه، خط اول قلاب، آخر دعوت به کامنت/سیو + لینک vangasht.com؛ بدون هشتگ"}')
     prompt = (f"{ai_context(d, v)}\n\nموضوع‌های اخیر (تکرار نکن): {'، '.join(recent) or '—'}\n\n{inspo_text(st)}"
               "یک ریلز ۱۵ تا ۲۰ ثانیه‌ای اینستاگرام برای امروز طراحی کن، با همان ریتم و سبک پست‌های موفق بالا (به‌خصوص ریلزها): "
