@@ -725,6 +725,16 @@ def rates_video(d, v, st, dst):
         raise RuntimeError("ffmpeg failed: " + r.stderr[-500:])
     print("animated rates story ready")
 
+def newpost_story_html(cover, v):
+    """Story that points followers to tonight's new post (the API cannot press Instagram's Repost button)."""
+    img = b64(cover, "image/jpeg")
+    return f"""<div class="bg" style="background-image:url({img});filter:blur(38px) brightness(.55);transform:scale(1.2)"></div>{brand()}
+<div style="position:absolute;left:0;right:0;top:250px;text-align:center"><span class="tag" style="font-size:40px">پست جدید</span></div>
+<img src="{img}" style="position:absolute;left:150px;top:390px;width:780px;height:975px;object-fit:cover;border-radius:36px;box-shadow:0 30px 80px rgba(0,0,0,.55);border:8px solid #fff">
+<div style="position:absolute;left:60px;right:60px;top:1430px;text-align:center;color:#fff">
+<p style="font-size:62px;font-weight:900;margin:0;text-shadow:0 4px 20px rgba(0,0,0,.5)">پست امشب رو دیدی؟ 👆</p>
+<p style="font-size:42px;font-weight:700;margin:18px 0 0;opacity:.95">برو صفحه رو ببین و برای همسفرت بفرست</p></div>"""
+
 def render(slot):
     d, st = site(), load_state()
     v = vars_for(d)
@@ -733,9 +743,16 @@ def render(slot):
         if time.time() - old.stat().st_mtime > 7 * 86400:
             old.unlink()
     day = dt.datetime.now(TR).strftime("%Y-%m-%d")
+    test = slot == "test"          # test = make tonight's AI post now, but do NOT publish it
+    if test:
+        slot, day = "post", day + "-test"
+    cover = OUT / f"{day}-post.jpg"
     path = OUT / f"{day}-{slot}.jpg"
     job = {"slot": slot, "file": path.name, "caption": None, "advance": None, "item": None}
-    if slot == "post":
+    if slot == "story4" and cover.exists():
+        render_html(newpost_story_html(cover, v), 1080, 1920, path)
+        job.update(item="newpost")
+    elif slot == "post":
         it = ai_item("post", d, v, st)
         if not it:
             lib = json.loads((C / "posts.json").read_text())
@@ -746,7 +763,12 @@ def render(slot):
             job["files"] = files
         tags = "#وان #وان_ترکیه #سفر_به_وان #صرافی_وان #سوئیت_وان #تور_وان #خرید_از_وان #ترکیه #VanTurkey #Van #VanGölü #وان_گشت"
         job.update(caption=fill(it["caption"], v) + "\n\n" + tags, item=it["id"])
-        ai_remember(st, it)
+        if test:
+            job.update(done=True, advance=None)
+            (OUT / f"{day}-caption.txt").write_text(job["caption"])
+            print("TEST ONLY - not published. Files:", files)
+        else:
+            ai_remember(st, it)
     elif slot == "story1" and rates_fresh(d):
         try:
             mp4 = ROOT / "dl" / f"{day}-rates.mp4"
