@@ -304,6 +304,7 @@ def story_image(src, dst):
 
 # ---------------------------------------------------------------- AI writer (Claude)
 AI_MODEL = os.environ.get("AI_MODEL", "claude-sonnet-5-5")
+AI_ERROR = None
 PHOTO_TOPICS = {"akdamar": "جزیرهٔ آکدامار و کلیسای تاریخی، دریاچهٔ وان", "lake": "دریاچهٔ وان، آب فیروزه‌ای و کوه",
                 "fortress": "قلعهٔ وان روی صخره", "muradiye": "آبشار مرادیه", "cat": "گربهٔ سفید وان با چشم‌های دو رنگ",
                 "hosap": "قلعهٔ هوشاپ", "suite": "داخل یکی از سوئیت‌های مبلهٔ وان گشت"}
@@ -350,15 +351,25 @@ def claude(prompt):
                        "messages": [{"role": "user", "content": prompt}]}).encode()
     req = urllib.request.Request("https://api.anthropic.com/v1/messages", data=body, method="POST", headers={
         "x-api-key": key, "anthropic-version": "2023-06-01", "content-type": "application/json"})
-    try:
-        with urllib.request.urlopen(req, timeout=120) as r:
-            out = json.load(r)
-        txt = "".join(b.get("text", "") for b in out.get("content", []))
-        txt = txt[txt.find("{"): txt.rfind("}") + 1]
-        return json.loads(txt)
-    except Exception as e:
-        print("! AI writer failed, using the library instead:", e)
-        return None
+    global AI_ERROR
+    for attempt in (1, 2, 3):   # retry: the API is sometimes briefly busy
+        try:
+            with urllib.request.urlopen(req, timeout=120) as r:
+                out = json.load(r)
+            txt = "".join(b.get("text", "") for b in out.get("content", []))
+            txt = txt[txt.find("{"): txt.rfind("}") + 1]
+            AI_ERROR = None
+            return json.loads(txt)
+        except urllib.error.HTTPError as e:
+            AI_ERROR = f"HTTP {e.code}: " + e.read().decode("utf-8", "replace")[:400]
+            if e.code in (400, 401, 403, 404):
+                break   # e.g. no credit left / wrong key: retrying will not help
+        except Exception as e:
+            AI_ERROR = str(e)[:400]
+        print(f"! AI writer failed (try {attempt}):", AI_ERROR)
+        time.sleep(20 * attempt)
+    print("! AI writer failed, using the library instead:", AI_ERROR)
+    return None
 
 def inspo_text(st):
     ins = st.get("inspo") or {}
@@ -420,6 +431,8 @@ def ai_item(slot, d, v, st):
               f"{what} برای امروز بساز. شکل خروجی:\n{shape}")
     it = claude(prompt)
     if not isinstance(it, dict):
+        st["ai_error"] = {"at": dt.datetime.now(TR).strftime("%Y-%m-%dT%H:%M"), "slot": slot, "error": AI_ERROR or "answer was not JSON"}
+        save_state(st)
         return None
     try:
         it["kind"] = "photo" if it.get("kind") == "photo" else "design"
@@ -446,6 +459,8 @@ def ai_item(slot, d, v, st):
         return it
     except Exception as e:
         print("! AI answer was not usable, using the library instead:", e)
+        st["ai_error"] = {"at": dt.datetime.now(TR).strftime("%Y-%m-%dT%H:%M"), "slot": slot, "error": "unusable answer: " + repr(e)[:200]}
+        save_state(st)
         return None
 
 def ai_remember(st, it):
