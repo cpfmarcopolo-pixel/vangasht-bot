@@ -109,13 +109,20 @@
    "slot": "story1",
    "item": "rates",
    "media": "18105830924348071"
+  },
+  {
+   "at": "2026-11-02T16:58+03:00",
+   "slot": "story2",
+   "item": "vanbuyuksehir65_0610b38b3ec74c359d0d81ba44cb8bdb.mp4",
+   "media": "17981151741140365"
   }
  ],
  "media_done": [
   "gdrive:1Ta_jx31NNs1b3vSbmQ23lxbtzmOGdKSG",
   "gdrive:1tkTZ0Og42HjsK91Q58qVwlYwCHU6lYjm",
   "gdrive:1uUiPQIh_fONP7XWF-S1htwR98tawnTjz",
-  "gdrive:1cir0xFN1GhY3C0bPBtSl7T9_Py_wMviC"
+  "gdrive:1cir0xFN1GhY3C0bPBtSl7T9_Py_wMviC",
+  "gdrive:1J4G9F3VGTgAxD3B80pk_Q54w68tWJiyw"
  ],
  "ai_log": [
   {
@@ -255,5 +262,8 @@
  },
  "media_fail_count": {
   "gdrive:1uUiPQIh_fONP7XWF-S1htwR98tawnTjz": 1
- }
+ },
+ "media_seen": [
+  "vanbuyuksehir65_0610b38b3ec74c359d0d81ba44cb8bdb.mp4|2092378"
+ ]
 }
