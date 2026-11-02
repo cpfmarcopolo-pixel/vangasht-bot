@@ -262,7 +262,9 @@
   "File:The city lights of Erciş, Türkiye, and its suburbs and villages, surround Lake Van (iss074e0043930).jpg",
   "File:Van Altınsaç koyları.jpg",
   "File:Lake Van, Armenian Highlands, Turkey - 15 November 2022 (52635538305).jpg",
-  "File:TCDD DE 22 053 Van Gölü Ekspresi Palu - Beyhan.jpg"
+  "File:TCDD DE 22 053 Van Gölü Ekspresi Palu - Beyhan.jpg",
+  "File:Bitlis Adilcevaz Mont Süphan.jpg",
+  "File:Hosap Castle 9.jpg"
  ],
  "last_error": {
   "at": "2026-10-30T16:53+03:00",
@@ -276,13 +278,17 @@
  "media_seen": [
   "vanbuyuksehir65_0610b38b3ec74c359d0d81ba44cb8bdb.mp4|2092378"
  ],
- "reel_used": {},
+ "reel_used": {
+  "d:1arRNGYFbIVgxXrR1BDQAUw6ovWRX5rWU": 1
+ },
  "pexels_used": [
   "x381054",
+  "x273476",
   "x222349",
+  "x156103",
   "x67201",
   "x7262",
-  "x371424",
-  "x119190"
+  "x119190",
+  "x371424"
  ]
 }
