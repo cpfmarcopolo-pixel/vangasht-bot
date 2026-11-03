@@ -133,6 +133,12 @@
    "slot": "story3",
    "item": "ai:دانستنی دریاچهٔ وان؛ بزرگ‌ترین دریاچهٔ ت",
    "media": "18194997853402030"
+  },
+  {
+   "at": "2026-11-03T16:57+03:00",
+   "slot": "story2",
+   "item": "1793174536301.jpg",
+   "media": "17998968399021977"
   }
  ],
  "media_done": [
@@ -140,7 +146,8 @@
   "gdrive:1tkTZ0Og42HjsK91Q58qVwlYwCHU6lYjm",
   "gdrive:1uUiPQIh_fONP7XWF-S1htwR98tawnTjz",
   "gdrive:1cir0xFN1GhY3C0bPBtSl7T9_Py_wMviC",
-  "gdrive:1J4G9F3VGTgAxD3B80pk_Q54w68tWJiyw"
+  "gdrive:1J4G9F3VGTgAxD3B80pk_Q54w68tWJiyw",
+  "gdrive:1FLvwt5EWv6oaKT-IWN4eE_umS5u-L6jM"
  ],
  "ai_log": [
   {
@@ -309,7 +316,8 @@
   "gdrive:1uUiPQIh_fONP7XWF-S1htwR98tawnTjz": 1
  },
  "media_seen": [
-  "vanbuyuksehir65_0610b38b3ec74c359d0d81ba44cb8bdb.mp4|2092378"
+  "vanbuyuksehir65_0610b38b3ec74c359d0d81ba44cb8bdb.mp4|2092378",
+  "1793174536301.jpg|94981"
  ],
  "reel_used": {
   "d:1arRNGYFbIVgxXrR1BDQAUw6ovWRX5rWU": 1,
