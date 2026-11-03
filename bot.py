@@ -949,6 +949,9 @@ def reel_overlay_html(kind, text, hl_word, v, i=0, n=0, credit=None):
     if hl_word and hl_word in text:
         t = t.replace(html_escape(hl_word), f'<span style="color:#f2ad3d">{html_escape(hl_word)}</span>', 1)
     cr = f'<div style="position:absolute;left:40px;bottom:70px;font-size:28px;color:#fff;opacity:.85;direction:ltr">🎥 {html_escape(credit)}</div>' if credit else ""
+    if kind == "pin":
+        return f"""<div style="position:absolute;left:0;right:0;top:330px;text-align:center;font-size:64px;font-weight:900;letter-spacing:4px;color:#fff;text-shadow:0 3px 16px rgba(0,0,0,.75);direction:ltr">📍 VAN</div>
+<div style="position:absolute;left:0;right:0;top:1150px;text-align:center;font-size:30px;font-weight:700;color:rgba(255,255,255,.8);text-shadow:0 2px 8px rgba(0,0,0,.7);direction:ltr">@vangasht.van</div>{cr}"""
     if kind == "hook":
         return f"""<div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.0) 35%,rgba(0,0,0,.55) 100%)"></div>{brand()}
 <div style="position:absolute;left:60px;right:60px;top:1060px;text-align:center"><h1 style="font-size:104px;line-height:1.25;font-weight:900;margin:0;color:#fff;text-shadow:0 6px 30px rgba(0,0,0,.6)">{t}</h1></div>{cr}"""
@@ -1014,8 +1017,9 @@ def assign_drive(thumbs, scenes):
     except Exception as e:
         print("! matching your files failed:", str(e)[:120]); return [-1] * len(scenes)
 
-def make_reel(plan, v, st, dst):
-    """plan = {"hook", "hl", "scenes": [{"text", "hl", "query"}], "cta"} -> edited 1080x1920 Reel with music."""
+def make_reel(plan, v, st, dst, style="text"):
+    """style "text" = tips with captions; "vlog" = real footage, fast cuts, only a 📍 VAN pin (like van.gasht.turkiye stories).
+    plan = {"hook", "hl", "scenes": [{"text", "hl", "query"}], "cta"} -> edited 1080x1920 Reel with music."""
     import subprocess
     ff = ffmpeg_bin()
     if not ff:
@@ -1025,8 +1029,11 @@ def make_reel(plan, v, st, dst):
     drive = drive_reel_files()
     # own / permitted footage first: least used, then oldest
     drive.sort(key=lambda f: (used.get("d:" + f["id"], 0), f["createdTime"]))
-    scenes = [{"text": plan["hook"], "hl": plan.get("hl", ""), "query": plan["scenes"][0].get("query", "Lake Van"), "kind": "hook"}]
-    scenes += [dict(x, kind="scene") for x in plan["scenes"][:5]]
+    if style == "vlog":
+        scenes = [dict(x, kind="pin") for x in plan["scenes"][:8]]
+    else:
+        scenes = [{"text": plan["hook"], "hl": plan.get("hl", ""), "query": plan["scenes"][0].get("query", "Lake Van"), "kind": "hook"}]
+        scenes += [dict(x, kind="scene") for x in plan["scenes"][:5]]
     clips, credits, px_used = [], set(), set(st.get("pexels_used", []))
     # look at up to 10 of your Drive files and let AI match them to the scenes (no selfies / ads / unrelated shots)
     pool = []
@@ -1065,7 +1072,7 @@ def make_reel(plan, v, st, dst):
     over = []
     with sync_playwright() as p:
         b = p.chromium.launch(); pg = b.new_page(viewport={"width": REEL_W, "height": REEL_H})
-        items = [(sc["kind"], sc["text"], sc.get("hl", ""), cr) for sc, _, _, cr, _ in clips] + [("end", plan.get("cta") or "سیوش کن و برای همسفرت بفرست", "", None)]
+        items = [(sc["kind"], sc["text"], sc.get("hl", ""), cr) for sc, _, _, cr, _ in clips] + ([] if style == "vlog" else [("end", plan.get("cta") or "سیوش کن و برای همسفرت بفرست", "", None)])
         for i, (k, t, h, cr) in enumerate(items):
             pg.set_content(f"<html dir=rtl><head><meta charset=utf-8><style>{css()}html,body{{background:transparent}}body{{width:{REEL_W}px;height:{REEL_H}px}}</style></head><body>{reel_overlay_html(k, t, h, v, credit=cr)}</body></html>")
             pg.wait_for_timeout(200)
@@ -1073,7 +1080,7 @@ def make_reel(plan, v, st, dst):
         b.close()
     segs, durs = [], []
     for i, (sc, src, is_vid, cr, uid) in enumerate(clips):
-        dur = 2.6 if sc["kind"] == "hook" else 3.0
+        dur = 2.2 if sc["kind"] == "pin" else (2.6 if sc["kind"] == "hook" else 3.0)
         start = 0.0
         if is_vid:
             L = vid_duration(ff, src)
@@ -1086,14 +1093,17 @@ def make_reel(plan, v, st, dst):
         segs.append(seg); durs.append(dur)
         if cr: credits.add(cr)
         if uid.startswith("d:"): used[uid] = used.get(uid, 0) + 1
-    # end card over the last clip's frame, blurred
-    endbg = work / "endbg.jpg"   # blurred frame of the first clip, without any text on it
+    # end card over the last clip's frame, blurred (not for the vlog style)
+    endbg = work / "endbg.jpg"
+    if style == "vlog":
+        endbg = None   # blurred frame of the first clip, without any text on it
     first_src, first_vid = clips[0][1], clips[0][2]
-    subprocess.run([ff, "-y", *(["-ss", "1"] if first_vid else []), "-i", str(first_src), "-frames:v", "1",
+    if endbg is not None:
+      subprocess.run([ff, "-y", *(["-ss", "1"] if first_vid else []), "-i", str(first_src), "-frames:v", "1",
                     "-vf", f"scale={REEL_W}:{REEL_H}:force_original_aspect_ratio=increase,crop={REEL_W}:{REEL_H},boxblur=30:2", str(endbg)], capture_output=True)
-    if not endbg.exists():
-        endbg = A / "lake.jpg"
-    seg = work / "seg_end.mp4"; reel_segment(ff, endbg, False, 2.8, over[-1], seg); segs.append(seg); durs.append(2.8)
+      if not endbg.exists():
+          endbg = A / "lake.jpg"
+      seg = work / "seg_end.mp4"; reel_segment(ff, endbg, False, 2.8, over[-1], seg); segs.append(seg); durs.append(2.8)
     # join with short crossfades
     X = 0.35
     cmd = [ff, "-y"]
@@ -1102,7 +1112,7 @@ def make_reel(plan, v, st, dst):
     f, last, off = "", "0:v", 0.0
     for i in range(1, len(segs)):
         off += durs[i - 1] - X
-        f += f"[{last}][{i}:v]xfade=transition={random.choice(['fade', 'smoothleft', 'fadeblack', 'circleopen'])}:duration={X}:offset={off:.2f}[x{i}];"
+        f += f"[{last}][{i}:v]xfade=transition={'fade' if style == 'vlog' else random.choice(['fade', 'smoothleft', 'fadeblack', 'circleopen'])}:duration={X}:offset={off:.2f}[x{i}];"
         last = f"x{i}"
     T = sum(durs) - X * (len(segs) - 1)
     f += f"[{last}]format=yuv420p[vout]"
@@ -1148,6 +1158,27 @@ def ai_reel(d, v, st):
         return None
 
 REEL_DAYS = {int(x) for x in os.environ.get("REEL_DAYS", "0,1,2,3,4,5,6").split(",") if x.strip().isdigit()}   # Mon=0 ... Sun=6
+
+VLOG_SCENES = [("خیابان‌های شلوغ و نورانی وان در شب", "city street night lights"), ("آدم‌ها در حال قدم زدن در خیابان خرید", "people walking shopping street night"),
+               ("غذای خیابانی و آشپز در حال پخت", "street food cooking grill"), ("کافه و رستوران با نور گرم", "cafe terrace night lights"),
+               ("ساحل دریاچهٔ وان و آب", "lake shore waves sunset"), ("جادهٔ کوهستانی و طبیعت اطراف وان", "mountain road drive"),
+               ("بازار و مغازه‌های رنگارنگ", "bazaar shops colorful"), ("صبحانهٔ مفصل ترکی روی میز", "turkish breakfast table"),
+               ("قلعهٔ قدیمی و چشم‌انداز شهر", "old castle city view"), ("غروب آفتاب روی دریاچه", "sunset over lake")]
+
+def build_vlog_story(v, st, day):
+    """14:00 story in the style of van.gasht.turkiye: real Van footage, fast cuts, only a 📍 VAN pin, music."""
+    try:
+        k = st.get("vlog_i", 0) % len(VLOG_SCENES)
+        picks = (VLOG_SCENES[k:] + VLOG_SCENES[:k])[:8]
+        st["vlog_i"] = k + 3
+        plan = {"id": "vlog", "scenes": [{"text": t, "hl": "", "query": q} for t, q in picks]}
+        mp4 = ROOT / "dl" / f"{day}-vlog.mp4"; mp4.parent.mkdir(exist_ok=True)
+        T, credits = make_reel(plan, v, st, mp4, style="vlog")
+        return {"video": str(mp4.relative_to(ROOT)), "reel": False, "caption": None, "item": "vlog", "file": None}
+    except Exception as e:
+        print("! vlog story failed:", str(e)[:400])
+        st["reel_error"] = {"at": dt.datetime.now(TR).strftime("%Y-%m-%dT%H:%M"), "slot": "story3", "error": str(e)[:400]}
+        return None
 
 def build_reel(d, v, st, day, test):
     """Plan with AI, edit the video, save a cover. Returns job fields, or None (then a carousel is made instead)."""
@@ -1200,7 +1231,7 @@ def render(slot):
     if slot == "story4" and cover.exists():
         render_html(newpost_story_html(cover, v), 1080, 1920, path)
         job.update(item="newpost")
-    elif slot == "story3" and (reel := build_reel(d, v, st, day + "-s3", False)):
+    elif slot == "story3" and (reel := build_vlog_story(v, st, day)):
         # afternoon story = a short edited video (real footage + text), not a plain design card
         reel.update(reel=False, caption=None, done=None)
         job.update(reel)
@@ -1226,6 +1257,10 @@ def render(slot):
             print("TEST ONLY - not published. Files:", files)
         else:
             ai_remember(st, it)
+    elif slot == "testvlog" and (reel := build_vlog_story(v, st, day + "-test")):
+        mp4 = ROOT / reel["video"]; dst_ = OUT / mp4.name; mp4.replace(dst_)
+        job.update(file=None, video=str(dst_.relative_to(ROOT)), item="vlog-test", done=True)
+        print("TEST ONLY - not published:", dst_.name)
     elif slot == "testrates":
         # test only: make the morning rates video now (from Drive/Rates) without publishing it
         mp4 = OUT / f"{day}-test-rates.mp4"
