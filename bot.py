@@ -1226,6 +1226,12 @@ def render(slot):
             print("TEST ONLY - not published. Files:", files)
         else:
             ai_remember(st, it)
+    elif slot == "testrates":
+        # test only: make the morning rates video now (from Drive/Rates) without publishing it
+        mp4 = OUT / f"{day}-test-rates.mp4"
+        rates_video(d, v, st, mp4)
+        job.update(file=None, video=str(mp4.relative_to(ROOT)), item="rates-test", done=True)
+        print("TEST ONLY - not published:", mp4.name)
     elif slot == "story1" and rates_fresh(d):
         try:
             mp4 = ROOT / "dl" / f"{day}-rates.mp4"
