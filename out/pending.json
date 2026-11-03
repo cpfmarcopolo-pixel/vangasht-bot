@@ -1,9 +1,9 @@
 {
- "slot": "testrates",
+ "slot": "testvlog",
  "file": null,
  "caption": null,
  "advance": null,
- "item": "rates-test",
- "video": "out/2026-11-04-test-rates.mp4",
+ "item": "vlog-test",
+ "video": "out/2026-11-04-test-vlog.mp4",
  "done": true
 }
