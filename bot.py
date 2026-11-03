@@ -683,6 +683,35 @@ def rates_layer_html(d, v, show):
 <div style="font-size:34px;font-weight:700;margin-top:26px">💳 کارتخوان ایرانی در دفتر · واتس‌اپ <span dir=ltr>{v['wa']}</span></div></div>
 <div style="visibility:{vis('foot')};position:absolute;bottom:90px;left:0;right:0;display:flex;justify-content:center">{brand().replace('right:48px;top:44px', 'position:static')}</div></div>"""
 
+def rates_assets(st):
+    """Drive sub-folder "Rates": background videos/photos and songs for the morning rates story, each used in turn (least recently used first)."""
+    key, folder = os.environ.get("GDRIVE_KEY"), os.environ.get("GDRIVE_FOLDER")
+    if not key or not folder:
+        return None, False, None
+    try:
+        sub = [f for f in drive_list(folder, key) if f["mimeType"] == "application/vnd.google-apps.folder" and f["name"].strip().lower() in ("rates", "نرخ")]
+        if not sub:
+            print("no 'Rates' folder in Drive -> using a Van photo"); return None, False, None
+        files = drive_list(sub[0]["id"], key)
+    except Exception as e:
+        print("! could not read Drive/Rates:", str(e)[:150]); return None, False, None
+    last = st.setdefault("rates_last", {})
+    now = dt.datetime.now(TR).isoformat(timespec="minutes")
+    def take(items):
+        if not items:
+            return None
+        f = min(items, key=lambda x: (last.get(x["id"], ""), x["createdTime"]))
+        last[f["id"]] = now
+        try:
+            return drive_download(f), f
+        except Exception as e:
+            print("! download failed:", str(e)[:120]); return None
+    vis = [f for f in files if f["mimeType"].startswith(("video/", "image/")) and int(f.get("size") or 0) < 300_000_000]
+    aud = [f for f in files if f["mimeType"].startswith("audio/") or Path(f["name"]).suffix.lower() in AUDIO_EXT]
+    v_ = take(vis); a_ = take(aud)
+    print("rates background:", v_[1]["name"] if v_ else "-", "| song:", a_[1]["name"] if a_ else "-")
+    return (v_[0] if v_ else None), bool(v_ and v_[1]["mimeType"].startswith("video/")), (a_[0] if a_ else None)
+
 def rates_video(d, v, st, dst):
     """25 s story (RATES_SECONDS) with music: a slow zoom over a beautiful Van photo, darkened, with the date, each rate row and the footer fading in."""
     import subprocess
@@ -690,8 +719,11 @@ def rates_video(d, v, st, dst):
     if not ff:
         raise RuntimeError("ffmpeg not available")
     work = ROOT / "dl"; work.mkdir(exist_ok=True)
-    ph = pick_photos(random.choice(["lake", "akdamar", "edremit", "suphan", "city"]), "منظرهٔ زیبای وان برای پس‌زمینهٔ استوری نرخ ارز", 1, st)
-    bg = ph[0][0] if ph else A / "akdamar.jpg"
+    # your own background videos/photos + songs from the Drive folder "Rates", used in turn
+    bg, bg_video, rates_song = rates_assets(st)
+    if not bg:
+        ph = pick_photos(random.choice(["lake", "akdamar", "edremit", "suphan", "city"]), "منظرهٔ زیبای وان برای پس‌زمینهٔ استوری نرخ ارز", 1, st)
+        bg, bg_video = (ph[0][0] if ph else A / "akdamar.jpg"), False
     parts = ["head"] + [f"row{i}" for i in range(len(rates_rows(d)))] + ["foot"]
     from playwright.sync_api import sync_playwright
     with sync_playwright() as p:
@@ -703,11 +735,15 @@ def rates_video(d, v, st, dst):
             pg.screenshot(path=str(work / f"layer-{k}.png"), omit_background=True)
         b.close()
     T = int(os.environ.get("RATES_SECONDS", "25"))
-    cmd = [ff, "-y", "-loop", "1", "-i", str(bg)]
+    if bg_video:
+        cmd = [ff, "-y", "-stream_loop", "-1", "-t", str(T), "-i", str(bg)]
+        base = "[0:v]scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,fps=30,setsar=1,"
+    else:
+        cmd = [ff, "-y", "-loop", "1", "-i", str(bg)]
+        base = f"[0:v]scale=-2:2300,crop=1300:2300,zoompan=z='min(zoom+0.0006,1.18)':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d={T*30}:s=1080x1920:fps=30,"
     for k in parts:
         cmd += ["-loop", "1", "-t", str(T), "-i", str(work / f"layer-{k}.png")]
-    f = (f"[0:v]scale=-2:2300,crop=1300:2300,zoompan=z='min(zoom+0.0006,1.18)':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d={T*30}:s=1080x1920:fps=30,"
-         f"eq=brightness=-0.10:saturation=1.15,drawbox=x=0:y=0:w=iw:h=ih:color=black@0.36:t=fill,fade=in:st=0:d=0.6[b0];")
+    f = (base + "eq=brightness=-0.10:saturation=1.15,drawbox=x=0:y=0:w=iw:h=ih:color=black@0.40:t=fill,fade=in:st=0:d=0.6[b0];")
     last = "b0"
     for i, k in enumerate(parts):
         st_ = 0.8 + i * 0.7
@@ -715,7 +751,7 @@ def rates_video(d, v, st, dst):
         last = f"b{i+1}"
     f += f"[{last}]format=yuv420p[out]"
     # music: a random track from the music/ folder (royalty-free files you add), else a soft generated ambient pad
-    tracks = music_tracks(st)
+    tracks = [rates_song] if rates_song else music_tracks(st)
     n_in = 1 + len(parts)
     if tracks:
         cmd += music_input(tracks, st)
