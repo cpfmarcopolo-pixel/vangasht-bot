@@ -1111,7 +1111,7 @@ def ai_reel(d, v, st):
         st["ai_error"] = {"at": dt.datetime.now(TR).strftime("%Y-%m-%dT%H:%M"), "slot": "reel", "error": AI_ERROR or ("unusable reel plan: " + repr(e)[:150])}
         return None
 
-REEL_DAYS = {int(x) for x in os.environ.get("REEL_DAYS", "0,2,4,6").split(",") if x.strip().isdigit()}   # Mon=0 ... Sun=6
+REEL_DAYS = {int(x) for x in os.environ.get("REEL_DAYS", "0,1,2,3,4,5,6").split(",") if x.strip().isdigit()}   # Mon=0 ... Sun=6
 
 def build_reel(d, v, st, day, test):
     """Plan with AI, edit the video, save a cover. Returns job fields, or None (then a carousel is made instead)."""
@@ -1164,6 +1164,11 @@ def render(slot):
     if slot == "story4" and cover.exists():
         render_html(newpost_story_html(cover, v), 1080, 1920, path)
         job.update(item="newpost")
+    elif slot == "story3" and (reel := build_reel(d, v, st, day + "-s3", False)):
+        # afternoon story = a short edited video (real footage + text), not a plain design card
+        reel.update(reel=False, caption=None, done=None)
+        job.update(reel)
+        ai_remember(st, {"id": reel["item"]})
     elif slot == "post" and want_reel and (reel := build_reel(d, v, st, day, test)):
         job.update(reel)
         if not test:
