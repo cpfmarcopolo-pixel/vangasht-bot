@@ -335,17 +335,19 @@
   "File:Turna, Keşiş, Rusa Gölü.jpg"
  ],
  "last_error": {
-  "at": "2026-10-30T16:53+03:00",
+  "at": "2026-11-04T17:03+03:00",
   "slot": "story2",
-  "item": "877c08f489604214b495a2ab6444c9a5.mp4",
+  "item": "vangasht-suite-horizontal-1.mp4",
   "error": "Video upload failed 400: {\"debug_info\":{\"retriable\":false,\"type\":\"ProcessingFailedError\",\"message\":\"Request processing failed\"}}"
  },
  "media_fail_count": {
-  "gdrive:1uUiPQIh_fONP7XWF-S1htwR98tawnTjz": 1
+  "gdrive:1uUiPQIh_fONP7XWF-S1htwR98tawnTjz": 1,
+  "gdrive:1lBK-LgJCrFj-mKZyHKiBaprgzfgNcbIJ": 1
  },
  "media_seen": [
   "vanbuyuksehir65_0610b38b3ec74c359d0d81ba44cb8bdb.mp4|2092378",
-  "1793174536301.jpg|94981"
+  "1793174536301.jpg|94981",
+  "vangasht-suite-horizontal-1.mp4|19025897"
  ],
  "reel_used": {
   "d:1arRNGYFbIVgxXrR1BDQAUw6ovWRX5rWU": 1,
