@@ -682,10 +682,10 @@ def rates_layer_html(d, v, show):
 <div style="visibility:{vis('foot')};position:absolute;bottom:90px;left:0;right:0;display:flex;justify-content:center">{brand().replace('right:48px;top:44px', 'position:static')}</div></div>"""
 
 def rates_assets(st):
-    """Background video/photo + song for the rates story: Drive folder "S2 ..." (or the old "Rates"), each used in turn."""
-    return folder_assets("S2", st)
+    """Background video/photo + song (+ clip info) for the rates story: Drive folder "S2 ..." (or the old "Rates"), each used in turn."""
+    return folder_assets("S2", st, full=True)
 
-def layered_video(layers, bg, bg_video, song, st, dst, T):
+def layered_video(layers, bg, bg_video, song, st, dst, T, info=None):
     """Story video: background video (looped) or photo (slow zoom), darkened; transparent HTML layers fade in one
     after another; music = `song`, else the Drive "Music" folder, else a soft generated pad."""
     import subprocess
@@ -709,16 +709,23 @@ def layered_video(layers, bg, bg_video, song, st, dst, T):
     else:
         cmd = [ff, "-y", "-loop", "1", "-i", str(bg)]
         base = f"[0:v]scale=1300:2300:force_original_aspect_ratio=increase,crop=1300:2300,setsar=1,zoompan=z='min(zoom+0.0006,1.18)':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d={T*30}:s=1080x1920:fps=30,"
+    cov = cover_png(info, "cover-story")
+    if cov and not bg_video:   # a photo with our own mark: no slow zoom, so the label stays exactly on the mark
+        cmd = [ff, "-y", "-loop", "1", "-t", str(T), "-i", str(bg)]
+        base = "[0:v]scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,fps=30,setsar=1,"
     for o in pngs:
         cmd += ["-loop", "1", "-t", str(T), "-i", str(o)]
     f = (base + "eq=brightness=-0.06:saturation=1.15,drawbox=x=0:y=0:w=iw:h=ih:color=black@0.30:t=fill,fade=in:st=0:d=0.6[b0];")
+    if cov:
+        cmd += ["-loop", "1", "-t", str(T), "-i", str(cov)]
+        f = f.replace("[b0];", "[b00];") + f"[{1 + len(pngs)}:v]format=rgba[cv];[b00][cv]overlay=0:0[b0];"
     last = "b0"
     for i in range(len(pngs)):
         st_ = 0.8 + i * 0.7
         f += f"[{i+1}:v]format=rgba,fade=in:st={st_:.2f}:d=0.5:alpha=1,fade=out:st={T-0.8}:d=0.6:alpha=1[l{i}];[{last}][l{i}]overlay=0:0[b{i+1}];"
         last = f"b{i+1}"
     f += f"[{last}]format=yuv420p[out]"
-    n_in = 1 + len(pngs)
+    n_in = 1 + len(pngs) + (1 if cov else 0)
     if song == "KEEP" and bg_video:   # the background video already has music -> keep it
         f += f";[0:a]atrim=0:{T},afade=t=in:st=0:d=0.5,afade=t=out:st={T-1.5}:d=1.5[aout]"
         tracks = None
@@ -742,12 +749,12 @@ def layered_video(layers, bg, bg_video, song, st, dst, T):
 def rates_video(d, v, st, dst):
     """25 s story (RATES_SECONDS) with music: a slow zoom over a beautiful Van photo, darkened, with the date, each rate row and the footer fading in."""
     # your own background videos/photos + songs from the Drive folder "S2" (or "Rates"), used in turn
-    bg, bg_video, rates_song = rates_assets(st)
+    bg, bg_video, rates_song, info = rates_assets(st)
     if not bg:
         ph = pick_photos(random.choice(["lake", "akdamar", "edremit", "suphan", "city"]), "منظرهٔ زیبای وان برای پس‌زمینهٔ استوری نرخ ارز", 1, st)
         bg, bg_video = (ph[0][0] if ph else A / "akdamar.jpg"), False
     parts = ["head"] + [f"row{i}" for i in range(len(rates_rows(d)))] + ["foot"]
-    layered_video([rates_layer_html(d, v, k) for k in parts], bg, bg_video, rates_song, st, dst, int(os.environ.get("RATES_SECONDS", "25")))
+    layered_video([rates_layer_html(d, v, k) for k in parts], bg, bg_video, rates_song, st, dst, int(os.environ.get("RATES_SECONDS", "25")), info)
     print("animated rates story ready")
 
 # ---------------------------------------------------------------- Reels: short edited videos from real footage
@@ -952,6 +959,9 @@ def folder_files(code, kind="visual"):
             return got
     return []
 
+# Instagram pages that belong to US: their names/watermarks on a clip are covered with "vangasht.com" (comma list, without @)
+OWN_PAGES = [x.strip().lstrip("@") for x in os.environ.get("OWN_PAGES", "vangasht.van,vangasht.com,van.gasht.turkiye").split(",") if x.strip()]
+
 def has_own_music(f, name=""):
     """Does a video already carry music / loud sound? File name wins: "music"/"موزیک"/"آهنگ" = keep, "mute"/"بی صدا" = replace.
     Otherwise measured: mean loudness above CLIP_MUSIC_DB (raw phone footage is usually quieter)."""
@@ -969,10 +979,10 @@ def clip_info(path, is_video, fid, name, st):
     """Claude looks at 3 frames of your file (once; the answer is saved): text already written on it, a greeting,
     another page's watermark/logo; plus whether it already has music. Cached in state.json -> clip_info."""
     cache = st.setdefault("clip_info", {})
-    if fid in cache:
+    if fid in cache and cache[fid].get("v") == 3:
         return cache[fid]
     import subprocess
-    info = {"text": "", "greeting": "", "other_page": False, "page": "", "music": False}
+    info = {"text": "", "greeting": "", "other_page": False, "page": "", "music": False, "own_boxes": [], "ar": 0.5625, "v": 3}
     if is_video:
         try:
             info["music"] = has_own_music(path, name)
@@ -982,18 +992,25 @@ def clip_info(path, is_video, fid, name, st):
     if key:
         ff = ffmpeg_bin(); work = ROOT / "dl"; frames = []
         L = vid_duration(ff, path) if is_video else 0
-        for i, t in enumerate([L * 0.15, L * 0.5, L * 0.85] if is_video and L else [0]):
+        for i, t in enumerate([L * 0.1, L * 0.35, L * 0.6, L * 0.9] if is_video and L else [0]):
             o = work / f"ci_{fid}_{i}.jpg"
-            subprocess.run([ff, "-y", *(["-ss", f"{t:.2f}"] if is_video else []), "-i", str(path), "-frames:v", "1", "-vf", "scale=500:-2", str(o)], capture_output=True)
+            subprocess.run([ff, "-y", *(["-ss", f"{t:.2f}"] if is_video else []), "-i", str(path), "-frames:v", "1", "-vf", "scale=720:-2", str(o)], capture_output=True)
             if o.exists():
                 frames.append(o)
+        if frames:
+            from PIL import Image
+            w_, h_ = Image.open(frames[0]).size; info["ar"] = w_ / h_
         content = [{"type": "image", "source": {"type": "base64", "media_type": "image/jpeg", "data": base64.b64encode(fr.read_bytes()).decode()}} for fr in frames]
         content.append({"type": "text", "text": (
-            "این چند فریم از یک ویدیو/عکس است که پیج اینستاگرام «وان گشت» (vangasht) می‌خواهد در استوری بگذارد. فقط ببین و بگو:\n"
-            "text: هر نوشته‌ای که روی تصویر اضافه شده (کپشن، تیتر، جمله) — نه تابلوی مغازه یا نوشتهٔ طبیعی محیط؛ اگر نیست خالی.\n"
+            f"این چند فریم از یک ویدیو/عکس است که پیج اینستاگرام ما می‌خواهد در استوری بگذارد. پیج‌های خود ما فقط دقیقاً این‌هاست: {', '.join('@' + x for x in OWN_PAGES)}. "
+            "هر آیدی یا برند دیگری حتی اگر شبیه باشد مال پیج دیگری است. همهٔ گوشه‌ها و لبه‌ها را با دقت نگاه کن و بگو:\n"
+            "text: هر نوشته‌ای که روی تصویر اضافه شده (کپشن، تیتر، جمله، خوشنویسی، استیکر متنی) — نه تابلوی مغازه یا نوشتهٔ طبیعی محیط؛ اگر نیست خالی.\n"
             "greeting: اگر نوشته صبح‌بخیر است \"morning\"، اگر شب‌بخیر است \"night\"، وگرنه خالی.\n"
-            "other_page: true اگر واترمارک، لوگو یا آیدی/اسم یک پیج یا برند دیگر (غیر از vangasht / وان گشت) روی تصویر هست؛ page = همان اسم یا آیدی.\n"
-            'فقط JSON: {"text": "", "greeting": "", "other_page": false, "page": ""}')})
+            "other_page: true اگر واترمارک، لوگو، امضا یا آیدی/اسم هر پیج یا برند دیگری روی تصویر هست (حتی کوچک و کم‌رنگ در گوشه)، "
+            "یا اگر ضبط صفحهٔ اینستاگرام/تیک‌تاکِ یک پیج دیگر است؛ page = همان اسم یا آیدی. آرم یا آیدی پیج‌های خود ما other_page نیست.\n"
+            "own_boxes: جای هر آرم، آیدی یا واترمارکِ پیج‌های خود ما، و اگر ضبط صفحهٔ اینستاگرامِ پیج خودمان است جای نوار بالای صفحه (اسم کاربری، زمان، نوار پیشرفت) — "
+            "هر کدام به شکل [x, y, w, h] با عددهای ۰ تا ۱ نسبت به عرض و ارتفاع تصویر (x,y = گوشهٔ بالا-چپ). کمی بزرگ‌تر از خود نوشته بگیر. اگر نیست [].\n"
+            'فقط JSON: {"text": "", "greeting": "", "other_page": false, "page": "", "own_boxes": []}')})
         body = json.dumps({"model": AI_MODEL, "max_tokens": 200, "messages": [{"role": "user", "content": content}]}).encode()
         req = urllib.request.Request("https://api.anthropic.com/v1/messages", data=body, method="POST", headers={
             "x-api-key": key, "anthropic-version": "2023-06-01", "content-type": "application/json"})
@@ -1003,6 +1020,17 @@ def clip_info(path, is_video, fid, name, st):
             a = json.loads(txt[txt.find("{"): txt.rfind("}") + 1])
             info.update(text=str(a.get("text") or "")[:120].replace("<", "").replace(">", ""), greeting=str(a.get("greeting") or ""),
                         other_page=bool(a.get("other_page")), page=str(a.get("page") or "")[:40])
+            boxes = []
+            for b_ in (a.get("own_boxes") or [])[:4]:
+                try:
+                    x, y, w, h = [min(1.0, max(0.0, float(z))) for z in b_[:4]]
+                    if w > 0.01 and h > 0.005 and w * h < 0.25:
+                        boxes.append([x, y, w, h])
+                except Exception:
+                    pass
+            info["own_boxes"] = boxes
+            if info["other_page"] and any(o.lower() in info["page"].lower().lstrip("@") for o in OWN_PAGES):
+                info["other_page"] = False   # it is one of our own pages
         except Exception as e:
             print("! clip check failed:", str(e)[:120])
             return info   # not cached: try again next time
@@ -1010,8 +1038,35 @@ def clip_info(path, is_video, fid, name, st):
     if len(cache) > 600:
         for k in list(cache)[:100]:
             del cache[k]
-    print(f"clip check {name}: text='{info['text'][:40]}' other_page={info['other_page']} {info['page']} music={info['music']}")
+    print(f"clip check {name}: text='{info['text'][:40]}' other_page={info['other_page']} {info['page']} music={info['music']} own marks={len(info['own_boxes'])}")
     return info
+
+def cover_png(info, name="cover"):
+    """Transparent 1080x1920 PNG that hides the name/watermark of OUR OWN other pages with a "vangasht.com" label
+    (the clip is scaled to fill 1080x1920 and centre-cropped, so the boxes are mapped the same way). None if nothing to cover."""
+    boxes = (info or {}).get("own_boxes") or []
+    if not boxes:
+        return None
+    ar = info.get("ar") or 0.5625
+    W, H = (1920 * ar, 1920) if ar >= 1080 / 1920 else (1080, 1080 / ar)
+    ox, oy = (W - 1080) / 2, (H - 1920) / 2
+    html = ""
+    for x, y, w, h in boxes:
+        px, py, pw, ph = x * W - ox, y * H - oy, w * W, h * H
+        pad = max(14, ph * 0.35)
+        px, py, pw, ph = max(0, px - pad), max(0, py - pad), min(1080, pw + 2 * pad), max(56, ph + 2 * pad)
+        fs = max(22, min(44, ph * 0.45))
+        html += (f'<div style="position:absolute;left:{px:.0f}px;top:{py:.0f}px;width:{pw:.0f}px;height:{ph:.0f}px;background:rgba(11,47,58,.94);'
+                 f'border-radius:{min(ph / 2, 40):.0f}px;display:flex;align-items:center;justify-content:center;color:#fff;font:700 {fs:.0f}px Georgia,serif;'
+                 f'direction:ltr;white-space:nowrap;overflow:hidden;box-shadow:0 4px 18px rgba(0,0,0,.35)">vangasht<span style="color:#f2ad3d">.com</span></div>')
+    out = ROOT / "dl" / f"{name}.png"; out.parent.mkdir(exist_ok=True)
+    from playwright.sync_api import sync_playwright
+    with sync_playwright() as p:
+        b = p.chromium.launch(); pg = b.new_page(viewport={"width": 1080, "height": 1920})
+        pg.set_content(f"<html><head><meta charset=utf-8><style>{css()}html,body{{background:transparent}}body{{width:1080px;height:1920px}}</style></head><body>{html}</body></html>")
+        pg.wait_for_timeout(150); pg.screenshot(path=str(out), omit_background=True); b.close()
+    print(f"covering {len(boxes)} mark(s) of our own pages with vangasht.com")
+    return out
 
 def usable(f, info, st):
     """Files with another page's watermark/logo are NOT used (we don't remove or cover other people's marks).
@@ -1112,7 +1167,7 @@ def reel_overlay_html(kind, text, hl_word, v, i=0, n=0, credit=None):
 def html_escape(x):
     return str(x).replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
 
-def reel_segment(ff, src, is_video, dur, overlay_png, dst, start=0.0):
+def reel_segment(ff, src, is_video, dur, overlay_png, dst, start=0.0, cover=None):
     import subprocess
     grade = "eq=contrast=1.06:saturation=1.15:brightness=0.01"
     if is_video:
@@ -1123,10 +1178,16 @@ def reel_segment(ff, src, is_video, dur, overlay_png, dst, start=0.0):
         frames = int(dur * FPS)
         zoom_in = random.random() < 0.6
         z = "min(1.0+0.0009*on,1.12)" if zoom_in else "max(1.12-0.0009*on,1.0)"
+        if cover:
+            z = "1.0"   # keep the label exactly on our own page's mark
         base = (f"[0:v]scale=-2:2400,crop='min(iw,1350)':2400,zoompan=z='{z}':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d={frames}:s={REEL_W}x{REEL_H}:fps={FPS},"
                 f"{grade},setsar=1[bg]")
+    extra = []
+    if cover:
+        base = base.replace("[bg]", "[bg0]") + f";[2:v]format=rgba[cv];[bg0][cv]overlay=0:0[bg]"
+        extra = ["-loop", "1", "-t", f"{dur:.2f}", "-i", str(cover)]
     f = base + f";[1:v]format=rgba,fade=in:st=0.25:d=0.35:alpha=1[ov];[bg][ov]overlay=0:0,format=yuv420p[out]"
-    cmd = [ff, "-y", *inp, "-loop", "1", "-t", f"{dur:.2f}", "-i", str(overlay_png), "-filter_complex", f, "-map", "[out]", "-an",
+    cmd = [ff, "-y", *inp, "-loop", "1", "-t", f"{dur:.2f}", "-i", str(overlay_png), *extra, "-filter_complex", f, "-map", "[out]", "-an",
            "-t", f"{dur:.2f}", "-c:v", "libx264", "-preset", "veryfast", "-crf", "19", "-r", str(FPS), str(dst)]
     r = subprocess.run(cmd, capture_output=True, text=True)
     if r.returncode != 0 or not Path(dst).exists():
@@ -1178,7 +1239,7 @@ def make_reel(plan, v, st, dst, style="text", folder=None):
     else:
         scenes = [{"text": plan["hook"], "hl": plan.get("hl", ""), "query": plan["scenes"][0].get("query", "Lake Van"), "kind": "hook"}]
         scenes += [dict(x, kind="scene") for x in plan["scenes"][:5]]
-    clips, credits, px_used = [], set(), set(st.get("pexels_used", []))
+    clips, credits, px_used, covers = [], set(), set(st.get("pexels_used", [])), {}
     # look at up to 10 of your Drive files and let AI match them to the scenes (no selfies / ads / unrelated shots)
     pool = []
     for f in [f for f in drive if int(f.get("size") or 0) < 200_000_000][:10]:
@@ -1203,6 +1264,7 @@ def make_reel(plan, v, st, dst, style="text", folder=None):
         src = None
         if i < len(assign) and 0 <= assign[i] < len(pool):
             src = pool[assign[i]][:4]
+            covers[i] = cover_png(pool[assign[i]][5], f"cover-{i}")
             if pool[assign[i]][5].get("text") and sc["kind"] == "scene":
                 sc = dict(sc, kind="pin")   # the clip already has words on it -> don't write over them
         if not src:
@@ -1242,7 +1304,7 @@ def make_reel(plan, v, st, dst, style="text", folder=None):
             elif L:
                 dur = max(1.5, L - 0.1)
         seg = work / f"seg{i}.mp4"
-        reel_segment(ff, src, is_vid, dur, over[i], seg, start)
+        reel_segment(ff, src, is_vid, dur, over[i], seg, start, covers.get(i))
         segs.append(seg); durs.append(dur)
         if cr: credits.add(cr)
         if uid.startswith("d:"): used[uid] = used.get(uid, 0) + 1
@@ -1518,7 +1580,7 @@ def card_story(code, d, v, st, dst):
             ph = pick_photos(key, "منظرهٔ زیبای وان برای پس‌زمینهٔ استوری" + (" صبحگاهی" if code == "s1" else " شبانه" if code == "s10" else ""), 1, st)
         bg, bg_video = (ph[0][0] if ph else A / "lake.jpg"), False
     parts = ["head"] + [f"l{i}" for i in range(len(c["lines"]))] + ["foot"]
-    layered_video([card_layer_html(c, k, v) for k in parts], bg, bg_video, song, st, dst, int(os.environ.get("CARD_SECONDS", "15")))
+    layered_video([card_layer_html(c, k, v) for k in parts], bg, bg_video, song, st, dst, int(os.environ.get("CARD_SECONDS", "15")), info)
     print(f"{code} story ready:", c["title"])
     return c
 
@@ -1544,13 +1606,13 @@ def todayposts_story(d, v, st, day, dst):
     covers = [c for c in covers if c.exists()]
     if not covers:
         return None
-    bg, bg_video, song = folder_assets("S9", st)
+    bg, bg_video, song, info = folder_assets("S9", st, full=True)
     if not bg:
         from PIL import Image, ImageFilter
         bg = ROOT / "dl" / f"{day}-s9-bg.jpg"; bg.parent.mkdir(exist_ok=True)
         Image.open(covers[-1]).convert("RGB").filter(ImageFilter.GaussianBlur(40)).save(bg, quality=88)
         bg_video = False
-    layered_video([todayposts_layer_html(covers, k, v) for k in ("head", "covers", "foot")], bg, bg_video, song, st, dst, int(os.environ.get("CARD_SECONDS", "15")))
+    layered_video([todayposts_layer_html(covers, k, v) for k in ("head", "covers", "foot")], bg, bg_video, song, st, dst, int(os.environ.get("CARD_SECONDS", "15")), info)
     print("s9 story ready with", len(covers), "post cover(s)")
     return covers
 
