@@ -711,16 +711,22 @@ def layered_video(layers, bg, bg_video, song, st, dst, T):
         base = f"[0:v]scale=1300:2300:force_original_aspect_ratio=increase,crop=1300:2300,setsar=1,zoompan=z='min(zoom+0.0006,1.18)':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d={T*30}:s=1080x1920:fps=30,"
     for o in pngs:
         cmd += ["-loop", "1", "-t", str(T), "-i", str(o)]
-    f = (base + "eq=brightness=-0.10:saturation=1.15,drawbox=x=0:y=0:w=iw:h=ih:color=black@0.40:t=fill,fade=in:st=0:d=0.6[b0];")
+    f = (base + "eq=brightness=-0.06:saturation=1.15,drawbox=x=0:y=0:w=iw:h=ih:color=black@0.30:t=fill,fade=in:st=0:d=0.6[b0];")
     last = "b0"
     for i in range(len(pngs)):
         st_ = 0.8 + i * 0.7
         f += f"[{i+1}:v]format=rgba,fade=in:st={st_:.2f}:d=0.5:alpha=1,fade=out:st={T-0.8}:d=0.6:alpha=1[l{i}];[{last}][l{i}]overlay=0:0[b{i+1}];"
         last = f"b{i+1}"
     f += f"[{last}]format=yuv420p[out]"
-    tracks = [song] if song else music_tracks(st)
     n_in = 1 + len(pngs)
-    if tracks:
+    if song == "KEEP" and bg_video:   # the background video already has music -> keep it
+        f += f";[0:a]atrim=0:{T},afade=t=in:st=0:d=0.5,afade=t=out:st={T-1.5}:d=1.5[aout]"
+        tracks = None
+    else:
+        tracks = [song] if song and song != "KEEP" else music_tracks(st)
+    if tracks is None:
+        pass
+    elif tracks:
         cmd += music_input(tracks, st)
         f += f";[{n_in}:a]atrim=0:{T},afade=t=in:st=0:d=1,afade=t=out:st={T-2}:d=2,volume=0.9[aout]"
     else:
@@ -946,6 +952,76 @@ def folder_files(code, kind="visual"):
             return got
     return []
 
+def has_own_music(f, name=""):
+    """Does a video already carry music / loud sound? File name wins: "music"/"موزیک"/"آهنگ" = keep, "mute"/"بی صدا" = replace.
+    Otherwise measured: mean loudness above CLIP_MUSIC_DB (raw phone footage is usually quieter)."""
+    import subprocess
+    n = name.lower()
+    if any(w in n for w in ("music", "موزیک", "آهنگ", "اهنگ", "#sound")):
+        return True
+    if any(w in n for w in ("mute", "بی صدا", "بیصدا", "بی‌صدا", "#nosound")):
+        return False
+    r = subprocess.run([ffmpeg_bin(), "-hide_banner", "-t", "40", "-i", str(f), "-vn", "-af", "volumedetect", "-f", "null", "-"], capture_output=True, text=True)
+    m = re.search(r"mean_volume: (-?[\d.]+) dB", r.stderr)
+    return bool(m) and float(m.group(1)) > float(os.environ.get("CLIP_MUSIC_DB", "-27"))
+
+def clip_info(path, is_video, fid, name, st):
+    """Claude looks at 3 frames of your file (once; the answer is saved): text already written on it, a greeting,
+    another page's watermark/logo; plus whether it already has music. Cached in state.json -> clip_info."""
+    cache = st.setdefault("clip_info", {})
+    if fid in cache:
+        return cache[fid]
+    import subprocess
+    info = {"text": "", "greeting": "", "other_page": False, "page": "", "music": False}
+    if is_video:
+        try:
+            info["music"] = has_own_music(path, name)
+        except Exception as e:
+            print("! sound check failed:", str(e)[:100])
+    key = os.environ.get("ANTHROPIC_API_KEY")
+    if key:
+        ff = ffmpeg_bin(); work = ROOT / "dl"; frames = []
+        L = vid_duration(ff, path) if is_video else 0
+        for i, t in enumerate([L * 0.15, L * 0.5, L * 0.85] if is_video and L else [0]):
+            o = work / f"ci_{fid}_{i}.jpg"
+            subprocess.run([ff, "-y", *(["-ss", f"{t:.2f}"] if is_video else []), "-i", str(path), "-frames:v", "1", "-vf", "scale=500:-2", str(o)], capture_output=True)
+            if o.exists():
+                frames.append(o)
+        content = [{"type": "image", "source": {"type": "base64", "media_type": "image/jpeg", "data": base64.b64encode(fr.read_bytes()).decode()}} for fr in frames]
+        content.append({"type": "text", "text": (
+            "این چند فریم از یک ویدیو/عکس است که پیج اینستاگرام «وان گشت» (vangasht) می‌خواهد در استوری بگذارد. فقط ببین و بگو:\n"
+            "text: هر نوشته‌ای که روی تصویر اضافه شده (کپشن، تیتر، جمله) — نه تابلوی مغازه یا نوشتهٔ طبیعی محیط؛ اگر نیست خالی.\n"
+            "greeting: اگر نوشته صبح‌بخیر است \"morning\"، اگر شب‌بخیر است \"night\"، وگرنه خالی.\n"
+            "other_page: true اگر واترمارک، لوگو یا آیدی/اسم یک پیج یا برند دیگر (غیر از vangasht / وان گشت) روی تصویر هست؛ page = همان اسم یا آیدی.\n"
+            'فقط JSON: {"text": "", "greeting": "", "other_page": false, "page": ""}')})
+        body = json.dumps({"model": AI_MODEL, "max_tokens": 200, "messages": [{"role": "user", "content": content}]}).encode()
+        req = urllib.request.Request("https://api.anthropic.com/v1/messages", data=body, method="POST", headers={
+            "x-api-key": key, "anthropic-version": "2023-06-01", "content-type": "application/json"})
+        try:
+            with urllib.request.urlopen(req, timeout=90) as r:
+                txt = "".join(b.get("text", "") for b in json.load(r).get("content", []))
+            a = json.loads(txt[txt.find("{"): txt.rfind("}") + 1])
+            info.update(text=str(a.get("text") or "")[:120].replace("<", "").replace(">", ""), greeting=str(a.get("greeting") or ""),
+                        other_page=bool(a.get("other_page")), page=str(a.get("page") or "")[:40])
+        except Exception as e:
+            print("! clip check failed:", str(e)[:120])
+            return info   # not cached: try again next time
+    cache[fid] = info
+    if len(cache) > 600:
+        for k in list(cache)[:100]:
+            del cache[k]
+    print(f"clip check {name}: text='{info['text'][:40]}' other_page={info['other_page']} {info['page']} music={info['music']}")
+    return info
+
+def usable(f, info, st):
+    """Files with another page's watermark/logo are NOT used (we don't remove or cover other people's marks).
+    Exception: you got permission and put the page name in the file name, e.g. "@vanbuyuksehir65 akdamar.mp4" -> it is credited."""
+    if info.get("other_page") and not credit_of(f["name"]):
+        print(f"! skipped '{f['name']}': it has another page's mark ({info.get('page') or '?'}). Use your own footage, or put @page in the name if you have permission.")
+        sk = st.setdefault("skipped_files", {}); sk[f["name"]] = info.get("page") or "?"
+        return False
+    return True
+
 def lru_take(files, st):
     """The file used least recently (then the oldest), downloaded -> (local path, drive file) or None."""
     if not files:
@@ -958,12 +1034,26 @@ def lru_take(files, st):
     except Exception as e:
         print("! download failed:", str(e)[:120]); return None
 
-def folder_assets(code, st):
-    """-> (background path or None, background is a video?, song path or None) from the folder of `code`."""
-    v_ = lru_take(folder_files(code, "visual"), st)
-    a_ = lru_take(folder_files(code, "audio"), st)
-    print(f"{code} background:", v_[1]["name"] if v_ else "-", "| song:", a_[1]["name"] if a_ else "-")
-    return (v_[0] if v_ else None), bool(v_ and v_[1]["mimeType"].startswith("video/")), (a_[0] if a_ else None)
+def folder_assets(code, st, full=False):
+    """-> (background path or None, background is a video?, song path or None[, clip info]) from the folder of `code`.
+    If the video already has music, no song is added (its own sound is kept)."""
+    vis = folder_files(code, "visual")
+    v_, info = None, {}
+    for _ in range(min(5, len(vis))):
+        got = lru_take(vis, st)
+        if not got:
+            break
+        is_v = got[1]["mimeType"].startswith("video/")
+        info = clip_info(got[0], is_v, got[1]["id"], got[1]["name"], st)
+        if usable(got[1], info, st):
+            v_ = got; break
+        vis = [x for x in vis if x["id"] != got[1]["id"]]; info = {}
+    is_v = bool(v_ and v_[1]["mimeType"].startswith("video/"))
+    keep = is_v and info.get("music")
+    a_ = None if keep else lru_take(folder_files(code, "audio"), st)
+    print(f"{code} background:", v_[1]["name"] if v_ else "-", "| song:", "own sound of the video" if keep else (a_[1]["name"] if a_ else "-"))
+    out = ((v_[0] if v_ else None), is_v, ("KEEP" if keep else (a_[0] if a_ else None)))
+    return out + (info,) if full else out
 
 def music_tracks(st):
     """Royalty-free songs: the Drive sub-folder "Music" (easiest: upload from your phone) plus the repo's music/ folder."""
@@ -1096,8 +1186,9 @@ def make_reel(plan, v, st, dst, style="text", folder=None):
             loc = drive_download(f); is_v = f["mimeType"].startswith("video/")
             th = work / f"th_{f['id']}.jpg"
             subprocess.run([ff, "-y", *(["-ss", "1"] if is_v else []), "-i", str(loc), "-frames:v", "1", "-vf", "scale=400:-2", str(th)], capture_output=True)
-            if th.exists():
-                pool.append((loc, is_v, credit_of(f["name"]), "d:" + f["id"], th))
+            info = clip_info(loc, is_v, f["id"], f["name"], st)
+            if th.exists() and usable(f, info, st):
+                pool.append((loc, is_v, credit_of(f["name"]), "d:" + f["id"], th, info))
         except Exception as e:
             print("! Drive download failed:", str(e)[:120])
     own_pool = [f for f in drive if f.get("_own") and int(f.get("size") or 0) < 200_000_000][:10]
@@ -1112,6 +1203,8 @@ def make_reel(plan, v, st, dst, style="text", folder=None):
         src = None
         if i < len(assign) and 0 <= assign[i] < len(pool):
             src = pool[assign[i]][:4]
+            if pool[assign[i]][5].get("text") and sc["kind"] == "scene":
+                sc = dict(sc, kind="pin")   # the clip already has words on it -> don't write over them
         if not src:
             q = sc.get("query") or "Turkey lake"
             got = (pexels_video(q, px_used) or pixabay_video(q, px_used, sc["text"])
@@ -1312,8 +1405,8 @@ def card_subject(code, d, st):
     return {}
 
 CARD_ASK = {
-    "s1": "استوری «صبح بخیر» ساعت ۹ صبح. tag = «صبح بخیر». title یک سلام صبحگاهی گرم و کوتاه (مثل «صبح بخیر از وان ☀️»)، sub یک جملهٔ انرژی‌بخش و صمیمی دربارهٔ سفر یا یک روز خوب در وان، "
-          "lines یک مورد: یک پیشنهاد کوچک برای امروز (مثلاً صبحانهٔ وانی، قدم زدن کنار دریاچه، چای ترکی). دربارهٔ هوای امروز ادعا نکن. foot خالی.",
+    "s1": "استوری «صبح بخیر» ساعت ۹ صبح. tag = «صبح بخیر» یا خالی. title یک سلام صبحگاهی ظریف و تازه (هر روز متفاوت)، sub یک جملهٔ انرژی‌بخش و صمیمی دربارهٔ سفر یا یک روز خوب در وان، "
+          "lines صفر یا یک مورد: یک پیشنهاد کوچک برای امروز (مثلاً صبحانهٔ وانی، قدم زدن کنار دریاچه). دربارهٔ هوای امروز ادعا نکن. foot خالی.",
     "s4": "استوری معرفی و تبلیغ سایت vangasht.com؛ موضوع امروز را از اطلاعات زیر بگیر و جذاب معرفی کن تا مخاطب برود سایت را ببیند. tag = «تو سایت ما»، "
           "lines دقیقاً ۳ مزیت یا نکتهٔ کوتاه، foot یک جملهٔ دعوت کوتاه مثل «لینک تو بیو 👆 سر بزن».",
     "s5": "استوری تبلیغ تور گردشگری؛ تور امروز را از اطلاعات زیر معرفی کن، هیجان‌انگیز ولی صادق. tag = «تور وان گشت»، lines دقیقاً ۳ نکتهٔ کوتاه (چه می‌بینی، چه تجربه‌ای، هماهنگی فارسی). "
@@ -1323,26 +1416,32 @@ CARD_ASK = {
           "tag = نام قالب، title خود سؤال یا دانستنی کوتاه، sub توضیح یا ادامهٔ سؤال، lines صفر تا دو مورد (برای «این یا اون؟» دو گزینه با ایموجی ۱️⃣ و ۲️⃣)، foot خالی.",
     "s8": "استوری معرفی یک جاذبهٔ وان (جاذبهٔ امروز پایین آمده). tag = «جاذبهٔ امروز وان»، title نام جاذبه با یک صفت جذاب، sub یک جمله دربارهٔ اینکه چرا باید دید، "
           "lines دقیقاً ۳ نکتهٔ کوتاه و مطمئن (کجاست، چه چیزی ببینی، بهترین زمان یا یک نکتهٔ کاربردی). اگر از چیزی مطمئن نیستی ننویس. foot مثل «سیوش کن برای سفرت 🔖».",
-    "s10": "استوری «شب بخیر» ساعت ۱۱ شب. tag = «شب بخیر». title یک شب‌بخیر گرم و کوتاه (مثل «شب بخیر وانی‌ها 🌙»)، sub یک جملهٔ آرام و دلنشین دربارهٔ سفر یا شب‌های وان، "
-           "lines یک مورد: یک دعوت کوچک برای فردا (مثلاً «فردا صبح با نرخ روز و کلی خبر خوب برمی‌گردیم»). foot خالی.",
+    "s10": "استوری «شب بخیر» ساعت ۱۱ شب. tag خالی. title یک شب‌بخیر ظریف و شاعرانه (مثل حس «شبتون نیلوفری» یا «تاریکی به کام»، ولی هر شب جملهٔ تازه)، "
+           "sub یک جملهٔ آرام و دلنشین دربارهٔ شب، دریاچه یا سفر، lines خالی. foot خالی.",
 }
+CARD_STYLE = ("سبک نوشتن: کوتاه، ظریف و دلنشین، مثل پیج‌های حرفه‌ای و شیک؛ کمی ادبی و شاعرانه ولی ساده و امروزی. "
+              "نمونهٔ حس و حال (عیناً تکرار نکن، هر روز جملهٔ تازه بساز): «شبتون نیلوفری»، «تاریکی به کام»، «صبحتون به روشنی آب دریاچه»، «یه فنجون چای و یه عالمه آرامش». "
+              "از جمله‌های کلیشه‌ای و بی‌مزه مثل «شب بخیر وانی‌ها» یا «صبح بخیر دوستان» پرهیز کن. title حداکثر ۵ کلمه. ایموجی کم و بجا (حداکثر یکی در title).")
 CARD_FALLBACK = {
-    "s1": [("صبح بخیر از وان ☀️", "وان", "یه روز قشنگ دیگه کنار بزرگ‌ترین دریاچهٔ ترکیه", [["🍯", "صبحانهٔ وانی امروز یادت نره"]]),
-           ("صبحتون بخیر 🌤", "بخیر", "امروز هم ما تو وان کنارتونیم", [["☕", "یه چای ترکی کنار دریاچه بچسبه"]])],
+    "s1": [("صبحتون به روشنی دریاچه ☀️", "روشنی", "یه فنجون چای، یه نفس عمیق، یه روز تازه", []),
+           ("سلام به صبحی تازه", "تازه", "امروزت پر از اتفاق‌های قشنگ", [["☕", "چای ترکی کنار دریاچه می‌چسبه"]])],
     "s6": [("کیا دوست دارن این روزا وان باشن؟ 🙋", "وان", "جوابتو بفرست، دوست داریم بدونیم 💬", []),
            ("آیا می‌دانید؟ 🤔", "می‌دانید", "دریاچهٔ وان بزرگ‌ترین دریاچهٔ ترکیه است. شما تا حالا دیدینش؟", []),
            ("این یا اون؟", "اون", "کدومو بیشتر دوست داری؟", [["1️⃣", "صبحانهٔ وانی"], ["2️⃣", "غروب کنار دریاچه"]])],
-    "s10": [("شب بخیر وانی‌ها 🌙", "شب بخیر", "خستگی سفر با یه خواب خوب در میره", [["⏰", "فردا صبح با نرخ روز برمی‌گردیم"]])],
+    "s10": [("شبتون نیلوفری 🌙", "نیلوفری", "چراغ‌های ساحل روشنه و شهر آروم خوابیده", []),
+            ("تاریکی به کام", "به کام", "خوابت آروم، فردات روشن", [])],
 }
 
-def card_content(code, d, v, st):
+def card_content(code, d, v, st, clip_text=""):
     subj = card_subject(code, d, st)
     log = st.setdefault("card_log", {}).setdefault(code, [])
     shape = ('{"topic": "موضوع کوتاه برای ثبت", "tag": "برچسب ۲ تا ۴ کلمه", "title": "تیتر حداکثر ۷ کلمه، خودمانی", "hl": "یک یا دو کلمه از همان تیتر برای رنگ طلایی", '
              '"sub": "یک جمله حداکثر ۹۰ حرف", "lines": [["ایموجی", "حداکثر ۴۵ حرف"], ...], "foot": "حداکثر ۵۰ حرف یا خالی"}')
     info = f"\nموضوع امروز: {subj['name']}\nاطلاعات: {subj['info']}\n" if subj else ""
+    if clip_text:
+        info += f"\nروی خود ویدیو از قبل این نوشته هست: «{clip_text}» — آن را تکرار نکن؛ متن ما کوتاه‌تر باشد و کاملش کند.\n"
     prompt = (f"{ai_context(d, v)}\n\nموضوع‌های اخیر همین استوری (تکرار نکن): {'، '.join(log[-12:]) or '—'}\n\n{inspo_text(st)}"
-              f"{CARD_ASK[code]}{info}\nمتن‌ها روی ویدیو نوشته می‌شوند: کوتاه، خوانا، گرم. شکل خروجی (فقط JSON):\n{shape}")
+              f"{CARD_ASK[code]}{info}\n{CARD_STYLE}\nشکل خروجی (فقط JSON):\n{shape}")
     it = claude(prompt)
     clean = lambda x, n: str(x or "")[:n].replace("<", "").replace(">", "").replace("آق‌تامار", "آکدامار").replace("آق تامار", "آکدامار")
     c = None
@@ -1370,10 +1469,10 @@ def card_layer_html(c, show, v):
     """One transparent layer of a designed story; `show` = 'head', 'l0'.., 'foot' (or 'all')."""
     vis = lambda k: "visible" if show in ("all", k) else "hidden"
     now = dt.datetime.now(TR)
-    date = (f'<div style="font-size:38px;font-weight:800;opacity:.92;margin-bottom:26px">{WEEKDAYS[now.weekday()]} {jalali(now.date())}'
+    date = (f'<div style="font-size:30px;font-weight:600;opacity:.9;margin-bottom:22px;letter-spacing:.5px">{WEEKDAYS[now.weekday()]} {jalali(now.date())}'
             f' · <span dir=ltr>{now.day} {EN_MONTHS[now.month - 1]}</span></div>') if c.get("date") else ""
     lines = "".join(f'<div style="visibility:{vis(f"l{i}")};display:flex;align-items:center;gap:22px;background:rgba(10,30,38,.55);border:2px solid rgba(255,255,255,.22);'
-                    f'border-radius:30px;padding:24px 34px;margin-top:22px;font-size:46px;font-weight:800;text-align:right"><span style="font-size:58px">{e}</span><span>{fill(t, v)}</span></div>'
+                    f'border-radius:26px;padding:{16 if c.get("compact") else 20}px 30px;margin-top:18px;font-size:{32 if c.get("compact") else 37}px;font-weight:700;text-align:right"><span style="font-size:44px">{e}</span><span>{fill(t, v)}</span></div>'
                     for i, (e, t) in enumerate(c["lines"]))
     if c.get("answer"):
         foot = ('<div style="background:#fff;color:#0d5b6f;text-shadow:none;border-radius:34px;padding:34px 40px;box-shadow:0 18px 50px rgba(0,0,0,.35)">'
@@ -1383,24 +1482,29 @@ def card_layer_html(c, show, v):
     else:
         foot = ""
         if c.get("foot"):
-            foot += f'<div style="font-size:42px;font-weight:800;margin-bottom:22px">{fill(c["foot"], v)}</div>'
+            foot += f'<div style="font-size:34px;font-weight:700;margin-bottom:20px">{fill(c["foot"], v)}</div>'
         if c.get("url"):
-            foot += f'<div style="display:inline-block;background:#fff;color:#0d5b6f;text-shadow:none;border-radius:60px;padding:20px 46px;font:700 44px Georgia,serif;direction:ltr">{c["url"]}</div>'
+            foot += f'<div style="display:inline-block;background:#fff;color:#0d5b6f;text-shadow:none;border-radius:60px;padding:16px 40px;font:700 36px Georgia,serif;direction:ltr">{c["url"]}</div>'
         if c["code"] in ("s4", "s5"):
-            foot += f'<div style="font-size:34px;font-weight:700;margin-top:22px">💬 واتس‌اپ <span dir=ltr>{v["wa"]}</span></div>'
-    sub = f'<p style="font-size:50px;font-weight:700;line-height:1.5;margin:26px 0 0">{fill(c["sub"], v)}</p>' if c.get("sub") else ""
+            foot += f'<div style="font-size:28px;font-weight:600;margin-top:18px">💬 واتس‌اپ <span dir=ltr>{v["wa"]}</span></div>'
+    sub = f'<p style="font-size:{34 if c.get("compact") else 40}px;font-weight:500;line-height:1.6;margin:22px 0 0;opacity:.95">{fill(c["sub"], v)}</p>' if c.get("sub") else ""
+    tag = f'<span class="tag" style="font-size:30px;padding:6px 20px;text-shadow:none">{c["tag"]}</span>' if c.get("tag") else ""
+    tsize = (56 if c.get("compact") else 70) if len(c["title"]) < 28 else (48 if c.get("compact") else 60)
+    title = f'<h1 style="font-size:{tsize}px;font-weight:800;line-height:1.35;margin:{24 if tag else 0}px 0 0;letter-spacing:-.5px">{hl(c, v)}</h1>' if c.get("title") else ""
     return f"""<div style="position:absolute;inset:0;color:#fff;text-shadow:0 3px 18px rgba(0,0,0,.6)">
 <div style="visibility:{vis('head')};position:absolute;top:120px;left:0;right:0;display:flex;justify-content:center">{brand().replace('right:48px;top:44px', 'position:static')}</div>
-<div style="position:absolute;left:70px;right:70px;top:0;bottom:0;display:flex;flex-direction:column;justify-content:center;text-align:center;padding:300px 0 380px">
-<div style="visibility:{vis('head')}">{date}<span class="tag" style="font-size:40px;text-shadow:none">{c.get('tag') or ''}</span>
-<h1 style="font-size:{92 if len(c['title']) < 28 else 78}px;font-weight:900;line-height:1.25;margin:34px 0 0">{hl(c, v)}</h1>{sub}</div>
+<div style="position:absolute;left:90px;right:90px;top:0;bottom:0;display:flex;flex-direction:column;justify-content:{'flex-end' if c.get('compact') else 'center'};text-align:center;padding:300px 0 380px">
+<div style="visibility:{vis('head')}">{date}{tag}{title}{sub}</div>
 {lines}
 <div style="visibility:{vis('foot')};margin-top:60px">{foot}</div></div></div>"""
 
 def card_story(code, d, v, st, dst):
     """S1/S4/S5/S6/S8/S10: AI text over a video/photo from the story's own Drive folder, layers fading in, with music."""
-    c = card_content(code, d, v, st)
-    bg, bg_video, song = folder_assets(code.upper(), st)
+    bg, bg_video, song, info = folder_assets(code.upper(), st, full=True)
+    c = card_content(code, d, v, st, info.get("text", ""))
+    if info.get("text") and (code in ("s1", "s10") or (info.get("greeting") == "morning" and code == "s1")):
+        c.update(title="", sub="", lines=[], tag="")   # the clip already says good morning / good night -> only date + logo
+    c["compact"] = bool(info.get("text"))
     if not bg:
         subj = c["subj"]
         if code == "s8":
