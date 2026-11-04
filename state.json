@@ -157,6 +157,12 @@
    "slot": "story1",
    "item": "rates",
    "media": "18109726964239835"
+  },
+  {
+   "at": "2026-11-04T19:55+03:00",
+   "slot": "p2",
+   "item": "ai:چک‌لیست شب اول رسیدن به وان",
+   "media": "18120539734768235"
   }
  ],
  "media_done": [
@@ -199,6 +205,10 @@
   {
    "day": "2026-11-03",
    "topic": "راهنمای خرید سوغاتی از وان (پنیر سیر، عس"
+  },
+  {
+   "day": "2026-11-04",
+   "topic": "چک‌لیست شب اول رسیدن به وان"
   }
  ],
  "inspo": {
@@ -336,7 +346,9 @@
   "File:Süphan Dağı Süphan Mountain.jpg",
   "File:Gevaş, isola di akdamar, punto panoramico sul lago di van, 01.jpg",
   "File:050412-VanLake-Turkey-IMG 2708-2.jpg",
-  "File:Akdamar island Van lake.jpg"
+  "File:Akdamar island Van lake.jpg",
+  "File:65500 Görecek-Muradiye-Van, Turkey - panoramio.jpg",
+  "File:Kevenli.jpg"
  ],
  "last_error": {
   "at": "2026-11-04T17:03+03:00",
@@ -364,22 +376,26 @@
  },
  "pexels_used": [
   "x381054",
+  "x67201",
   "x7262",
-  "x156103",
+  "x222349",
   "x4730",
-  "x84906",
-  "x2576",
-  "x119190",
-  "x371424",
-  "x236256",
   "x267036",
   "x170912",
-  "x273476",
-  "x67201",
-  "x222349"
+  "x31550",
+  "x50622",
+  "x140186",
+  "x2576",
+  "x119190",
+  "x79899",
+  "x236256",
+  "x371424",
+  "x84906",
+  "x156103",
+  "x273476"
  ],
  "music_last": {
-  "1DZTJ4ef0yYVG2xdl3IlbrnmWhvTIImvs": "2026-11-04T18:53+03:00",
+  "1DZTJ4ef0yYVG2xdl3IlbrnmWhvTIImvs": "2026-11-04T19:53+03:00",
   "1dkR0sggYnJv6PAPhkKiPNI1Qbu5nbVwi": "2026-11-04T18:54+03:00",
   "1fp4Ah5iQfFhH9Wv8srgJdSKSlru0RDHO": "2026-11-04T18:55+03:00",
   "1QUXCTr3hAjvM090ZbkBDmL190dxM9yXG": "2026-11-04T18:53+03:00",
