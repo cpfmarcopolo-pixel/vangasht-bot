@@ -1,20 +1,18 @@
 """Vangasht Instagram bot.
 
-Every day it publishes (through the official Instagram Graph API):
-  11:00  story 1  -> today's exchange rates, read live from vangasht.com
-                     (if the rates on the site are older than RATES_MAX_AGE_H hours,
-                      a story from the library is used instead, so stale prices are never posted)
-  17:00  story 2  -> the oldest photo/video you uploaded to the stories/ folder that is not published yet;
-                     if the folder is empty, the next designed story from stories.json
-  20:00  post     -> a fresh post written by Claude (ANTHROPIC_API_KEY); falls back to posts.json
-  Designed stories are also written by Claude when the key is set.
+Every day it publishes (through the official Instagram Graph API), started by cron-job.org:
+  s1 09:00 good morning      s2 11:00 exchange rates     p1 11:30 post (Reel)   s3 12:00 vlog
+  s4 13:00 vangasht.com      s5 14:30 tours              s6 16:00 question      s7 17:30 vlog
+  s8 19:00 a Van attraction  p2 20:00 post (Reel)        s9 21:00 today's posts s10 23:00 good night
+Each one uses its own Drive sub-folder (S1 ... S10, P) for videos / photos / songs, see FOLDER_ALIASES.
+Old names still work: story1=s2, story3=s3, story4=s9, post=p2, story2 = next file of the main Drive folder.
 
 Usage:
-  python bot.py render <story1|story2|post>   # builds out/<date>-<slot>.jpg and out/pending.json
+  python bot.py render <s1..s10|p1|p2|testcards|...>   # builds the media in out/ and out/pending.json
   python bot.py publish                        # sends out/pending.json to Instagram
   python bot.py preview                        # renders every library item into preview/ (for checking)
 """
-import base64, datetime as dt, json, os, random, sys, time, urllib.parse, urllib.request
+import base64, datetime as dt, json, os, random, re, sys, time, urllib.parse, urllib.request
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
@@ -231,7 +229,7 @@ def drive_media(st):
     if not files:
         return None
     f = files[0]
-    ext = Path(f["name"]).suffix.lower() or (".mp4" if f["mimeType"].startswith("video/") else ".jpg")
+    ext = Path(f["name"]).suffix.lower() or (".mp4" if f["mimeType"].startswith("video/") else ".mp3" if f["mimeType"].startswith("audio/") else ".jpg")
     dl = ROOT / "dl"; dl.mkdir(exist_ok=True)
     local = dl / (f["id"] + ext)
     src = f"https://www.googleapis.com/drive/v3/files/{f['id']}?alt=media&key={key}"
@@ -557,10 +555,10 @@ def claude_pick(cands, topic, k):
         print("! photo picking by AI failed, taking the first ones:", e)
         return list(range(k))
 
-def pick_photos(key, topic, k, st):
+def pick_photos(key, topic, k, st, query=None):
     """Returns up to k (path, credit) pairs of fresh, beautiful Van photos; tops up with our own Van photos."""
     used = set(st.get("photos_used", []))
-    q = COMMONS_Q.get(key) or COMMONS_Q["lake"]
+    q = query or COMMONS_Q.get(key) or COMMONS_Q["lake"]
     try:
         cands = commons_candidates(q, used)[:9]
         if len(cands) < k:
@@ -684,75 +682,44 @@ def rates_layer_html(d, v, show):
 <div style="visibility:{vis('foot')};position:absolute;bottom:90px;left:0;right:0;display:flex;justify-content:center">{brand().replace('right:48px;top:44px', 'position:static')}</div></div>"""
 
 def rates_assets(st):
-    """Drive sub-folder "Rates": background videos/photos and songs for the morning rates story, each used in turn (least recently used first)."""
-    key, folder = os.environ.get("GDRIVE_KEY"), os.environ.get("GDRIVE_FOLDER")
-    if not key or not folder:
-        return None, False, None
-    try:
-        sub = [f for f in drive_list(folder, key) if f["mimeType"] == "application/vnd.google-apps.folder" and f["name"].strip().lower() in ("rates", "نرخ")]
-        if not sub:
-            print("no 'Rates' folder in Drive -> using a Van photo"); return None, False, None
-        files = drive_list(sub[0]["id"], key)
-    except Exception as e:
-        print("! could not read Drive/Rates:", str(e)[:150]); return None, False, None
-    last = st.setdefault("rates_last", {})
-    now = dt.datetime.now(TR).isoformat(timespec="minutes")
-    def take(items):
-        if not items:
-            return None
-        f = min(items, key=lambda x: (last.get(x["id"], ""), x["createdTime"]))
-        last[f["id"]] = now
-        try:
-            return drive_download(f), f
-        except Exception as e:
-            print("! download failed:", str(e)[:120]); return None
-    vis = [f for f in files if f["mimeType"].startswith(("video/", "image/")) and int(f.get("size") or 0) < 300_000_000]
-    aud = [f for f in files if f["mimeType"].startswith("audio/") or Path(f["name"]).suffix.lower() in AUDIO_EXT]
-    v_ = take(vis); a_ = take(aud)
-    print("rates background:", v_[1]["name"] if v_ else "-", "| song:", a_[1]["name"] if a_ else "-")
-    return (v_[0] if v_ else None), bool(v_ and v_[1]["mimeType"].startswith("video/")), (a_[0] if a_ else None)
+    """Background video/photo + song for the rates story: Drive folder "S2 ..." (or the old "Rates"), each used in turn."""
+    return folder_assets("S2", st)
 
-def rates_video(d, v, st, dst):
-    """25 s story (RATES_SECONDS) with music: a slow zoom over a beautiful Van photo, darkened, with the date, each rate row and the footer fading in."""
+def layered_video(layers, bg, bg_video, song, st, dst, T):
+    """Story video: background video (looped) or photo (slow zoom), darkened; transparent HTML layers fade in one
+    after another; music = `song`, else the Drive "Music" folder, else a soft generated pad."""
     import subprocess
     ff = ffmpeg_bin()
     if not ff:
         raise RuntimeError("ffmpeg not available")
     work = ROOT / "dl"; work.mkdir(exist_ok=True)
-    # your own background videos/photos + songs from the Drive folder "Rates", used in turn
-    bg, bg_video, rates_song = rates_assets(st)
-    if not bg:
-        ph = pick_photos(random.choice(["lake", "akdamar", "edremit", "suphan", "city"]), "منظرهٔ زیبای وان برای پس‌زمینهٔ استوری نرخ ارز", 1, st)
-        bg, bg_video = (ph[0][0] if ph else A / "akdamar.jpg"), False
-    parts = ["head"] + [f"row{i}" for i in range(len(rates_rows(d)))] + ["foot"]
+    pngs = []
     from playwright.sync_api import sync_playwright
     with sync_playwright() as p:
         b = p.chromium.launch()
         pg = b.new_page(viewport={"width": 1080, "height": 1920})
-        for k in parts:
-            pg.set_content(f"<html dir=rtl><head><meta charset=utf-8><style>{css()}html,body{{background:transparent}}body{{width:1080px;height:1920px}}</style></head><body>{rates_layer_html(d, v, k)}</body></html>")
+        for i, html in enumerate(layers):
+            pg.set_content(f"<html dir=rtl><head><meta charset=utf-8><style>{css()}html,body{{background:transparent}}body{{width:1080px;height:1920px}}</style></head><body>{html}</body></html>")
             pg.wait_for_timeout(250)
-            pg.screenshot(path=str(work / f"layer-{k}.png"), omit_background=True)
+            o = work / f"layer-{i}.png"; pg.screenshot(path=str(o), omit_background=True); pngs.append(o)
         b.close()
-    T = int(os.environ.get("RATES_SECONDS", "25"))
     if bg_video:
         cmd = [ff, "-y", "-stream_loop", "-1", "-t", str(T), "-i", str(bg)]
         base = "[0:v]scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,fps=30,setsar=1,"
     else:
         cmd = [ff, "-y", "-loop", "1", "-i", str(bg)]
-        base = f"[0:v]scale=-2:2300,crop=1300:2300,zoompan=z='min(zoom+0.0006,1.18)':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d={T*30}:s=1080x1920:fps=30,"
-    for k in parts:
-        cmd += ["-loop", "1", "-t", str(T), "-i", str(work / f"layer-{k}.png")]
+        base = f"[0:v]scale=1300:2300:force_original_aspect_ratio=increase,crop=1300:2300,setsar=1,zoompan=z='min(zoom+0.0006,1.18)':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d={T*30}:s=1080x1920:fps=30,"
+    for o in pngs:
+        cmd += ["-loop", "1", "-t", str(T), "-i", str(o)]
     f = (base + "eq=brightness=-0.10:saturation=1.15,drawbox=x=0:y=0:w=iw:h=ih:color=black@0.40:t=fill,fade=in:st=0:d=0.6[b0];")
     last = "b0"
-    for i, k in enumerate(parts):
+    for i in range(len(pngs)):
         st_ = 0.8 + i * 0.7
         f += f"[{i+1}:v]format=rgba,fade=in:st={st_:.2f}:d=0.5:alpha=1,fade=out:st={T-0.8}:d=0.6:alpha=1[l{i}];[{last}][l{i}]overlay=0:0[b{i+1}];"
         last = f"b{i+1}"
     f += f"[{last}]format=yuv420p[out]"
-    # music: a random track from the music/ folder (royalty-free files you add), else a soft generated ambient pad
-    tracks = [rates_song] if rates_song else music_tracks(st)
-    n_in = 1 + len(parts)
+    tracks = [song] if song else music_tracks(st)
+    n_in = 1 + len(pngs)
     if tracks:
         cmd += music_input(tracks, st)
         f += f";[{n_in}:a]atrim=0:{T},afade=t=in:st=0:d=1,afade=t=out:st={T-2}:d=2,volume=0.9[aout]"
@@ -765,6 +732,16 @@ def rates_video(d, v, st, dst):
     r = subprocess.run(cmd, capture_output=True, text=True)
     if r.returncode != 0 or not Path(dst).exists():
         raise RuntimeError("ffmpeg failed: " + r.stderr[-500:])
+
+def rates_video(d, v, st, dst):
+    """25 s story (RATES_SECONDS) with music: a slow zoom over a beautiful Van photo, darkened, with the date, each rate row and the footer fading in."""
+    # your own background videos/photos + songs from the Drive folder "S2" (or "Rates"), used in turn
+    bg, bg_video, rates_song = rates_assets(st)
+    if not bg:
+        ph = pick_photos(random.choice(["lake", "akdamar", "edremit", "suphan", "city"]), "منظرهٔ زیبای وان برای پس‌زمینهٔ استوری نرخ ارز", 1, st)
+        bg, bg_video = (ph[0][0] if ph else A / "akdamar.jpg"), False
+    parts = ["head"] + [f"row{i}" for i in range(len(rates_rows(d)))] + ["foot"]
+    layered_video([rates_layer_html(d, v, k) for k in parts], bg, bg_video, rates_song, st, dst, int(os.environ.get("RATES_SECONDS", "25")))
     print("animated rates story ready")
 
 # ---------------------------------------------------------------- Reels: short edited videos from real footage
@@ -786,7 +763,9 @@ def drive_list(parent, key):
     with urllib.request.urlopen(url, timeout=60) as r:
         return json.load(r).get("files", [])
 
-def drive_reel_files():
+def drive_reel_files(code=None):
+    if code:   # the story's / posts' own folder (S3, S7, P ...), else the old "Reels" folder
+        return folder_files(code, "visual")
     key, folder = os.environ.get("GDRIVE_KEY"), os.environ.get("GDRIVE_FOLDER")
     if not key or not folder:
         return []
@@ -800,7 +779,7 @@ def drive_reel_files():
 
 def drive_download(f):
     key = os.environ.get("GDRIVE_KEY")
-    ext = Path(f["name"]).suffix.lower() or (".mp4" if f["mimeType"].startswith("video/") else ".jpg")
+    ext = Path(f["name"]).suffix.lower() or (".mp4" if f["mimeType"].startswith("video/") else ".mp3" if f["mimeType"].startswith("audio/") else ".jpg")
     dl = ROOT / "dl"; dl.mkdir(exist_ok=True)
     local = dl / ("r_" + f["id"] + ext)
     if not local.exists():
@@ -911,6 +890,81 @@ def pixabay_video(query, used, scene=""):
 
 AUDIO_EXT = (".mp3", ".m4a", ".aac", ".wav", ".ogg")
 
+# ---------------------------------------------------------------- one Drive sub-folder per story / for the posts
+# Inside the Drive folder "Vangasht Stories" make sub-folders whose names START with the code, e.g.
+#   "S1 صبح بخیر", "S2 نرخ ارز", "S3 ولاگ ظهر", "S4 سایت", "S5 تورها", "S6 سؤال", "S7 ولاگ عصر",
+#   "S8 جاذبه", "S9 پست های امروز", "S10 شب بخیر", "P پست ها"
+# and put that story's videos, photos and songs in it. Each story uses only its own folder, one file at a time, in turn.
+# If a folder is missing or empty, the old folders below are used, then free Van photos / the "Music" folder.
+FOLDER_ALIASES = {"S2": ("rates", "نرخ"), "S3": ("reels",), "S7": ("reels",), "P": ("reels",)}
+_SUBS, _LS = None, {}
+
+def drive_subfolders():
+    global _SUBS
+    if _SUBS is None:
+        _SUBS = []
+        key, folder = os.environ.get("GDRIVE_KEY"), os.environ.get("GDRIVE_FOLDER")
+        if key and folder:
+            try:
+                _SUBS = [f for f in drive_list(folder, key) if f["mimeType"] == "application/vnd.google-apps.folder"]
+            except Exception as e:
+                print("! could not read the Drive folders:", str(e)[:150])
+    return _SUBS
+
+def folder_code(name):
+    """'S1 صبح بخیر' -> 'S1', 's 10' -> 'S10', 'P پست ها' / 'Posts' / 'پست ها' -> 'P' (Persian digits work too)."""
+    n = name.strip().translate(str.maketrans("۰۱۲۳۴۵۶۷۸۹٠١٢٣٤٥٦٧٨٩", "01234567890123456789")).upper()
+    m = re.match(r"S\s*-?\s*(\d{1,2})(?!\d)", n)
+    if m:
+        return f"S{int(m.group(1))}"
+    if re.match(r"P(?![A-Z0-9])", n) or n.startswith(("POST", "پست")):
+        return "P"
+    return None
+
+def _is_vis(x):
+    return x["mimeType"].startswith(("video/", "image/")) and int(x.get("size") or 0) < 300_000_000
+
+def _is_aud(x):
+    return x["mimeType"].startswith("audio/") or Path(x["name"]).suffix.lower() in AUDIO_EXT
+
+def folder_files(code, kind="visual"):
+    """Files ("visual" = videos+photos, "audio" = songs) of the folder for `code`; own folder first, then its old alias.
+    Each file gets f["_own"] = True when it comes from the story's own folder."""
+    key = os.environ.get("GDRIVE_KEY")
+    subs = drive_subfolders()
+    own = [f for f in subs if folder_code(f["name"]) == code]
+    alias = [f for f in subs if f["name"].strip().lower() in FOLDER_ALIASES.get(code, ())]
+    for fo in own + alias:
+        try:
+            if fo["id"] not in _LS:
+                _LS[fo["id"]] = drive_list(fo["id"], key)
+            got = [dict(x, _own=fo in own) for x in _LS[fo["id"]] if (_is_vis(x) if kind == "visual" else _is_aud(x))]
+        except Exception as e:
+            print(f"! could not read Drive folder '{fo['name']}':", str(e)[:150]); continue
+        if got:
+            print(f"{code}: {len(got)} {kind} file(s) in Drive folder '{fo['name']}'")
+            return got
+    return []
+
+def lru_take(files, st):
+    """The file used least recently (then the oldest), downloaded -> (local path, drive file) or None."""
+    if not files:
+        return None
+    last = st.setdefault("rates_last", {})
+    f = min(files, key=lambda x: (last.get(x["id"], ""), x["createdTime"]))
+    last[f["id"]] = dt.datetime.now(TR).isoformat(timespec="minutes")
+    try:
+        return drive_download(f), f
+    except Exception as e:
+        print("! download failed:", str(e)[:120]); return None
+
+def folder_assets(code, st):
+    """-> (background path or None, background is a video?, song path or None) from the folder of `code`."""
+    v_ = lru_take(folder_files(code, "visual"), st)
+    a_ = lru_take(folder_files(code, "audio"), st)
+    print(f"{code} background:", v_[1]["name"] if v_ else "-", "| song:", a_[1]["name"] if a_ else "-")
+    return (v_[0] if v_ else None), bool(v_ and v_[1]["mimeType"].startswith("video/")), (a_[0] if a_ else None)
+
 def music_tracks(st):
     """Royalty-free songs: the Drive sub-folder "Music" (easiest: upload from your phone) plus the repo's music/ folder."""
     tracks = [m for m in (ROOT / "music").glob("*") if m.suffix.lower() in AUDIO_EXT] if (ROOT / "music").is_dir() else []
@@ -1017,7 +1071,7 @@ def assign_drive(thumbs, scenes):
     except Exception as e:
         print("! matching your files failed:", str(e)[:120]); return [-1] * len(scenes)
 
-def make_reel(plan, v, st, dst, style="text"):
+def make_reel(plan, v, st, dst, style="text", folder=None):
     """style "text" = tips with captions; "vlog" = real footage, fast cuts, only a 📍 VAN pin (like van.gasht.turkiye stories).
     plan = {"hook", "hl", "scenes": [{"text", "hl", "query"}], "cta"} -> edited 1080x1920 Reel with music."""
     import subprocess
@@ -1026,7 +1080,7 @@ def make_reel(plan, v, st, dst, style="text"):
         raise RuntimeError("ffmpeg not available")
     work = ROOT / "dl"; work.mkdir(exist_ok=True)
     used = st.setdefault("reel_used", {})
-    drive = drive_reel_files()
+    drive = drive_reel_files(folder)
     # own / permitted footage first: least used, then oldest
     drive.sort(key=lambda f: (used.get("d:" + f["id"], 0), f["createdTime"]))
     if style == "vlog":
@@ -1046,7 +1100,13 @@ def make_reel(plan, v, st, dst, style="text"):
                 pool.append((loc, is_v, credit_of(f["name"]), "d:" + f["id"], th))
         except Exception as e:
             print("! Drive download failed:", str(e)[:120])
-    assign = assign_drive([p_[4] for p_ in pool], [sc["text"] for sc in scenes]) if pool else [-1] * len(scenes)
+    own_pool = [f for f in drive if f.get("_own") and int(f.get("size") or 0) < 200_000_000][:10]
+    if style == "vlog" and len(pool) >= 3 and len(own_pool) >= 3:
+        # the story's own folder: everything in it is meant for this story -> use the files in turn, no AI filtering
+        scenes = scenes[:len(pool)]
+        assign = list(range(len(scenes)))
+    else:
+        assign = assign_drive([p_[4] for p_ in pool], [sc["text"] for sc in scenes]) if pool else [-1] * len(scenes)
     print("your Drive files used for scenes:", assign)
     for i, sc in enumerate(scenes):
         src = None
@@ -1116,7 +1176,8 @@ def make_reel(plan, v, st, dst, style="text"):
         last = f"x{i}"
     T = sum(durs) - X * (len(segs) - 1)
     f += f"[{last}]format=yuv420p[vout]"
-    tracks = music_tracks(st)
+    song = lru_take(folder_files(folder, "audio"), st) if folder else None
+    tracks = [song[0]] if song else music_tracks(st)
     n = len(segs)
     if tracks:
         cmd += music_input(tracks, st)
@@ -1165,19 +1226,19 @@ VLOG_SCENES = [("خیابان‌های شلوغ و نورانی وان در شب
                ("بازار و مغازه‌های رنگارنگ", "bazaar shops colorful"), ("صبحانهٔ مفصل ترکی روی میز", "turkish breakfast table"),
                ("قلعهٔ قدیمی و چشم‌انداز شهر", "old castle city view"), ("غروب آفتاب روی دریاچه", "sunset over lake")]
 
-def build_vlog_story(v, st, day):
+def build_vlog_story(v, st, day, code="S3"):
     """14:00 story in the style of van.gasht.turkiye: real Van footage, fast cuts, only a 📍 VAN pin, music."""
     try:
         k = st.get("vlog_i", 0) % len(VLOG_SCENES)
         picks = (VLOG_SCENES[k:] + VLOG_SCENES[:k])[:8]
         st["vlog_i"] = k + 3
         plan = {"id": "vlog", "scenes": [{"text": t, "hl": "", "query": q} for t, q in picks]}
-        mp4 = ROOT / "dl" / f"{day}-vlog.mp4"; mp4.parent.mkdir(exist_ok=True)
-        T, credits = make_reel(plan, v, st, mp4, style="vlog")
+        mp4 = ROOT / "dl" / f"{day}-vlog-{code}.mp4"; mp4.parent.mkdir(exist_ok=True)
+        T, credits = make_reel(plan, v, st, mp4, style="vlog", folder=code)
         return {"video": str(mp4.relative_to(ROOT)), "reel": False, "caption": None, "item": "vlog", "file": None}
     except Exception as e:
         print("! vlog story failed:", str(e)[:400])
-        st["reel_error"] = {"at": dt.datetime.now(TR).strftime("%Y-%m-%dT%H:%M"), "slot": "story3", "error": str(e)[:400]}
+        st["reel_error"] = {"at": dt.datetime.now(TR).strftime("%Y-%m-%dT%H:%M"), "slot": code, "error": str(e)[:400]}
         return None
 
 def build_reel(d, v, st, day, test):
@@ -1187,7 +1248,7 @@ def build_reel(d, v, st, day, test):
         if not plan:
             return None
         mp4 = (OUT if test else ROOT / "dl") / f"{day}-reel.mp4"; mp4.parent.mkdir(exist_ok=True)
-        T, credits = make_reel(plan, v, st, mp4)
+        T, credits = make_reel(plan, v, st, mp4, folder="P")
         import subprocess
         subprocess.run([ffmpeg_bin(), "-y", "-ss", "1.2", "-i", str(mp4), "-frames:v", "1", "-q:v", "3", str(OUT / f"{day}-post.jpg")], capture_output=True)
         tags = "#وان #وان_ترکیه #سفر_به_وان #صرافی_وان #سوئیت_وان #تور_وان #خرید_از_وان #ترکیه #VanTurkey #Van #VanGölü #وان_گشت"
@@ -1200,6 +1261,195 @@ def build_reel(d, v, st, day, test):
         st["reel_error"] = {"at": dt.datetime.now(TR).strftime("%Y-%m-%dT%H:%M"), "error": str(e)[:400]}
         return None
 
+# ---------------------------------------------------------------- designed video stories (S1, S4, S5, S6, S8, S10)
+CARD_SLOTS = ("s1", "s4", "s5", "s6", "s8", "s10")
+POST_SLOTS = ("p1", "p2")
+ATTRACTIONS = [("جزیرهٔ آکدامار", "Akdamar island", "گواش، حدود ۴۵ کیلومتری وان", "جزیره‌ای وسط دریاچهٔ وان با کلیسای صلیب مقدس از قرن دهم میلادی و نقش‌برجسته‌های سنگی."),
+               ("قلعهٔ وان", "Van Fortress", "توشبا، نزدیک مرکز شهر", "قلعه‌ای باستانی روی صخره‌ای بلند کنار دریاچه، از دوران اورارتو؛ غروبش معروف است."),
+               ("آبشار مرادیه", "Muradiye waterfall", "مرادیه، حدود ۸۰ کیلومتری وان", "آبشاری خروشان با پل معلق چوبی و رستوران‌های کنار رودخانه."),
+               ("قلعهٔ هوشاپ", "Hosap castle", "گورپینار، جنوب شرقی وان", "قلعه‌ای قرون وسطایی روی تپه، با دیوارها و برج‌های سنگی."),
+               ("کوه اِرِک", "Erek mountain Van", "شرق شهر وان", "کوهی بلند که از دامنه‌اش منظرهٔ کامل شهر و دریاچه پیداست."),
+               ("ساحل اِدرِمیت", "Edremit Van lake", "اِدرِمیت، جنوب شهر وان", "ساحلی آرام کنار دریاچه با کافه‌ها و رستوران‌ها؛ برای قدم زدن و غروب عالی است."),
+               ("خانهٔ گربه‌های وان", "Turkish Van cat", "دانشگاه یوزونجو ییل", "گربه‌های معروف وان با چشم‌های دو رنگ؛ نماد شهر وان."),
+               ("کوه سوبهان", "Mount Suphan", "شمال دریاچهٔ وان", "دومین کوه بلند ترکیه با قله‌ای برفی که از ساحل دریاچه پیداست."),
+               ("خیابان صبحانهٔ وان", "Van breakfast", "مرکز شهر وان", "خیابانی پر از صبحانه‌خانه با صبحانهٔ معروف وانی: پنیر، عسل، کره و ده‌ها مزه.")]
+
+def _fa(x):
+    t = ((x or {}).get("fa") if isinstance(x, dict) else x) or ""
+    return t.replace("آق‌تامار", "آکدامار").replace("آق تامار", "آکدامار")
+
+def card_subject(code, d, st):
+    """What today's S4 / S5 / S8 story is about (in turn, from the site's own content)."""
+    def turn(items, k):
+        if not items:
+            return None
+        i = st.get(k, 0) % len(items); st[k] = i + 1
+        return items[i]
+    if code == "s4":
+        L = [("صرافی وان گشت", "خرید و فروش ارز با کارتخوان ایرانی (عضو شتاب) در دفتر وان گشت؛ نرخ روز همیشه در سایت.", "vangasht.com/sarafi-van"),
+             ("سوئیت‌های مبلهٔ وان", "سوئیت‌های تمیز و مبله برای خانواده‌ها و گروه‌ها: " + "، ".join(_fa(x.get("name")) for x in d.get("suites", [])[:5]), "vangasht.com/suite-van"),
+             ("کارت تخفیف وان گشت", "۱۰٪ تخفیف در مغازه‌های طرف قرارداد با اسکن QR و جمع کردن امتیاز.", "vangasht.com"),
+             ("راهنمای سفر به وان", "همه چیز دربارهٔ شهر وان: جاهای دیدنی، خرید، غذا و رفت‌وآمد.", "vangasht.com/rahnama-van"),
+             ("جاهای دیدنی وان", "معرفی جاذبه‌ها و تورهای گردشگری وان.", "vangasht.com/gardeshgari-van")]
+        L += [(_fa(x.get("title")), _fa(x.get("excerpt")), "vangasht.com/majale") for x in d.get("posts", []) if x.get("published", 1) and _fa(x.get("title"))]
+        t, desc, url = turn(L, "s4_i")
+        return {"name": t, "info": desc, "url": url, "query": None}
+    if code == "s5":
+        T = [(_fa(x.get("title")), _fa(x.get("short")) + " " + _fa(x.get("desc"))[:400], f"vangasht.com/tour/{x.get('slug')}", x.get("photo"))
+             for x in d.get("tours", []) if _fa(x.get("title"))]
+        T = T or [("تور جزیرهٔ آکدامار", "قایق تا جزیره و کلیسای هزارساله، با هماهنگی فارسی.", "vangasht.com/tour", "akdamar"),
+                  ("تور کشتی تفریحی دریاچهٔ وان", "گشت دریاچه با کشتی بزرگ و تماشای غروب.", "vangasht.com/tour", "lake"),
+                  ("تور آبشار مرادیه", "آبشار خروشان و پل معلق، یک نیم‌روز در طبیعت.", "vangasht.com/tour", "muradiye")]
+        t, desc, url, ph = turn(T, "s5_i")
+        return {"name": t, "info": desc, "url": url, "photo": ph if ph in COMMONS_Q else "lake"}
+    if code == "s8":
+        F = [(_fa(x.get("title")), (x.get("title") or {}).get("en", "") if isinstance(x.get("title"), dict) else "", _fa(x.get("meta")), _fa(x.get("desc")))
+             for x in d.get("fun", []) if _fa(x.get("title"))]
+        names = {f[0] for f in F}
+        F += [a for a in ATTRACTIONS if a[0] not in names and not any(a[1].split()[0].lower() in (f[1] or "").lower() for f in F)]
+        t, en, meta, desc = turn(F, "s8_i")
+        return {"name": t, "info": f"{meta}. {desc}", "url": "vangasht.com/gardeshgari-van", "query": (en + " Van") if en and "van" not in en.lower() else (en or "Lake Van")}
+    return {}
+
+CARD_ASK = {
+    "s1": "استوری «صبح بخیر» ساعت ۹ صبح. tag = «صبح بخیر». title یک سلام صبحگاهی گرم و کوتاه (مثل «صبح بخیر از وان ☀️»)، sub یک جملهٔ انرژی‌بخش و صمیمی دربارهٔ سفر یا یک روز خوب در وان، "
+          "lines یک مورد: یک پیشنهاد کوچک برای امروز (مثلاً صبحانهٔ وانی، قدم زدن کنار دریاچه، چای ترکی). دربارهٔ هوای امروز ادعا نکن. foot خالی.",
+    "s4": "استوری معرفی و تبلیغ سایت vangasht.com؛ موضوع امروز را از اطلاعات زیر بگیر و جذاب معرفی کن تا مخاطب برود سایت را ببیند. tag = «تو سایت ما»، "
+          "lines دقیقاً ۳ مزیت یا نکتهٔ کوتاه، foot یک جملهٔ دعوت کوتاه مثل «لینک تو بیو 👆 سر بزن».",
+    "s5": "استوری تبلیغ تور گردشگری؛ تور امروز را از اطلاعات زیر معرفی کن، هیجان‌انگیز ولی صادق. tag = «تور وان گشت»، lines دقیقاً ۳ نکتهٔ کوتاه (چه می‌بینی، چه تجربه‌ای، هماهنگی فارسی). "
+          "قیمت ننویس. foot مثل «برای رزرو تو دایرکت یا واتس‌اپ پیام بده».",
+    "s6": "استوری تعاملی که مخاطب جواب بدهد (جوابش به دایرکت ما می‌رسد). یکی از این قالب‌ها را انتخاب کن و با روزهای قبل فرق داشته باشد: "
+          "«آیا می‌دانید؟» (یک دانستنی مطمئن و جالب دربارهٔ وان و در آخر یک سؤال)، «کیا دوست دارن…؟»، «این یا اون؟» (دو گزینه در lines)، «حدس بزن…»، «سؤال از شما» (مثلاً اولین کارت تو وان چیه؟). "
+          "tag = نام قالب، title خود سؤال یا دانستنی کوتاه، sub توضیح یا ادامهٔ سؤال، lines صفر تا دو مورد (برای «این یا اون؟» دو گزینه با ایموجی ۱️⃣ و ۲️⃣)، foot خالی.",
+    "s8": "استوری معرفی یک جاذبهٔ وان (جاذبهٔ امروز پایین آمده). tag = «جاذبهٔ امروز وان»، title نام جاذبه با یک صفت جذاب، sub یک جمله دربارهٔ اینکه چرا باید دید، "
+          "lines دقیقاً ۳ نکتهٔ کوتاه و مطمئن (کجاست، چه چیزی ببینی، بهترین زمان یا یک نکتهٔ کاربردی). اگر از چیزی مطمئن نیستی ننویس. foot مثل «سیوش کن برای سفرت 🔖».",
+    "s10": "استوری «شب بخیر» ساعت ۱۱ شب. tag = «شب بخیر». title یک شب‌بخیر گرم و کوتاه (مثل «شب بخیر وانی‌ها 🌙»)، sub یک جملهٔ آرام و دلنشین دربارهٔ سفر یا شب‌های وان، "
+           "lines یک مورد: یک دعوت کوچک برای فردا (مثلاً «فردا صبح با نرخ روز و کلی خبر خوب برمی‌گردیم»). foot خالی.",
+}
+CARD_FALLBACK = {
+    "s1": [("صبح بخیر از وان ☀️", "وان", "یه روز قشنگ دیگه کنار بزرگ‌ترین دریاچهٔ ترکیه", [["🍯", "صبحانهٔ وانی امروز یادت نره"]]),
+           ("صبحتون بخیر 🌤", "بخیر", "امروز هم ما تو وان کنارتونیم", [["☕", "یه چای ترکی کنار دریاچه بچسبه"]])],
+    "s6": [("کیا دوست دارن این روزا وان باشن؟ 🙋", "وان", "جوابتو بفرست، دوست داریم بدونیم 💬", []),
+           ("آیا می‌دانید؟ 🤔", "می‌دانید", "دریاچهٔ وان بزرگ‌ترین دریاچهٔ ترکیه است. شما تا حالا دیدینش؟", []),
+           ("این یا اون؟", "اون", "کدومو بیشتر دوست داری؟", [["1️⃣", "صبحانهٔ وانی"], ["2️⃣", "غروب کنار دریاچه"]])],
+    "s10": [("شب بخیر وانی‌ها 🌙", "شب بخیر", "خستگی سفر با یه خواب خوب در میره", [["⏰", "فردا صبح با نرخ روز برمی‌گردیم"]])],
+}
+
+def card_content(code, d, v, st):
+    subj = card_subject(code, d, st)
+    log = st.setdefault("card_log", {}).setdefault(code, [])
+    shape = ('{"topic": "موضوع کوتاه برای ثبت", "tag": "برچسب ۲ تا ۴ کلمه", "title": "تیتر حداکثر ۷ کلمه، خودمانی", "hl": "یک یا دو کلمه از همان تیتر برای رنگ طلایی", '
+             '"sub": "یک جمله حداکثر ۹۰ حرف", "lines": [["ایموجی", "حداکثر ۴۵ حرف"], ...], "foot": "حداکثر ۵۰ حرف یا خالی"}')
+    info = f"\nموضوع امروز: {subj['name']}\nاطلاعات: {subj['info']}\n" if subj else ""
+    prompt = (f"{ai_context(d, v)}\n\nموضوع‌های اخیر همین استوری (تکرار نکن): {'، '.join(log[-12:]) or '—'}\n\n{inspo_text(st)}"
+              f"{CARD_ASK[code]}{info}\nمتن‌ها روی ویدیو نوشته می‌شوند: کوتاه، خوانا، گرم. شکل خروجی (فقط JSON):\n{shape}")
+    it = claude(prompt)
+    clean = lambda x, n: str(x or "")[:n].replace("<", "").replace(">", "").replace("آق‌تامار", "آکدامار").replace("آق تامار", "آکدامار")
+    c = None
+    try:
+        assert isinstance(it, dict) and it.get("title")
+        c = {k: clean(it.get(k), n) for k, n in (("tag", 30), ("title", 60), ("hl", 30), ("sub", 110), ("foot", 60))}
+        c["lines"] = [[clean(a, 4), clean(b, 60)] for a, b in (it.get("lines") or [])[:3] if b]
+        log.append(clean(it.get("topic") or c["title"], 40)); del log[:-20]
+        print(f"AI wrote {code}:", c["title"])
+    except Exception as e:
+        print(f"! AI text for {code} failed, using a simple text:", AI_ERROR or repr(e)[:150])
+        if code in CARD_FALLBACK:
+            t, h, sub, lines = random.choice(CARD_FALLBACK[code])
+            c = {"tag": {"s1": "صبح بخیر", "s6": "سؤال امروز", "s10": "شب بخیر"}[code], "title": t, "hl": h, "sub": sub, "lines": lines, "foot": ""}
+        else:
+            c = {"tag": {"s4": "تو سایت ما", "s5": "تور وان گشت", "s8": "جاذبهٔ امروز وان"}[code], "title": clean(subj["name"], 60), "hl": "",
+                 "sub": clean(subj["info"], 110), "lines": [], "foot": "سیوش کن برای سفرت 🔖" if code == "s8" else "برای اطلاعات بیشتر پیام بده"}
+    c["code"], c["subj"] = code, subj
+    c["url"] = subj.get("url") if code in ("s4", "s5") else None
+    c["answer"] = code == "s6"
+    c["date"] = code in ("s1", "s10")
+    return c
+
+def card_layer_html(c, show, v):
+    """One transparent layer of a designed story; `show` = 'head', 'l0'.., 'foot' (or 'all')."""
+    vis = lambda k: "visible" if show in ("all", k) else "hidden"
+    now = dt.datetime.now(TR)
+    date = (f'<div style="font-size:38px;font-weight:800;opacity:.92;margin-bottom:26px">{WEEKDAYS[now.weekday()]} {jalali(now.date())}'
+            f' · <span dir=ltr>{now.day} {EN_MONTHS[now.month - 1]}</span></div>') if c.get("date") else ""
+    lines = "".join(f'<div style="visibility:{vis(f"l{i}")};display:flex;align-items:center;gap:22px;background:rgba(10,30,38,.55);border:2px solid rgba(255,255,255,.22);'
+                    f'border-radius:30px;padding:24px 34px;margin-top:22px;font-size:46px;font-weight:800;text-align:right"><span style="font-size:58px">{e}</span><span>{fill(t, v)}</span></div>'
+                    for i, (e, t) in enumerate(c["lines"]))
+    if c.get("answer"):
+        foot = ('<div style="background:#fff;color:#0d5b6f;text-shadow:none;border-radius:34px;padding:34px 40px;box-shadow:0 18px 50px rgba(0,0,0,.35)">'
+                '<div style="font-size:34px;font-weight:800;opacity:.75;margin-bottom:14px">✍️ جوابتو همین پایین بنویس و بفرست</div>'
+                '<div style="border:3px dashed rgba(13,91,111,.45);border-radius:22px;padding:26px;font-size:42px;font-weight:700;color:rgba(13,91,111,.55)">جواب شما…</div></div>'
+                '<div style="font-size:90px;margin-top:6px;line-height:1">👇</div>')
+    else:
+        foot = ""
+        if c.get("foot"):
+            foot += f'<div style="font-size:42px;font-weight:800;margin-bottom:22px">{fill(c["foot"], v)}</div>'
+        if c.get("url"):
+            foot += f'<div style="display:inline-block;background:#fff;color:#0d5b6f;text-shadow:none;border-radius:60px;padding:20px 46px;font:700 44px Georgia,serif;direction:ltr">{c["url"]}</div>'
+        if c["code"] in ("s4", "s5"):
+            foot += f'<div style="font-size:34px;font-weight:700;margin-top:22px">💬 واتس‌اپ <span dir=ltr>{v["wa"]}</span></div>'
+    sub = f'<p style="font-size:50px;font-weight:700;line-height:1.5;margin:26px 0 0">{fill(c["sub"], v)}</p>' if c.get("sub") else ""
+    return f"""<div style="position:absolute;inset:0;color:#fff;text-shadow:0 3px 18px rgba(0,0,0,.6)">
+<div style="visibility:{vis('head')};position:absolute;top:120px;left:0;right:0;display:flex;justify-content:center">{brand().replace('right:48px;top:44px', 'position:static')}</div>
+<div style="position:absolute;left:70px;right:70px;top:0;bottom:0;display:flex;flex-direction:column;justify-content:center;text-align:center;padding:300px 0 380px">
+<div style="visibility:{vis('head')}">{date}<span class="tag" style="font-size:40px;text-shadow:none">{c.get('tag') or ''}</span>
+<h1 style="font-size:{92 if len(c['title']) < 28 else 78}px;font-weight:900;line-height:1.25;margin:34px 0 0">{hl(c, v)}</h1>{sub}</div>
+{lines}
+<div style="visibility:{vis('foot')};margin-top:60px">{foot}</div></div></div>"""
+
+def card_story(code, d, v, st, dst):
+    """S1/S4/S5/S6/S8/S10: AI text over a video/photo from the story's own Drive folder, layers fading in, with music."""
+    c = card_content(code, d, v, st)
+    bg, bg_video, song = folder_assets(code.upper(), st)
+    if not bg:
+        subj = c["subj"]
+        if code == "s8":
+            ph = pick_photos("lake", f"عکس زیبا و واقعی از {subj['name']} در وان", 1, st, query=subj.get("query"))
+        elif code == "s5":
+            ph = pick_photos(subj.get("photo", "lake"), f"عکس زیبا برای تبلیغ {subj['name']}", 1, st)
+        elif code == "s4" and "سوئیت" in subj.get("name", ""):
+            ph = [(A / "suite.jpg", "")]
+        else:
+            key = {"s1": random.choice(["lake", "edremit", "suphan"]), "s10": random.choice(["lake", "fortress", "city"])}.get(code, random.choice(["lake", "akdamar", "city", "edremit"]))
+            ph = pick_photos(key, "منظرهٔ زیبای وان برای پس‌زمینهٔ استوری" + (" صبحگاهی" if code == "s1" else " شبانه" if code == "s10" else ""), 1, st)
+        bg, bg_video = (ph[0][0] if ph else A / "lake.jpg"), False
+    parts = ["head"] + [f"l{i}" for i in range(len(c["lines"]))] + ["foot"]
+    layered_video([card_layer_html(c, k, v) for k in parts], bg, bg_video, song, st, dst, int(os.environ.get("CARD_SECONDS", "15")))
+    print(f"{code} story ready:", c["title"])
+    return c
+
+def todayposts_layer_html(covers, show, v):
+    vis = lambda k: "visible" if show in ("all", k) else "hidden"
+    n = len(covers)
+    W, H = (420, 620) if n > 1 else (540, 780)
+    imgs = "".join(f'<img src="{b64(cv, "image/jpeg")}" style="width:{W}px;height:{H}px;object-fit:cover;border-radius:34px;border:8px solid #fff;'
+                   f'box-shadow:0 30px 70px rgba(0,0,0,.55);transform:rotate({(-4, 4)[i % 2] if n > 1 else 0}deg)">' for i, cv in enumerate(covers))
+    return f"""<div style="position:absolute;inset:0;color:#fff;text-shadow:0 3px 18px rgba(0,0,0,.6);text-align:center">
+<div style="visibility:{vis('head')};position:absolute;top:120px;left:0;right:0;display:flex;justify-content:center">{brand().replace('right:48px;top:44px', 'position:static')}</div>
+<div style="visibility:{vis('head')};position:absolute;top:330px;left:60px;right:60px"><span class="tag" style="font-size:40px;text-shadow:none">{'پست‌های امروز' if n > 1 else 'پست امروز'}</span>
+<h1 style="font-size:80px;font-weight:900;margin:30px 0 0">{'پست‌های امروز رو دیدین؟' if n > 1 else 'پست امروز رو دیدی؟'} 👀</h1></div>
+<div style="visibility:{vis('covers')};position:absolute;top:{640 if n > 1 else 560}px;left:0;right:0;display:flex;justify-content:center;gap:40px">{imgs}</div>
+<div style="visibility:{vis('foot')};position:absolute;bottom:330px;left:60px;right:60px">
+<div style="display:inline-block;background:#fff;color:#0d5b6f;text-shadow:none;border-radius:60px;padding:22px 50px;font-size:46px;font-weight:900">برو تو پیج و ببین 👆</div>
+<div style="font-size:40px;font-weight:700;margin-top:26px">برای همسفرت هم بفرست 💌</div></div></div>"""
+
+def todayposts_story(d, v, st, day, dst):
+    """S9 (21:00): shows the covers of today's posts (p1 at 11:30, p2 at 20:00) that were really published."""
+    done = {x.get("slot") for x in st.get("log", []) if str(x.get("at", "")).startswith(day)}
+    covers = [OUT / f"{day}-{k}-post.jpg" for k in POST_SLOTS if k in done or ("post" in done and k == "p2")]
+    covers = [c for c in covers if c.exists()]
+    if not covers:
+        return None
+    bg, bg_video, song = folder_assets("S9", st)
+    if not bg:
+        from PIL import Image, ImageFilter
+        bg = ROOT / "dl" / f"{day}-s9-bg.jpg"; bg.parent.mkdir(exist_ok=True)
+        Image.open(covers[-1]).convert("RGB").filter(ImageFilter.GaussianBlur(40)).save(bg, quality=88)
+        bg_video = False
+    layered_video([todayposts_layer_html(covers, k, v) for k in ("head", "covers", "foot")], bg, bg_video, song, st, dst, int(os.environ.get("CARD_SECONDS", "15")))
+    print("s9 story ready with", len(covers), "post cover(s)")
+    return covers
+
 def newpost_story_html(cover, v):
     """Story that points followers to tonight's new post (the API cannot press Instagram's Repost button)."""
     img = b64(cover, "image/jpeg")
@@ -1210,6 +1460,16 @@ def newpost_story_html(cover, v):
 <p style="font-size:62px;font-weight:900;margin:0;text-shadow:0 4px 20px rgba(0,0,0,.5)">پست امشب رو دیدی؟ 👆</p>
 <p style="font-size:42px;font-weight:700;margin:18px 0 0;opacity:.95">برو صفحه رو ببین و برای همسفرت بفرست</p></div>"""
 
+def _safe(fn, *a):
+    """Run one story builder; on any error print it, remember it, and return None (then a simpler story is made)."""
+    try:
+        return fn(*a)
+    except Exception as e:
+        print(f"! {fn.__name__} failed:", str(e)[:400])
+        st = a[3] if fn is card_story else a[2]
+        st["story_error"] = {"at": dt.datetime.now(TR).strftime("%Y-%m-%dT%H:%M"), "step": fn.__name__, "error": str(e)[:400]}
+        return None
+
 def render(slot):
     d, st = site(), load_state()
     v = vars_for(d)
@@ -1218,64 +1478,77 @@ def render(slot):
         if time.time() - old.stat().st_mtime > 7 * 86400:
             old.unlink()
     day = dt.datetime.now(TR).strftime("%Y-%m-%d")
-    test = slot in ("test", "testreel")   # test = make tonight's post now, but do NOT publish it
-    want_reel = slot == "testreel" or (slot == "post" and dt.datetime.now(TR).weekday() in REEL_DAYS)
+    slot = {"story1": "s2", "story3": "s3", "story4": "s9", "post": "p2"}.get(slot, slot)   # old names still work
+    test = slot in ("test", "testreel")   # test = make a post now, but do NOT publish it
+    want_reel = slot == "testreel" or (slot in POST_SLOTS and dt.datetime.now(TR).weekday() in REEL_DAYS)
     if test:
-        slot, day = "post", day + "-test"
+        slot, day = "p2", day + "-test"
     for old in list(OUT.glob("*.mp4")):
         if time.time() - old.stat().st_mtime > 3 * 86400:
             old.unlink()
-    cover = OUT / f"{day}-post.jpg"
+    tag = f"{day}-{slot}"
     path = OUT / f"{day}-{slot}.jpg"
+    vid = ROOT / "dl" / f"{day}-{slot}.mp4"; vid.parent.mkdir(exist_ok=True)
     job = {"slot": slot, "file": path.name, "caption": None, "advance": None, "item": None}
-    if slot == "story4" and cover.exists():
-        render_html(newpost_story_html(cover, v), 1080, 1920, path)
-        job.update(item="newpost")
-    elif slot == "story3" and (reel := build_vlog_story(v, st, day)):
-        # afternoon story = a short edited video (real footage + text), not a plain design card
+    if slot == "testcards":
+        # test only: make every designed story of the day into out/ (nothing is published)
+        made = []
+        for code in CARD_SLOTS:
+            try:
+                mp4 = OUT / f"{day}-test-{code}.mp4"
+                card_story(code, d, v, st, mp4); made.append(mp4.name)
+            except Exception as e:
+                print(f"! {code} failed:", str(e)[:400])
+        job.update(file=None, video=f"out/{made[0]}" if made else None, item="cards-test", done=True)
+        print("TEST ONLY - not published:", made)
+    elif slot == "s9" and (got := _safe(todayposts_story, d, v, st, day, vid)):
+        job.update(file=None, video=str(vid.relative_to(ROOT)), item="todayposts")
+    elif slot in ("s3", "s7") and (reel := build_vlog_story(v, st, day, slot.upper())):
+        # a short edited video (real footage + music), like the stories of the inspiration pages
         reel.update(reel=False, caption=None, done=None)
         job.update(reel)
-        ai_remember(st, {"id": reel["item"]})
-    elif slot == "post" and want_reel and (reel := build_reel(d, v, st, day, test)):
+    elif slot in POST_SLOTS and want_reel and (reel := build_reel(d, v, st, tag, test)):
         job.update(reel)
         if not test:
             ai_remember(st, {"id": reel["item"]})
-    elif slot == "post":
+    elif slot in POST_SLOTS:
         it = ai_item("post", d, v, st)
         if not it:
             lib = json.loads((C / "posts.json").read_text())
             it = lib[st["post"] % len(lib)]
             job["advance"] = "post"
-        files = render_post(it, v, st, day)
+        files = render_post(it, v, st, tag)
+        job["file"] = files[0]
         if len(files) > 1:
             job["files"] = files
         tags = "#وان #وان_ترکیه #سفر_به_وان #صرافی_وان #سوئیت_وان #تور_وان #خرید_از_وان #ترکیه #VanTurkey #Van #VanGölü #وان_گشت"
         job.update(caption=fill(it["caption"], v) + "\n\n" + tags, item=it["id"])
         if test:
             job.update(done=True, advance=None)
-            (OUT / f"{day}-caption.txt").write_text(job["caption"])
+            (OUT / f"{tag}-caption.txt").write_text(job["caption"])
             print("TEST ONLY - not published. Files:", files)
         else:
             ai_remember(st, it)
-    elif slot == "testvlog" and (reel := build_vlog_story(v, st, day + "-test")):
+    elif slot == "testvlog" and (reel := build_vlog_story(v, st, day + "-test", "S3")):
         mp4 = ROOT / reel["video"]; dst_ = OUT / mp4.name; mp4.replace(dst_)
         job.update(file=None, video=str(dst_.relative_to(ROOT)), item="vlog-test", done=True)
         print("TEST ONLY - not published:", dst_.name)
     elif slot == "testrates":
-        # test only: make the morning rates video now (from Drive/Rates) without publishing it
+        # test only: make the morning rates video now (from Drive/S2 or Rates) without publishing it
         mp4 = OUT / f"{day}-test-rates.mp4"
         rates_video(d, v, st, mp4)
         job.update(file=None, video=str(mp4.relative_to(ROOT)), item="rates-test", done=True)
         print("TEST ONLY - not published:", mp4.name)
-    elif slot == "story1" and rates_fresh(d):
+    elif slot == "s2" and rates_fresh(d):
         try:
-            mp4 = ROOT / "dl" / f"{day}-rates.mp4"
-            rates_video(d, v, st, mp4)
-            job.update(file=None, video=str(mp4.relative_to(ROOT)), item="rates")
+            rates_video(d, v, st, vid)
+            job.update(file=None, video=str(vid.relative_to(ROOT)), item="rates")
         except Exception as e:
             print("! animated rates story failed, using the still image:", str(e)[:300])
             render_html(rates_html(d, v), 1080, 1920, path)
             job.update(item="rates")
+    elif slot in CARD_SLOTS and (c := _safe(card_story, slot, d, v, st, vid)):
+        job.update(file=None, video=str(vid.relative_to(ROOT)), item=f"{slot}:{c['title'][:40]}")
     elif slot == "story2" and (got := next_media(st)) and not (got[0].suffix.lower() in VID_EXT and not try_video(got, st, job)):
         m, mid, label = got
         if m.suffix.lower() in VID_EXT:
@@ -1285,7 +1558,7 @@ def render(slot):
             job.update(item=label, media=mid)
             print("using your photo", label)
     else:
-        if slot == "story1":
+        if slot == "s2":
             print("! rates on the site are old -> using a library story instead (update the rates in admin)")
         it = ai_item("story", d, v, st)
         if not it:
@@ -1300,6 +1573,11 @@ def render(slot):
         render_html(html, 1080, 1920, path)
         job.update(item=it["id"])
         ai_remember(st, it)
+    if job.get("video") and not job.get("done"):
+        src = ROOT / job["video"]
+        dst = ROOT / "dl" / f"{day}-{slot}-ig.mp4"; dst.parent.mkdir(exist_ok=True)
+        ig_normalize(src, dst)
+        job["video"] = str(dst.relative_to(ROOT))
     save_state(st)
     (OUT / "pending.json").write_text(json.dumps(job, ensure_ascii=False, indent=1))
     print("ready:", job["file"] or job.get("video"), "->", job["item"])
@@ -1331,7 +1609,30 @@ def ig_user():
             return ig["id"]
     raise SystemExit("No Instagram account found on this token. Check the Page and Instagram are assigned to the system user.")
 
-def upload_video(ig, f, kind="STORIES", caption=None):
+def ig_normalize(src, dst):
+    """Re-encode to exactly what Instagram accepts best: H.264 High 4.1, 1080x1920, 30 fps CFR, yuv420p, BT.709,
+    2 s closed GOPs, AAC 48 kHz stereo (silent track added if missing), max 59 s, moov atom first, no metadata."""
+    import subprocess
+    ff = ffmpeg_bin()
+    probe = subprocess.run([ff, "-i", str(src)], capture_output=True, text=True).stderr
+    has_audio = "Audio:" in probe
+    vf = ("scale=1080:1920:force_original_aspect_ratio=decrease,pad=1080:1920:(ow-iw)/2:(oh-ih)/2:color=black,"
+          "setsar=1,fps=30,format=yuv420p")
+    cmd = [ff, "-y", "-i", str(src)]
+    if not has_audio:
+        cmd += ["-f", "lavfi", "-i", "anullsrc=r=48000:cl=stereo"]
+    cmd += ["-map", "0:v:0", "-map", "0:a:0" if has_audio else "1:a:0", "-vf", vf,
+            "-c:v", "libx264", "-profile:v", "high", "-level:v", "4.1", "-preset", "veryfast", "-crf", "21",
+            "-maxrate", "8M", "-bufsize", "16M", "-g", "60", "-keyint_min", "60", "-sc_threshold", "0",
+            "-color_primaries", "bt709", "-color_trc", "bt709", "-colorspace", "bt709",
+            "-c:a", "aac", "-b:a", "128k", "-ar", "48000", "-ac", "2", "-t", "59", "-shortest",
+            "-map_metadata", "-1", "-movflags", "+faststart", str(dst)]
+    r = subprocess.run(cmd, capture_output=True, text=True)
+    if r.returncode != 0 or not Path(dst).exists():
+        raise RuntimeError("could not prepare video for Instagram: " + r.stderr[-400:])
+    print(f"video ready for Instagram: {Path(dst).name} ({Path(dst).stat().st_size // 1024} KB)")
+
+def upload_video(ig, f, kind="STORIES", caption=None, url=None):
     """Instagram's resumable upload: the video goes straight from here to Meta, no public link needed."""
     size = f.stat().st_size
     print(f"uploading {kind.lower()} video {f.name} ({size // 1024 // 1024} MB)")
@@ -1342,9 +1643,24 @@ def upload_video(ig, f, kind="STORIES", caption=None):
     try:
         with urllib.request.urlopen(req, timeout=600) as resp:
             print("upload:", resp.read().decode(errors="replace")[:200])
+        return r["id"]
     except urllib.error.HTTPError as e:
-        raise SystemExit(f"Video upload failed {e.code}: {e.read().decode(errors='replace')}")
-    return r["id"]
+        err = f"Video upload failed {e.code}: {e.read().decode(errors='replace')}"
+    if not url:
+        raise SystemExit(err)
+    print("! direct upload failed, trying a public link instead:", err[:200])
+    try:   # put the file in the repository only now (keeps the repository small on normal days)
+        import subprocess, shutil
+        pub = OUT / f.name; shutil.copy(f, pub)
+        for c in (["git", "add", str(pub)], ["git", "commit", "-m", "video for upload " + f.name], ["git", "pull", "--rebase", "-q"], ["git", "push", "-q"]):
+            subprocess.run(c, cwd=ROOT, capture_output=True, text=True)
+        repo, ref = os.environ["GITHUB_REPOSITORY"], os.environ.get("GITHUB_REF_NAME", "main")
+        url = f"https://raw.githubusercontent.com/{repo}/{ref}/out/{f.name}"
+        time.sleep(30)
+    except Exception as e2:
+        raise SystemExit(err + " | fallback failed: " + str(e2)[:200])
+    print("uploading from", url)
+    return api("POST", f"{ig}/media", media_type=kind, video_url=url, **extra)["id"]
 
 def publish():
     try:
@@ -1354,6 +1670,7 @@ def publish():
         job = json.loads((OUT / "pending.json").read_text())
         st["last_error"] = {"at": dt.datetime.now(TR).isoformat(timespec="minutes"), "slot": job.get("slot"),
                             "item": job.get("item"), "error": str(e)[:600]}
+        st["error_history"] = (st.get("error_history", []) + [st["last_error"]])[-20:]
         if job.get("media"):
             fails = st.setdefault("media_fail_count", {})
             fails[job["media"]] = fails.get(job["media"], 0) + 1
@@ -1370,20 +1687,20 @@ def _publish():
         print("already published"); return
     if not os.environ.get("IG_TOKEN"):
         print("IG_TOKEN not set -> dry run, nothing sent"); return
-    jitter = random.randint(0, int(os.environ.get("JITTER_MAX_MIN", "12")) * 60)
+    jitter = random.randint(0, (4 if job.get("video") else int(os.environ.get("JITTER_MAX_MIN", "5"))) * 60)
     print(f"waiting {jitter // 60} min so posting time is not robotic"); time.sleep(jitter)
     repo, ref = os.environ["GITHUB_REPOSITORY"], os.environ.get("GITHUB_REF_NAME", "main")
     url = f"https://raw.githubusercontent.com/{repo}/{ref}/out/{job['file']}"
     ig = ig_user()
     if job.get("video"):
-        cid = upload_video(ig, ROOT / job["video"], "REELS" if job.get("reel") else "STORIES", job.get("caption"))
+        cid = upload_video(ig, ROOT / job["video"], "REELS" if job.get("reel") else "STORIES", job.get("caption"), url=True)
     elif job.get("files"):
         base = f"https://raw.githubusercontent.com/{repo}/{ref}/out/"
         kids = [api("POST", f"{ig}/media", image_url=base + f, is_carousel_item="true")["id"] for f in job["files"]]
         cid = api("POST", f"{ig}/media", media_type="CAROUSEL", children=",".join(kids), caption=job["caption"])["id"]
     else:
         params = {"image_url": url}
-        if job["slot"] == "post":
+        if job["slot"] in ("post",) + POST_SLOTS:
             params["caption"] = job["caption"]
         else:
             params["media_type"] = "STORIES"
