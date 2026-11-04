@@ -1496,6 +1496,8 @@ CARD_FALLBACK = {
 
 def card_content(code, d, v, st, clip_text=""):
     subj = card_subject(code, d, st)
+    if code == "s8" and clip_text:   # the clip already names a place -> introduce THAT place, so text and picture match
+        subj = dict(subj, name=clip_text.split("\n")[0][:60], info=clip_text, query=None)
     log = st.setdefault("card_log", {}).setdefault(code, [])
     shape = ('{"topic": "موضوع کوتاه برای ثبت", "tag": "برچسب ۲ تا ۴ کلمه", "title": "تیتر حداکثر ۷ کلمه، خودمانی", "hl": "یک یا دو کلمه از همان تیتر برای رنگ طلایی", '
              '"sub": "یک جمله حداکثر ۹۰ حرف", "lines": [["ایموجی", "حداکثر ۴۵ حرف"], ...], "foot": "حداکثر ۵۰ حرف یا خالی"}')
