@@ -407,10 +407,10 @@
   "x273476"
  ],
  "music_last": {
-  "1DZTJ4ef0yYVG2xdl3IlbrnmWhvTIImvs": "2026-11-04T19:53+03:00",
+  "1DZTJ4ef0yYVG2xdl3IlbrnmWhvTIImvs": "2026-11-05T01:30+03:00",
   "1dkR0sggYnJv6PAPhkKiPNI1Qbu5nbVwi": "2026-11-04T22:53+03:00",
-  "1fp4Ah5iQfFhH9Wv8srgJdSKSlru0RDHO": "2026-11-04T18:55+03:00",
-  "1QUXCTr3hAjvM090ZbkBDmL190dxM9yXG": "2026-11-04T20:52+03:00",
+  "1fp4Ah5iQfFhH9Wv8srgJdSKSlru0RDHO": "2026-11-05T01:29+03:00",
+  "1QUXCTr3hAjvM090ZbkBDmL190dxM9yXG": "2026-11-05T01:30+03:00",
   "r_16OqrXYzWRF5c20HNKbjBoWNaa_6pT9tp": "2026-11-04T00:15+03:00",
   "r_1l3THmi6GjqfKpjoZlRy25On7rsx6vdso": "2026-11-04T10:50+03:00"
  },
@@ -419,31 +419,58 @@
   "16OqrXYzWRF5c20HNKbjBoWNaa_6pT9tp": "2026-11-04T00:15+03:00",
   "13cti3LWYsXUCr-0K14bJGiYd5GMOfRM_": "2026-11-04T10:50+03:00",
   "1l3THmi6GjqfKpjoZlRy25On7rsx6vdso": "2026-11-04T10:50+03:00",
-  "1spub-PVCRgyWNIOKtUQKy8ekCyu8BTpp": "2026-11-04T22:52+03:00"
+  "1spub-PVCRgyWNIOKtUQKy8ekCyu8BTpp": "2026-11-04T22:52+03:00",
+  "1eww9Vvjb_m9JhLIMFLFn8JtiDB8nLddz": "2026-11-05T01:28+03:00",
+  "1i-gDjubpjs_pZodC-V1PWWBqmgaAqgf4": "2026-11-05T01:30+03:00",
+  "1vb6bRaRQ2BChS41iAPHAhyaRWtEfP-kA": "2026-11-05T01:31+03:00",
+  "1U1ZO1_RPVlMbxTxTT4UgwViB9lg5-YvT": "2026-11-05T01:32+03:00",
+  "1T7kkhCbRPAkU3hkd4BZcudSUVKQgF9Ei": "2026-11-05T01:32+03:00"
  },
  "vlog_i": 3,
  "card_log": {
   "s1": [
-   "صبح بخیر چهارشنبه؛ پیشنهاد صبحانهٔ وانی"
+   "صبح بخیر چهارشنبه؛ پیشنهاد صبحانهٔ وانی",
+   "صبح بخیر پنجشنبه؛ قدم‌زدن آرام کنار دریا"
   ],
   "s4": [
-   "معرفی صرافی وان گشت با کارتخوان ایرانی"
+   "معرفی صرافی وان گشت با کارتخوان ایرانی",
+   "سوئیت‌های مبلهٔ وان"
   ],
   "s5": [
-   "تور کشتی‌های بزرگ تفریحی دریاچه وان"
+   "تور کشتی‌های بزرگ تفریحی دریاچه وان",
+   "تور هر روزهٔ جزیرهٔ آکدامار با کشتی از س"
   ],
   "s6": [
-   "این یا اون؟ غروب وان: قلعه یا ساحل دریاچ"
+   "این یا اون؟ غروب وان: قلعه یا ساحل دریاچ",
+   "آیا می‌دانید؟ گربهٔ وان و چشم‌های دورنگ"
   ],
   "s8": [
-   "جزیرهٔ آکدامار"
+   "جزیرهٔ آکدامار",
+   "قلعهٔ وان (توشپا)"
   ],
   "s10": [
    "استوری شب بخیر چهارشنبه ۱۳ آبان",
-   "استوری شب بخیر چهارشنبه ۱۳ آبان (نسخهٔ ج"
+   "استوری شب بخیر چهارشنبه ۱۳ آبان (نسخهٔ ج",
+   "استوری شب بخیر پنج‌شنبه ۱۴ آبان (شب جمعه"
   ]
  },
- "s4_i": 1,
- "s5_i": 1,
- "s8_i": 1
+ "s4_i": 2,
+ "s5_i": 2,
+ "s8_i": 2,
+ "clip_info": {
+  "1eww9Vvjb_m9JhLIMFLFn8JtiDB8nLddz": {
+   "text": "",
+   "greeting": "",
+   "other_page": false,
+   "page": "",
+   "music": false
+  },
+  "1i-gDjubpjs_pZodC-V1PWWBqmgaAqgf4": {
+   "text": "",
+   "greeting": "",
+   "other_page": false,
+   "page": "",
+   "music": false
+  }
+ }
 }
