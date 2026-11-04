@@ -1,9 +1,10 @@
 {
- "slot": "story1",
+ "slot": "story3",
  "file": null,
  "caption": null,
  "advance": null,
- "item": "rates",
- "video": "dl/2026-11-04-rates.mp4",
- "done": true
+ "item": "vlog",
+ "video": "dl/2026-11-04-vlog.mp4",
+ "reel": false,
+ "done": null
 }
