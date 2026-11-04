@@ -6,8 +6,8 @@ on:
       slot:
         description: "What to publish now"
         type: choice
-        options: [story1, story2, story3, story4, post, test, testreel, testrates, testvlog]
-        default: story2
+        options: [s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, p1, p2, testcards, testreel, testrates, testvlog, test, story1, story2, story3, story4, post]
+        default: testcards
 
 permissions:
   contents: write
@@ -19,7 +19,7 @@ concurrency:
 jobs:
   run:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@v4
         with:
