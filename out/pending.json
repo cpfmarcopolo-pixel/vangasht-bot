@@ -1,9 +1,9 @@
 {
- "slot": "s10",
+ "slot": "testcards",
  "file": null,
  "caption": null,
  "advance": null,
- "item": "s10:شب بخیر وانی‌ها 🌙",
- "video": "dl/2026-11-04-s10-ig.mp4",
+ "item": "cards-test",
+ "video": "out/2026-11-05-test-s1.mp4",
  "done": true
 }
