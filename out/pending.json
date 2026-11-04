@@ -1,9 +1,9 @@
 {
- "slot": "story2",
+ "slot": "testcards",
  "file": null,
  "caption": null,
  "advance": null,
- "item": "vangasht-suite-horizontal-1.mp4",
- "video": "dl/1lBK-LgJCrFj-mKZyHKiBaprgzfgNcbIJ-ig.mp4",
- "media": "gdrive:1lBK-LgJCrFj-mKZyHKiBaprgzfgNcbIJ"
+ "item": "cards-test",
+ "video": "out/2026-11-04-test-s1.mp4",
+ "done": true
 }
