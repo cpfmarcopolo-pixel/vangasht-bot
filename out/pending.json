@@ -1,9 +1,8 @@
 {
- "slot": "testcards",
+ "slot": "s1",
  "file": null,
  "caption": null,
  "advance": null,
- "item": "cards-test",
- "video": "out/2026-11-05-test-s1.mp4",
- "done": true
+ "item": "s1:پنجشنبه، با طعم پاییز ☕",
+ "video": "dl/2026-11-05-s1-ig.mp4"
 }
