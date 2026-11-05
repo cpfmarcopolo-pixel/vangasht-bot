@@ -187,6 +187,12 @@
    "slot": "s2",
    "item": "rates",
    "media": "17906731638352790"
+  },
+  {
+   "at": "2026-11-05T11:29+03:00",
+   "slot": "p1",
+   "item": "ai:آبشار مرادیه؛ سفر یک‌روزه از وان با چهار",
+   "media": "18105886043159752"
   }
  ],
  "media_done": [
@@ -233,6 +239,10 @@
   {
    "day": "2026-11-04",
    "topic": "چک‌لیست شب اول رسیدن به وان"
+  },
+  {
+   "day": "2026-11-05",
+   "topic": "آبشار مرادیه؛ سفر یک‌روزه از وان با چهار"
   }
  ],
  "inspo": {
@@ -373,7 +383,9 @@
   "File:Akdamar island Van lake.jpg",
   "File:65500 Görecek-Muradiye-Van, Turkey - panoramio.jpg",
   "File:Kevenli.jpg",
-  "File:Armenian Church of the Holy Cross, Akdamar Island, 2007.jpg"
+  "File:Armenian Church of the Holy Cross, Akdamar Island, 2007.jpg",
+  "File:050413-VanLake-Turkey-IMG 2742-2.jpg",
+  "File:Erek Dağı Ay'ın Doğuşu.jpg"
  ],
  "last_error": {
   "at": "2026-11-04T17:03+03:00",
@@ -400,29 +412,33 @@
   "d:1pKXqHr-pFpT2umWIUbvJlIu3tz6F44pz": 1
  },
  "pexels_used": [
-  "x381054",
-  "x67201",
-  "x7262",
-  "x222349",
-  "x4730",
-  "x267036",
-  "x170912",
-  "x31550",
-  "x50622",
-  "x140186",
-  "x2576",
-  "x119190",
-  "x79899",
+  "x149938",
   "x236256",
-  "x371424",
-  "x84906",
+  "x381054",
   "x156103",
-  "x273476"
+  "x118768",
+  "x67201",
+  "x170912",
+  "x222349",
+  "x2576",
+  "x11284",
+  "x84906",
+  "x371424",
+  "x140186",
+  "x173358",
+  "x31550",
+  "x7262",
+  "x50622",
+  "x4730",
+  "x119190",
+  "x267036",
+  "x273476",
+  "x79899"
  ],
  "music_last": {
   "1DZTJ4ef0yYVG2xdl3IlbrnmWhvTIImvs": "2026-11-05T01:30+03:00",
   "1dkR0sggYnJv6PAPhkKiPNI1Qbu5nbVwi": "2026-11-05T01:51+03:00",
-  "1fp4Ah5iQfFhH9Wv8srgJdSKSlru0RDHO": "2026-11-05T01:29+03:00",
+  "1fp4Ah5iQfFhH9Wv8srgJdSKSlru0RDHO": "2026-11-05T11:25+03:00",
   "1QUXCTr3hAjvM090ZbkBDmL190dxM9yXG": "2026-11-05T01:30+03:00",
   "r_16OqrXYzWRF5c20HNKbjBoWNaa_6pT9tp": "2026-11-04T00:15+03:00",
   "r_1l3THmi6GjqfKpjoZlRy25On7rsx6vdso": "2026-11-04T10:50+03:00"
@@ -518,6 +534,80 @@
    "own_boxes": [],
    "ar": 0.5555555555555556,
    "v": 3
+  },
+  "1K2TYZ5nPFIOpNiuLTrUgj8WA-DwLbtcw": {
+   "text": "",
+   "greeting": "",
+   "other_page": false,
+   "page": "",
+   "music": false,
+   "own_boxes": [],
+   "ar": 0.75,
+   "v": 3
+  },
+  "1ZH4KBU6YUcc0lM2tuyt_NwSYWmuUJzDY": {
+   "text": "VAN",
+   "greeting": "",
+   "other_page": true,
+   "page": "@al1celik",
+   "music": true,
+   "own_boxes": [],
+   "ar": 0.5625,
+   "v": 3
+  },
+  "19SQ-cP9HvIyx-tbss5pUxCALpRIQFVtf": {
+   "text": "جزیره چارپاناک وان",
+   "greeting": "",
+   "other_page": false,
+   "page": "",
+   "music": true,
+   "own_boxes": [],
+   "ar": 0.5625,
+   "v": 3
+  },
+  "1tf-XmRtcFdYa3FhzJI2xYgtmhBjtrhQp": {
+   "text": "آبشار مرادیه وان",
+   "greeting": "",
+   "other_page": false,
+   "page": "",
+   "music": true,
+   "own_boxes": [],
+   "ar": 0.5625,
+   "v": 3
+  },
+  "1VUYn5DjW6_BERznvNSyLD0Sgdm-aJtDb": {
+   "text": "",
+   "greeting": "",
+   "other_page": true,
+   "page": "سیاحت پردیس",
+   "music": true,
+   "own_boxes": [],
+   "ar": 0.5625,
+   "v": 3
+  },
+  "1wyjQzHbqmNGKPs2wmCjCnb0W-UW2uDA-": {
+   "text": "وان .ساحل شیشه ادرمیت\nVAN",
+   "greeting": "",
+   "other_page": false,
+   "page": "",
+   "music": true,
+   "own_boxes": [],
+   "ar": 0.5625,
+   "v": 3
+  },
+  "1YK1LPP2KzpOiT5J3hJoex2T6XZCGW9gV": {
+   "text": "",
+   "greeting": "",
+   "other_page": false,
+   "page": "",
+   "music": true,
+   "own_boxes": [],
+   "ar": 0.5633802816901409,
+   "v": 3
   }
+ },
+ "skipped_files": {
+  "vankalesi1.mp4": "@al1celik",
+  "akdamaradasi5.mp4": "سیاحت پردیس"
  }
 }
