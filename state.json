@@ -181,6 +181,12 @@
    "slot": "s1",
    "item": "s1:پنجشنبه، با طعم پاییز ☕",
    "media": "18007184847452874"
+  },
+  {
+   "at": "2026-11-05T11:06+03:00",
+   "slot": "s2",
+   "item": "rates",
+   "media": "17906731638352790"
   }
  ],
  "media_done": [
@@ -437,7 +443,8 @@
   "1iwmldzc5FeV2O901Psyy0ec-ToCbJhT2": "2026-11-05T01:52+03:00",
   "1o8hbi7E2vAtMtsMU6a7GeQQhmSEYCClV": "2026-11-05T01:53+03:00",
   "1gwYcT8y4c6oNyO7zRqCKWKLkrKa0fDP8": "2026-11-05T01:54+03:00",
-  "1G9DLnYaWoH8yTpJJvcwFRvTOhC9FFrK7": "2026-11-05T08:52+03:00"
+  "1G9DLnYaWoH8yTpJJvcwFRvTOhC9FFrK7": "2026-11-05T08:52+03:00",
+  "1lpZ82SZHRhiU7wmo0kGWV9O587NMeLRz": "2026-11-05T11:01+03:00"
  },
  "vlog_i": 3,
  "card_log": {
