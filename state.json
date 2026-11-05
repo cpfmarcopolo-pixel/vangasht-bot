@@ -199,6 +199,12 @@
    "slot": "s3",
    "item": "vlog",
    "media": "17936193840408550"
+  },
+  {
+   "at": "2026-11-05T12:56+03:00",
+   "slot": "s4",
+   "item": "s4:وان رو قدم‌به‌قدم بگرد",
+   "media": "17939336646125041"
   }
  ],
  "media_done": [
@@ -391,7 +397,8 @@
   "File:Kevenli.jpg",
   "File:Armenian Church of the Holy Cross, Akdamar Island, 2007.jpg",
   "File:050413-VanLake-Turkey-IMG 2742-2.jpg",
-  "File:Erek Dağı Ay'ın Doğuşu.jpg"
+  "File:Erek Dağı Ay'ın Doğuşu.jpg",
+  "File:Gevaş, isola di akdamar, punto panoramico sul lago di van, 02.jpg"
  ],
  "last_error": {
   "at": "2026-11-04T17:03+03:00",
@@ -453,7 +460,7 @@
   "1DZTJ4ef0yYVG2xdl3IlbrnmWhvTIImvs": "2026-11-05T11:53+03:00",
   "1dkR0sggYnJv6PAPhkKiPNI1Qbu5nbVwi": "2026-11-05T01:51+03:00",
   "1fp4Ah5iQfFhH9Wv8srgJdSKSlru0RDHO": "2026-11-05T11:25+03:00",
-  "1QUXCTr3hAjvM090ZbkBDmL190dxM9yXG": "2026-11-05T01:30+03:00",
+  "1QUXCTr3hAjvM090ZbkBDmL190dxM9yXG": "2026-11-05T12:53+03:00",
   "r_16OqrXYzWRF5c20HNKbjBoWNaa_6pT9tp": "2026-11-04T00:15+03:00",
   "r_1l3THmi6GjqfKpjoZlRy25On7rsx6vdso": "2026-11-04T10:50+03:00"
  },
@@ -487,7 +494,8 @@
   "s4": [
    "معرفی صرافی وان گشت با کارتخوان ایرانی",
    "سوئیت‌های مبلهٔ وان",
-   "کارت تخفیف وان گشت"
+   "کارت تخفیف وان گشت",
+   "معرفی راهنمای سفر به وان در سایت"
   ],
   "s5": [
    "تور کشتی‌های بزرگ تفریحی دریاچه وان",
@@ -511,7 +519,7 @@
    "استوری شب بخیر پنج‌شنبه ۱۴ آبان (شب جمعه"
   ]
  },
- "s4_i": 3,
+ "s4_i": 4,
  "s5_i": 3,
  "s8_i": 3,
  "clip_info": {
