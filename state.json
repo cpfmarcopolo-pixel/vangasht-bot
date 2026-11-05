@@ -223,6 +223,12 @@
    "slot": "s7",
    "item": "vlog",
    "media": "18125978980810049"
+  },
+  {
+   "at": "2026-11-05T20:07+03:00",
+   "slot": "p2",
+   "item": "ai:برنامهٔ پنج‌شنبه‌شب پاییزی در وان",
+   "media": "18286030999295980"
   }
  ],
  "media_done": [
@@ -273,6 +279,10 @@
   {
    "day": "2026-11-05",
    "topic": "آبشار مرادیه؛ سفر یک‌روزه از وان با چهار"
+  },
+  {
+   "day": "2026-11-05",
+   "topic": "برنامهٔ پنج‌شنبه‌شب پاییزی در وان"
   }
  ],
  "inspo": {
@@ -416,7 +426,10 @@
   "File:Armenian Church of the Holy Cross, Akdamar Island, 2007.jpg",
   "File:050413-VanLake-Turkey-IMG 2742-2.jpg",
   "File:Erek Dağı Ay'ın Doğuşu.jpg",
-  "File:Gevaş, isola di akdamar, punto panoramico sul lago di van, 02.jpg"
+  "File:Gevaş, isola di akdamar, punto panoramico sul lago di van, 02.jpg",
+  "File:Van banner Akdamar Island.jpg",
+  "File:65500 Görecek-Muradiye-Van, Turkey - panoramio 2 (cropped).jpg",
+  "File:Hosap-castle (15).jpg"
  ],
  "last_error": {
   "at": "2026-11-04T17:03+03:00",
@@ -458,33 +471,35 @@
   "d:1IrRS6actyxKTVFTaMyP0Y5ywOSa5NJ5K": 1
  },
  "pexels_used": [
-  "x267036",
-  "x119190",
-  "x7262",
-  "x381054",
-  "x170912",
-  "x2576",
-  "x4730",
   "x118768",
+  "x34971",
+  "x273476",
+  "x170912",
   "x222349",
-  "x31550",
+  "x84906",
+  "x149938",
+  "x67201",
+  "x7262",
+  "x119190",
   "x140186",
   "x173358",
-  "x156103",
-  "x149938",
-  "x84906",
-  "x67201",
+  "x71747",
+  "x79899",
+  "x11284",
+  "x2576",
+  "x381054",
   "x371424",
   "x50622",
-  "x79899",
-  "x273476",
-  "x11284",
-  "x236256"
+  "x31550",
+  "x156103",
+  "x236256",
+  "x4730",
+  "x267036"
  ],
  "music_last": {
   "1DZTJ4ef0yYVG2xdl3IlbrnmWhvTIImvs": "2026-11-05T11:53+03:00",
   "1dkR0sggYnJv6PAPhkKiPNI1Qbu5nbVwi": "2026-11-05T17:23+03:00",
-  "1fp4Ah5iQfFhH9Wv8srgJdSKSlru0RDHO": "2026-11-05T11:25+03:00",
+  "1fp4Ah5iQfFhH9Wv8srgJdSKSlru0RDHO": "2026-11-05T20:02+03:00",
   "1QUXCTr3hAjvM090ZbkBDmL190dxM9yXG": "2026-11-05T12:53+03:00",
   "r_16OqrXYzWRF5c20HNKbjBoWNaa_6pT9tp": "2026-11-04T00:15+03:00",
   "r_1l3THmi6GjqfKpjoZlRy25On7rsx6vdso": "2026-11-04T10:50+03:00"
@@ -738,6 +753,16 @@
   },
   "1IrRS6actyxKTVFTaMyP0Y5ywOSa5NJ5K": {
    "text": "",
+   "greeting": "",
+   "other_page": false,
+   "page": "",
+   "music": true,
+   "own_boxes": [],
+   "ar": 0.5625,
+   "v": 3
+  },
+  "16VIIe96YEBsOYRUiG2DYtJ6_g96YPnfz": {
+   "text": "به همراه کلی موزیک زنده\nپل شیشه ای روی دریا",
    "greeting": "",
    "other_page": false,
    "page": "",
