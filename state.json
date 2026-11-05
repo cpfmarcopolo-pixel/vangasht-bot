@@ -193,6 +193,12 @@
    "slot": "p1",
    "item": "ai:آبشار مرادیه؛ سفر یک‌روزه از وان با چهار",
    "media": "18105886043159752"
+  },
+  {
+   "at": "2026-11-05T11:57+03:00",
+   "slot": "s3",
+   "item": "vlog",
+   "media": "17936193840408550"
   }
  ],
  "media_done": [
@@ -409,34 +415,42 @@
   "d:1yF-mHGY0RCD51OiPsJaC7w09aTHVZ3DO": 1,
   "d:1U4b38i-CWnvbYV90cb4pvKVeu4BrBpcW": 1,
   "d:1TrbCtioLxNR4SIYkuSrpLX6WbLekSpZC": 1,
-  "d:1pKXqHr-pFpT2umWIUbvJlIu3tz6F44pz": 1
+  "d:1pKXqHr-pFpT2umWIUbvJlIu3tz6F44pz": 1,
+  "d:1LR0XlpRZVEn8Gwq1MYy8z4d2cgvW4KyU": 1,
+  "d:1kY1bjgXULEdctAGLRxoJj6kMk4dlLDzS": 1,
+  "d:195nbdcfUJEZfu4ni2e9rtll4JyBI6ldO": 1,
+  "d:1ptmUjOp_HfgBOSsEbBl2Cf7Lrs0Z42zg": 1,
+  "d:1PwHVAY7MeGcEkDET3fZYMWzfWzvZJfMz": 1,
+  "d:11Do1EatdSuSKZVVwYdLAW9mBmZeCounP": 1,
+  "d:12JwOz4uxPQYTMoi8xyBKDpDWPpx2TYf0": 1,
+  "d:1MBdeSYRkbiGnZ94EKUv5ABUw7lazMSj1": 1
  },
  "pexels_used": [
-  "x149938",
-  "x236256",
-  "x381054",
-  "x156103",
-  "x118768",
-  "x67201",
-  "x170912",
-  "x222349",
-  "x2576",
-  "x11284",
-  "x84906",
-  "x371424",
-  "x140186",
-  "x173358",
-  "x31550",
-  "x7262",
-  "x50622",
-  "x4730",
   "x119190",
   "x267036",
+  "x173358",
+  "x11284",
+  "x31550",
+  "x50622",
+  "x140186",
+  "x149938",
+  "x156103",
+  "x84906",
+  "x371424",
+  "x67201",
+  "x118768",
+  "x236256",
+  "x79899",
+  "x170912",
+  "x381054",
+  "x4730",
+  "x222349",
+  "x2576",
   "x273476",
-  "x79899"
+  "x7262"
  ],
  "music_last": {
-  "1DZTJ4ef0yYVG2xdl3IlbrnmWhvTIImvs": "2026-11-05T01:30+03:00",
+  "1DZTJ4ef0yYVG2xdl3IlbrnmWhvTIImvs": "2026-11-05T11:53+03:00",
   "1dkR0sggYnJv6PAPhkKiPNI1Qbu5nbVwi": "2026-11-05T01:51+03:00",
   "1fp4Ah5iQfFhH9Wv8srgJdSKSlru0RDHO": "2026-11-05T11:25+03:00",
   "1QUXCTr3hAjvM090ZbkBDmL190dxM9yXG": "2026-11-05T01:30+03:00",
@@ -462,7 +476,7 @@
   "1G9DLnYaWoH8yTpJJvcwFRvTOhC9FFrK7": "2026-11-05T08:52+03:00",
   "1lpZ82SZHRhiU7wmo0kGWV9O587NMeLRz": "2026-11-05T11:01+03:00"
  },
- "vlog_i": 3,
+ "vlog_i": 6,
  "card_log": {
   "s1": [
    "صبح بخیر چهارشنبه؛ پیشنهاد صبحانهٔ وانی",
@@ -604,10 +618,81 @@
    "own_boxes": [],
    "ar": 0.5633802816901409,
    "v": 3
+  },
+  "1ptmUjOp_HfgBOSsEbBl2Cf7Lrs0Z42zg": {
+   "text": "",
+   "greeting": "",
+   "other_page": false,
+   "page": "",
+   "music": true,
+   "own_boxes": [],
+   "ar": 0.8,
+   "v": 3
+  },
+  "1OwkaSEMVxmoonpwNJeywCs00IWMaK4Oq": {
+   "text": "",
+   "greeting": "",
+   "other_page": true,
+   "page": "Van Kedi Evi Cafe",
+   "music": true,
+   "own_boxes": [],
+   "ar": 0.5625,
+   "v": 3
+  },
+  "1PwHVAY7MeGcEkDET3fZYMWzfWzvZJfMz": {
+   "text": "",
+   "greeting": "",
+   "other_page": false,
+   "page": "",
+   "music": false,
+   "own_boxes": [],
+   "ar": 0.75,
+   "v": 3
+  },
+  "11Do1EatdSuSKZVVwYdLAW9mBmZeCounP": {
+   "text": "",
+   "greeting": "",
+   "other_page": false,
+   "page": "",
+   "music": false,
+   "own_boxes": [],
+   "ar": 0.75,
+   "v": 3
+  },
+  "12JwOz4uxPQYTMoi8xyBKDpDWPpx2TYf0": {
+   "text": "",
+   "greeting": "",
+   "other_page": false,
+   "page": "",
+   "music": false,
+   "own_boxes": [],
+   "ar": 0.75,
+   "v": 3
+  },
+  "1MBdeSYRkbiGnZ94EKUv5ABUw7lazMSj1": {
+   "text": "",
+   "greeting": "",
+   "other_page": false,
+   "page": "",
+   "music": false,
+   "own_boxes": [],
+   "ar": 0.75,
+   "v": 3
+  },
+  "1IfLfe4mk-IqOIQfMH5GbmHbt6dMofPI4": {
+   "text": "",
+   "greeting": "",
+   "other_page": false,
+   "page": "",
+   "music": false,
+   "own_boxes": [],
+   "ar": 0.75,
+   "v": 3
   }
  },
  "skipped_files": {
   "vankalesi1.mp4": "@al1celik",
-  "akdamaradasi5.mp4": "سیاحت پردیس"
+  "akdamaradasi5.mp4": "سیاحت پردیس",
+  "vankedisi1.mp4": "Van Kedi Evi Cafe"
  }
 }
