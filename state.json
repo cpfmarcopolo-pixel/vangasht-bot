@@ -205,6 +205,12 @@
    "slot": "s4",
    "item": "s4:وان رو قدم‌به‌قدم بگرد",
    "media": "17939336646125041"
+  },
+  {
+   "at": "2026-11-05T14:25+03:00",
+   "slot": "s5",
+   "item": "s5:صدای آبشار، طعم چای",
+   "media": "18108799543970883"
   }
  ],
  "media_done": [
@@ -481,7 +487,8 @@
   "1o8hbi7E2vAtMtsMU6a7GeQQhmSEYCClV": "2026-11-05T01:53+03:00",
   "1gwYcT8y4c6oNyO7zRqCKWKLkrKa0fDP8": "2026-11-05T01:54+03:00",
   "1G9DLnYaWoH8yTpJJvcwFRvTOhC9FFrK7": "2026-11-05T08:52+03:00",
-  "1lpZ82SZHRhiU7wmo0kGWV9O587NMeLRz": "2026-11-05T11:01+03:00"
+  "1lpZ82SZHRhiU7wmo0kGWV9O587NMeLRz": "2026-11-05T11:01+03:00",
+  "1cFbuOWVaetKLwBJ4q5btcoEE50TfA1c9": "2026-11-05T14:22+03:00"
  },
  "vlog_i": 6,
  "card_log": {
@@ -500,7 +507,8 @@
   "s5": [
    "تور کشتی‌های بزرگ تفریحی دریاچه وان",
    "تور هر روزهٔ جزیرهٔ آکدامار با کشتی از س",
-   "تور پارک آبی (فصلی، مخصوص فصل گرم)"
+   "تور پارک آبی (فصلی، مخصوص فصل گرم)",
+   "تور آبشار مرادیه"
   ],
   "s6": [
    "این یا اون؟ غروب وان: قلعه یا ساحل دریاچ",
@@ -520,7 +528,7 @@
   ]
  },
  "s4_i": 4,
- "s5_i": 3,
+ "s5_i": 4,
  "s8_i": 3,
  "clip_info": {
   "1eww9Vvjb_m9JhLIMFLFn8JtiDB8nLddz": {
@@ -695,6 +703,16 @@
    "music": false,
    "own_boxes": [],
    "ar": 0.75,
+   "v": 3
+  },
+  "1cFbuOWVaetKLwBJ4q5btcoEE50TfA1c9": {
+   "text": "",
+   "greeting": "",
+   "other_page": false,
+   "page": "",
+   "music": true,
+   "own_boxes": [],
+   "ar": 0.5625,
    "v": 3
   }
  },
