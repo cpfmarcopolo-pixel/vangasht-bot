@@ -217,6 +217,12 @@
    "slot": "s6",
    "item": "s6:آب دریاچهٔ وان، چه مزه‌ایه؟",
    "media": "18132983299765476"
+  },
+  {
+   "at": "2026-11-05T17:24+03:00",
+   "slot": "s7",
+   "item": "vlog",
+   "media": "18125978980810049"
   }
  ],
  "media_done": [
@@ -442,35 +448,42 @@
   "d:1PwHVAY7MeGcEkDET3fZYMWzfWzvZJfMz": 1,
   "d:11Do1EatdSuSKZVVwYdLAW9mBmZeCounP": 1,
   "d:12JwOz4uxPQYTMoi8xyBKDpDWPpx2TYf0": 1,
-  "d:1MBdeSYRkbiGnZ94EKUv5ABUw7lazMSj1": 1
+  "d:1MBdeSYRkbiGnZ94EKUv5ABUw7lazMSj1": 1,
+  "d:1poTvlvN-PsJ7tYdIWLLg6Eb55b8kuHr3": 1,
+  "d:1XXPmSKgZefrKBOGiDkECLEdZT6Ya7PgT": 1,
+  "d:12BZ_878euoOPlDXiLpdKo3HJ0SCXWVYU": 1,
+  "d:1bo0YmDNzhEip85Za264BAWb_mft352wX": 1,
+  "d:1-FVfIeiZZjXFJAzJ5gMN5MVC9fpT6_9n": 1,
+  "d:17hKiV-WnBt1mRwctml8gDA-1w8Zc9BOB": 1,
+  "d:1IrRS6actyxKTVFTaMyP0Y5ywOSa5NJ5K": 1
  },
  "pexels_used": [
-  "x119190",
   "x267036",
-  "x173358",
-  "x11284",
-  "x31550",
-  "x50622",
-  "x140186",
-  "x149938",
-  "x156103",
-  "x84906",
-  "x371424",
-  "x67201",
-  "x118768",
-  "x236256",
-  "x79899",
-  "x170912",
+  "x119190",
+  "x7262",
   "x381054",
-  "x4730",
-  "x222349",
+  "x170912",
   "x2576",
+  "x4730",
+  "x118768",
+  "x222349",
+  "x31550",
+  "x140186",
+  "x173358",
+  "x156103",
+  "x149938",
+  "x84906",
+  "x67201",
+  "x371424",
+  "x50622",
+  "x79899",
   "x273476",
-  "x7262"
+  "x11284",
+  "x236256"
  ],
  "music_last": {
   "1DZTJ4ef0yYVG2xdl3IlbrnmWhvTIImvs": "2026-11-05T11:53+03:00",
-  "1dkR0sggYnJv6PAPhkKiPNI1Qbu5nbVwi": "2026-11-05T01:51+03:00",
+  "1dkR0sggYnJv6PAPhkKiPNI1Qbu5nbVwi": "2026-11-05T17:23+03:00",
   "1fp4Ah5iQfFhH9Wv8srgJdSKSlru0RDHO": "2026-11-05T11:25+03:00",
   "1QUXCTr3hAjvM090ZbkBDmL190dxM9yXG": "2026-11-05T12:53+03:00",
   "r_16OqrXYzWRF5c20HNKbjBoWNaa_6pT9tp": "2026-11-04T00:15+03:00",
@@ -497,7 +510,7 @@
   "1cFbuOWVaetKLwBJ4q5btcoEE50TfA1c9": "2026-11-05T14:22+03:00",
   "11YaI4p2ZI-qjNXQ4bXRuejBf-UFAXDKR": "2026-11-05T15:53+03:00"
  },
- "vlog_i": 6,
+ "vlog_i": 9,
  "card_log": {
   "s1": [
    "صبح بخیر چهارشنبه؛ پیشنهاد صبحانهٔ وانی",
@@ -714,6 +727,16 @@
    "v": 3
   },
   "1cFbuOWVaetKLwBJ4q5btcoEE50TfA1c9": {
+   "text": "",
+   "greeting": "",
+   "other_page": false,
+   "page": "",
+   "music": true,
+   "own_boxes": [],
+   "ar": 0.5625,
+   "v": 3
+  },
+  "1IrRS6actyxKTVFTaMyP0Y5ywOSa5NJ5K": {
    "text": "",
    "greeting": "",
    "other_page": false,
