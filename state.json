@@ -277,6 +277,12 @@
    "slot": "s5",
    "item": "s5:دنیا رنگی می‌شه",
    "media": "17997116375842259"
+  },
+  {
+   "at": "2026-11-06T15:54+03:00",
+   "slot": "s6",
+   "item": "s6:جمعهٔ پاییزی‌ات، کجا؟",
+   "media": "17953707360294665"
   }
  ],
  "media_done": [
@@ -592,7 +598,8 @@
   "1BTYvwOgAh6duGg1HaS0o2OwIN5pQA7PF": "2026-11-05T23:02+03:00",
   "1k-KyiRf0yyVTGLj6UMbJZJWLchhJ6vcS": "2026-11-06T08:52+03:00",
   "1ngL9kAa5rvCydUIuQHjnvQOwNC1_dmiz": "2026-11-06T11:01+03:00",
-  "1jaaCnvkMJZiQRnYkl5VMOJwE-V_lUjin": "2026-11-06T14:22+03:00"
+  "1jaaCnvkMJZiQRnYkl5VMOJwE-V_lUjin": "2026-11-06T14:22+03:00",
+  "1sjAcrPqOpPKqux_uRgpKOTk65efReAqB": "2026-11-06T15:52+03:00"
  },
  "vlog_i": 12,
  "card_log": {
@@ -621,7 +628,8 @@
    "این یا اون؟ غروب وان: قلعه یا ساحل دریاچ",
    "آیا می‌دانید؟ گربهٔ وان و چشم‌های دورنگ",
    "کیا دوست دارن؟ صبحانهٔ وانی",
-   "حدس بزن: مزهٔ آب دریاچهٔ وان"
+   "حدس بزن: مزهٔ آب دریاچهٔ وان",
+   "سؤال از شما: مقصد جمعهٔ پاییزی در وان"
   ],
   "s8": [
    "جزیرهٔ آکدامار",
@@ -942,6 +950,16 @@
    "music": false,
    "own_boxes": [],
    "ar": 0.75,
+   "v": 3
+  },
+  "1sjAcrPqOpPKqux_uRgpKOTk65efReAqB": {
+   "text": "",
+   "greeting": "",
+   "other_page": false,
+   "page": "",
+   "music": true,
+   "own_boxes": [],
+   "ar": 0.8,
    "v": 3
   }
  },
