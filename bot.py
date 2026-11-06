@@ -685,7 +685,7 @@ def rates_assets(st):
     """Background video/photo + song (+ clip info) for the rates story: Drive folder "S2 ..." (or the old "Rates"), each used in turn."""
     return folder_assets("S2", st, full=True)
 
-def layered_video(layers, bg, bg_video, song, st, dst, T, info=None):
+def layered_video(layers, bg, bg_video, song, st, dst, T, info=None, dim=0.30, hide_at=None):
     """Story video: background video (looped) or photo (slow zoom), darkened; transparent HTML layers fade in one
     after another; music = `song`, else the Drive "Music" folder, else a soft generated pad."""
     import subprocess
@@ -715,14 +715,14 @@ def layered_video(layers, bg, bg_video, song, st, dst, T, info=None):
         base = "[0:v]scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,fps=30,setsar=1,"
     for o in pngs:
         cmd += ["-loop", "1", "-t", str(T), "-i", str(o)]
-    f = (base + "eq=brightness=-0.06:saturation=1.15,drawbox=x=0:y=0:w=iw:h=ih:color=black@0.30:t=fill,fade=in:st=0:d=0.6[b0];")
+    f = (base + f"eq=brightness=-0.06:saturation=1.15,drawbox=x=0:y=0:w=iw:h=ih:color=black@{dim:.2f}:t=fill,fade=in:st=0:d=0.6[b0];")
     if cov:
         cmd += ["-loop", "1", "-t", str(T), "-i", str(cov)]
         f = f.replace("[b0];", "[b00];") + f"[{1 + len(pngs)}:v]format=rgba[cv];[b00][cv]overlay=0:0[b0];"
     last = "b0"
     for i in range(len(pngs)):
         st_ = 0.8 + i * 0.7
-        f += f"[{i+1}:v]format=rgba,fade=in:st={st_:.2f}:d=0.5:alpha=1,fade=out:st={T-0.8}:d=0.6:alpha=1[l{i}];[{last}][l{i}]overlay=0:0[b{i+1}];"
+        f += f"[{i+1}:v]format=rgba,fade=in:st={st_:.2f}:d=0.5:alpha=1,fade=out:st={(hide_at or T - 0.8):.2f}:d=0.6:alpha=1[l{i}];[{last}][l{i}]overlay=0:0[b{i+1}];"
         last = f"b{i+1}"
     f += f"[{last}]format=yuv420p[out]"
     n_in = 1 + len(pngs) + (1 if cov else 0)
@@ -1615,6 +1615,69 @@ def card_story(code, d, v, st, dst):
     print(f"{code} story ready:", c["title"])
     return c
 
+def pick_video(code, st):
+    """Next usable VIDEO of a folder (in turn, skipping other pages' clips) -> (path, drive file, clip info) or None."""
+    vis = [f for f in folder_files(code, "visual") if f["mimeType"].startswith("video/")]
+    for _ in range(min(6, len(vis))):
+        got = lru_take(vis, st)
+        if not got:
+            return None
+        info = clip_info(got[0], True, got[1]["id"], got[1]["name"], st)
+        if usable(got[1], info, st):
+            return got[0], got[1], info
+        vis = [x for x in vis if x["id"] != got[1]["id"]]
+    return None
+
+def tour_reel(d, v, st, day, test):
+    """Post (p1/p2): ONE whole video from the tours folder (S5), as a Reel; the caption is about the tour in that video."""
+    got = pick_video("S5", st)
+    if not got:
+        print("no usable video in the tours folder (S5) -> normal Reel")
+        return None
+    src, f, info = got
+    tours = [x for x in d.get("tours", []) if _fa(x.get("title"))]
+    lst = "\n".join(f"- {x.get('slug')}: {_fa(x.get('title'))} — {_fa(x.get('short'))} — {_fa(x.get('desc'))[:300]}" for x in tours)
+    log = st.setdefault("card_log", {}).setdefault("post", [])
+    prompt = (f"{ai_context(d, v)}\n\n{inspo_text(st)}"
+              f"برای پست ریلز پیج وان گشت یک ویدیوی کامل از یکی از تورهای ما منتشر می‌شود.\n"
+              f"ویدیو این را نشان می‌دهد: {info.get('place') or ''} {info.get('scene') or ''}\n"
+              + (f"روی ویدیو نوشته: «{info['text']}»\n" if info.get("text") else "")
+              + f"تورهای ما:\n{lst}\n\nپست‌های اخیر (تکرار نکن): {'، '.join(log[-10:]) or '—'}\n"
+              "توری را انتخاب کن که دقیقاً همین ویدیو مال آن است (tour = اسلاگ؛ اگر هیچ‌کدام نمی‌خورد خالی و کپشن را دربارهٔ همان چیزی که در ویدیو هست بنویس). "
+              "کپشن حرفه‌ای مثل پیج‌های الهام: خط اول یک قلاب کوتاه و جذاب، بعد ۳ تا ۵ خط کوتاه با ایموجی دربارهٔ همین تور (چه می‌بینی، چه تجربه‌ای، مدت یا زمان حرکت اگر در اطلاعات تور هست، هماهنگی فارسی)، "
+              "بعد دعوت به رزرو با «برای رزرو به دایرکت یا واتس‌اپ پیام بدید» و در آخر یک سؤال برای کامنت. قیمت ننویس، چیزی که در اطلاعات تور نیست از خودت نساز. "
+              "hook = تیتر کوتاه حداکثر ۵ کلمه که ۵ ثانیهٔ اول روی ویدیو می‌آید (ظریف و جذاب)، hl = یک کلمه از آن.\n"
+              'فقط JSON: {"topic": "...", "tour": "اسلاگ یا خالی", "hook": "...", "hl": "...", "caption": "..."}')
+    it = claude(prompt)
+    if not (isinstance(it, dict) and it.get("caption")):
+        print("! AI caption for the tour post failed:", AI_ERROR)
+        return None
+    slug = str(it.get("tour") or "")
+    if not any(str(x.get("slug")) == slug for x in tours):
+        slug = ""
+    url = f"vangasht.com/tour/{slug}" if slug else "vangasht.com/tour"
+    clean = lambda x, n: str(x or "")[:n].replace("<", "").replace(">", "").replace("آق‌تامار", "آکدامار")
+    c = {"code": "p", "tag": "تور وان گشت", "title": clean(it.get("hook"), 50), "hl": clean(it.get("hl"), 20), "sub": "", "lines": [], "foot": "",
+         "url": None, "answer": False, "date": False, "compact": True,
+         "pos": "top" if info.get("text_pos") in ("bottom", "middle") else "bottom"}
+    T = int(max(6, min(90, info.get("dur") or vid_duration(ffmpeg_bin(), src) or 30)))
+    song = "KEEP" if info.get("music") else None
+    if not song:
+        a_ = lru_take(folder_files("P", "audio"), st) or lru_take(folder_files("S5", "audio"), st)
+        song = a_[0] if a_ else None
+    mp4 = (OUT if test else ROOT / "dl") / f"{day}-reel.mp4"; mp4.parent.mkdir(exist_ok=True)
+    layered_video([card_layer_html(c, "head", v)], src, True, song, st, mp4, T, info, dim=0.08, hide_at=min(5.5, T - 1))
+    import subprocess
+    subprocess.run([ffmpeg_bin(), "-y", "-ss", "1.5", "-i", str(mp4), "-frames:v", "1", "-q:v", "3", str(OUT / f"{day}-post.jpg")], capture_output=True)
+    tags = "#وان #وان_ترکیه #سفر_به_وان #تور_وان #تورهای_وان #گردشگری_وان #ترکیه #VanTurkey #Van #VanGölü #وان_گشت"
+    cap = (fill(clean(it["caption"], 1800), v) + f"\n\n🌐 {url}\n💬 واتس‌اپ: {v['wa']}"
+           + (f"\n🎥 {credit_of(f['name'])}" if credit_of(f["name"]) else "") + "\n\n" + tags)
+    log.append(clean(it.get("topic") or it.get("hook"), 40)); del log[:-20]
+    if test:
+        (OUT / f"{day}-caption.txt").write_text(cap)
+    print(f"tour post ready: {f['name']} ({T}s) -> {url}")
+    return {"video": str(mp4.relative_to(ROOT)), "reel": True, "caption": cap, "item": f"tour:{f['name'][:40]}", "file": None, "done": True if test else None}
+
 def todayposts_layer_html(covers, show, v):
     vis = lambda k: "visible" if show in ("all", k) else "hidden"
     n = len(covers)
@@ -1704,6 +1767,9 @@ def render(slot):
         # a short edited video (real footage + music), like the stories of the inspiration pages
         reel.update(reel=False, caption=None, done=None)
         job.update(reel)
+    elif slot in POST_SLOTS and os.environ.get("POSTS_FROM_TOURS", "1") == "1" and (reel := _safe(tour_reel, d, v, st, tag, test)):
+        # one whole tour video from the S5 folder, with a caption about that tour
+        job.update(reel)
     elif slot in POST_SLOTS and want_reel and (reel := build_reel(d, v, st, tag, test)):
         job.update(reel)
         if not test:
@@ -1773,7 +1839,7 @@ def render(slot):
     if job.get("video") and not job.get("done"):
         src = ROOT / job["video"]
         dst = ROOT / "dl" / f"{day}-{slot}-ig.mp4"; dst.parent.mkdir(exist_ok=True)
-        ig_normalize(src, dst)
+        ig_normalize(src, dst, 90 if job.get("reel") else 59)
         job["video"] = str(dst.relative_to(ROOT))
     save_state(st)
     (OUT / "pending.json").write_text(json.dumps(job, ensure_ascii=False, indent=1))
@@ -1806,7 +1872,7 @@ def ig_user():
             return ig["id"]
     raise SystemExit("No Instagram account found on this token. Check the Page and Instagram are assigned to the system user.")
 
-def ig_normalize(src, dst):
+def ig_normalize(src, dst, max_s=59):
     """Re-encode to exactly what Instagram accepts best: H.264 High 4.1, 1080x1920, 30 fps CFR, yuv420p, BT.709,
     2 s closed GOPs, AAC 48 kHz stereo (silent track added if missing), max 59 s, moov atom first, no metadata."""
     import subprocess
@@ -1822,7 +1888,7 @@ def ig_normalize(src, dst):
             "-c:v", "libx264", "-profile:v", "high", "-level:v", "4.1", "-preset", "veryfast", "-crf", "21",
             "-maxrate", "8M", "-bufsize", "16M", "-g", "60", "-keyint_min", "60", "-sc_threshold", "0",
             "-color_primaries", "bt709", "-color_trc", "bt709", "-colorspace", "bt709",
-            "-c:a", "aac", "-b:a", "128k", "-ar", "48000", "-ac", "2", "-t", "59", "-shortest",
+            "-c:a", "aac", "-b:a", "128k", "-ar", "48000", "-ac", "2", "-t", str(max_s), "-shortest",
             "-map_metadata", "-1", "-movflags", "+faststart", str(dst)]
     r = subprocess.run(cmd, capture_output=True, text=True)
     if r.returncode != 0 or not Path(dst).exists():
