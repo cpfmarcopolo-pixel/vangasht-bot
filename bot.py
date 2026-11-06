@@ -685,7 +685,7 @@ def rates_assets(st):
     """Background video/photo + song (+ clip info) for the rates story: Drive folder "S2 ..." (or the old "Rates"), each used in turn."""
     return folder_assets("S2", st, full=True)
 
-def layered_video(layers, bg, bg_video, song, st, dst, T, info=None, dim=0.30, hide_at=None):
+def layered_video(layers, bg, bg_video, song, st, dst, T, info=None, dim=0.30, hide_at=None, keep_html=None, timings=None):
     """Story video: background video (looped) or photo (slow zoom), darkened; transparent HTML layers fade in one
     after another; music = `song`, else the Drive "Music" folder, else a soft generated pad."""
     import subprocess
@@ -698,7 +698,7 @@ def layered_video(layers, bg, bg_video, song, st, dst, T, info=None, dim=0.30, h
     with sync_playwright() as p:
         b = p.chromium.launch()
         pg = b.new_page(viewport={"width": 1080, "height": 1920})
-        for i, html in enumerate(layers):
+        for i, html in enumerate(layers + ([keep_html] if keep_html else [])):
             pg.set_content(f"<html dir=rtl><head><meta charset=utf-8><style>{css()}html,body{{background:transparent}}body{{width:1080px;height:1920px}}</style></head><body>{html}</body></html>")
             pg.wait_for_timeout(250)
             o = work / f"layer-{i}.png"; pg.screenshot(path=str(o), omit_background=True); pngs.append(o)
@@ -709,6 +709,7 @@ def layered_video(layers, bg, bg_video, song, st, dst, T, info=None, dim=0.30, h
     else:
         cmd = [ff, "-y", "-loop", "1", "-i", str(bg)]
         base = f"[0:v]scale=1300:2300:force_original_aspect_ratio=increase,crop=1300:2300,setsar=1,zoompan=z='min(zoom+0.0006,1.18)':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d={T*30}:s=1080x1920:fps=30,"
+    keep = pngs.pop() if keep_html else None
     cov = cover_png(info, "cover-story")
     if cov and not bg_video:   # a photo with our own mark: no slow zoom, so the label stays exactly on the mark
         cmd = [ff, "-y", "-loop", "1", "-t", str(T), "-i", str(bg)]
@@ -721,11 +722,15 @@ def layered_video(layers, bg, bg_video, song, st, dst, T, info=None, dim=0.30, h
         f = f.replace("[b0];", "[b00];") + f"[{1 + len(pngs)}:v]format=rgba[cv];[b00][cv]overlay=0:0[b0];"
     last = "b0"
     for i in range(len(pngs)):
-        st_ = 0.8 + i * 0.7
-        f += f"[{i+1}:v]format=rgba,fade=in:st={st_:.2f}:d=0.5:alpha=1,fade=out:st={(hide_at or T - 0.8):.2f}:d=0.6:alpha=1[l{i}];[{last}][l{i}]overlay=0:0[b{i+1}];"
+        st_, en_ = (timings[i] if timings and i < len(timings) else (0.8 + i * 0.7, hide_at or T - 0.8))
+        f += f"[{i+1}:v]format=rgba,fade=in:st={st_:.2f}:d=0.5:alpha=1,fade=out:st={en_:.2f}:d=0.6:alpha=1[l{i}];[{last}][l{i}]overlay=0:0[b{i+1}];"
         last = f"b{i+1}"
-    f += f"[{last}]format=yuv420p[out]"
     n_in = 1 + len(pngs) + (1 if cov else 0)
+    if keep:   # stays on screen the whole video, no fade
+        cmd += ["-loop", "1", "-t", str(T), "-i", str(keep)]
+        f += f"[{n_in}:v]format=rgba[wm];[{last}][wm]overlay=0:0[bwm];"
+        last = "bwm"; n_in += 1
+    f += f"[{last}]format=yuv420p[out]"
     if song == "KEEP" and bg_video:   # the background video already has music -> keep it
         f += f";[0:a]atrim=0:{T},afade=t=in:st=0:d=0.5,afade=t=out:st={T-1.5}:d=1.5[aout]"
         tracks = None
@@ -1615,6 +1620,19 @@ def card_story(code, d, v, st, dst):
     print(f"{code} story ready:", c["title"])
     return c
 
+WA_PLAIN = "+989141472696"
+
+def fix_caption(cap, v):
+    """Phone numbers inside Persian text are shown reversed by Instagram -> "WhatsApp: +989141472696" (English, one block)."""
+    if not cap:
+        return cap
+    cap = cap.replace(v["wa"], WA_PLAIN)
+    cap = re.sub("💬?\\s*(?:واتس\\s*\u200c?\\s*اپ|واتساپ)\\s*:?\\s*\\+?989141472696", "WhatsApp: " + WA_PLAIN, cap)
+    # a number left inside a Persian sentence -> move it to its own English line
+    cap = cap.replace("WhatsApp: " + WA_PLAIN, "\x00")
+    cap = re.sub("\\s*:?\\s*\\+?989141472696", "\nWhatsApp: " + WA_PLAIN, cap)
+    return cap.replace("\x00", "WhatsApp: " + WA_PLAIN)
+
 def pick_video(code, st):
     """Next usable VIDEO of a folder (in turn, skipping other pages' clips) -> (path, drive file, clip info) or None."""
     vis = [f for f in folder_files(code, "visual") if f["mimeType"].startswith("video/")]
@@ -1666,11 +1684,22 @@ def tour_reel(d, v, st, day, test):
         a_ = lru_take(folder_files("P", "audio"), st) or lru_take(folder_files("S5", "audio"), st)
         song = a_[0] if a_ else None
     mp4 = (OUT if test else ROOT / "dl") / f"{day}-reel.mp4"; mp4.parent.mkdir(exist_ok=True)
-    layered_video([card_layer_html(c, "head", v)], src, True, song, st, mp4, T, info, dim=0.08, hide_at=min(5.5, T - 1))
+    wm = ('<div style="position:absolute;left:0;right:0;top:930px;text-align:center;color:rgba(255,255,255,.72);font:600 34px Georgia,serif;direction:ltr;'
+          'text-shadow:0 1px 6px rgba(0,0,0,.45)">@vangasht.van</div>'
+          '<div style="position:absolute;left:46px;top:150px;color:rgba(255,255,255,.85);font:600 28px Georgia,serif;direction:ltr;'
+          'text-shadow:0 1px 6px rgba(0,0,0,.5)">vangasht.com</div>')
+    book = ('<div style="position:absolute;left:0;right:0;bottom:430px;display:flex;justify-content:center">'
+            '<div style="background:#25d366;color:#fff;border-radius:60px;padding:24px 50px;text-align:center;box-shadow:0 14px 40px rgba(0,0,0,.4)">'
+            '<div style="font-size:52px;font-weight:900">📲 جهت رزرو تور</div>'
+            '<div style="font-size:32px;font-weight:700;margin-top:6px">دکمهٔ واتس‌اپ در پروفایل 👆</div></div></div>')
+    head_end = min(5.5, T - 1)
+    book_at = max(head_end + 0.8, T - 4.5)
+    layered_video([card_layer_html(c, "head", v), book], src, True, song, st, mp4, T, info, dim=0.08, keep_html=wm,
+                  timings=[(0.8, head_end), (book_at, T - 0.3)])
     import subprocess
     subprocess.run([ffmpeg_bin(), "-y", "-ss", "1.5", "-i", str(mp4), "-frames:v", "1", "-q:v", "3", str(OUT / f"{day}-post.jpg")], capture_output=True)
     tags = "#وان #وان_ترکیه #سفر_به_وان #تور_وان #تورهای_وان #گردشگری_وان #ترکیه #VanTurkey #Van #VanGölü #وان_گشت"
-    cap = (fill(clean(it["caption"], 1800), v) + f"\n\n🌐 {url}\n💬 واتس‌اپ: {v['wa']}"
+    cap = (fill(clean(it["caption"], 1800), v) + f"\n\n📲 جهت رزرو تور: دکمهٔ واتس‌اپ در پروفایل @vangasht.van\n🌐 {url}\nWhatsApp: {WA_PLAIN}"
            + (f"\n🎥 {credit_of(f['name'])}" if credit_of(f["name"]) else "") + "\n\n" + tags)
     log.append(clean(it.get("topic") or it.get("hook"), 40)); del log[:-20]
     if test:
@@ -1841,6 +1870,8 @@ def render(slot):
         dst = ROOT / "dl" / f"{day}-{slot}-ig.mp4"; dst.parent.mkdir(exist_ok=True)
         ig_normalize(src, dst, 90 if job.get("reel") else 59)
         job["video"] = str(dst.relative_to(ROOT))
+    if job.get("caption"):
+        job["caption"] = fix_caption(job["caption"], v)
     save_state(st)
     (OUT / "pending.json").write_text(json.dumps(job, ensure_ascii=False, indent=1))
     print("ready:", job["file"] or job.get("video"), "->", job["item"])
@@ -1986,9 +2017,58 @@ def _publish():
         refresh_inspo(ig, st)
     except BaseException as e:
         print("! inspiration step skipped:", str(e)[:200])
+    try:
+        reply_comments(ig, st)
+    except BaseException as e:   # e.g. the token lacks instagram_manage_comments
+        print("! comment replies skipped:", str(e)[:300])
+        st["reply_error"] = {"at": dt.datetime.now(TR).isoformat(timespec="minutes"), "error": str(e)[:300]}
     save_state(st)
     job["done"] = True
     (OUT / "pending.json").write_text(json.dumps(job, ensure_ascii=False, indent=1))
+
+def reply_comments(ig, st):
+    """Answers new comments under our own recent posts (official API: instagram_manage_comments).
+    Claude writes a short, friendly reply; questions about price / booking get the WhatsApp number. Each comment once."""
+    if os.environ.get("AUTO_REPLY", "1") != "1":
+        return
+    me = api("GET", ig, fields="username").get("username", "")
+    done = st.setdefault("replied_comments", [])
+    since = dt.datetime.now(dt.timezone.utc) - dt.timedelta(days=int(os.environ.get("REPLY_DAYS", "4")))
+    new = []
+    for m in api("GET", f"{ig}/media", fields="id,caption,timestamp", limit=15).get("data", []):
+        if dt.datetime.fromisoformat(m["timestamp"].replace("+0000", "+00:00")) < since:
+            continue
+        for c in api("GET", f"{m['id']}/comments", fields="id,text,username,timestamp,replies{username}", limit=50).get("data", []):
+            if c["id"] in done or c.get("username") == me:
+                continue
+            if any(r.get("username") == me for r in (c.get("replies") or {}).get("data", [])):
+                done.append(c["id"]); continue
+            new.append({"id": c["id"], "user": c.get("username", ""), "text": (c.get("text") or "")[:300], "post": (m.get("caption") or "")[:200]})
+    if not new:
+        print("comments: nothing new to answer"); return
+    new = new[:15]
+    prompt = ("تو ادمین پیج اینستاگرام «وان گشت» (صرافی، سوئیت و تورهای گردشگری وان، ترکیه) هستی. به این کامنت‌ها زیر پست‌های خودمان جواب کوتاه، گرم و مؤدبانه به فارسی بده "
+              "(یک یا دو جمله، حداکثر یک ایموجی). اگر کامنت سؤال قیمت، رزرو، نرخ ارز یا هماهنگی است بگو برای جواب دقیق به واتس‌اپ پیام بدهند — شماره را ننویس، خودم اضافه می‌کنم و "
+              "در آن حالت need_wa=true. قیمت یا اطلاعاتی که نداری نساز. اگر کامنت اسپم، تبلیغ، توهین یا نامربوط است skip=true. اگر کامنت ترکی یا انگلیسی است به همان زبان جواب بده.\n"
+              + "\n".join(f'- id={c["id"]} | پست: {c["post"][:80]} | کامنت @{c["user"]}: {c["text"]}' for c in new)
+              + '\nفقط JSON: {"items": [{"id": "...", "reply": "...", "need_wa": false, "skip": false}]}')
+    out = claude(prompt)
+    items = {str(x.get("id")): x for x in ((out or {}).get("items") or []) if isinstance(x, dict)}
+    if not items:
+        print("! comment replies: AI answer not usable", AI_ERROR); return
+    n = 0
+    for c in new:
+        x = items.get(c["id"])
+        if not x:
+            continue
+        if not x.get("skip") and x.get("reply"):
+            msg = str(x["reply"])[:400].replace("<", "").replace(">", "")
+            if x.get("need_wa"):
+                msg += f"\nWhatsApp: {WA_PLAIN}"
+            api("POST", f"{c['id']}/replies", message=msg); n += 1
+        done.append(c["id"])
+    del done[:-800]
+    print(f"comments: answered {n}, skipped {len(new) - n}")
 
 def preview():
     d = site(); v = vars_for(d); P = ROOT / "preview"; P.mkdir(exist_ok=True)
