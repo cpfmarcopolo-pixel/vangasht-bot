@@ -307,6 +307,12 @@
    "slot": "s9",
    "item": "todayposts",
    "media": "17955363351292220"
+  },
+  {
+   "at": "2026-11-06T22:57+03:00",
+   "slot": "s10",
+   "item": "s10:",
+   "media": "18076696532753785"
   }
  ],
  "media_done": [
@@ -626,7 +632,9 @@
   "1jaaCnvkMJZiQRnYkl5VMOJwE-V_lUjin": "2026-11-06T14:22+03:00",
   "1sjAcrPqOpPKqux_uRgpKOTk65efReAqB": "2026-11-06T15:52+03:00",
   "1lzWgWguX7p5t4WvRNOTNCtqSLY7PoZem": "2026-11-06T18:52+03:00",
-  "1Z5JzLIvcIYDkA8fWgDbPLE8_rVFEWp1S": "2026-11-06T19:50+03:00"
+  "1Z5JzLIvcIYDkA8fWgDbPLE8_rVFEWp1S": "2026-11-06T19:50+03:00",
+  "1g9MCZ_AqhaYu782AxJIqmG5sn-G0Ofuo": "2026-11-06T22:52+03:00",
+  "1JE1Z9R_-cx8at77fjHzv0vJ0XTIEefvd": "2026-11-06T22:52+03:00"
  },
  "vlog_i": 5,
  "card_log": {
@@ -669,7 +677,8 @@
    "استوری شب بخیر چهارشنبه ۱۳ آبان (نسخهٔ ج",
    "استوری شب بخیر پنج‌شنبه ۱۴ آبان (شب جمعه",
    "استوری شب بخیر پنج‌شنبه ۱۴ آبان (شب جمعه",
-   "استوری شب بخیر پنج‌شنبه ۱۴ آبان (شب جمعه"
+   "استوری شب بخیر پنج‌شنبه ۱۴ آبان (شب جمعه",
+   "استوری شب بخیر جمعه ۱۵ آبان (جاده‌ی شبان"
   ],
   "post": [
    "معرفی کلی تورهای وان گشت"
@@ -1012,11 +1021,41 @@
    "own_boxes": [],
    "ar": 0.5625,
    "v": 3
+  },
+  "1g9MCZ_AqhaYu782AxJIqmG5sn-G0Ofuo": {
+   "text": "وقتی رفتم / دل من میخواست تلافی بکنه / پس چشم هیچکسی عاشقم نکرد... / شبتون بخیر / Mahasti_music",
+   "greeting": "night",
+   "other_page": true,
+   "page": "Mahasti_music",
+   "music": true,
+   "own_boxes": [],
+   "ar": 0.5625,
+   "scene": "ساحل شنی و دریای آرام در غروب یا هنگام گرگ‌ومیش، با آسمان صورتی و آبی کم‌رنگ و چند قایق کوچک دور",
+   "place": "",
+   "text_pos": "middle",
+   "dur": 28.63,
+   "v": 4
+  },
+  "1JE1Z9R_-cx8at77fjHzv0vJ0XTIEefvd": {
+   "text": "إمشب... / شبتون بخیر ✨",
+   "greeting": "night",
+   "other_page": false,
+   "page": "",
+   "music": true,
+   "own_boxes": [],
+   "ar": 0.5625,
+   "scene": "رانندگی شبانه در یک تونل یا بزرگراه تاریک با چراغ‌های سقفی و خط‌کشی جاده، حال و هوای آرام شب",
+   "place": "",
+   "text_pos": "bottom",
+   "dur": 26.87,
+   "v": 4
   }
  },
  "skipped_files": {
   "vankalesi1.mp4": "@al1celik",
   "akdamaradasi5.mp4": "سیاحت پردیس",
-  "vankedisi1.mp4": "Van Kedi Evi Cafe"
- }
+  "vankedisi1.mp4": "Van Kedi Evi Cafe",
+  "6b75fd6da4f04682991f70ffc0ab1475.mp4": "Mahasti_music"
+ },
+ "replied_comments": []
 }
