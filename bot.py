@@ -979,10 +979,10 @@ def clip_info(path, is_video, fid, name, st):
     """Claude looks at 3 frames of your file (once; the answer is saved): text already written on it, a greeting,
     another page's watermark/logo; plus whether it already has music. Cached in state.json -> clip_info."""
     cache = st.setdefault("clip_info", {})
-    if fid in cache and cache[fid].get("v") == 3:
+    if fid in cache and cache[fid].get("v") == 4:
         return cache[fid]
     import subprocess
-    info = {"text": "", "greeting": "", "other_page": False, "page": "", "music": False, "own_boxes": [], "ar": 0.5625, "v": 3}
+    info = {"text": "", "greeting": "", "other_page": False, "page": "", "music": False, "own_boxes": [], "ar": 0.5625, "scene": "", "place": "", "text_pos": "", "dur": 0, "v": 4}
     if is_video:
         try:
             info["music"] = has_own_music(path, name)
@@ -992,7 +992,8 @@ def clip_info(path, is_video, fid, name, st):
     if key:
         ff = ffmpeg_bin(); work = ROOT / "dl"; frames = []
         L = vid_duration(ff, path) if is_video else 0
-        for i, t in enumerate([L * 0.1, L * 0.35, L * 0.6, L * 0.9] if is_video and L else [0]):
+        info["dur"] = L
+        for i, t in enumerate([L * x for x in (0.05, 0.2, 0.4, 0.6, 0.8, 0.95)] if is_video and L else [0]):
             o = work / f"ci_{fid}_{i}.jpg"
             subprocess.run([ff, "-y", *(["-ss", f"{t:.2f}"] if is_video else []), "-i", str(path), "-frames:v", "1", "-vf", "scale=720:-2", str(o)], capture_output=True)
             if o.exists():
@@ -1004,20 +1005,27 @@ def clip_info(path, is_video, fid, name, st):
         content.append({"type": "text", "text": (
             f"این چند فریم از یک ویدیو/عکس است که پیج اینستاگرام ما می‌خواهد در استوری بگذارد. پیج‌های خود ما فقط دقیقاً این‌هاست: {', '.join('@' + x for x in OWN_PAGES)}. "
             "هر آیدی یا برند دیگری حتی اگر شبیه باشد مال پیج دیگری است. همهٔ گوشه‌ها و لبه‌ها را با دقت نگاه کن و بگو:\n"
-            "text: هر نوشته‌ای که روی تصویر اضافه شده (کپشن، تیتر، جمله، خوشنویسی، استیکر متنی) — نه تابلوی مغازه یا نوشتهٔ طبیعی محیط؛ اگر نیست خالی.\n"
+            "text: هر نوشته‌ای که روی تصویر اضافه شده (کپشن، تیتر، جمله، شعر، خوشنویسی، استیکر متنی) — حتی کم‌رنگ، کوچک یا فقط در یکی از فریم‌ها؛ نه تابلوی مغازه یا نوشتهٔ طبیعی محیط؛ اگر نیست خالی.\n"
+            "text_pos: نوشتهٔ اضافه‌شده بیشتر کجای تصویر است: \"top\" یا \"middle\" یا \"bottom\" (اگر نیست خالی).\n"
+            "scene: یک جملهٔ کوتاه فارسی (حداکثر ۱۲۰ حرف) که دقیقاً بگوید در ویدیو چه دیده می‌شود (مکان، آدم‌ها، حال و هوا، روز یا شب).\n"
+            "place: اگر با اطمینان یکی از جاهای شناخته‌شدهٔ استان وان است (مثل جزیرهٔ آکدامار، قلعهٔ وان، آبشار مرادیه، قلعهٔ هوشاپ، ساحل ادرمیت، جزیرهٔ چارپاناک، کوه اِرِک، خانهٔ گربه‌های وان) نامش را بنویس؛ "
+            "از نوشتهٔ روی ویدیو هم کمک بگیر؛ اگر مطمئن نیستی خالی.\n"
             "greeting: اگر نوشته صبح‌بخیر است \"morning\"، اگر شب‌بخیر است \"night\"، وگرنه خالی.\n"
             "other_page: true اگر واترمارک، لوگو، امضا یا آیدی/اسم هر پیج یا برند دیگری روی تصویر هست (حتی کوچک و کم‌رنگ در گوشه)، "
             "یا اگر ضبط صفحهٔ اینستاگرام/تیک‌تاکِ یک پیج دیگر است؛ page = همان اسم یا آیدی. آرم یا آیدی پیج‌های خود ما other_page نیست.\n"
             "own_boxes: جای هر آرم، آیدی یا واترمارکِ پیج‌های خود ما، و اگر ضبط صفحهٔ اینستاگرامِ پیج خودمان است جای نوار بالای صفحه (اسم کاربری، زمان، نوار پیشرفت) — "
             "هر کدام به شکل [x, y, w, h] با عددهای ۰ تا ۱ نسبت به عرض و ارتفاع تصویر (x,y = گوشهٔ بالا-چپ). کمی بزرگ‌تر از خود نوشته بگیر. اگر نیست [].\n"
-            'فقط JSON: {"text": "", "greeting": "", "other_page": false, "page": "", "own_boxes": []}')})
-        body = json.dumps({"model": AI_MODEL, "max_tokens": 200, "messages": [{"role": "user", "content": content}]}).encode()
+            'فقط JSON: {"text": "", "text_pos": "", "scene": "", "place": "", "greeting": "", "other_page": false, "page": "", "own_boxes": []}')})
+        body = json.dumps({"model": AI_MODEL, "max_tokens": 400, "messages": [{"role": "user", "content": content}]}).encode()
         req = urllib.request.Request("https://api.anthropic.com/v1/messages", data=body, method="POST", headers={
             "x-api-key": key, "anthropic-version": "2023-06-01", "content-type": "application/json"})
         try:
             with urllib.request.urlopen(req, timeout=90) as r:
                 txt = "".join(b.get("text", "") for b in json.load(r).get("content", []))
             a = json.loads(txt[txt.find("{"): txt.rfind("}") + 1])
+            clean_ = lambda x, n: str(x or "")[:n].replace("<", "").replace(">", "").replace("آق‌تامار", "آکدامار")
+            info.update(scene=clean_(a.get("scene"), 140), place=clean_(a.get("place"), 50),
+                        text_pos=str(a.get("text_pos") or "") if a.get("text") else "")
             info.update(text=str(a.get("text") or "")[:120].replace("<", "").replace(">", ""), greeting=str(a.get("greeting") or ""),
                         other_page=bool(a.get("other_page")), page=str(a.get("page") or "")[:40])
             boxes = []
@@ -1038,7 +1046,7 @@ def clip_info(path, is_video, fid, name, st):
     if len(cache) > 600:
         for k in list(cache)[:100]:
             del cache[k]
-    print(f"clip check {name}: text='{info['text'][:40]}' other_page={info['other_page']} {info['page']} music={info['music']} own marks={len(info['own_boxes'])}")
+    print(f"clip check {name}: place='{info['place']}' scene='{info['scene'][:60]}' text='{info['text'][:40]}' other_page={info['other_page']} {info['page']} music={info['music']} own marks={len(info['own_boxes'])}")
     return info
 
 def cover_png(info, name="cover"):
@@ -1471,16 +1479,17 @@ CARD_ASK = {
           "lines صفر یا یک مورد: یک پیشنهاد کوچک برای امروز (مثلاً صبحانهٔ وانی، قدم زدن کنار دریاچه). دربارهٔ هوای امروز ادعا نکن. foot خالی.",
     "s4": "استوری معرفی و تبلیغ سایت vangasht.com؛ موضوع امروز را از اطلاعات زیر بگیر و جذاب معرفی کن تا مخاطب برود سایت را ببیند. tag = «تو سایت ما»، "
           "lines دقیقاً ۳ مزیت یا نکتهٔ کوتاه، foot یک جملهٔ دعوت کوتاه مثل «لینک تو بیو 👆 سر بزن».",
-    "s5": "استوری تبلیغ تور گردشگری؛ تور امروز را از اطلاعات زیر معرفی کن، هیجان‌انگیز ولی صادق. tag = «تور وان گشت»، lines دقیقاً ۳ نکتهٔ کوتاه (چه می‌بینی، چه تجربه‌ای، هماهنگی فارسی). "
-          "قیمت ننویس. foot مثل «برای رزرو تو دایرکت یا واتس‌اپ پیام بده».",
+    "s5": "استوری تبلیغ تور گردشگری؛ تور امروز را از اطلاعات زیر معرفی کن، هیجان‌انگیز ولی صادق. tag = «تور وان گشت»، lines خالی (ویدیو باید دیده شود؛ همه‌چیز را در title و یک sub کوتاه بگو). "
+          "قیمت ننویس. foot مثل «برای رزرو تو دایرکت پیام بده».",
     "s6": "استوری تعاملی که مخاطب جواب بدهد (جوابش به دایرکت ما می‌رسد). یکی از این قالب‌ها را انتخاب کن و با روزهای قبل فرق داشته باشد: "
           "«آیا می‌دانید؟» (یک دانستنی مطمئن و جالب دربارهٔ وان و در آخر یک سؤال)، «کیا دوست دارن…؟»، «این یا اون؟» (دو گزینه در lines)، «حدس بزن…»، «سؤال از شما» (مثلاً اولین کارت تو وان چیه؟). "
-          "tag = نام قالب، title خود سؤال یا دانستنی کوتاه، sub توضیح یا ادامهٔ سؤال، lines صفر تا دو مورد (برای «این یا اون؟» دو گزینه با ایموجی ۱️⃣ و ۲️⃣)، foot خالی.",
+          "سؤال باید دربارهٔ همان چیزی باشد که در ویدیوی پس‌زمینه دیده می‌شود. tag = نام قالب، title خود سؤال یا دانستنی کوتاه، sub توضیح یا ادامهٔ سؤال، lines صفر تا دو مورد (برای «این یا اون؟» دو گزینه با ایموجی ۱️⃣ و ۲️⃣)، foot خالی.",
     "s8": "استوری معرفی یک جاذبهٔ وان (جاذبهٔ امروز پایین آمده). tag = «جاذبهٔ امروز وان»، title نام جاذبه با یک صفت جذاب، sub یک جمله دربارهٔ اینکه چرا باید دید، "
-          "lines دقیقاً ۳ نکتهٔ کوتاه و مطمئن (کجاست، چه چیزی ببینی، بهترین زمان یا یک نکتهٔ کاربردی). اگر از چیزی مطمئن نیستی ننویس. foot مثل «سیوش کن برای سفرت 🔖».",
+          "lines خالی (ویدیو باید دیده شود). sub حداکثر ۷۰ حرف و فقط چیزهای مطمئن. foot مثل «سیوش کن برای سفرت 🔖».",
     "s10": "استوری «شب بخیر» ساعت ۱۱ شب. tag خالی. title یک شب‌بخیر ظریف و شاعرانه (مثل حس «شبتون نیلوفری» یا «تاریکی به کام»، ولی هر شب جملهٔ تازه)، "
            "sub یک جملهٔ آرام و دلنشین دربارهٔ شب، دریاچه یا سفر، lines خالی. foot خالی.",
 }
+MINIMAL_SLOTS = ("s1", "s5", "s8", "s10")
 CARD_STYLE = ("سبک نوشتن: کوتاه، ظریف و دلنشین، مثل پیج‌های حرفه‌ای و شیک؛ کمی ادبی و شاعرانه ولی ساده و امروزی. "
               "نمونهٔ حس و حال (عیناً تکرار نکن، هر روز جملهٔ تازه بساز): «شبتون نیلوفری»، «تاریکی به کام»، «صبحتون به روشنی آب دریاچه»، «یه فنجون چای و یه عالمه آرامش». "
               "از جمله‌های کلیشه‌ای و بی‌مزه مثل «شب بخیر وانی‌ها» یا «صبح بخیر دوستان» پرهیز کن. title حداکثر ۵ کلمه. ایموجی کم و بجا (حداکثر یکی در title).")
@@ -1494,18 +1503,29 @@ CARD_FALLBACK = {
             ("تاریکی به کام", "به کام", "خوابت آروم، فردات روشن", [])],
 }
 
-def card_content(code, d, v, st, clip_text=""):
+def card_content(code, d, v, st, ci=None):
+    ci = ci or {}
+    clip_text, scene, place = ci.get("text", ""), ci.get("scene", ""), ci.get("place", "")
     subj = card_subject(code, d, st)
-    if code == "s8" and clip_text:   # the clip already names a place -> introduce THAT place, so text and picture match
-        subj = dict(subj, name=clip_text.split("\n")[0][:60], info=clip_text, query=None)
+    if code == "s8" and (place or scene or clip_text):   # introduce the place the VIDEO shows, so text and picture match
+        subj = dict(subj, name=place or (clip_text.split("\n")[0][:60] if clip_text else "همان جایی که در ویدیو دیده می‌شود"),
+                    info=f"ویدیو: {scene}. {clip_text}", query=None, url="vangasht.com/gardeshgari-van")
+    if code == "s5" and (place or scene):   # pick the tour that fits the video
+        tours = [x for x in d.get("tours", []) if _fa(x.get("title"))]
+        lst = "\n".join(f"- {x.get('slug')}: {_fa(x.get('title'))} — {_fa(x.get('short'))}" for x in tours)
+        subj = {"name": "توری که به این ویدیو می‌خورد", "url": "vangasht.com/tour", "photo": "lake",
+                "info": f"ویدیو این را نشان می‌دهد: {place} {scene}\nتورهای ما:\n{lst}\nتوری را انتخاب کن که دقیقاً به همین ویدیو مربوط است و اسلاگش را در فیلد tour بده؛ اگر هیچ‌کدام نمی‌خورد tour خالی و کلی دربارهٔ تورهای وان گشت با حال‌وهوای همین ویدیو بنویس."}
     log = st.setdefault("card_log", {}).setdefault(code, [])
     shape = ('{"topic": "موضوع کوتاه برای ثبت", "tag": "برچسب ۲ تا ۴ کلمه", "title": "تیتر حداکثر ۷ کلمه، خودمانی", "hl": "یک یا دو کلمه از همان تیتر برای رنگ طلایی", '
              '"sub": "یک جمله حداکثر ۹۰ حرف", "lines": [["ایموجی", "حداکثر ۴۵ حرف"], ...], "foot": "حداکثر ۵۰ حرف یا خالی"}')
     info = f"\nموضوع امروز: {subj['name']}\nاطلاعات: {subj['info']}\n" if subj else ""
+    if scene or place:
+        info += f"\nپس‌زمینهٔ این استوری ویدیویی است که این را نشان می‌دهد: {place + '؛ ' if place else ''}{scene}\nمتن باید دقیقاً با همین ویدیو جور باشد و دربارهٔ چیز دیگری حرف نزند.\n"
     if clip_text:
         info += f"\nروی خود ویدیو از قبل این نوشته هست: «{clip_text}» — آن را تکرار نکن؛ متن ما کوتاه‌تر باشد و کاملش کند.\n"
+    shp = shape[:-1] + ', "tour": "اسلاگ تور یا خالی"}' if code == "s5" else shape
     prompt = (f"{ai_context(d, v)}\n\nموضوع‌های اخیر همین استوری (تکرار نکن): {'، '.join(log[-12:]) or '—'}\n\n{inspo_text(st)}"
-              f"{CARD_ASK[code]}{info}\n{CARD_STYLE}\nشکل خروجی (فقط JSON):\n{shape}")
+              f"{CARD_ASK[code]}{info}\n{CARD_STYLE}\nشکل خروجی (فقط JSON):\n{shp}")
     it = claude(prompt)
     clean = lambda x, n: str(x or "")[:n].replace("<", "").replace(">", "").replace("آق‌تامار", "آکدامار").replace("آق تامار", "آکدامار")
     c = None
@@ -1525,6 +1545,10 @@ def card_content(code, d, v, st, clip_text=""):
                  "sub": clean(subj["info"], 110), "lines": [], "foot": "سیوش کن برای سفرت 🔖" if code == "s8" else "برای اطلاعات بیشتر پیام بده"}
     c["code"], c["subj"] = code, subj
     c["url"] = subj.get("url") if code in ("s4", "s5") else None
+    if code == "s5" and isinstance(it, dict) and it.get("tour") and any(str(x.get("slug")) == str(it["tour"]) for x in d.get("tours", [])):
+        c["url"] = f"vangasht.com/tour/{it['tour']}"
+    if code in MINIMAL_SLOTS:   # let the video be seen: one short title + one line, no boxes
+        c["lines"] = []
     c["answer"] = code == "s6"
     c["date"] = code in ("s1", "s10")
     return c
@@ -1556,8 +1580,8 @@ def card_layer_html(c, show, v):
     tsize = (56 if c.get("compact") else 70) if len(c["title"]) < 28 else (48 if c.get("compact") else 60)
     title = f'<h1 style="font-size:{tsize}px;font-weight:800;line-height:1.35;margin:{24 if tag else 0}px 0 0;letter-spacing:-.5px">{hl(c, v)}</h1>' if c.get("title") else ""
     return f"""<div style="position:absolute;inset:0;color:#fff;text-shadow:0 3px 18px rgba(0,0,0,.6)">
-<div style="visibility:{vis('head')};position:absolute;top:120px;left:0;right:0;display:flex;justify-content:center">{brand().replace('right:48px;top:44px', 'position:static')}</div>
-<div style="position:absolute;left:90px;right:90px;top:0;bottom:0;display:flex;flex-direction:column;justify-content:{'flex-end' if c.get('compact') else 'center'};text-align:center;padding:300px 0 380px">
+<div style="visibility:{vis('head')};position:absolute;top:230px;left:0;right:0;display:flex;justify-content:center">{brand().replace('right:48px;top:44px', 'position:static')}</div>
+<div style="position:absolute;left:90px;right:90px;top:0;bottom:0;display:flex;flex-direction:column;justify-content:{dict(top='flex-start', bottom='flex-end').get(c.get('pos'), 'center')};text-align:center;padding:{'400px 0 380px' if c.get('pos') == 'top' else '300px 0 380px'}">
 <div style="visibility:{vis('head')}">{date}{tag}{title}{sub}</div>
 {lines}
 <div style="visibility:{vis('foot')};margin-top:60px">{foot}</div></div></div>"""
@@ -1565,10 +1589,11 @@ def card_layer_html(c, show, v):
 def card_story(code, d, v, st, dst):
     """S1/S4/S5/S6/S8/S10: AI text over a video/photo from the story's own Drive folder, layers fading in, with music."""
     bg, bg_video, song, info = folder_assets(code.upper(), st, full=True)
-    c = card_content(code, d, v, st, info.get("text", ""))
+    c = card_content(code, d, v, st, info)
     if info.get("text") and (code in ("s1", "s10") or (info.get("greeting") == "morning" and code == "s1")):
         c.update(title="", sub="", lines=[], tag="")   # the clip already says good morning / good night -> only date + logo
-    c["compact"] = bool(info.get("text"))
+    c["compact"] = bool(info.get("text")) or code in MINIMAL_SLOTS
+    c["pos"] = "top" if info.get("text_pos") in ("bottom", "middle") else "bottom" if (info.get("text") or code in MINIMAL_SLOTS) else "center"
     if not bg:
         subj = c["subj"]
         if code == "s8":
@@ -1582,7 +1607,11 @@ def card_story(code, d, v, st, dst):
             ph = pick_photos(key, "منظرهٔ زیبای وان برای پس‌زمینهٔ استوری" + (" صبحگاهی" if code == "s1" else " شبانه" if code == "s10" else ""), 1, st)
         bg, bg_video = (ph[0][0] if ph else A / "lake.jpg"), False
     parts = ["head"] + [f"l{i}" for i in range(len(c["lines"]))] + ["foot"]
-    layered_video([card_layer_html(c, k, v) for k in parts], bg, bg_video, song, st, dst, int(os.environ.get("CARD_SECONDS", "15")), info)
+    T = int(os.environ.get("CARD_SECONDS", "15"))
+    if bg_video and code in MINIMAL_SLOTS + ("s6",):   # play the whole clip (Instagram stories: max 60 s)
+        L = info.get("dur") or vid_duration(ffmpeg_bin(), bg)
+        T = int(max(8, min(59, L or T)))
+    layered_video([card_layer_html(c, k, v) for k in parts], bg, bg_video, song, st, dst, T, info)
     print(f"{code} story ready:", c["title"])
     return c
 
@@ -1593,7 +1622,7 @@ def todayposts_layer_html(covers, show, v):
     imgs = "".join(f'<img src="{b64(cv, "image/jpeg")}" style="width:{W}px;height:{H}px;object-fit:cover;border-radius:34px;border:8px solid #fff;'
                    f'box-shadow:0 30px 70px rgba(0,0,0,.55);transform:rotate({(-4, 4)[i % 2] if n > 1 else 0}deg)">' for i, cv in enumerate(covers))
     return f"""<div style="position:absolute;inset:0;color:#fff;text-shadow:0 3px 18px rgba(0,0,0,.6);text-align:center">
-<div style="visibility:{vis('head')};position:absolute;top:120px;left:0;right:0;display:flex;justify-content:center">{brand().replace('right:48px;top:44px', 'position:static')}</div>
+<div style="visibility:{vis('head')};position:absolute;top:230px;left:0;right:0;display:flex;justify-content:center">{brand().replace('right:48px;top:44px', 'position:static')}</div>
 <div style="visibility:{vis('head')};position:absolute;top:330px;left:60px;right:60px"><span class="tag" style="font-size:40px;text-shadow:none">{'پست‌های امروز' if n > 1 else 'پست امروز'}</span>
 <h1 style="font-size:80px;font-weight:900;margin:30px 0 0">{'پست‌های امروز رو دیدین؟' if n > 1 else 'پست امروز رو دیدی؟'} 👀</h1></div>
 <div style="visibility:{vis('covers')};position:absolute;top:{640 if n > 1 else 560}px;left:0;right:0;display:flex;justify-content:center;gap:40px">{imgs}</div>
