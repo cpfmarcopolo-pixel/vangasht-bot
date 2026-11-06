@@ -295,6 +295,12 @@
    "slot": "s8",
    "item": "s8:قلعهٔ هوشاپ، سنگ و سکوت",
    "media": "18116220395144515"
+  },
+  {
+   "at": "2026-11-06T19:55+03:00",
+   "slot": "p2",
+   "item": "tour:VID-20261030-WA0040.mp4",
+   "media": "17884025190536319"
   }
  ],
  "media_done": [
@@ -613,7 +619,8 @@
   "1ngL9kAa5rvCydUIuQHjnvQOwNC1_dmiz": "2026-11-06T11:01+03:00",
   "1jaaCnvkMJZiQRnYkl5VMOJwE-V_lUjin": "2026-11-06T14:22+03:00",
   "1sjAcrPqOpPKqux_uRgpKOTk65efReAqB": "2026-11-06T15:52+03:00",
-  "1lzWgWguX7p5t4WvRNOTNCtqSLY7PoZem": "2026-11-06T18:52+03:00"
+  "1lzWgWguX7p5t4WvRNOTNCtqSLY7PoZem": "2026-11-06T18:52+03:00",
+  "1Z5JzLIvcIYDkA8fWgDbPLE8_rVFEWp1S": "2026-11-06T19:50+03:00"
  },
  "vlog_i": 5,
  "card_log": {
@@ -657,6 +664,9 @@
    "استوری شب بخیر پنج‌شنبه ۱۴ آبان (شب جمعه",
    "استوری شب بخیر پنج‌شنبه ۱۴ آبان (شب جمعه",
    "استوری شب بخیر پنج‌شنبه ۱۴ آبان (شب جمعه"
+  ],
+  "post": [
+   "معرفی کلی تورهای وان گشت"
   ]
  },
  "s4_i": 5,
