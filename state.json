@@ -253,6 +253,12 @@
    "slot": "s2",
    "item": "rates",
    "media": "18394013206228631"
+  },
+  {
+   "at": "2026-11-06T11:40+03:00",
+   "slot": "p1",
+   "item": "ai:افسانهٔ هیولای دریاچهٔ وان",
+   "media": "18117210047168516"
   }
  ],
  "media_done": [
@@ -307,6 +313,10 @@
   {
    "day": "2026-11-05",
    "topic": "برنامهٔ پنج‌شنبه‌شب پاییزی در وان"
+  },
+  {
+   "day": "2026-11-06",
+   "topic": "افسانهٔ هیولای دریاچهٔ وان"
   }
  ],
  "inspo": {
@@ -453,7 +463,11 @@
   "File:Gevaş, isola di akdamar, punto panoramico sul lago di van, 02.jpg",
   "File:Van banner Akdamar Island.jpg",
   "File:65500 Görecek-Muradiye-Van, Turkey - panoramio 2 (cropped).jpg",
-  "File:Hosap-castle (15).jpg"
+  "File:Hosap-castle (15).jpg",
+  "File:Van from Van Kalesi.jpg",
+  "File:Van Castle 1.jpg",
+  "File:65500 Görecek-Muradiye-Van, Turkey - panoramio (2).jpg",
+  "File:Du Caucase au Golfe Persique p 357.jpg"
  ],
  "last_error": {
   "at": "2026-11-04T17:03+03:00",
@@ -495,36 +509,37 @@
   "d:1IrRS6actyxKTVFTaMyP0Y5ywOSa5NJ5K": 1
  },
  "pexels_used": [
-  "x118768",
+  "x67201",
+  "x2576",
+  "x25",
+  "x140186",
+  "x149938",
+  "x79899",
+  "x371424",
+  "x381054",
+  "x222349",
+  "x267036",
+  "x236256",
+  "x156103",
+  "x50622",
+  "x11284",
   "x34971",
   "x273476",
-  "x170912",
-  "x222349",
+  "x4730",
+  "x118768",
   "x84906",
-  "x149938",
-  "x67201",
-  "x7262",
-  "x119190",
-  "x140186",
   "x173358",
   "x71747",
-  "x79899",
-  "x11284",
-  "x2576",
-  "x381054",
-  "x371424",
-  "x50622",
   "x31550",
-  "x156103",
-  "x236256",
-  "x4730",
-  "x267036"
+  "x170912",
+  "x7262",
+  "x119190"
  ],
  "music_last": {
   "1DZTJ4ef0yYVG2xdl3IlbrnmWhvTIImvs": "2026-11-05T20:53+03:00",
   "1dkR0sggYnJv6PAPhkKiPNI1Qbu5nbVwi": "2026-11-05T17:23+03:00",
   "1fp4Ah5iQfFhH9Wv8srgJdSKSlru0RDHO": "2026-11-05T20:02+03:00",
-  "1QUXCTr3hAjvM090ZbkBDmL190dxM9yXG": "2026-11-05T12:53+03:00",
+  "1QUXCTr3hAjvM090ZbkBDmL190dxM9yXG": "2026-11-06T11:35+03:00",
   "r_16OqrXYzWRF5c20HNKbjBoWNaa_6pT9tp": "2026-11-04T00:15+03:00",
   "r_1l3THmi6GjqfKpjoZlRy25On7rsx6vdso": "2026-11-04T10:50+03:00"
  },
