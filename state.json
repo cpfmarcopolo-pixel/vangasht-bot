@@ -259,6 +259,12 @@
    "slot": "p1",
    "item": "ai:افسانهٔ هیولای دریاچهٔ وان",
    "media": "18117210047168516"
+  },
+  {
+   "at": "2026-11-06T11:56+03:00",
+   "slot": "s3",
+   "item": "vlog",
+   "media": "18105758171642465"
   }
  ],
  "media_done": [
@@ -506,38 +512,46 @@
   "d:1bo0YmDNzhEip85Za264BAWb_mft352wX": 1,
   "d:1-FVfIeiZZjXFJAzJ5gMN5MVC9fpT6_9n": 1,
   "d:17hKiV-WnBt1mRwctml8gDA-1w8Zc9BOB": 1,
-  "d:1IrRS6actyxKTVFTaMyP0Y5ywOSa5NJ5K": 1
+  "d:1IrRS6actyxKTVFTaMyP0Y5ywOSa5NJ5K": 1,
+  "d:1IfLfe4mk-IqOIQfMH5GbmHbt6dMofPI4": 1,
+  "d:1BAzcC5cJo8RuCDQGRJhvpJkG0ST_4ohZ": 1,
+  "d:1tBlkQmkQ2xPHTJAPkhabCvnR5Sr6d-fH": 1,
+  "d:1mb12MD-aoGWdPKlTrEVG1joZOPPE_i4Y": 1,
+  "d:1n1txnHN0mye-4vKpEm0ISy3Ts_NDLfiU": 1,
+  "d:1bDgVWWnG5aIspEdaPExCcujAepvMjEZU": 1,
+  "d:1hSllDF9-sic6ZUoRtqP0Xhf_mREB4Nl4": 1,
+  "d:1CvUTnXD3QUZ8hQK9yL8jFy3j_f1kUx1k": 1
  },
  "pexels_used": [
   "x67201",
-  "x2576",
-  "x25",
-  "x140186",
-  "x149938",
-  "x79899",
-  "x371424",
-  "x381054",
   "x222349",
-  "x267036",
+  "x7262",
   "x236256",
+  "x381054",
+  "x34971",
+  "x2576",
+  "x71747",
+  "x118768",
+  "x140186",
+  "x273476",
+  "x31550",
+  "x119190",
   "x156103",
   "x50622",
-  "x11284",
-  "x34971",
-  "x273476",
-  "x4730",
-  "x118768",
   "x84906",
+  "x79899",
   "x173358",
-  "x71747",
-  "x31550",
   "x170912",
-  "x7262",
-  "x119190"
+  "x11284",
+  "x4730",
+  "x25",
+  "x267036",
+  "x149938",
+  "x371424"
  ],
  "music_last": {
   "1DZTJ4ef0yYVG2xdl3IlbrnmWhvTIImvs": "2026-11-05T20:53+03:00",
-  "1dkR0sggYnJv6PAPhkKiPNI1Qbu5nbVwi": "2026-11-05T17:23+03:00",
+  "1dkR0sggYnJv6PAPhkKiPNI1Qbu5nbVwi": "2026-11-06T11:53+03:00",
   "1fp4Ah5iQfFhH9Wv8srgJdSKSlru0RDHO": "2026-11-05T20:02+03:00",
   "1QUXCTr3hAjvM090ZbkBDmL190dxM9yXG": "2026-11-06T11:35+03:00",
   "r_16OqrXYzWRF5c20HNKbjBoWNaa_6pT9tp": "2026-11-04T00:15+03:00",
@@ -567,7 +581,7 @@
   "1k-KyiRf0yyVTGLj6UMbJZJWLchhJ6vcS": "2026-11-06T08:52+03:00",
   "1ngL9kAa5rvCydUIuQHjnvQOwNC1_dmiz": "2026-11-06T11:01+03:00"
  },
- "vlog_i": 9,
+ "vlog_i": 12,
  "card_log": {
   "s1": [
    "صبح بخیر چهارشنبه؛ پیشنهاد صبحانهٔ وانی",
@@ -833,6 +847,86 @@
    "music": true,
    "own_boxes": [],
    "ar": 0.5625,
+   "v": 3
+  },
+  "1BAzcC5cJo8RuCDQGRJhvpJkG0ST_4ohZ": {
+   "text": "",
+   "greeting": "",
+   "other_page": false,
+   "page": "",
+   "music": false,
+   "own_boxes": [],
+   "ar": 0.75,
+   "v": 3
+  },
+  "1tBlkQmkQ2xPHTJAPkhabCvnR5Sr6d-fH": {
+   "text": "",
+   "greeting": "",
+   "other_page": false,
+   "page": "",
+   "music": false,
+   "own_boxes": [],
+   "ar": 0.75,
+   "v": 3
+  },
+  "1mb12MD-aoGWdPKlTrEVG1joZOPPE_i4Y": {
+   "text": "",
+   "greeting": "",
+   "other_page": false,
+   "page": "",
+   "music": false,
+   "own_boxes": [],
+   "ar": 0.75,
+   "v": 3
+  },
+  "1n1txnHN0mye-4vKpEm0ISy3Ts_NDLfiU": {
+   "text": "",
+   "greeting": "",
+   "other_page": false,
+   "page": "",
+   "music": false,
+   "own_boxes": [],
+   "ar": 0.75,
+   "v": 3
+  },
+  "1bDgVWWnG5aIspEdaPExCcujAepvMjEZU": {
+   "text": "",
+   "greeting": "",
+   "other_page": false,
+   "page": "",
+   "music": false,
+   "own_boxes": [],
+   "ar": 0.75,
+   "v": 3
+  },
+  "1hSllDF9-sic6ZUoRtqP0Xhf_mREB4Nl4": {
+   "text": "",
+   "greeting": "",
+   "other_page": false,
+   "page": "",
+   "music": false,
+   "own_boxes": [],
+   "ar": 0.75,
+   "v": 3
+  },
+  "1CvUTnXD3QUZ8hQK9yL8jFy3j_f1kUx1k": {
+   "text": "",
+   "greeting": "",
+   "other_page": false,
+   "page": "",
+   "music": false,
+   "own_boxes": [],
+   "ar": 0.75,
+   "v": 3
+  },
+  "1aHbd8D8YhLiNVKeHNxlzDu3bfBdBSBH7": {
+   "text": "",
+   "greeting": "",
+   "other_page": false,
+   "page": "",
+   "music": false,
+   "own_boxes": [],
+   "ar": 0.75,
    "v": 3
   }
  },
