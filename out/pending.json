@@ -1,9 +1,10 @@
 {
- "slot": "s6",
+ "slot": "s7",
  "file": null,
  "caption": null,
  "advance": null,
- "item": "s6:جمعهٔ پاییزی‌ات، کجا؟",
- "video": "dl/2026-11-06-s6-ig.mp4",
- "done": true
+ "item": "vlog",
+ "video": "dl/2026-11-06-s7-ig.mp4",
+ "reel": false,
+ "done": null
 }
