@@ -247,6 +247,12 @@
    "slot": "s1",
    "item": "s1:",
    "media": "18469806394143309"
+  },
+  {
+   "at": "2026-11-06T11:05+03:00",
+   "slot": "s2",
+   "item": "rates",
+   "media": "18394013206228631"
   }
  ],
  "media_done": [
@@ -543,7 +549,8 @@
   "1cFbuOWVaetKLwBJ4q5btcoEE50TfA1c9": "2026-11-05T14:22+03:00",
   "11YaI4p2ZI-qjNXQ4bXRuejBf-UFAXDKR": "2026-11-05T15:53+03:00",
   "1BTYvwOgAh6duGg1HaS0o2OwIN5pQA7PF": "2026-11-05T23:02+03:00",
-  "1k-KyiRf0yyVTGLj6UMbJZJWLchhJ6vcS": "2026-11-06T08:52+03:00"
+  "1k-KyiRf0yyVTGLj6UMbJZJWLchhJ6vcS": "2026-11-06T08:52+03:00",
+  "1ngL9kAa5rvCydUIuQHjnvQOwNC1_dmiz": "2026-11-06T11:01+03:00"
  },
  "vlog_i": 9,
  "card_log": {
@@ -795,6 +802,16 @@
   },
   "1k-KyiRf0yyVTGLj6UMbJZJWLchhJ6vcS": {
    "text": "جزیره آکدامار\nشکوفه های صورتی اینجارو تو بهار خیلی دیدنی تر کرده",
+   "greeting": "",
+   "other_page": false,
+   "page": "",
+   "music": true,
+   "own_boxes": [],
+   "ar": 0.5625,
+   "v": 3
+  },
+  "1ngL9kAa5rvCydUIuQHjnvQOwNC1_dmiz": {
+   "text": "VAN",
    "greeting": "",
    "other_page": false,
    "page": "",
