@@ -289,6 +289,12 @@
    "slot": "s7",
    "item": "vlog",
    "media": "18117404912115195"
+  },
+  {
+   "at": "2026-11-06T19:00+03:00",
+   "slot": "s8",
+   "item": "s8:قلعهٔ هوشاپ، سنگ و سکوت",
+   "media": "18116220395144515"
   }
  ],
  "media_done": [
@@ -606,7 +612,8 @@
   "1k-KyiRf0yyVTGLj6UMbJZJWLchhJ6vcS": "2026-11-06T08:52+03:00",
   "1ngL9kAa5rvCydUIuQHjnvQOwNC1_dmiz": "2026-11-06T11:01+03:00",
   "1jaaCnvkMJZiQRnYkl5VMOJwE-V_lUjin": "2026-11-06T14:22+03:00",
-  "1sjAcrPqOpPKqux_uRgpKOTk65efReAqB": "2026-11-06T15:52+03:00"
+  "1sjAcrPqOpPKqux_uRgpKOTk65efReAqB": "2026-11-06T15:52+03:00",
+  "1lzWgWguX7p5t4WvRNOTNCtqSLY7PoZem": "2026-11-06T18:52+03:00"
  },
  "vlog_i": 5,
  "card_log": {
@@ -641,7 +648,8 @@
   "s8": [
    "جزیرهٔ آکدامار",
    "قلعهٔ وان (توشپا)",
-   "آبشار مرادیه"
+   "آبشار مرادیه",
+   "قلعهٔ هوشاپ"
   ],
   "s10": [
    "استوری شب بخیر چهارشنبه ۱۳ آبان",
@@ -653,7 +661,7 @@
  },
  "s4_i": 5,
  "s5_i": 5,
- "s8_i": 3,
+ "s8_i": 4,
  "clip_info": {
   "1eww9Vvjb_m9JhLIMFLFn8JtiDB8nLddz": {
    "text": "",
