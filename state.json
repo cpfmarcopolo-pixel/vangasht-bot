@@ -337,6 +337,12 @@
    "slot": "s3",
    "item": "vlog",
    "media": "17991443076116291"
+  },
+  {
+   "at": "2026-11-07T12:57+03:00",
+   "slot": "s4",
+   "item": "s4:وان را بی‌دغدغه سفر کن",
+   "media": "18135826573680233"
   }
  ],
  "media_done": [
@@ -550,7 +556,8 @@
   "File:Van Castle 1.jpg",
   "File:65500 Görecek-Muradiye-Van, Turkey - panoramio (2).jpg",
   "File:Du Caucase au Golfe Persique p 357.jpg",
-  "File:Göle Nazır Ağaçlık Alan, Van - Edremit.jpg"
+  "File:Göle Nazır Ağaçlık Alan, Van - Edremit.jpg",
+  "File:Turkish Visitors on Akdamar Island - Lake Van - Turkey - 01 (5796817924).jpg"
  ],
  "last_error": {
   "at": "2026-11-04T17:03+03:00",
@@ -638,7 +645,7 @@
  "music_last": {
   "1DZTJ4ef0yYVG2xdl3IlbrnmWhvTIImvs": "2026-11-06T17:24+03:00",
   "1dkR0sggYnJv6PAPhkKiPNI1Qbu5nbVwi": "2026-11-07T11:53+03:00",
-  "1fp4Ah5iQfFhH9Wv8srgJdSKSlru0RDHO": "2026-11-06T13:02+03:00",
+  "1fp4Ah5iQfFhH9Wv8srgJdSKSlru0RDHO": "2026-11-07T12:52+03:00",
   "1QUXCTr3hAjvM090ZbkBDmL190dxM9yXG": "2026-11-06T20:53+03:00",
   "r_16OqrXYzWRF5c20HNKbjBoWNaa_6pT9tp": "2026-11-04T00:15+03:00",
   "r_1l3THmi6GjqfKpjoZlRy25On7rsx6vdso": "2026-11-04T10:50+03:00"
@@ -690,7 +697,8 @@
    "سوئیت‌های مبلهٔ وان",
    "کارت تخفیف وان گشت",
    "معرفی راهنمای سفر به وان در سایت",
-   "جاهای دیدنی وان؛ معرفی جاذبه‌ها و تورها"
+   "جاهای دیدنی وان؛ معرفی جاذبه‌ها و تورها",
+   "راهنمای کامل سفر به وان برای ایرانی‌ها"
   ],
   "s5": [
    "تور کشتی‌های بزرگ تفریحی دریاچه وان",
@@ -725,7 +733,7 @@
    "تور کشتی جزیرهٔ آکدامار"
   ]
  },
- "s4_i": 5,
+ "s4_i": 6,
  "s5_i": 5,
  "s8_i": 4,
  "clip_info": {
