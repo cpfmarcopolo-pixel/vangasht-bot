@@ -355,6 +355,12 @@
    "slot": "s6",
    "item": "s6:قلعه‌ای از روزگار اورارتو",
    "media": "18137235466739755"
+  },
+  {
+   "at": "2026-11-07T17:28+03:00",
+   "slot": "s7",
+   "item": "vlog",
+   "media": "17955719067328938"
   }
  ],
  "media_done": [
@@ -602,13 +608,13 @@
   "d:11Do1EatdSuSKZVVwYdLAW9mBmZeCounP": 1,
   "d:12JwOz4uxPQYTMoi8xyBKDpDWPpx2TYf0": 1,
   "d:1MBdeSYRkbiGnZ94EKUv5ABUw7lazMSj1": 1,
-  "d:1poTvlvN-PsJ7tYdIWLLg6Eb55b8kuHr3": 2,
-  "d:1XXPmSKgZefrKBOGiDkECLEdZT6Ya7PgT": 2,
-  "d:12BZ_878euoOPlDXiLpdKo3HJ0SCXWVYU": 2,
-  "d:1bo0YmDNzhEip85Za264BAWb_mft352wX": 2,
-  "d:1-FVfIeiZZjXFJAzJ5gMN5MVC9fpT6_9n": 2,
-  "d:17hKiV-WnBt1mRwctml8gDA-1w8Zc9BOB": 2,
-  "d:1IrRS6actyxKTVFTaMyP0Y5ywOSa5NJ5K": 2,
+  "d:1poTvlvN-PsJ7tYdIWLLg6Eb55b8kuHr3": 3,
+  "d:1XXPmSKgZefrKBOGiDkECLEdZT6Ya7PgT": 3,
+  "d:12BZ_878euoOPlDXiLpdKo3HJ0SCXWVYU": 3,
+  "d:1bo0YmDNzhEip85Za264BAWb_mft352wX": 3,
+  "d:1-FVfIeiZZjXFJAzJ5gMN5MVC9fpT6_9n": 3,
+  "d:17hKiV-WnBt1mRwctml8gDA-1w8Zc9BOB": 3,
+  "d:1IrRS6actyxKTVFTaMyP0Y5ywOSa5NJ5K": 3,
   "d:1IfLfe4mk-IqOIQfMH5GbmHbt6dMofPI4": 1,
   "d:1BAzcC5cJo8RuCDQGRJhvpJkG0ST_4ohZ": 1,
   "d:1tBlkQmkQ2xPHTJAPkhabCvnR5Sr6d-fH": 1,
@@ -617,7 +623,7 @@
   "d:1bDgVWWnG5aIspEdaPExCcujAepvMjEZU": 1,
   "d:1hSllDF9-sic6ZUoRtqP0Xhf_mREB4Nl4": 1,
   "d:1CvUTnXD3QUZ8hQK9yL8jFy3j_f1kUx1k": 1,
-  "d:1vbtxtSE2TV6B6zcn-1iWcb2p6h19RTN9": 1,
+  "d:1vbtxtSE2TV6B6zcn-1iWcb2p6h19RTN9": 2,
   "d:1OwkaSEMVxmoonpwNJeywCs00IWMaK4Oq": 1,
   "d:1aHbd8D8YhLiNVKeHNxlzDu3bfBdBSBH7": 1,
   "d:1rb-AxtA9PPnx0zC9mGaTx7eDEW4H0WH6": 1,
@@ -628,34 +634,34 @@
   "d:14hbpTpCJjkzTK3DobzQAYAhEBmlmpnLu": 1
  },
  "pexels_used": [
-  "x371424",
-  "x25",
-  "x67201",
-  "x170912",
-  "x149938",
-  "x119190",
-  "x79899",
-  "x381054",
-  "x222349",
-  "x84906",
   "x267036",
-  "x50622",
-  "x7262",
+  "x25",
   "x34971",
-  "x273476",
-  "x4730",
-  "x236256",
-  "x140186",
-  "x11284",
+  "x7262",
   "x173358",
   "x31550",
-  "x156103",
-  "x118768",
+  "x170912",
   "x71747",
-  "x2576"
+  "x11284",
+  "x67201",
+  "x156103",
+  "x79899",
+  "x2576",
+  "x273476",
+  "x236256",
+  "x84906",
+  "x149938",
+  "x140186",
+  "x118768",
+  "x222349",
+  "x381054",
+  "x4730",
+  "x119190",
+  "x50622",
+  "x371424"
  ],
  "music_last": {
-  "1DZTJ4ef0yYVG2xdl3IlbrnmWhvTIImvs": "2026-11-06T17:24+03:00",
+  "1DZTJ4ef0yYVG2xdl3IlbrnmWhvTIImvs": "2026-11-07T17:24+03:00",
   "1dkR0sggYnJv6PAPhkKiPNI1Qbu5nbVwi": "2026-11-07T11:53+03:00",
   "1fp4Ah5iQfFhH9Wv8srgJdSKSlru0RDHO": "2026-11-07T12:52+03:00",
   "1QUXCTr3hAjvM090ZbkBDmL190dxM9yXG": "2026-11-06T20:53+03:00",
@@ -696,7 +702,7 @@
   "1nDeX7-t_FlJ5cVUeYPWgS4WiCAPQyRK6": "2026-11-07T14:22+03:00",
   "1-4TXJy0f2BNjoVfbKO0nPbkr0wUkXX20": "2026-11-07T15:52+03:00"
  },
- "vlog_i": 8,
+ "vlog_i": 11,
  "card_log": {
   "s1": [
    "صبح بخیر چهارشنبه؛ پیشنهاد صبحانهٔ وانی",
@@ -945,7 +951,11 @@
    "music": true,
    "own_boxes": [],
    "ar": 0.5625,
-   "v": 3
+   "scene": "شب؛ منظرهٔ پانورامای چراغ‌های نارنجی شهر از یک نقطهٔ دیدِ مرتفع با نرده‌های چوبی نارنجی و طناب، بدون آدم",
+   "place": "",
+   "text_pos": "",
+   "dur": 34.53,
+   "v": 4
   },
   "16VIIe96YEBsOYRUiG2DYtJ6_g96YPnfz": {
    "text": "به همراه کلی موزیک زنده\nپل شیشه ای روی دریا",
@@ -1089,7 +1099,11 @@
    "music": true,
    "own_boxes": [],
    "ar": 0.5625,
-   "v": 3
+   "scene": "خیابانی شلوغ و پر از چراغ در شب؛ ابتدا تصویر تار و بوکه، سپس ماشین‌ها، تابلوهای نئون مغازه‌ها و چراغ‌های آذین خیابان با رهگذران.",
+   "place": "خیابان جوانان (Gençlik Sokağı) ایپک‌یولو، وان",
+   "text_pos": "",
+   "dur": 8.66,
+   "v": 4
   },
   "1g9MCZ_AqhaYu782AxJIqmG5sn-G0Ofuo": {
    "text": "وقتی رفتم / دل من میخواست تلافی بکنه / پس چشم هیچکسی عاشقم نکرد... / شبتون بخیر / Mahasti_music",
@@ -1215,6 +1229,20 @@
    "place": "",
    "text_pos": "",
    "dur": 34.2,
+   "v": 4
+  },
+  "1vbtxtSE2TV6B6zcn-1iWcb2p6h19RTN9": {
+   "text": "",
+   "greeting": "",
+   "other_page": false,
+   "page": "",
+   "music": false,
+   "own_boxes": [],
+   "ar": 0.75,
+   "scene": "پرچم ترکیه بر بالای تپه‌ای مشرف به دریاچه وان، با نرده‌های چوبی و چراغ‌های تزئینی، هنگام غروب یا طلوع آفتاب",
+   "place": "",
+   "text_pos": "",
+   "dur": 29.88,
    "v": 4
   }
  },
