@@ -701,6 +701,10 @@ def layered_video(layers, bg, bg_video, song, st, dst, T, info=None, dim=0.30, h
         for i, html in enumerate(layers + ([keep_html] if keep_html else [])):
             pg.set_content(f"<html dir=rtl><head><meta charset=utf-8><style>{css()}html,body{{background:transparent}}body{{width:1080px;height:1920px}}</style></head><body>{html}</body></html>")
             pg.wait_for_timeout(250)
+            try:
+                pg.evaluate("document.fonts.ready.then(() => true)")
+            except Exception:
+                pass
             o = work / f"layer-{i}.png"; pg.screenshot(path=str(o), omit_background=True); pngs.append(o)
         b.close()
     if bg_video:
@@ -1591,8 +1595,50 @@ def card_layer_html(c, show, v):
 {lines}
 <div style="visibility:{vis('foot')};margin-top:60px">{foot}</div></div></div>"""
 
+NASTALIQ_URL = "https://raw.githubusercontent.com/google/fonts/main/ofl/notonastaliqurdu/NotoNastaliqUrdu%5Bwght%5D.ttf"
+GREETINGS = {"s1": [("صبحتون بخیر", "☀️"), ("صبح بخیر", "🌤"), ("صبحتون قشنگ", "☀️")],
+             "s10": [("شبتون بخیر", "🌙"), ("شب بخیر", "🌙"), ("شبتون آروم", "✨")]}
+
+def nastaliq_css():
+    """Calligraphy font (Noto Nastaliq) for the greetings, downloaded once per run; falls back to Vazirmatn."""
+    f = ROOT / "dl" / "nastaliq.ttf"
+    if not f.exists():
+        try:
+            f.parent.mkdir(exist_ok=True)
+            with urllib.request.urlopen(NASTALIQ_URL, timeout=60) as r:
+                f.write_bytes(r.read())
+        except Exception as e:
+            print("! calligraphy font not downloaded, using the normal font:", str(e)[:100])
+            return ""
+    return f"@font-face{{font-family:Nastaliq;src:url({b64(f, 'font/ttf')})}}"
+
+def greeting_story(code, st, dst):
+    """S1 / S10: only a small, elegant greeting at the bottom (like the stylish pages): @vangasht.van + «شبتون بخیر 🌙»."""
+    bg, bg_video, song, info = folder_assets(code.upper(), st, full=True)
+    if not bg:
+        key = {"s1": random.choice(["lake", "edremit", "suphan"]), "s10": random.choice(["lake", "fortress", "city"])}[code]
+        ph = pick_photos(key, "منظرهٔ آرام و زیبای وان برای پس‌زمینهٔ استوری " + ("صبحگاهی" if code == "s1" else "شبانه"), 1, st)
+        bg, bg_video = (ph[0][0] if ph else A / "lake.jpg"), False
+    i = st.get(code + "_g", 0); st[code + "_g"] = i + 1
+    word, emo = GREETINGS[code][i % len(GREETINGS[code])]
+    has_greet = info.get("greeting") in ("morning", "night") or (info.get("text") and code in ("s1", "s10"))
+    bottom = 560 if info.get("text_pos") == "bottom" else 330
+    g = "" if has_greet else (f'<div style="font-family:Nastaliq,V;font-size:64px;line-height:1.9;margin-top:4px">{word} '
+                               f'<span style="font-family:V,\'Noto Color Emoji\';font-size:44px">{emo}</span></div>')
+    html = (f'<style>{nastaliq_css()}</style><div style="position:absolute;left:0;right:0;bottom:{bottom}px;text-align:center;color:#fff;'
+            f'text-shadow:0 2px 10px rgba(0,0,0,.45)"><div style="font:italic 600 30px Georgia,serif;opacity:.85;direction:ltr;letter-spacing:.5px">'
+            f'@vangasht.van</div>{g}</div>')
+    T = int(os.environ.get("CARD_SECONDS", "15"))
+    if bg_video:
+        T = int(max(8, min(59, info.get("dur") or vid_duration(ffmpeg_bin(), bg) or T)))
+    layered_video([html], bg, bg_video, song, st, dst, T, info, dim=0.10, timings=[(0.6, T - 0.8)])
+    print(f"{code} greeting ready:", "(clip already has a greeting)" if has_greet else word)
+    return {"title": word}
+
 def card_story(code, d, v, st, dst):
     """S1/S4/S5/S6/S8/S10: AI text over a video/photo from the story's own Drive folder, layers fading in, with music."""
+    if code in GREETINGS and os.environ.get("SIMPLE_GREETINGS", "1") == "1":
+        return greeting_story(code, st, dst)
     bg, bg_video, song, info = folder_assets(code.upper(), st, full=True)
     c = card_content(code, d, v, st, info)
     if info.get("text") and (code in ("s1", "s10") or (info.get("greeting") == "morning" and code == "s1")):
