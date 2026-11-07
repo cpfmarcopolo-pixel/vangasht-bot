@@ -3,12 +3,6 @@
  "story": 1,
  "log": [
   {
-   "at": "2026-10-28T02:01+03:00",
-   "slot": "story2",
-   "item": "IMG-20261028-WA0000.jpg",
-   "media": "18155420185533914"
-  },
-  {
    "at": "2026-10-28T12:09+03:00",
    "slot": "story1",
    "item": "rates",
@@ -361,6 +355,12 @@
    "slot": "s8",
    "item": "s8:پرواز ماهی‌ها بر آبشار 🐟",
    "media": "18118830338162637"
+  },
+  {
+   "at": "2026-11-07T19:54+03:00",
+   "slot": "p2",
+   "item": "tour:vangezi.mp4",
+   "media": "17989728105084577"
   }
  ],
  "media_done": [
@@ -702,7 +702,9 @@
   "1nDeX7-t_FlJ5cVUeYPWgS4WiCAPQyRK6": "2026-11-07T14:22+03:00",
   "1-4TXJy0f2BNjoVfbKO0nPbkr0wUkXX20": "2026-11-07T15:52+03:00",
   "1IcxcLSfHQiB684bvYcUkBc9KaaRuGIB3": "2026-11-07T18:52+03:00",
-  "1sPp-9i-pKWuCblYPGHmCtgqr0mXP140x": "2026-11-07T18:52+03:00"
+  "1sPp-9i-pKWuCblYPGHmCtgqr0mXP140x": "2026-11-07T18:52+03:00",
+  "1Yy3dDwE5eHIzFq4INlVOtIOunUl-Y_Mr": "2026-11-07T19:50+03:00",
+  "17NLbxH1YE108G2mpAfNTBgSW-BK157qB": "2026-11-07T19:50+03:00"
  },
  "vlog_i": 11,
  "card_log": {
@@ -755,7 +757,8 @@
   ],
   "post": [
    "معرفی کلی تورهای وان گشت",
-   "تور کشتی جزیرهٔ آکدامار"
+   "تور کشتی جزیرهٔ آکدامار",
+   "تور آبشار مرادیه؛ ویدیوی پهپادی از جاذبه"
   ]
  },
  "s4_i": 6,
@@ -1274,6 +1277,34 @@
    "place": "",
    "text_pos": "",
    "dur": 13.21,
+   "v": 4
+  },
+  "1Yy3dDwE5eHIzFq4INlVOtIOunUl-Y_Mr": {
+   "text": "VAN AQUA",
+   "greeting": "",
+   "other_page": true,
+   "page": "@alimunnnn",
+   "music": true,
+   "own_boxes": [],
+   "ar": 0.5625,
+   "scene": "استخر روباز و سرسره‌های آبی رنگارنگ در پارک آبی وان آکوا، با شناگران زیر آسمان آبی و ابری در روز",
+   "place": "",
+   "text_pos": "top",
+   "dur": 29.81,
+   "v": 4
+  },
+  "17NLbxH1YE108G2mpAfNTBgSW-BK157qB": {
+   "text": "Van'da Aşık Olacağınız 8 Yer | 1-MURADİYE ŞELALESİ | 3-ERÇEK | 5-İŞKİRT | 7-İSKELE SAHİLİ | 8-VAN KÖYLERİ",
+   "greeting": "",
+   "other_page": false,
+   "page": "",
+   "music": true,
+   "own_boxes": [],
+   "ar": 0.5625,
+   "scene": "تصاویر پهپادی روز از جاذبه‌های وان: ساحل دریاچه، آبشار مرادیه، فلامینگوها در ارچک، ساحل ایشکرت، مرغان دریایی و روستای برفی",
+   "place": "آبشار مرادیه",
+   "text_pos": "top",
+   "dur": 20.5,
    "v": 4
   }
  },
