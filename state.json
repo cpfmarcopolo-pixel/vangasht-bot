@@ -3,12 +3,6 @@
  "story": 1,
  "log": [
   {
-   "at": "2026-10-28T00:26+03:00",
-   "slot": "story2",
-   "item": "pos-card",
-   "media": "18147452812574840"
-  },
-  {
    "at": "2026-10-28T02:01+03:00",
    "slot": "story2",
    "item": "IMG-20261028-WA0000.jpg",
@@ -361,6 +355,12 @@
    "slot": "s7",
    "item": "vlog",
    "media": "17955719067328938"
+  },
+  {
+   "at": "2026-11-07T18:54+03:00",
+   "slot": "s8",
+   "item": "s8:پرواز ماهی‌ها بر آبشار 🐟",
+   "media": "18118830338162637"
   }
  ],
  "media_done": [
@@ -700,7 +700,9 @@
   "1QHmP7rKGvYi139koDxJeQi0_2Gq416Kd": "2026-11-07T08:52+03:00",
   "1bRN70PucFFSB5FKMy6y98ZLLCbtyyPK3": "2026-11-07T11:22+03:00",
   "1nDeX7-t_FlJ5cVUeYPWgS4WiCAPQyRK6": "2026-11-07T14:22+03:00",
-  "1-4TXJy0f2BNjoVfbKO0nPbkr0wUkXX20": "2026-11-07T15:52+03:00"
+  "1-4TXJy0f2BNjoVfbKO0nPbkr0wUkXX20": "2026-11-07T15:52+03:00",
+  "1IcxcLSfHQiB684bvYcUkBc9KaaRuGIB3": "2026-11-07T18:52+03:00",
+  "1sPp-9i-pKWuCblYPGHmCtgqr0mXP140x": "2026-11-07T18:52+03:00"
  },
  "vlog_i": 11,
  "card_log": {
@@ -740,7 +742,8 @@
    "جزیرهٔ آکدامار",
    "قلعهٔ وان (توشپا)",
    "آبشار مرادیه",
-   "قلعهٔ هوشاپ"
+   "قلعهٔ هوشاپ",
+   "ماهی‌هایی که در بهار از آبشار بالا می‌پر"
   ],
   "s10": [
    "استوری شب بخیر چهارشنبه ۱۳ آبان",
@@ -757,7 +760,7 @@
  },
  "s4_i": 6,
  "s5_i": 1,
- "s8_i": 4,
+ "s8_i": 5,
  "clip_info": {
   "1eww9Vvjb_m9JhLIMFLFn8JtiDB8nLddz": {
    "text": "",
@@ -1244,13 +1247,42 @@
    "text_pos": "",
    "dur": 29.88,
    "v": 4
+  },
+  "1IcxcLSfHQiB684bvYcUkBc9KaaRuGIB3": {
+   "text": "VAN AQUA",
+   "greeting": "",
+   "other_page": true,
+   "page": "@alimunnnn",
+   "music": true,
+   "own_boxes": [],
+   "ar": 0.5625,
+   "scene": "استخر روباز و سرسره‌های آبی رنگارنگ در پارک آبی وان آکوا؛ آدم‌ها در روزی آفتابی و آسمان ابری مشغول شنا و تفریح‌اند.",
+   "place": "",
+   "text_pos": "top",
+   "dur": 29.81,
+   "v": 4
+  },
+  "1sPp-9i-pKWuCblYPGHmCtgqr0mXP140x": {
+   "text": "",
+   "greeting": "",
+   "other_page": false,
+   "page": "",
+   "music": true,
+   "own_boxes": [],
+   "ar": 0.8,
+   "scene": "ماهی‌هایی که در روزی بهاری از آبشاری کف‌آلود بالا می‌پرند؛ گل‌های یاسی بنفش، سبزه، یک مرغ دریایی و آلاچیق چوبی پشت آن",
+   "place": "",
+   "text_pos": "",
+   "dur": 13.21,
+   "v": 4
   }
  },
  "skipped_files": {
   "vankalesi1.mp4": "@al1celik",
   "akdamaradasi5.mp4": "سیاحت پردیس",
   "vankedisi1.mp4": "Van Kedi Evi Cafe",
-  "6b75fd6da4f04682991f70ffc0ab1475.mp4": "Mahasti_music"
+  "6b75fd6da4f04682991f70ffc0ab1475.mp4": "Mahasti_music",
+  "Ins2916310794_196eaad9414949ea99337ee1a716e7b3.mp4": "@alimunnnn"
  },
  "replied_comments": []
 }
