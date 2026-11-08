@@ -1737,7 +1737,9 @@ def tour_reel(d, v, st, day, test):
     book = ('<div style="position:absolute;left:0;right:0;bottom:430px;display:flex;justify-content:center">'
             '<div style="background:#25d366;color:#fff;border-radius:60px;padding:24px 50px;text-align:center;box-shadow:0 14px 40px rgba(0,0,0,.4)">'
             '<div style="font-size:52px;font-weight:900">📲 جهت رزرو تور</div>'
-            '<div style="font-size:32px;font-weight:700;margin-top:6px">دکمهٔ واتس‌اپ در پروفایل 👆</div></div></div>')
+            f'<div style="margin-top:14px;background:#fff;border-radius:40px;padding:10px 34px;color:#e31b1b;font:900 50px Georgia,serif;'
+            f'direction:ltr;letter-spacing:1px">WhatsApp {WA_PLAIN}</div>'
+            '<div style="font-size:28px;font-weight:700;margin-top:10px">یا دکمهٔ واتس‌اپ در پروفایل 👆</div></div></div>')
     head_end = min(5.5, T - 1)
     book_at = max(head_end + 0.8, T - 4.5)
     layered_video([card_layer_html(c, "head", v), book], src, True, song, st, mp4, T, info, dim=0.08, keep_html=wm,
@@ -2068,6 +2070,11 @@ def _publish():
     except BaseException as e:   # e.g. the token lacks instagram_manage_comments
         print("! comment replies skipped:", str(e)[:300])
         st["reply_error"] = {"at": dt.datetime.now(TR).isoformat(timespec="minutes"), "error": str(e)[:300]}
+    try:
+        smart_schedule(ig, st)
+    except BaseException as e:
+        print("! smart times skipped:", str(e)[:300])
+        st["smart_times_error"] = {"at": dt.datetime.now(TR).isoformat(timespec="minutes"), "error": str(e)[:300]}
     save_state(st)
     job["done"] = True
     (OUT / "pending.json").write_text(json.dumps(job, ensure_ascii=False, indent=1))
@@ -2115,6 +2122,58 @@ def reply_comments(ig, st):
         done.append(c["id"])
     del done[:-800]
     print(f"comments: answered {n}, skipped {len(new) - n}")
+
+CRON_API = "https://api.cron-job.org"
+
+def cron_api(method, path, body=None):
+    req = urllib.request.Request(CRON_API + path, method=method, data=json.dumps(body).encode() if body is not None else None,
+                                 headers={"Authorization": "Bearer " + os.environ["CRONJOB_KEY"], "Content-Type": "application/json"})
+    with urllib.request.urlopen(req, timeout=30) as r:
+        txt = r.read().decode()
+        return json.loads(txt) if txt.strip() else {}
+
+def smart_schedule(ig, st):
+    """Once a week: when are our followers online? Move the p1 (late morning/noon) and p2 (evening) jobs on cron-job.org
+    to the busiest hour in their window. Needs the CRONJOB_KEY secret (cron-job.org -> Settings -> API)."""
+    if not os.environ.get("CRONJOB_KEY") or os.environ.get("SMART_TIMES", "1") != "1":
+        return
+    last = st.get("smart_times", {}).get("at", "")
+    if last and dt.datetime.now(TR) - dt.datetime.fromisoformat(last) < dt.timedelta(days=6):
+        return
+    r = api("GET", f"{ig}/insights", metric="online_followers", period="lifetime")
+    days = ((r.get("data") or [{}])[0].get("values") or [])
+    tot = [0.0] * 24
+    for d_ in days:
+        for h, n in (d_.get("value") or {}).items():
+            tot[int(h)] += float(n or 0)
+    if sum(tot) <= 0:
+        print("smart times: Instagram gave no online-followers data yet (needs 100+ followers)"); return
+    # Instagram counts hours in Pacific time -> Istanbul time
+    import zoneinfo
+    pt = zoneinfo.ZoneInfo("America/Los_Angeles")
+    now = dt.datetime.now(pt).replace(minute=0, second=0, microsecond=0)
+    ist = [0.0] * 24
+    for h in range(24):
+        ist[now.replace(hour=h).astimezone(TR).hour] += tot[h]
+    # p2 must stay before the 21:00 story "did you see today's posts?"; on a tie keep the usual time
+    windows = {"p1": (range(10, 16), 11), "p2": (range(18, 21), 20)}
+    best = {k: max(w, key=lambda h: (ist[h], -abs(h - usual))) for k, (w, usual) in windows.items()}
+    jobs = cron_api("GET", "/jobs").get("jobs", [])
+    moved = {}
+    for j in jobs:
+        det = cron_api("GET", f"/jobs/{j['jobId']}").get("jobDetails", {})
+        body = (det.get("extendedData") or {}).get("body", "")
+        m = re.search(r'"slot"\s*:\s*"(p1|p2)"', body)
+        if not m:
+            continue
+        k = m.group(1); h = best[k]
+        trig_h, trig_m = (h - 1) % 24, 37          # starts at :37 -> post is out a little before the busy hour
+        cron_api("PATCH", f"/jobs/{j['jobId']}", {"job": {"schedule": {"timezone": "Europe/Istanbul", "expiresAt": 0,
+                 "hours": [trig_h], "minutes": [trig_m], "mdays": [-1], "months": [-1], "wdays": [-1]}}})
+        moved[k] = f"{h:02d}:00"
+    st["smart_times"] = {"at": dt.datetime.now(TR).isoformat(timespec="minutes"), "posts": moved,
+                         "online_by_hour_istanbul": [round(x) for x in ist]}
+    print("smart times: posts moved to", moved)
 
 def preview():
     d = site(); v = vars_for(d); P = ROOT / "preview"; P.mkdir(exist_ok=True)
