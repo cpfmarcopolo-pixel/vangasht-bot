@@ -3,12 +3,6 @@
  "story": 1,
  "log": [
   {
-   "at": "2026-10-31T11:01+03:00",
-   "slot": "story1",
-   "item": "ai:جزیرهٔ آکدامار، پیشنهاد آخر هفته",
-   "media": "18108578717169342"
-  },
-  {
    "at": "2026-10-31T17:03+03:00",
    "slot": "story2",
    "item": "877c08f489604214b495a2ab6444c9a5.mp4",
@@ -361,6 +355,12 @@
    "slot": "s6",
    "item": "s6:جزیره یا آبشار؟",
    "media": "18178061638445732"
+  },
+  {
+   "at": "2026-11-08T17:26+03:00",
+   "slot": "s7",
+   "item": "vlog",
+   "media": "18044420567837672"
   }
  ],
  "media_done": [
@@ -608,13 +608,13 @@
   "d:11Do1EatdSuSKZVVwYdLAW9mBmZeCounP": 1,
   "d:12JwOz4uxPQYTMoi8xyBKDpDWPpx2TYf0": 1,
   "d:1MBdeSYRkbiGnZ94EKUv5ABUw7lazMSj1": 1,
-  "d:1poTvlvN-PsJ7tYdIWLLg6Eb55b8kuHr3": 3,
-  "d:1XXPmSKgZefrKBOGiDkECLEdZT6Ya7PgT": 3,
-  "d:12BZ_878euoOPlDXiLpdKo3HJ0SCXWVYU": 3,
-  "d:1bo0YmDNzhEip85Za264BAWb_mft352wX": 3,
-  "d:1-FVfIeiZZjXFJAzJ5gMN5MVC9fpT6_9n": 3,
-  "d:17hKiV-WnBt1mRwctml8gDA-1w8Zc9BOB": 3,
-  "d:1IrRS6actyxKTVFTaMyP0Y5ywOSa5NJ5K": 3,
+  "d:1poTvlvN-PsJ7tYdIWLLg6Eb55b8kuHr3": 4,
+  "d:1XXPmSKgZefrKBOGiDkECLEdZT6Ya7PgT": 4,
+  "d:12BZ_878euoOPlDXiLpdKo3HJ0SCXWVYU": 4,
+  "d:1bo0YmDNzhEip85Za264BAWb_mft352wX": 4,
+  "d:1-FVfIeiZZjXFJAzJ5gMN5MVC9fpT6_9n": 4,
+  "d:17hKiV-WnBt1mRwctml8gDA-1w8Zc9BOB": 4,
+  "d:1IrRS6actyxKTVFTaMyP0Y5ywOSa5NJ5K": 4,
   "d:1IfLfe4mk-IqOIQfMH5GbmHbt6dMofPI4": 1,
   "d:1BAzcC5cJo8RuCDQGRJhvpJkG0ST_4ohZ": 1,
   "d:1tBlkQmkQ2xPHTJAPkhabCvnR5Sr6d-fH": 1,
@@ -623,7 +623,7 @@
   "d:1bDgVWWnG5aIspEdaPExCcujAepvMjEZU": 1,
   "d:1hSllDF9-sic6ZUoRtqP0Xhf_mREB4Nl4": 1,
   "d:1CvUTnXD3QUZ8hQK9yL8jFy3j_f1kUx1k": 1,
-  "d:1vbtxtSE2TV6B6zcn-1iWcb2p6h19RTN9": 2,
+  "d:1vbtxtSE2TV6B6zcn-1iWcb2p6h19RTN9": 3,
   "d:1OwkaSEMVxmoonpwNJeywCs00IWMaK4Oq": 1,
   "d:1aHbd8D8YhLiNVKeHNxlzDu3bfBdBSBH7": 1,
   "d:1rb-AxtA9PPnx0zC9mGaTx7eDEW4H0WH6": 1,
@@ -640,34 +640,34 @@
   "d:1eWpZYx-6f0UCVeNkA6NKGr119tfsli8o": 1
  },
  "pexels_used": [
-  "x31550",
-  "x79899",
-  "x2576",
-  "x119190",
-  "x84906",
-  "x381054",
-  "x156103",
-  "x67201",
-  "x11284",
-  "x236256",
   "x140186",
+  "x381054",
+  "x79899",
+  "x222349",
+  "x67201",
+  "x7262",
+  "x31550",
+  "x149938",
+  "x2576",
+  "x371424",
+  "x118768",
+  "x267036",
+  "x273476",
+  "x71747",
+  "x4730",
+  "x170912",
+  "x236256",
+  "x119190",
+  "x11284",
+  "x156103",
   "x25",
   "x173358",
-  "x273476",
+  "x84906",
   "x34971",
-  "x4730",
-  "x371424",
-  "x170912",
-  "x267036",
-  "x7262",
-  "x71747",
-  "x149938",
-  "x222349",
-  "x50622",
-  "x118768"
+  "x50622"
  ],
  "music_last": {
-  "1DZTJ4ef0yYVG2xdl3IlbrnmWhvTIImvs": "2026-11-07T17:24+03:00",
+  "1DZTJ4ef0yYVG2xdl3IlbrnmWhvTIImvs": "2026-11-08T17:23+03:00",
   "1dkR0sggYnJv6PAPhkKiPNI1Qbu5nbVwi": "2026-11-08T11:54+03:00",
   "1fp4Ah5iQfFhH9Wv8srgJdSKSlru0RDHO": "2026-11-08T12:53+03:00",
   "1QUXCTr3hAjvM090ZbkBDmL190dxM9yXG": "2026-11-07T20:52+03:00",
@@ -718,7 +718,7 @@
   "15enA_QM7wwUuYBTWBcUgI3-tcjgY8mG1": "2026-11-08T14:22+03:00",
   "11v-zlnAP32dT7cZe8Ix3quLeWsaKyA7Z": "2026-11-08T15:52+03:00"
  },
- "vlog_i": 4,
+ "vlog_i": 7,
  "card_log": {
   "s1": [
    "صبح بخیر چهارشنبه؛ پیشنهاد صبحانهٔ وانی",
@@ -1396,6 +1396,20 @@
    "place": "",
    "text_pos": "",
    "dur": 16.79,
+   "v": 4
+  },
+  "1-FVfIeiZZjXFJAzJ5gMN5MVC9fpT6_9n": {
+   "text": "VAN ŞEMSİYE SOKAK",
+   "greeting": "",
+   "other_page": false,
+   "page": "",
+   "music": true,
+   "own_boxes": [],
+   "ar": 0.5616224648985959,
+   "scene": "خیابان رنگارنگ با چترهای رنگی آویزان و کف‌فرش رنگی، کافه‌ها در دو طرف، روز آفتابی و آسمان آبی",
+   "place": "خیابان چتر (Şemsiye Sokak) وان",
+   "text_pos": "bottom",
+   "dur": 20.36,
    "v": 4
   }
  },
