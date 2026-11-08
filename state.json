@@ -3,12 +3,6 @@
  "story": 1,
  "log": [
   {
-   "at": "2026-10-28T19:51+03:00",
-   "slot": "post",
-   "item": "ai:صبحانه وانی در یک صبح پاییزی",
-   "media": "18130118869877279"
-  },
-  {
    "at": "2026-10-29T10:54+03:00",
    "slot": "story1",
    "item": "rates",
@@ -361,6 +355,12 @@
    "slot": "s1",
    "item": "s1:صبحتون بخیر",
    "media": "18499016422109403"
+  },
+  {
+   "at": "2026-11-08T11:05+03:00",
+   "slot": "s2",
+   "item": "rates",
+   "media": "18109435805234959"
   }
  ],
  "media_done": [
@@ -706,7 +706,8 @@
   "1Yy3dDwE5eHIzFq4INlVOtIOunUl-Y_Mr": "2026-11-07T19:50+03:00",
   "17NLbxH1YE108G2mpAfNTBgSW-BK157qB": "2026-11-07T19:50+03:00",
   "1JdNZ1_m7HAT-UsnYmmJwKBdTsVC_f4Ml": "2026-11-07T22:52+03:00",
-  "1CkIDqkGc9W8k3aSOu8AyQbYlw32Qn8yc": "2026-11-08T08:52+03:00"
+  "1CkIDqkGc9W8k3aSOu8AyQbYlw32Qn8yc": "2026-11-08T08:52+03:00",
+  "1eK3PtbuoL0e93x7mvCSaawdpmP_0T_If": "2026-11-08T11:01+03:00"
  },
  "vlog_i": 11,
  "card_log": {
