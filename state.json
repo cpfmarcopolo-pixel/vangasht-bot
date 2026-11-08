@@ -3,12 +3,6 @@
  "story": 1,
  "log": [
   {
-   "at": "2026-10-29T19:53+03:00",
-   "slot": "post",
-   "item": "ai:غروب پاییزی و قلعهٔ وان برای عصر آخر هفت",
-   "media": "18058250630573932"
-  },
-  {
    "at": "2026-10-30T10:51+03:00",
    "slot": "story1",
    "item": "rates",
@@ -361,6 +355,12 @@
    "slot": "p1",
    "item": "tour:vangezi4.mp4",
    "media": "18182218132445423"
+  },
+  {
+   "at": "2026-11-08T11:57+03:00",
+   "slot": "s3",
+   "item": "vlog",
+   "media": "18076845812564746"
   }
  ],
  "media_done": [
@@ -600,8 +600,8 @@
   "d:1U4b38i-CWnvbYV90cb4pvKVeu4BrBpcW": 1,
   "d:1TrbCtioLxNR4SIYkuSrpLX6WbLekSpZC": 1,
   "d:1pKXqHr-pFpT2umWIUbvJlIu3tz6F44pz": 1,
-  "d:1LR0XlpRZVEn8Gwq1MYy8z4d2cgvW4KyU": 1,
-  "d:1kY1bjgXULEdctAGLRxoJj6kMk4dlLDzS": 1,
+  "d:1LR0XlpRZVEn8Gwq1MYy8z4d2cgvW4KyU": 2,
+  "d:1kY1bjgXULEdctAGLRxoJj6kMk4dlLDzS": 2,
   "d:195nbdcfUJEZfu4ni2e9rtll4JyBI6ldO": 1,
   "d:1ptmUjOp_HfgBOSsEbBl2Cf7Lrs0Z42zg": 1,
   "d:1PwHVAY7MeGcEkDET3fZYMWzfWzvZJfMz": 1,
@@ -631,38 +631,44 @@
   "d:1dcPsP9RQqicrmdu36h5876UbzU593oeL": 1,
   "d:1JqM3TD8KfKzuB2URYZj-yy657DeiSPpV": 1,
   "d:1k5GS6_triK5tVzWNCtyBMZNbcklTFzV2": 1,
-  "d:14hbpTpCJjkzTK3DobzQAYAhEBmlmpnLu": 1
+  "d:14hbpTpCJjkzTK3DobzQAYAhEBmlmpnLu": 1,
+  "d:1Mq3pzJYiSjS8EY7qHQpGe3IrbQaFqOd0": 1,
+  "d:1yYrvnc1bmIVcRMLbzounZqmSX51wBOg8": 1,
+  "d:1ymv-JaVU4lZ3OPypfDeIGBn5zjzfUwb6": 1,
+  "d:1-I8xHLrQQMYLvbC9g0CWLeORt6TQlIHs": 1,
+  "d:1RLsbDL-U0r1NzKQasCYcdwdAjiJTEcJF": 1,
+  "d:1eWpZYx-6f0UCVeNkA6NKGr119tfsli8o": 1
  },
  "pexels_used": [
-  "x267036",
-  "x25",
-  "x34971",
-  "x7262",
-  "x173358",
   "x31550",
-  "x170912",
-  "x71747",
-  "x11284",
-  "x67201",
-  "x156103",
   "x79899",
   "x2576",
-  "x273476",
-  "x236256",
-  "x84906",
-  "x149938",
-  "x140186",
-  "x118768",
-  "x222349",
-  "x381054",
-  "x4730",
   "x119190",
+  "x84906",
+  "x381054",
+  "x156103",
+  "x67201",
+  "x11284",
+  "x236256",
+  "x140186",
+  "x25",
+  "x173358",
+  "x273476",
+  "x34971",
+  "x4730",
+  "x371424",
+  "x170912",
+  "x267036",
+  "x7262",
+  "x71747",
+  "x149938",
+  "x222349",
   "x50622",
-  "x371424"
+  "x118768"
  ],
  "music_last": {
   "1DZTJ4ef0yYVG2xdl3IlbrnmWhvTIImvs": "2026-11-07T17:24+03:00",
-  "1dkR0sggYnJv6PAPhkKiPNI1Qbu5nbVwi": "2026-11-07T11:53+03:00",
+  "1dkR0sggYnJv6PAPhkKiPNI1Qbu5nbVwi": "2026-11-08T11:54+03:00",
   "1fp4Ah5iQfFhH9Wv8srgJdSKSlru0RDHO": "2026-11-07T12:52+03:00",
   "1QUXCTr3hAjvM090ZbkBDmL190dxM9yXG": "2026-11-07T20:52+03:00",
   "r_16OqrXYzWRF5c20HNKbjBoWNaa_6pT9tp": "2026-11-04T00:15+03:00",
@@ -710,7 +716,7 @@
   "1eK3PtbuoL0e93x7mvCSaawdpmP_0T_If": "2026-11-08T11:01+03:00",
   "19pQrJrvnsddjJXra_8iZYUDx2XuVgm74": "2026-11-08T11:22+03:00"
  },
- "vlog_i": 11,
+ "vlog_i": 4,
  "card_log": {
   "s1": [
    "صبح بخیر چهارشنبه؛ پیشنهاد صبحانهٔ وانی",
@@ -883,7 +889,11 @@
    "music": true,
    "own_boxes": [],
    "ar": 0.8,
-   "v": 3
+   "scene": "ماهی‌هایی که در روزی بهاری از آبشاری پرکف بالا می‌پرند؛ پشت آن شکوفه‌های بنفش یاس، سبزه، آلاچیق چوبی و یک مرغ دریایی دیده می‌شود.",
+   "place": "",
+   "text_pos": "",
+   "dur": 13.21,
+   "v": 4
   },
   "1OwkaSEMVxmoonpwNJeywCs00IWMaK4Oq": {
    "text": "",
@@ -1311,6 +1321,62 @@
    "place": "آبشار مرادیه",
    "text_pos": "top",
    "dur": 20.5,
+   "v": 4
+  },
+  "1-I8xHLrQQMYLvbC9g0CWLeORt6TQlIHs": {
+   "text": "",
+   "greeting": "",
+   "other_page": false,
+   "page": "",
+   "music": false,
+   "own_boxes": [],
+   "ar": 0.75,
+   "scene": "راهروی یک مرکز خرید سرپوشیده در روز با کف براق، منطقهٔ بازی کودکان، چند مغازه و رهگذران کم.",
+   "place": "",
+   "text_pos": "",
+   "dur": 0,
+   "v": 4
+  },
+  "1RLsbDL-U0r1NzKQasCYcdwdAjiJTEcJF": {
+   "text": "",
+   "greeting": "",
+   "other_page": false,
+   "page": "",
+   "music": false,
+   "own_boxes": [],
+   "ar": 0.75,
+   "scene": "غرفهٔ بابل‌تی با نئون صورتی در طبقهٔ بالای یک مرکز خرید، چند فروشنده پشت پیشخوان؛ فضای داخلی و شلوغ‌نبودن.",
+   "place": "",
+   "text_pos": "",
+   "dur": 0,
+   "v": 4
+  },
+  "1eWpZYx-6f0UCVeNkA6NKGr119tfsli8o": {
+   "text": "",
+   "greeting": "",
+   "other_page": false,
+   "page": "",
+   "music": false,
+   "own_boxes": [],
+   "ar": 0.75,
+   "scene": "داخل یک مرکز خرید چندطبقه با پله‌برقی‌ها و تزئینات ستاره‌ای و برف‌دانه‌ای آویزان، چند نفر در حال رفت‌وآمد، نور روشن داخلی",
+   "place": "",
+   "text_pos": "",
+   "dur": 0,
+   "v": 4
+  },
+  "1LR0XlpRZVEn8Gwq1MYy8z4d2cgvW4KyU": {
+   "text": "",
+   "greeting": "",
+   "other_page": false,
+   "page": "",
+   "music": false,
+   "own_boxes": [],
+   "ar": 0.75,
+   "scene": "رانندگی در روز آفتابی کنار جادهٔ ساحلی با دریای آبی، درخت‌های سبز و آسمان نیمه‌ابری، از پشت آینهٔ ماشین",
+   "place": "",
+   "text_pos": "",
+   "dur": 16.57,
    "v": 4
   }
  },
