@@ -3,12 +3,6 @@
  "story": 1,
  "log": [
   {
-   "at": "2026-11-01T17:03+03:00",
-   "slot": "story2",
-   "item": "877c08f489604214b495a2ab6444c9a5.mp4",
-   "media": "18110613217925591"
-  },
-  {
    "at": "2026-11-01T19:58+03:00",
    "slot": "post",
    "item": "ai:چک‌لیست چمدان پاییزی برای سفر به وان",
@@ -361,6 +355,12 @@
    "slot": "s9",
    "item": "todayposts",
    "media": "17948138196101769"
+  },
+  {
+   "at": "2026-11-08T22:57+03:00",
+   "slot": "s10",
+   "item": "s10:شبتون بخیر",
+   "media": "18222093667355692"
   }
  ],
  "media_done": [
@@ -718,7 +718,8 @@
   "15enA_QM7wwUuYBTWBcUgI3-tcjgY8mG1": "2026-11-08T14:22+03:00",
   "11v-zlnAP32dT7cZe8Ix3quLeWsaKyA7Z": "2026-11-08T15:52+03:00",
   "1xIAb8pNzW6LDi0fNgkvPBjS5_LSvVWtp": "2026-11-08T18:52+03:00",
-  "1fc_rRqd1re4CGcq8e-gN3p60wmYgdqsT": "2026-11-08T19:50+03:00"
+  "1fc_rRqd1re4CGcq8e-gN3p60wmYgdqsT": "2026-11-08T19:50+03:00",
+  "1sPW3_yStAJDQonT2FUch5LoOPXNUPGl3": "2026-11-08T22:52+03:00"
  },
  "vlog_i": 7,
  "card_log": {
@@ -1429,6 +1430,20 @@
    "text_pos": "",
    "dur": 58.83,
    "v": 4
+  },
+  "1sPW3_yStAJDQonT2FUch5LoOPXNUPGl3": {
+   "text": "شبتون بخیر 🌙",
+   "greeting": "night",
+   "other_page": false,
+   "page": "",
+   "music": true,
+   "own_boxes": [],
+   "ar": 0.5625,
+   "scene": "نمای هوایی از بالا از جاده‌ای پیچ‌در‌پیچ در دره‌ای صخره‌ای با رودخانهٔ آبی، پاییزی و مه‌آلود، در روز",
+   "place": "",
+   "text_pos": "bottom",
+   "dur": 31.09,
+   "v": 4
   }
  },
  "skipped_files": {
@@ -1439,5 +1454,10 @@
   "Ins2916310794_196eaad9414949ea99337ee1a716e7b3.mp4": "@alimunnnn"
  },
  "replied_comments": [],
- "s1_g": 1
+ "s1_g": 1,
+ "s10_g": 1,
+ "reply_error": {
+  "at": "2026-11-08T22:57+03:00",
+  "error": "Instagram API error 400 on 17957356149032007/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"type\":\"OAuthException\",\"code\":100,\"fbtrace_id\":\"AiKT2AQnApE3VeEVbWFvrXN\"}}"
+ }
 }
