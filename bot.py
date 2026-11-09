@@ -732,7 +732,7 @@ def layered_video(layers, bg, bg_video, song, st, dst, T, info=None, dim=0.30, h
     n_in = 1 + len(pngs) + (1 if cov else 0)
     if keep:   # stays on screen the whole video, no fade
         cmd += ["-loop", "1", "-t", str(T), "-i", str(keep)]
-        f += f"[{n_in}:v]format=rgba[wm];[{last}][wm]overlay=0:0[bwm];"
+        f += f"[{n_in}:v]format=rgba[wm];[{last}][wm]overlay=x='22*sin(t*0.9)':y='16*sin(t*1.3)':eval=frame[bwm];"
         last = "bwm"; n_in += 1
     f += f"[{last}]format=yuv420p[out]"
     if song == "KEEP" and bg_video:   # the background video already has music -> keep it
@@ -1694,7 +1694,19 @@ def pick_video(code, st):
 
 def tour_reel(d, v, st, day, test):
     """Post (p1/p2): ONE whole video from the tours folder (S5), as a Reel; the caption is about the tour in that video."""
-    got = pick_video("S5", st)
+    got = None
+    done_p = st.setdefault("p_posted", [])
+    fresh = [f for f in folder_files("P", "visual") if f["mimeType"].startswith("video/") and f.get("_own") and f["id"] not in done_p]
+    if fresh:   # a finished film you made (e.g. with Kling) -> post it next, whole, once
+        f0 = min(fresh, key=lambda x: x["createdTime"])
+        try:
+            loc = drive_download(f0)
+            info0 = clip_info(loc, True, f0["id"], f0["name"], st)
+            if usable(f0, info0, st):
+                got = (loc, f0, info0); done_p.append(f0["id"]); del done_p[:-300]
+        except Exception as e:
+            print("! film from P folder failed:", str(e)[:150])
+    got = got or pick_video("S5", st)
     if not got:
         print("no usable video in the tours folder (S5) -> normal Reel")
         return None
@@ -1734,7 +1746,8 @@ def tour_reel(d, v, st, day, test):
           'text-shadow:0 1px 6px rgba(0,0,0,.45)">@vangasht.van</div>'
           '<div style="position:absolute;left:46px;top:150px;color:rgba(255,255,255,.85);font:600 28px Georgia,serif;direction:ltr;'
           'text-shadow:0 1px 6px rgba(0,0,0,.5)">vangasht.com</div>')
-    book = ('<div style="position:absolute;left:0;right:0;bottom:430px;display:flex;justify-content:center">'
+    film = f["id"] in st.get("p_posted", [])   # your own finished film: it has its own titles/subtitles
+    book = (f'<div style="position:absolute;left:0;right:0;{"top:330px" if film else "bottom:430px"};display:flex;justify-content:center">'
             '<div style="background:#25d366;color:#fff;border-radius:60px;padding:24px 50px;text-align:center;box-shadow:0 14px 40px rgba(0,0,0,.4)">'
             '<div style="font-size:52px;font-weight:900">📲 جهت رزرو تور</div>'
             f'<div style="margin-top:14px;background:#fff;border-radius:40px;padding:10px 34px;color:#e31b1b;font:900 50px Georgia,serif;'
@@ -1742,8 +1755,8 @@ def tour_reel(d, v, st, day, test):
             '<div style="font-size:28px;font-weight:700;margin-top:10px">یا دکمهٔ واتس‌اپ در پروفایل 👆</div></div></div>')
     head_end = min(5.5, T - 1)
     book_at = max(head_end + 0.8, T - 4.5)
-    layered_video([card_layer_html(c, "head", v), book], src, True, song, st, mp4, T, info, dim=0.08, keep_html=wm,
-                  timings=[(0.8, head_end), (book_at, T - 0.3)])
+    layers, times = ([book], [(book_at, T - 0.3)]) if film else ([card_layer_html(c, "head", v), book], [(0.8, head_end), (book_at, T - 0.3)])
+    layered_video(layers, src, True, song, st, mp4, T, info, dim=0.0 if film else 0.08, keep_html=wm, timings=times)
     import subprocess
     subprocess.run([ffmpeg_bin(), "-y", "-ss", "1.5", "-i", str(mp4), "-frames:v", "1", "-q:v", "3", str(OUT / f"{day}-post.jpg")], capture_output=True)
     tags = "#وان #وان_ترکیه #سفر_به_وان #تور_وان #تورهای_وان #گردشگری_وان #ترکیه #VanTurkey #Van #VanGölü #وان_گشت"
