@@ -3,12 +3,6 @@
  "story": 1,
  "log": [
   {
-   "at": "2026-11-03T21:35+03:00",
-   "slot": "story4",
-   "item": "newpost",
-   "media": "18435476164194959"
-  },
-  {
    "at": "2026-11-04T10:55+03:00",
    "slot": "story1",
    "item": "rates",
@@ -361,6 +355,12 @@
    "slot": "s7",
    "item": "vlog",
    "media": "18133637551690233"
+  },
+  {
+   "at": "2026-11-09T18:57+03:00",
+   "slot": "s8",
+   "item": "s8:چارپاناک؛ جزیرهٔ آرام دریاچه 🌿",
+   "media": "18155892655591674"
   }
  ],
  "media_done": [
@@ -725,7 +725,10 @@
   "1rUPb0ausPn3yzaZOVQES1DSiLz31BvD2": "2026-11-09T08:52+03:00",
   "1VDE-24ix0DYRvyc0ZVKjz-kz0C18zmeh": "2026-11-09T11:01+03:00",
   "1PQslevjXRiiap_U-hkD09ZoF7HjB0Xn_": "2026-11-09T15:52+03:00",
-  "10WuWZaGcRSVxR8xZEVighb58b_f4O1iG": "2026-11-09T15:52+03:00"
+  "10WuWZaGcRSVxR8xZEVighb58b_f4O1iG": "2026-11-09T15:52+03:00",
+  "1TlrjJvqGOTR44RyUlNV-q8RZrDqf9rhr": "2026-11-09T18:52+03:00",
+  "15RwIzGMNLCEZHhVFaGN2lOC3-rcBpvVA": "2026-11-09T18:52+03:00",
+  "1MBOKD1JCD6RMMpaQ4kcLeJqLDJddHRIE": "2026-11-09T18:53+03:00"
  },
  "vlog_i": 3,
  "card_log": {
@@ -773,7 +776,8 @@
    "آبشار مرادیه",
    "قلعهٔ هوشاپ",
    "ماهی‌هایی که در بهار از آبشار بالا می‌پر",
-   "خیابان صبحانهٔ وان"
+   "خیابان صبحانهٔ وان",
+   "جزیرهٔ چارپاناک"
   ],
   "s10": [
    "استوری شب بخیر چهارشنبه ۱۳ آبان",
@@ -795,7 +799,7 @@
  },
  "s4_i": 8,
  "s5_i": 3,
- "s8_i": 6,
+ "s8_i": 7,
  "clip_info": {
   "1eww9Vvjb_m9JhLIMFLFn8JtiDB8nLddz": {
    "text": "",
@@ -1547,6 +1551,48 @@
    "text_pos": "",
    "dur": 14.86,
    "v": 4
+  },
+  "1TlrjJvqGOTR44RyUlNV-q8RZrDqf9rhr": {
+   "text": "VAN",
+   "greeting": "",
+   "other_page": true,
+   "page": "@al1celik",
+   "music": true,
+   "own_boxes": [],
+   "ar": 0.5625,
+   "scene": "نمای پهپادی از شهر وان و قلعهٔ وان هنگام غروب، با کوه‌های برفی، دریاچه و مسجد بالای قلعه؛ در پایان شب و نورپردازی دیوارها",
+   "place": "قلعهٔ وان",
+   "text_pos": "middle",
+   "dur": 14.93,
+   "v": 4
+  },
+  "15RwIzGMNLCEZHhVFaGN2lOC3-rcBpvVA": {
+   "text": "Yelkenli Köyü",
+   "greeting": "",
+   "other_page": true,
+   "page": "@muzaffer_ss",
+   "music": true,
+   "own_boxes": [],
+   "ar": 0.5625,
+   "scene": "نمای هوایی روز آفتابی از روستای ییلکنلی بر شبه‌جزیره‌ای در دریاچه وان، با کوه برفی در پس‌زمینه",
+   "place": "روستای یلکنلی (Yelkenli Köyü)",
+   "text_pos": "middle",
+   "dur": 27.61,
+   "v": 4
+  },
+  "1MBOKD1JCD6RMMpaQ4kcLeJqLDJddHRIE": {
+   "text": "جزیره چارپاناک وان",
+   "greeting": "",
+   "other_page": false,
+   "page": "",
+   "music": true,
+   "own_boxes": [],
+   "ar": 0.5625,
+   "scene": "نمای هوایی از جزیرهٔ چارپاناک با چمن سبز، کلیسایی قدیمی و سنگی کنار دریاچهٔ آبی وان، در روزی آفتابی",
+   "place": "جزیرهٔ چارپاناک",
+   "text_pos": "top",
+   "dur": 28.56,
+   "v": 4
   }
  },
  "skipped_files": {
@@ -1556,14 +1602,15 @@
   "6b75fd6da4f04682991f70ffc0ab1475.mp4": "Mahasti_music",
   "Ins2916310794_196eaad9414949ea99337ee1a716e7b3.mp4": "@alimunnnn",
   "vanyolunda_4da99c3de66549c2a065b4117450f5e2.jpg": "Vanyolunda",
-  "eskivanevi.mp4": "@vanbuyuksehir65"
+  "eskivanevi.mp4": "@vanbuyuksehir65",
+  "yelkenlikoyu.mp4": "@muzaffer_ss"
  },
  "replied_comments": [],
  "s1_g": 2,
  "s10_g": 1,
  "reply_error": {
-  "at": "2026-11-09T17:27+03:00",
-  "error": "Instagram API error 400 on 17957356149032007/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"A1U_9D6RnmsICGGyDPln8LD\"}}"
+  "at": "2026-11-09T18:57+03:00",
+  "error": "Instagram API error 400 on 17957356149032007/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"type\":\"OAuthException\",\"code\":100,\"fbtrace_id\":\"AFVeuhVZBI7sBhNrv9zeu0t\"}}"
  },
  "smart_times": {
   "at": "2026-11-09T08:54+03:00",
