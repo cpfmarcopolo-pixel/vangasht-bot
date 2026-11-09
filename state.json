@@ -3,12 +3,6 @@
  "story": 1,
  "log": [
   {
-   "at": "2026-11-03T16:57+03:00",
-   "slot": "story2",
-   "item": "1793174536301.jpg",
-   "media": "17998968399021977"
-  },
-  {
    "at": "2026-11-03T19:58+03:00",
    "slot": "post",
    "item": "ai:راهنمای خرید سوغاتی از وان (پنیر سیر، عس",
@@ -361,6 +355,12 @@
    "slot": "s5",
    "item": "s5:یه روز آبیِ تابستونی 🌊",
    "media": "18440044987181210"
+  },
+  {
+   "at": "2026-11-09T15:55+03:00",
+   "slot": "s6",
+   "item": "s6:اسم این گل رو می‌دونی؟",
+   "media": "18102739700185364"
   }
  ],
  "media_done": [
@@ -723,7 +723,9 @@
   "1fc_rRqd1re4CGcq8e-gN3p60wmYgdqsT": "2026-11-08T19:50+03:00",
   "1sPW3_yStAJDQonT2FUch5LoOPXNUPGl3": "2026-11-08T22:52+03:00",
   "1rUPb0ausPn3yzaZOVQES1DSiLz31BvD2": "2026-11-09T08:52+03:00",
-  "1VDE-24ix0DYRvyc0ZVKjz-kz0C18zmeh": "2026-11-09T11:01+03:00"
+  "1VDE-24ix0DYRvyc0ZVKjz-kz0C18zmeh": "2026-11-09T11:01+03:00",
+  "1PQslevjXRiiap_U-hkD09ZoF7HjB0Xn_": "2026-11-09T15:52+03:00",
+  "10WuWZaGcRSVxR8xZEVighb58b_f4O1iG": "2026-11-09T15:52+03:00"
  },
  "vlog_i": 10,
  "card_log": {
@@ -762,7 +764,8 @@
    "حدس بزن: مزهٔ آب دریاچهٔ وان",
    "سؤال از شما: مقصد جمعهٔ پاییزی در وان",
    "دانستنی قلعهٔ وان و اورارتوها",
-   "این یا اون؟ جزیرهٔ آکدامار یا آبشار مراد"
+   "این یا اون؟ جزیرهٔ آکدامار یا آبشار مراد",
+   "لالهٔ واژگون (اشک مریم) در دامنهٔ بهاری"
   ],
   "s8": [
    "جزیرهٔ آکدامار",
@@ -1516,6 +1519,34 @@
    "text_pos": "",
    "dur": 0,
    "v": 4
+  },
+  "1PQslevjXRiiap_U-hkD09ZoF7HjB0Xn_": {
+   "text": "ESKİ VAN EVLERİ KALE",
+   "greeting": "",
+   "other_page": true,
+   "page": "@vanbuyuksehir65",
+   "music": true,
+   "own_boxes": [],
+   "ar": 0.5625,
+   "scene": "داخل یک خانهٔ سنتی قدیمی وان با سقف چوبی، فرش‌ها و کلیم‌های رنگارنگ، مبل‌های زمینی و ظروف مسی؛ روز و بدون آدم",
+   "place": "",
+   "text_pos": "top",
+   "dur": 33.34,
+   "v": 4
+  },
+  "10WuWZaGcRSVxR8xZEVighb58b_f4O1iG": {
+   "text": "",
+   "greeting": "",
+   "other_page": false,
+   "page": "",
+   "music": true,
+   "own_boxes": [],
+   "ar": 0.5625,
+   "scene": "گل‌های لاله واژگون (اشک مریم) نارنجی‌قرمز در دامنهٔ تپه در یک روز بهاری آفتابی، با منظرهٔ روستا و دریاچه در پس‌زمینه",
+   "place": "",
+   "text_pos": "",
+   "dur": 14.86,
+   "v": 4
   }
  },
  "skipped_files": {
@@ -1524,14 +1555,15 @@
   "vankedisi1.mp4": "Van Kedi Evi Cafe",
   "6b75fd6da4f04682991f70ffc0ab1475.mp4": "Mahasti_music",
   "Ins2916310794_196eaad9414949ea99337ee1a716e7b3.mp4": "@alimunnnn",
-  "vanyolunda_4da99c3de66549c2a065b4117450f5e2.jpg": "Vanyolunda"
+  "vanyolunda_4da99c3de66549c2a065b4117450f5e2.jpg": "Vanyolunda",
+  "eskivanevi.mp4": "@vanbuyuksehir65"
  },
  "replied_comments": [],
  "s1_g": 2,
  "s10_g": 1,
  "reply_error": {
-  "at": "2026-11-09T14:28+03:00",
-  "error": "Instagram API error 400 on 17957356149032007/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"type\":\"OAuthException\",\"code\":100,\"fbtrace_id\":\"ASltOVerJptI0lheDCuFedk\"}}"
+  "at": "2026-11-09T15:55+03:00",
+  "error": "Instagram API error 400 on 17957356149032007/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"type\":\"OAuthException\",\"code\":100,\"fbtrace_id\":\"AvVjVpe8uY9mafyg4k_DYTx\"}}"
  },
  "smart_times": {
   "at": "2026-11-09T08:54+03:00",
