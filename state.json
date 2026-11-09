@@ -3,12 +3,6 @@
  "story": 1,
  "log": [
   {
-   "at": "2026-11-02T16:58+03:00",
-   "slot": "story2",
-   "item": "vanbuyuksehir65_0610b38b3ec74c359d0d81ba44cb8bdb.mp4",
-   "media": "17981151741140365"
-  },
-  {
    "at": "2026-11-02T19:57+03:00",
    "slot": "post",
    "item": "exchange-card",
@@ -361,6 +355,12 @@
    "slot": "s2",
    "item": "rates",
    "media": "18213951574362316"
+  },
+  {
+   "at": "2026-11-09T11:59+03:00",
+   "slot": "s3",
+   "item": "vlog",
+   "media": "18143789674614850"
   }
  ],
  "media_done": [
@@ -602,11 +602,11 @@
   "d:1pKXqHr-pFpT2umWIUbvJlIu3tz6F44pz": 1,
   "d:1LR0XlpRZVEn8Gwq1MYy8z4d2cgvW4KyU": 2,
   "d:1kY1bjgXULEdctAGLRxoJj6kMk4dlLDzS": 2,
-  "d:195nbdcfUJEZfu4ni2e9rtll4JyBI6ldO": 1,
-  "d:1ptmUjOp_HfgBOSsEbBl2Cf7Lrs0Z42zg": 1,
-  "d:1PwHVAY7MeGcEkDET3fZYMWzfWzvZJfMz": 1,
-  "d:11Do1EatdSuSKZVVwYdLAW9mBmZeCounP": 1,
-  "d:12JwOz4uxPQYTMoi8xyBKDpDWPpx2TYf0": 1,
+  "d:195nbdcfUJEZfu4ni2e9rtll4JyBI6ldO": 2,
+  "d:1ptmUjOp_HfgBOSsEbBl2Cf7Lrs0Z42zg": 2,
+  "d:1PwHVAY7MeGcEkDET3fZYMWzfWzvZJfMz": 2,
+  "d:11Do1EatdSuSKZVVwYdLAW9mBmZeCounP": 2,
+  "d:12JwOz4uxPQYTMoi8xyBKDpDWPpx2TYf0": 2,
   "d:1MBdeSYRkbiGnZ94EKUv5ABUw7lazMSj1": 1,
   "d:1poTvlvN-PsJ7tYdIWLLg6Eb55b8kuHr3": 4,
   "d:1XXPmSKgZefrKBOGiDkECLEdZT6Ya7PgT": 4,
@@ -624,7 +624,7 @@
   "d:1hSllDF9-sic6ZUoRtqP0Xhf_mREB4Nl4": 1,
   "d:1CvUTnXD3QUZ8hQK9yL8jFy3j_f1kUx1k": 1,
   "d:1vbtxtSE2TV6B6zcn-1iWcb2p6h19RTN9": 3,
-  "d:1OwkaSEMVxmoonpwNJeywCs00IWMaK4Oq": 1,
+  "d:1OwkaSEMVxmoonpwNJeywCs00IWMaK4Oq": 2,
   "d:1aHbd8D8YhLiNVKeHNxlzDu3bfBdBSBH7": 1,
   "d:1rb-AxtA9PPnx0zC9mGaTx7eDEW4H0WH6": 1,
   "d:1cPJWvWZMejX-aqTzAshPrgbklSW4VF9O": 1,
@@ -637,38 +637,40 @@
   "d:1ymv-JaVU4lZ3OPypfDeIGBn5zjzfUwb6": 1,
   "d:1-I8xHLrQQMYLvbC9g0CWLeORt6TQlIHs": 1,
   "d:1RLsbDL-U0r1NzKQasCYcdwdAjiJTEcJF": 1,
-  "d:1eWpZYx-6f0UCVeNkA6NKGr119tfsli8o": 1
+  "d:1eWpZYx-6f0UCVeNkA6NKGr119tfsli8o": 1,
+  "d:1R-TUUlG6O6qXB_IsHz2P9Tz61Aq9ulT3": 1,
+  "d:1n9fLT_yIcGtzNYregRdmjZPqpQ5uZaBm": 1
  },
  "pexels_used": [
+  "x371424",
+  "x236256",
+  "x71747",
+  "x156103",
+  "x50622",
+  "x67201",
+  "x119190",
+  "x118768",
+  "x11284",
   "x140186",
   "x381054",
-  "x79899",
-  "x222349",
-  "x67201",
-  "x7262",
-  "x31550",
-  "x149938",
-  "x2576",
-  "x371424",
-  "x118768",
-  "x267036",
-  "x273476",
-  "x71747",
-  "x4730",
   "x170912",
-  "x236256",
-  "x119190",
-  "x11284",
-  "x156103",
-  "x25",
-  "x173358",
   "x84906",
+  "x222349",
+  "x149938",
+  "x267036",
+  "x173358",
+  "x31550",
+  "x25",
+  "x79899",
+  "x273476",
   "x34971",
-  "x50622"
+  "x2576",
+  "x7262",
+  "x4730"
  ],
  "music_last": {
   "1DZTJ4ef0yYVG2xdl3IlbrnmWhvTIImvs": "2026-11-08T17:23+03:00",
-  "1dkR0sggYnJv6PAPhkKiPNI1Qbu5nbVwi": "2026-11-08T11:54+03:00",
+  "1dkR0sggYnJv6PAPhkKiPNI1Qbu5nbVwi": "2026-11-09T11:54+03:00",
   "1fp4Ah5iQfFhH9Wv8srgJdSKSlru0RDHO": "2026-11-08T12:53+03:00",
   "1QUXCTr3hAjvM090ZbkBDmL190dxM9yXG": "2026-11-08T20:52+03:00",
   "r_16OqrXYzWRF5c20HNKbjBoWNaa_6pT9tp": "2026-11-04T00:15+03:00",
@@ -723,7 +725,7 @@
   "1rUPb0ausPn3yzaZOVQES1DSiLz31BvD2": "2026-11-09T08:52+03:00",
   "1VDE-24ix0DYRvyc0ZVKjz-kz0C18zmeh": "2026-11-09T11:01+03:00"
  },
- "vlog_i": 7,
+ "vlog_i": 10,
  "card_log": {
   "s1": [
    "صبح بخیر چهارشنبه؛ پیشنهاد صبحانهٔ وانی",
@@ -925,7 +927,11 @@
    "music": false,
    "own_boxes": [],
    "ar": 0.75,
-   "v": 3
+   "scene": "پارک ساحلی در روز آفتابی با درخت‌های سبز، نیمکت‌های چوبی، چند نفر نشسته کنار دریاچه و آب آبی در پس‌زمینه",
+   "place": "",
+   "text_pos": "",
+   "dur": 0,
+   "v": 4
   },
   "11Do1EatdSuSKZVVwYdLAW9mBmZeCounP": {
    "text": "",
@@ -935,7 +941,11 @@
    "music": false,
    "own_boxes": [],
    "ar": 0.75,
-   "v": 3
+   "scene": "غروب یا آغاز شب بر فراز دریاچه‌ای بزرگ با چراغ‌های روشن، نرده‌های چوبی، بوته‌های سبز و شهری که از دور می‌درخشد؛ بدون آدم",
+   "place": "",
+   "text_pos": "",
+   "dur": 0,
+   "v": 4
   },
   "12JwOz4uxPQYTMoi8xyBKDpDWPpx2TYf0": {
    "text": "",
@@ -945,7 +955,11 @@
    "music": false,
    "own_boxes": [],
    "ar": 0.75,
-   "v": 3
+   "scene": "مجسمهٔ بزرگ سفید گربهٔ وان با چشم‌های دو رنگ و بچه‌گربه، پشت تابلوی «EDREMIT» با قلب قرمز، در روزی نیمه‌ابری",
+   "place": "ساحل ادرمیت",
+   "text_pos": "",
+   "dur": 0,
+   "v": 4
   },
   "1MBdeSYRkbiGnZ94EKUv5ABUw7lazMSj1": {
    "text": "",
@@ -955,7 +969,11 @@
    "music": false,
    "own_boxes": [],
    "ar": 0.75,
-   "v": 3
+   "scene": "غروب رنگارنگ بالای یک پارک با مسیر چوبی، نیمکت، درختان و پرچم ترکیه روی میله؛ فضایی آرام و بدون آدم",
+   "place": "",
+   "text_pos": "",
+   "dur": 0,
+   "v": 4
   },
   "1IfLfe4mk-IqOIQfMH5GbmHbt6dMofPI4": {
    "text": "",
@@ -1460,6 +1478,34 @@
    "text_pos": "top",
    "dur": 13.77,
    "v": 4
+  },
+  "1R-TUUlG6O6qXB_IsHz2P9Tz61Aq9ulT3": {
+   "text": "",
+   "greeting": "",
+   "other_page": false,
+   "page": "",
+   "music": false,
+   "own_boxes": [],
+   "ar": 0.75,
+   "scene": "شب، مجسمهٔ قلب قرمز نورانی با نوشتهٔ EDREMIT کنار دریاچه و پیاده‌روی سنگ‌فرش، چراغ‌های شهر در دوردست",
+   "place": "ساحل ادرمیت",
+   "text_pos": "",
+   "dur": 0,
+   "v": 4
+  },
+  "1CSTmrmw4E6DVtITIQfnl28LYjH5QcI6B": {
+   "text": "",
+   "greeting": "",
+   "other_page": true,
+   "page": "Vanyolunda",
+   "music": false,
+   "own_boxes": [],
+   "ar": 0.75,
+   "scene": "شب بارانی کنار اسکله و پل نورانی ساحل ادرمیت با چراغ‌های تزئینی، چند نفر با چتر، یک زوج کنار نرده و چای روی نیمکت",
+   "place": "ساحل ادرمیت",
+   "text_pos": "",
+   "dur": 0,
+   "v": 4
   }
  },
  "skipped_files": {
@@ -1467,14 +1513,15 @@
   "akdamaradasi5.mp4": "سیاحت پردیس",
   "vankedisi1.mp4": "Van Kedi Evi Cafe",
   "6b75fd6da4f04682991f70ffc0ab1475.mp4": "Mahasti_music",
-  "Ins2916310794_196eaad9414949ea99337ee1a716e7b3.mp4": "@alimunnnn"
+  "Ins2916310794_196eaad9414949ea99337ee1a716e7b3.mp4": "@alimunnnn",
+  "vanyolunda_4da99c3de66549c2a065b4117450f5e2.jpg": "Vanyolunda"
  },
  "replied_comments": [],
  "s1_g": 2,
  "s10_g": 1,
  "reply_error": {
-  "at": "2026-11-09T11:04+03:00",
-  "error": "Instagram API error 400 on 17957356149032007/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"type\":\"OAuthException\",\"code\":100,\"fbtrace_id\":\"AW2iX4JadQcVF_kU4rZWizi\"}}"
+  "at": "2026-11-09T11:59+03:00",
+  "error": "Instagram API error 400 on 17957356149032007/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"type\":\"OAuthException\",\"code\":100,\"fbtrace_id\":\"A0lEAh8Ukgf4aMpXZ9KFOW2\"}}"
  },
  "smart_times": {
   "at": "2026-11-09T08:54+03:00",
