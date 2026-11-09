@@ -3,12 +3,6 @@
  "story": 1,
  "log": [
   {
-   "at": "2026-11-03T10:53+03:00",
-   "slot": "story1",
-   "item": "rates",
-   "media": "18491578669128484"
-  },
-  {
    "at": "2026-11-03T13:54+03:00",
    "slot": "story3",
    "item": "ai:دانستنی دریاچهٔ وان؛ بزرگ‌ترین دریاچهٔ ت",
@@ -361,6 +355,12 @@
    "slot": "s4",
    "item": "s4:تومان تا لیر، بی‌دغدغه",
    "media": "18350597227248834"
+  },
+  {
+   "at": "2026-11-09T13:42+03:00",
+   "slot": "p1",
+   "item": "tour:Untitled",
+   "media": "18160878871511095"
   }
  ],
  "media_done": [
@@ -669,7 +669,7 @@
   "x4730"
  ],
  "music_last": {
-  "1DZTJ4ef0yYVG2xdl3IlbrnmWhvTIImvs": "2026-11-08T17:23+03:00",
+  "1DZTJ4ef0yYVG2xdl3IlbrnmWhvTIImvs": "2026-11-09T13:38+03:00",
   "1dkR0sggYnJv6PAPhkKiPNI1Qbu5nbVwi": "2026-11-09T11:54+03:00",
   "1fp4Ah5iQfFhH9Wv8srgJdSKSlru0RDHO": "2026-11-09T12:53+03:00",
   "1QUXCTr3hAjvM090ZbkBDmL190dxM9yXG": "2026-11-08T20:52+03:00",
@@ -683,7 +683,7 @@
   "1l3THmi6GjqfKpjoZlRy25On7rsx6vdso": "2026-11-04T10:50+03:00",
   "1spub-PVCRgyWNIOKtUQKy8ekCyu8BTpp": "2026-11-04T22:52+03:00",
   "1eww9Vvjb_m9JhLIMFLFn8JtiDB8nLddz": "2026-11-05T01:28+03:00",
-  "1i-gDjubpjs_pZodC-V1PWWBqmgaAqgf4": "2026-11-05T01:30+03:00",
+  "1i-gDjubpjs_pZodC-V1PWWBqmgaAqgf4": "2026-11-09T13:37+03:00",
   "1vb6bRaRQ2BChS41iAPHAhyaRWtEfP-kA": "2026-11-05T01:31+03:00",
   "1U1ZO1_RPVlMbxTxTT4UgwViB9lg5-YvT": "2026-11-05T01:32+03:00",
   "1T7kkhCbRPAkU3hkd4BZcudSUVKQgF9Ei": "2026-11-05T01:32+03:00",
@@ -785,7 +785,8 @@
    "تور کشتی جزیرهٔ آکدامار",
    "تور آبشار مرادیه؛ ویدیوی پهپادی از جاذبه",
    "ویدیوی کامل یکی از تورهای وان گشت؛ همراه",
-   "لحظه‌ای شاد از تورهای وان گشت: موزیک زند"
+   "لحظه‌ای شاد از تورهای وان گشت: موزیک زند",
+   "ویدیوی کامل تور کشتی‌های بزرگ تفریحی؛ غر"
   ]
  },
  "s4_i": 8,
@@ -804,7 +805,14 @@
    "greeting": "",
    "other_page": false,
    "page": "",
-   "music": false
+   "music": false,
+   "own_boxes": [],
+   "ar": 0.5625,
+   "scene": "قایق تفریحی دوطبقه با نورهای زرد و آبی در دریاچه، از غروب تا شب، با مسافران روی عرشه و ساحل شهر در پس‌زمینه",
+   "place": "",
+   "text_pos": "",
+   "dur": 39.97,
+   "v": 4
   },
   "1o8hbi7E2vAtMtsMU6a7GeQQhmSEYCClV": {
    "text": "جزیره آکدامار\nشکوفه های صورتی اینجارو تو بهار خیلی دیدنی تر کرده",
@@ -1521,8 +1529,8 @@
  "s1_g": 2,
  "s10_g": 1,
  "reply_error": {
-  "at": "2026-11-09T12:55+03:00",
-  "error": "Instagram API error 400 on 17957356149032007/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"type\":\"OAuthException\",\"code\":100,\"fbtrace_id\":\"AQIAnyd4s81lk98c8dVTD3Y\"}}"
+  "at": "2026-11-09T13:42+03:00",
+  "error": "Instagram API error 400 on 17957356149032007/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"type\":\"OAuthException\",\"code\":100,\"fbtrace_id\":\"AY8FapXr2gmGzD6-5EO9V4u\"}}"
  },
  "smart_times": {
   "at": "2026-11-09T08:54+03:00",
