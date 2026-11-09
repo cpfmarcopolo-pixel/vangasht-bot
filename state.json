@@ -3,12 +3,6 @@
  "story": 1,
  "log": [
   {
-   "at": "2026-11-03T13:54+03:00",
-   "slot": "story3",
-   "item": "ai:دانستنی دریاچهٔ وان؛ بزرگ‌ترین دریاچهٔ ت",
-   "media": "18194997853402030"
-  },
-  {
    "at": "2026-11-03T16:57+03:00",
    "slot": "story2",
    "item": "1793174536301.jpg",
@@ -361,6 +355,12 @@
    "slot": "p1",
    "item": "tour:Untitled",
    "media": "18160878871511095"
+  },
+  {
+   "at": "2026-11-09T14:28+03:00",
+   "slot": "s5",
+   "item": "s5:یه روز آبیِ تابستونی 🌊",
+   "media": "18440044987181210"
   }
  ],
  "media_done": [
@@ -688,7 +688,7 @@
   "1U1ZO1_RPVlMbxTxTT4UgwViB9lg5-YvT": "2026-11-05T01:32+03:00",
   "1T7kkhCbRPAkU3hkd4BZcudSUVKQgF9Ei": "2026-11-05T01:32+03:00",
   "1nbObj54zW3Uk_pyTcAD8fzF6VmoXf9PK": "2026-11-05T01:50+03:00",
-  "1xxSw_v73UWHsKmVlYum4Uynd34GsMyQO": "2026-11-05T01:51+03:00",
+  "1xxSw_v73UWHsKmVlYum4Uynd34GsMyQO": "2026-11-09T14:22+03:00",
   "1iwmldzc5FeV2O901Psyy0ec-ToCbJhT2": "2026-11-05T01:52+03:00",
   "1o8hbi7E2vAtMtsMU6a7GeQQhmSEYCClV": "2026-11-05T01:53+03:00",
   "1gwYcT8y4c6oNyO7zRqCKWKLkrKa0fDP8": "2026-11-05T01:54+03:00",
@@ -752,7 +752,8 @@
    "تور آبشار مرادیه",
    "تور فستیوال رنگ",
    "تور کشتی‌های بزرگ تفریحی؛ مهمانی کف روی ",
-   "حال‌وهوای شاد سفر با تورهای وان گشت"
+   "حال‌وهوای شاد سفر با تورهای وان گشت",
+   "تور پارک آبی ادرمیت (فصلی، ویژهٔ فصل گرم"
   ],
   "s6": [
    "این یا اون؟ غروب وان: قلعه یا ساحل دریاچ",
@@ -790,7 +791,7 @@
   ]
  },
  "s4_i": 8,
- "s5_i": 2,
+ "s5_i": 3,
  "s8_i": 6,
  "clip_info": {
   "1eww9Vvjb_m9JhLIMFLFn8JtiDB8nLddz": {
@@ -1529,8 +1530,8 @@
  "s1_g": 2,
  "s10_g": 1,
  "reply_error": {
-  "at": "2026-11-09T13:42+03:00",
-  "error": "Instagram API error 400 on 17957356149032007/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"type\":\"OAuthException\",\"code\":100,\"fbtrace_id\":\"AY8FapXr2gmGzD6-5EO9V4u\"}}"
+  "at": "2026-11-09T14:28+03:00",
+  "error": "Instagram API error 400 on 17957356149032007/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"type\":\"OAuthException\",\"code\":100,\"fbtrace_id\":\"ASltOVerJptI0lheDCuFedk\"}}"
  },
  "smart_times": {
   "at": "2026-11-09T08:54+03:00",
