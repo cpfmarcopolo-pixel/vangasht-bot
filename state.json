@@ -3,12 +3,6 @@
  "story": 1,
  "log": [
   {
-   "at": "2026-11-04T10:55+03:00",
-   "slot": "story1",
-   "item": "rates",
-   "media": "18109726964239835"
-  },
-  {
    "at": "2026-11-04T19:55+03:00",
    "slot": "p2",
    "item": "ai:چک‌لیست شب اول رسیدن به وان",
@@ -361,6 +355,12 @@
    "slot": "s8",
    "item": "s8:چارپاناک؛ جزیرهٔ آرام دریاچه 🌿",
    "media": "18155892655591674"
+  },
+  {
+   "at": "2026-11-09T19:40+03:00",
+   "slot": "p2",
+   "item": "tour:Untitled",
+   "media": "18448261516194490"
   }
  ],
  "media_done": [
@@ -694,7 +694,7 @@
   "1gwYcT8y4c6oNyO7zRqCKWKLkrKa0fDP8": "2026-11-05T01:54+03:00",
   "1G9DLnYaWoH8yTpJJvcwFRvTOhC9FFrK7": "2026-11-05T08:52+03:00",
   "1lpZ82SZHRhiU7wmo0kGWV9O587NMeLRz": "2026-11-05T11:01+03:00",
-  "1cFbuOWVaetKLwBJ4q5btcoEE50TfA1c9": "2026-11-05T14:22+03:00",
+  "1cFbuOWVaetKLwBJ4q5btcoEE50TfA1c9": "2026-11-09T19:37+03:00",
   "11YaI4p2ZI-qjNXQ4bXRuejBf-UFAXDKR": "2026-11-05T15:53+03:00",
   "1BTYvwOgAh6duGg1HaS0o2OwIN5pQA7PF": "2026-11-05T23:02+03:00",
   "1k-KyiRf0yyVTGLj6UMbJZJWLchhJ6vcS": "2026-11-06T08:52+03:00",
@@ -794,7 +794,8 @@
    "تور آبشار مرادیه؛ ویدیوی پهپادی از جاذبه",
    "ویدیوی کامل یکی از تورهای وان گشت؛ همراه",
    "لحظه‌ای شاد از تورهای وان گشت: موزیک زند",
-   "ویدیوی کامل تور کشتی‌های بزرگ تفریحی؛ غر"
+   "ویدیوی کامل تور کشتی‌های بزرگ تفریحی؛ غر",
+   "مهمانی رقص روی عرشهٔ کشتی در تور کشتی‌ها"
   ]
  },
  "s4_i": 8,
@@ -1010,7 +1011,11 @@
    "music": true,
    "own_boxes": [],
    "ar": 0.5625,
-   "v": 3
+   "scene": "مهمانی رقص روی عرشهٔ زردرنگ یک قایق در روز آفتابی؛ جمعیت شاد در حال رقصیدن و دریا پشت‌سرشان است",
+   "place": "",
+   "text_pos": "",
+   "dur": 29.47,
+   "v": 4
   },
   "1IrRS6actyxKTVFTaMyP0Y5ywOSa5NJ5K": {
    "text": "",
@@ -1609,8 +1614,8 @@
  "s1_g": 2,
  "s10_g": 1,
  "reply_error": {
-  "at": "2026-11-09T18:57+03:00",
-  "error": "Instagram API error 400 on 17957356149032007/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"type\":\"OAuthException\",\"code\":100,\"fbtrace_id\":\"AFVeuhVZBI7sBhNrv9zeu0t\"}}"
+  "at": "2026-11-09T19:40+03:00",
+  "error": "Instagram API error 400 on 17957356149032007/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"type\":\"OAuthException\",\"code\":100,\"fbtrace_id\":\"A1TfuUWL9ikCM6XUg7XLbH9\"}}"
  },
  "smart_times": {
   "at": "2026-11-09T08:54+03:00",
