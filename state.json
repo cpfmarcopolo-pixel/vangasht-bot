@@ -3,12 +3,6 @@
  "story": 1,
  "log": [
   {
-   "at": "2026-11-04T20:56+03:00",
-   "slot": "s9",
-   "item": "todayposts",
-   "media": "18344761129257036"
-  },
-  {
    "at": "2026-11-04T22:56+03:00",
    "slot": "s10",
    "item": "s10:شب بخیر وانی‌ها 🌙",
@@ -361,6 +355,12 @@
    "slot": "s9",
    "item": "todayposts",
    "media": "18159374872516705"
+  },
+  {
+   "at": "2026-11-09T22:57+03:00",
+   "slot": "s10",
+   "item": "s10:شب بخیر",
+   "media": "18046736390830582"
   }
  ],
  "media_done": [
@@ -728,7 +728,8 @@
   "10WuWZaGcRSVxR8xZEVighb58b_f4O1iG": "2026-11-09T15:52+03:00",
   "1TlrjJvqGOTR44RyUlNV-q8RZrDqf9rhr": "2026-11-09T18:52+03:00",
   "15RwIzGMNLCEZHhVFaGN2lOC3-rcBpvVA": "2026-11-09T18:52+03:00",
-  "1MBOKD1JCD6RMMpaQ4kcLeJqLDJddHRIE": "2026-11-09T18:53+03:00"
+  "1MBOKD1JCD6RMMpaQ4kcLeJqLDJddHRIE": "2026-11-09T18:53+03:00",
+  "1PCLFToxPUA0cA-UWVjN40H1gf1KFBgkv": "2026-11-09T22:52+03:00"
  },
  "vlog_i": 3,
  "card_log": {
@@ -1612,10 +1613,10 @@
  },
  "replied_comments": [],
  "s1_g": 2,
- "s10_g": 1,
+ "s10_g": 2,
  "reply_error": {
-  "at": "2026-11-09T20:56+03:00",
-  "error": "Instagram API error 400 on 17957356149032007/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"type\":\"OAuthException\",\"code\":100,\"fbtrace_id\":\"AZLlLZz8fKThBI61NZl49p0\"}}"
+  "at": "2026-11-09T22:57+03:00",
+  "error": "Instagram API error 400 on 17957356149032007/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"AbeknJRodmXdAclLyJreHdK\"}}"
  },
  "smart_times": {
   "at": "2026-11-09T08:54+03:00",
