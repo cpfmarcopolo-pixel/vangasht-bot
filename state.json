@@ -3,12 +3,6 @@
  "story": 1,
  "log": [
   {
-   "at": "2026-11-02T19:57+03:00",
-   "slot": "post",
-   "item": "exchange-card",
-   "media": "17909677152669170"
-  },
-  {
    "at": "2026-11-03T10:53+03:00",
    "slot": "story1",
    "item": "rates",
@@ -361,6 +355,12 @@
    "slot": "s3",
    "item": "vlog",
    "media": "18143789674614850"
+  },
+  {
+   "at": "2026-11-09T12:54+03:00",
+   "slot": "s4",
+   "item": "s4:تومان تا لیر، بی‌دغدغه",
+   "media": "18350597227248834"
   }
  ],
  "media_done": [
@@ -671,7 +671,7 @@
  "music_last": {
   "1DZTJ4ef0yYVG2xdl3IlbrnmWhvTIImvs": "2026-11-08T17:23+03:00",
   "1dkR0sggYnJv6PAPhkKiPNI1Qbu5nbVwi": "2026-11-09T11:54+03:00",
-  "1fp4Ah5iQfFhH9Wv8srgJdSKSlru0RDHO": "2026-11-08T12:53+03:00",
+  "1fp4Ah5iQfFhH9Wv8srgJdSKSlru0RDHO": "2026-11-09T12:53+03:00",
   "1QUXCTr3hAjvM090ZbkBDmL190dxM9yXG": "2026-11-08T20:52+03:00",
   "r_16OqrXYzWRF5c20HNKbjBoWNaa_6pT9tp": "2026-11-04T00:15+03:00",
   "r_1l3THmi6GjqfKpjoZlRy25On7rsx6vdso": "2026-11-04T10:50+03:00"
@@ -742,7 +742,8 @@
    "معرفی راهنمای سفر به وان در سایت",
    "جاهای دیدنی وان؛ معرفی جاذبه‌ها و تورها",
    "راهنمای کامل سفر به وان برای ایرانی‌ها",
-   "خرید در وان: مراکز خرید و خیابان‌های اصل"
+   "خرید در وان: مراکز خرید و خیابان‌های اصل",
+   "تبدیل تومان به لیر در وان: راهنمای صرافی"
   ],
   "s5": [
    "تور کشتی‌های بزرگ تفریحی دریاچه وان",
@@ -787,7 +788,7 @@
    "لحظه‌ای شاد از تورهای وان گشت: موزیک زند"
   ]
  },
- "s4_i": 7,
+ "s4_i": 8,
  "s5_i": 2,
  "s8_i": 6,
  "clip_info": {
@@ -1520,8 +1521,8 @@
  "s1_g": 2,
  "s10_g": 1,
  "reply_error": {
-  "at": "2026-11-09T11:59+03:00",
-  "error": "Instagram API error 400 on 17957356149032007/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"type\":\"OAuthException\",\"code\":100,\"fbtrace_id\":\"A0lEAh8Ukgf4aMpXZ9KFOW2\"}}"
+  "at": "2026-11-09T12:55+03:00",
+  "error": "Instagram API error 400 on 17957356149032007/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"type\":\"OAuthException\",\"code\":100,\"fbtrace_id\":\"AQIAnyd4s81lk98c8dVTD3Y\"}}"
  },
  "smart_times": {
   "at": "2026-11-09T08:54+03:00",
