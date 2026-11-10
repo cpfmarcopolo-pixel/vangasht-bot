@@ -1,9 +1,10 @@
 {
- "slot": "s2",
+ "slot": "s3",
  "file": null,
  "caption": null,
  "advance": null,
- "item": "rates",
- "video": "dl/2026-11-10-s2-ig.mp4",
- "done": true
+ "item": "vlog",
+ "video": "dl/2026-11-10-s3-ig.mp4",
+ "reel": false,
+ "done": null
 }
