@@ -3,12 +3,6 @@
  "story": 1,
  "log": [
   {
-   "at": "2026-11-05T17:24+03:00",
-   "slot": "s7",
-   "item": "vlog",
-   "media": "18125978980810049"
-  },
-  {
    "at": "2026-11-05T20:07+03:00",
    "slot": "p2",
    "item": "ai:برنامهٔ پنج‌شنبه‌شب پاییزی در وان",
@@ -361,6 +355,12 @@
    "slot": "s7",
    "item": "vlog",
    "media": "18028674422871257"
+  },
+  {
+   "at": "2026-11-10T18:57+03:00",
+   "slot": "s8",
+   "item": "s8:مرادیهٔ خروشان 💦",
+   "media": "18128525281669076"
   }
  ],
  "media_done": [
@@ -734,7 +734,8 @@
   "1vc_9WMfXr59VwjePpmbidk6UXqLnVTya": "2026-11-10T08:52+03:00",
   "1JC8rsLHg7MNZhBjl0EbnUIo5GKj9ETFA": "2026-11-10T11:01+03:00",
   "1j8fTsqTFSw4Hw9hqNPDiaKDts2WPpU0a": "2026-11-10T11:01+03:00",
-  "1InY4j4XCHXKPNsxs6MrS_jh1TbpoeADV": "2026-11-10T15:53+03:00"
+  "1InY4j4XCHXKPNsxs6MrS_jh1TbpoeADV": "2026-11-10T15:53+03:00",
+  "1Nj6_9l568xwpScBxa_2qNeFZEJ8mqb0A": "2026-11-10T18:52+03:00"
  },
  "vlog_i": 9,
  "card_log": {
@@ -786,7 +787,8 @@
    "قلعهٔ هوشاپ",
    "ماهی‌هایی که در بهار از آبشار بالا می‌پر",
    "خیابان صبحانهٔ وان",
-   "جزیرهٔ چارپاناک"
+   "جزیرهٔ چارپاناک",
+   "جاذبهٔ امروز: آبشار مرادیه (نمای هوایی)"
   ],
   "s10": [
    "استوری شب بخیر چهارشنبه ۱۳ آبان",
@@ -810,7 +812,7 @@
  },
  "s4_i": 9,
  "s5_i": 4,
- "s8_i": 7,
+ "s8_i": 8,
  "clip_info": {
   "1eww9Vvjb_m9JhLIMFLFn8JtiDB8nLddz": {
    "text": "",
@@ -1682,6 +1684,20 @@
    "text_pos": "",
    "dur": 26.49,
    "v": 4
+  },
+  "1Nj6_9l568xwpScBxa_2qNeFZEJ8mqb0A": {
+   "text": "آبشار مرادیه وان",
+   "greeting": "",
+   "other_page": false,
+   "page": "",
+   "music": true,
+   "own_boxes": [],
+   "ar": 0.5625,
+   "scene": "نمای هوایی (درون‌یاب) از آبشار پرآب و گل‌آلود مرادیه در روزی آفتابی و بهاری با آسمان آبی، درختان سبز و پل معلق",
+   "place": "آبشار مرادیه",
+   "text_pos": "bottom",
+   "dur": 9.73,
+   "v": 4
   }
  },
  "skipped_files": {
@@ -1699,8 +1715,8 @@
  "s1_g": 3,
  "s10_g": 2,
  "reply_error": {
-  "at": "2026-11-10T17:28+03:00",
-  "error": "Instagram API error 400 on 17957356149032007/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"AsOh8KMGgoxlv_K-LtouEK2\"}}"
+  "at": "2026-11-10T18:57+03:00",
+  "error": "Instagram API error 400 on 17957356149032007/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"AUz6TagaWt5LRIs2rWmNl_u\"}}"
  },
  "smart_times": {
   "at": "2026-11-09T08:54+03:00",
