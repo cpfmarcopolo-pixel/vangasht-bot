@@ -3,12 +3,6 @@
  "story": 1,
  "log": [
   {
-   "at": "2026-11-05T15:55+03:00",
-   "slot": "s6",
-   "item": "s6:آب دریاچهٔ وان، چه مزه‌ایه؟",
-   "media": "18132983299765476"
-  },
-  {
    "at": "2026-11-05T17:24+03:00",
    "slot": "s7",
    "item": "vlog",
@@ -361,6 +355,12 @@
    "slot": "s6",
    "item": "s6:کیا عاشق آکدامارن؟ 🌸",
    "media": "18133891492839113"
+  },
+  {
+   "at": "2026-11-10T17:28+03:00",
+   "slot": "s7",
+   "item": "vlog",
+   "media": "18028674422871257"
   }
  ],
  "media_done": [
@@ -609,13 +609,13 @@
   "d:11Do1EatdSuSKZVVwYdLAW9mBmZeCounP": 2,
   "d:12JwOz4uxPQYTMoi8xyBKDpDWPpx2TYf0": 2,
   "d:1MBdeSYRkbiGnZ94EKUv5ABUw7lazMSj1": 2,
-  "d:1poTvlvN-PsJ7tYdIWLLg6Eb55b8kuHr3": 5,
-  "d:1XXPmSKgZefrKBOGiDkECLEdZT6Ya7PgT": 5,
-  "d:12BZ_878euoOPlDXiLpdKo3HJ0SCXWVYU": 5,
-  "d:1bo0YmDNzhEip85Za264BAWb_mft352wX": 5,
-  "d:1-FVfIeiZZjXFJAzJ5gMN5MVC9fpT6_9n": 5,
-  "d:17hKiV-WnBt1mRwctml8gDA-1w8Zc9BOB": 5,
-  "d:1IrRS6actyxKTVFTaMyP0Y5ywOSa5NJ5K": 5,
+  "d:1poTvlvN-PsJ7tYdIWLLg6Eb55b8kuHr3": 6,
+  "d:1XXPmSKgZefrKBOGiDkECLEdZT6Ya7PgT": 6,
+  "d:12BZ_878euoOPlDXiLpdKo3HJ0SCXWVYU": 6,
+  "d:1bo0YmDNzhEip85Za264BAWb_mft352wX": 6,
+  "d:1-FVfIeiZZjXFJAzJ5gMN5MVC9fpT6_9n": 6,
+  "d:17hKiV-WnBt1mRwctml8gDA-1w8Zc9BOB": 6,
+  "d:1IrRS6actyxKTVFTaMyP0Y5ywOSa5NJ5K": 6,
   "d:1IfLfe4mk-IqOIQfMH5GbmHbt6dMofPI4": 2,
   "d:1BAzcC5cJo8RuCDQGRJhvpJkG0ST_4ohZ": 2,
   "d:1tBlkQmkQ2xPHTJAPkhabCvnR5Sr6d-fH": 2,
@@ -624,7 +624,7 @@
   "d:1bDgVWWnG5aIspEdaPExCcujAepvMjEZU": 2,
   "d:1hSllDF9-sic6ZUoRtqP0Xhf_mREB4Nl4": 2,
   "d:1CvUTnXD3QUZ8hQK9yL8jFy3j_f1kUx1k": 1,
-  "d:1vbtxtSE2TV6B6zcn-1iWcb2p6h19RTN9": 4,
+  "d:1vbtxtSE2TV6B6zcn-1iWcb2p6h19RTN9": 5,
   "d:1OwkaSEMVxmoonpwNJeywCs00IWMaK4Oq": 2,
   "d:1aHbd8D8YhLiNVKeHNxlzDu3bfBdBSBH7": 1,
   "d:1rb-AxtA9PPnx0zC9mGaTx7eDEW4H0WH6": 1,
@@ -644,34 +644,34 @@
  },
  "pexels_used": [
   "x84906",
-  "x7262",
-  "x25",
-  "x34971",
-  "x118768",
-  "x71747",
-  "x140186",
-  "x149938",
-  "x67201",
-  "x222349",
-  "x170912",
-  "x371424",
-  "x236256",
-  "x4730",
-  "x267036",
-  "x79899",
-  "x2576",
-  "x173358",
-  "x50622",
   "x11284",
-  "x381054",
-  "x31550",
+  "x170912",
   "x273476",
+  "x4730",
+  "x31550",
   "x156103",
-  "x119190"
+  "x119190",
+  "x25",
+  "x7262",
+  "x222349",
+  "x267036",
+  "x50622",
+  "x34971",
+  "x140186",
+  "x67201",
+  "x149938",
+  "x381054",
+  "x236256",
+  "x371424",
+  "x118768",
+  "x173358",
+  "x71747",
+  "x2576",
+  "x79899"
  ],
  "music_last": {
   "1DZTJ4ef0yYVG2xdl3IlbrnmWhvTIImvs": "2026-11-10T12:53+03:00",
-  "1dkR0sggYnJv6PAPhkKiPNI1Qbu5nbVwi": "2026-11-09T20:52+03:00",
+  "1dkR0sggYnJv6PAPhkKiPNI1Qbu5nbVwi": "2026-11-10T17:24+03:00",
   "1fp4Ah5iQfFhH9Wv8srgJdSKSlru0RDHO": "2026-11-10T11:54+03:00",
   "1QUXCTr3hAjvM090ZbkBDmL190dxM9yXG": "2026-11-10T13:38+03:00",
   "r_16OqrXYzWRF5c20HNKbjBoWNaa_6pT9tp": "2026-11-04T00:15+03:00",
@@ -736,7 +736,7 @@
   "1j8fTsqTFSw4Hw9hqNPDiaKDts2WPpU0a": "2026-11-10T11:01+03:00",
   "1InY4j4XCHXKPNsxs6MrS_jh1TbpoeADV": "2026-11-10T15:53+03:00"
  },
- "vlog_i": 6,
+ "vlog_i": 9,
  "card_log": {
   "s1": [
    "صبح بخیر چهارشنبه؛ پیشنهاد صبحانهٔ وانی",
@@ -1699,8 +1699,8 @@
  "s1_g": 3,
  "s10_g": 2,
  "reply_error": {
-  "at": "2026-11-10T15:57+03:00",
-  "error": "Instagram API error 400 on 17957356149032007/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"AmmLO8QAPwtopTXY6VSbaTD\"}}"
+  "at": "2026-11-10T17:28+03:00",
+  "error": "Instagram API error 400 on 17957356149032007/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"AsOh8KMGgoxlv_K-LtouEK2\"}}"
  },
  "smart_times": {
   "at": "2026-11-09T08:54+03:00",
