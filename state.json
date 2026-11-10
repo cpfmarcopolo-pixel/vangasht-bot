@@ -3,12 +3,6 @@
  "story": 1,
  "log": [
   {
-   "at": "2026-11-05T11:06+03:00",
-   "slot": "s2",
-   "item": "rates",
-   "media": "17906731638352790"
-  },
-  {
    "at": "2026-11-05T11:29+03:00",
    "slot": "p1",
    "item": "ai:آبشار مرادیه؛ سفر یک‌روزه از وان با چهار",
@@ -361,6 +355,12 @@
    "slot": "s2",
    "item": "rates",
    "media": "18021583568944891"
+  },
+  {
+   "at": "2026-11-10T11:57+03:00",
+   "slot": "s3",
+   "item": "vlog",
+   "media": "18118869893047229"
   }
  ],
  "media_done": [
@@ -607,7 +607,7 @@
   "d:1PwHVAY7MeGcEkDET3fZYMWzfWzvZJfMz": 2,
   "d:11Do1EatdSuSKZVVwYdLAW9mBmZeCounP": 2,
   "d:12JwOz4uxPQYTMoi8xyBKDpDWPpx2TYf0": 2,
-  "d:1MBdeSYRkbiGnZ94EKUv5ABUw7lazMSj1": 1,
+  "d:1MBdeSYRkbiGnZ94EKUv5ABUw7lazMSj1": 2,
   "d:1poTvlvN-PsJ7tYdIWLLg6Eb55b8kuHr3": 5,
   "d:1XXPmSKgZefrKBOGiDkECLEdZT6Ya7PgT": 5,
   "d:12BZ_878euoOPlDXiLpdKo3HJ0SCXWVYU": 5,
@@ -615,13 +615,13 @@
   "d:1-FVfIeiZZjXFJAzJ5gMN5MVC9fpT6_9n": 5,
   "d:17hKiV-WnBt1mRwctml8gDA-1w8Zc9BOB": 5,
   "d:1IrRS6actyxKTVFTaMyP0Y5ywOSa5NJ5K": 5,
-  "d:1IfLfe4mk-IqOIQfMH5GbmHbt6dMofPI4": 1,
-  "d:1BAzcC5cJo8RuCDQGRJhvpJkG0ST_4ohZ": 1,
-  "d:1tBlkQmkQ2xPHTJAPkhabCvnR5Sr6d-fH": 1,
-  "d:1mb12MD-aoGWdPKlTrEVG1joZOPPE_i4Y": 1,
-  "d:1n1txnHN0mye-4vKpEm0ISy3Ts_NDLfiU": 1,
-  "d:1bDgVWWnG5aIspEdaPExCcujAepvMjEZU": 1,
-  "d:1hSllDF9-sic6ZUoRtqP0Xhf_mREB4Nl4": 1,
+  "d:1IfLfe4mk-IqOIQfMH5GbmHbt6dMofPI4": 2,
+  "d:1BAzcC5cJo8RuCDQGRJhvpJkG0ST_4ohZ": 2,
+  "d:1tBlkQmkQ2xPHTJAPkhabCvnR5Sr6d-fH": 2,
+  "d:1mb12MD-aoGWdPKlTrEVG1joZOPPE_i4Y": 2,
+  "d:1n1txnHN0mye-4vKpEm0ISy3Ts_NDLfiU": 2,
+  "d:1bDgVWWnG5aIspEdaPExCcujAepvMjEZU": 2,
+  "d:1hSllDF9-sic6ZUoRtqP0Xhf_mREB4Nl4": 2,
   "d:1CvUTnXD3QUZ8hQK9yL8jFy3j_f1kUx1k": 1,
   "d:1vbtxtSE2TV6B6zcn-1iWcb2p6h19RTN9": 4,
   "d:1OwkaSEMVxmoonpwNJeywCs00IWMaK4Oq": 2,
@@ -642,36 +642,36 @@
   "d:1n9fLT_yIcGtzNYregRdmjZPqpQ5uZaBm": 1
  },
  "pexels_used": [
-  "x371424",
-  "x79899",
-  "x34971",
-  "x119190",
-  "x170912",
-  "x156103",
-  "x4730",
-  "x50622",
-  "x149938",
-  "x173358",
-  "x7262",
-  "x67201",
-  "x31550",
-  "x222349",
-  "x118768",
-  "x25",
-  "x140186",
-  "x236256",
-  "x381054",
-  "x267036",
-  "x2576",
-  "x71747",
   "x84906",
+  "x7262",
+  "x25",
+  "x34971",
+  "x118768",
+  "x71747",
+  "x140186",
+  "x149938",
+  "x67201",
+  "x222349",
+  "x170912",
+  "x371424",
+  "x236256",
+  "x4730",
+  "x267036",
+  "x79899",
+  "x2576",
+  "x173358",
+  "x50622",
+  "x11284",
+  "x381054",
+  "x31550",
   "x273476",
-  "x11284"
+  "x156103",
+  "x119190"
  ],
  "music_last": {
   "1DZTJ4ef0yYVG2xdl3IlbrnmWhvTIImvs": "2026-11-09T13:38+03:00",
   "1dkR0sggYnJv6PAPhkKiPNI1Qbu5nbVwi": "2026-11-09T20:52+03:00",
-  "1fp4Ah5iQfFhH9Wv8srgJdSKSlru0RDHO": "2026-11-09T12:53+03:00",
+  "1fp4Ah5iQfFhH9Wv8srgJdSKSlru0RDHO": "2026-11-10T11:54+03:00",
   "1QUXCTr3hAjvM090ZbkBDmL190dxM9yXG": "2026-11-09T17:23+03:00",
   "r_16OqrXYzWRF5c20HNKbjBoWNaa_6pT9tp": "2026-11-04T00:15+03:00",
   "r_1l3THmi6GjqfKpjoZlRy25On7rsx6vdso": "2026-11-04T10:50+03:00"
@@ -734,7 +734,7 @@
   "1JC8rsLHg7MNZhBjl0EbnUIo5GKj9ETFA": "2026-11-10T11:01+03:00",
   "1j8fTsqTFSw4Hw9hqNPDiaKDts2WPpU0a": "2026-11-10T11:01+03:00"
  },
- "vlog_i": 3,
+ "vlog_i": 6,
  "card_log": {
   "s1": [
    "صبح بخیر چهارشنبه؛ پیشنهاد صبحانهٔ وانی",
@@ -1073,7 +1073,11 @@
    "music": false,
    "own_boxes": [],
    "ar": 0.75,
-   "v": 3
+   "scene": "پارکی سرسبز و مشرف به دریاچه با پرچم ترکیه، نیمکت‌ها و درختان، در روزی ابری",
+   "place": "",
+   "text_pos": "",
+   "dur": 0,
+   "v": 4
   },
   "1tBlkQmkQ2xPHTJAPkhabCvnR5Sr6d-fH": {
    "text": "",
@@ -1083,7 +1087,11 @@
    "music": false,
    "own_boxes": [],
    "ar": 0.75,
-   "v": 3
+   "scene": "نمای شبانهٔ خلیج و شهر با چراغ‌های روشن از بالای تپه، آسمان آبی تیره و فانوس کنار نرده، بدون آدم",
+   "place": "",
+   "text_pos": "",
+   "dur": 0,
+   "v": 4
   },
   "1mb12MD-aoGWdPKlTrEVG1joZOPPE_i4Y": {
    "text": "",
@@ -1093,7 +1101,11 @@
    "music": false,
    "own_boxes": [],
    "ar": 0.75,
-   "v": 3
+   "scene": "نمای روز از پشت نرده‌ای چوبی به دریاچه‌ای آبی، درختان سبز، خانه‌ها و کوه‌های دوردست زیر آسمان صاف",
+   "place": "",
+   "text_pos": "",
+   "dur": 0,
+   "v": 4
   },
   "1n1txnHN0mye-4vKpEm0ISy3Ts_NDLfiU": {
    "text": "",
@@ -1103,7 +1115,11 @@
    "music": false,
    "own_boxes": [],
    "ar": 0.75,
-   "v": 3
+   "scene": "هواپیمای مسافربری ترکیش ایرلاینز در روز آفتابی و آسمان آبی هنگام فرود از فراز شهر و تپه‌های خشک پرواز می‌کند",
+   "place": "",
+   "text_pos": "",
+   "dur": 0,
+   "v": 4
   },
   "1bDgVWWnG5aIspEdaPExCcujAepvMjEZU": {
    "text": "",
@@ -1113,7 +1129,11 @@
    "music": false,
    "own_boxes": [],
    "ar": 0.75,
-   "v": 3
+   "scene": "پارکی سرسبز در روز ابری با پرچم ترکیه، درختان، نیمکت‌ها و دریاچه‌ای در دوردست؛ بدون آدم",
+   "place": "",
+   "text_pos": "",
+   "dur": 0,
+   "v": 4
   },
   "1hSllDF9-sic6ZUoRtqP0Xhf_mREB4Nl4": {
    "text": "",
@@ -1123,7 +1143,11 @@
    "music": false,
    "own_boxes": [],
    "ar": 0.75,
-   "v": 3
+   "scene": "تقاطعی خلوت در روز آفتابی با مجسمهٔ بزرگ گربهٔ سفید و تابلوی EDREMIT در میان فضای سبز",
+   "place": "",
+   "text_pos": "",
+   "dur": 0,
+   "v": 4
   },
   "1CvUTnXD3QUZ8hQK9yL8jFy3j_f1kUx1k": {
    "text": "",
@@ -1133,7 +1157,11 @@
    "music": false,
    "own_boxes": [],
    "ar": 0.75,
-   "v": 3
+   "scene": "نمای بلند از دریاچهٔ فیروزه‌ای وان از روی تپه، با درختان سبز، خانه‌ها و مسجدی کوچک در ساحل، در روزی آفتابی و آسمان آبی",
+   "place": "",
+   "text_pos": "",
+   "dur": 0,
+   "v": 4
   },
   "1aHbd8D8YhLiNVKeHNxlzDu3bfBdBSBH7": {
    "text": "",
@@ -1647,8 +1675,8 @@
  "s1_g": 3,
  "s10_g": 2,
  "reply_error": {
-  "at": "2026-11-10T11:05+03:00",
-  "error": "Instagram API error 400 on 17957356149032007/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"Adb7EgJ_DVDT-MXqLSmwERH\"}}"
+  "at": "2026-11-10T11:57+03:00",
+  "error": "Instagram API error 400 on 17957356149032007/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"AccE4-EgS3lspkhnpm8bvFo\"}}"
  },
  "smart_times": {
   "at": "2026-11-09T08:54+03:00",
