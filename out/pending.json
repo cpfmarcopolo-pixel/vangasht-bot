@@ -1,9 +1,10 @@
 {
- "slot": "s6",
+ "slot": "s7",
  "file": null,
  "caption": null,
  "advance": null,
- "item": "s6:کیا عاشق آکدامارن؟ 🌸",
- "video": "dl/2026-11-10-s6-ig.mp4",
- "done": true
+ "item": "vlog",
+ "video": "dl/2026-11-10-s7-ig.mp4",
+ "reel": false,
+ "done": null
 }
