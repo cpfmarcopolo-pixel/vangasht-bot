@@ -3,12 +3,6 @@
  "story": 1,
  "log": [
   {
-   "at": "2026-11-05T20:07+03:00",
-   "slot": "p2",
-   "item": "ai:برنامهٔ پنج‌شنبه‌شب پاییزی در وان",
-   "media": "18286030999295980"
-  },
-  {
    "at": "2026-11-05T20:55+03:00",
    "slot": "s9",
    "item": "todayposts",
@@ -361,6 +355,12 @@
    "slot": "s8",
    "item": "s8:مرادیهٔ خروشان 💦",
    "media": "18128525281669076"
+  },
+  {
+   "at": "2026-11-10T19:40+03:00",
+   "slot": "p2",
+   "item": "tour:van.gasht.turkiye_5f536099e6ac4d069b15fe",
+   "media": "18474017620137371"
   }
  ],
  "media_done": [
@@ -807,7 +807,8 @@
    "لحظه‌ای شاد از تورهای وان گشت: موزیک زند",
    "ویدیوی کامل تور کشتی‌های بزرگ تفریحی؛ غر",
    "مهمانی رقص روی عرشهٔ کشتی در تور کشتی‌ها",
-   "ویدیوی رانندگی کنار ساحل دریاچه وان در ی"
+   "ویدیوی رانندگی کنار ساحل دریاچه وان در ی",
+   "ویدیوی کامل یکی از تورهای وان گشت؛ یک رو"
   ]
  },
  "s4_i": 9,
@@ -1715,8 +1716,8 @@
  "s1_g": 3,
  "s10_g": 2,
  "reply_error": {
-  "at": "2026-11-10T18:57+03:00",
-  "error": "Instagram API error 400 on 17957356149032007/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"AUz6TagaWt5LRIs2rWmNl_u\"}}"
+  "at": "2026-11-10T19:40+03:00",
+  "error": "Instagram API error 400 on 17957356149032007/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"AEysQ1Bc-eRQfIcymmoifeX\"}}"
  },
  "smart_times": {
   "at": "2026-11-09T08:54+03:00",
@@ -1752,6 +1753,7 @@
   ]
  },
  "p_posted": [
-  "1K2TYZ5nPFIOpNiuLTrUgj8WA-DwLbtcw"
+  "1K2TYZ5nPFIOpNiuLTrUgj8WA-DwLbtcw",
+  "1xz05S9ZfHs3KdyXpfrrMX0EpRh1w43CH"
  ]
 }
