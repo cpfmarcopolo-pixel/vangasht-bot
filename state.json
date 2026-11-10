@@ -3,12 +3,6 @@
  "story": 1,
  "log": [
   {
-   "at": "2026-11-05T08:55+03:00",
-   "slot": "s1",
-   "item": "s1:پنجشنبه، با طعم پاییز ☕",
-   "media": "18007184847452874"
-  },
-  {
    "at": "2026-11-05T11:06+03:00",
    "slot": "s2",
    "item": "rates",
@@ -361,6 +355,12 @@
    "slot": "s1",
    "item": "s1:صبحتون قشنگ",
    "media": "18122485570978436"
+  },
+  {
+   "at": "2026-11-10T11:05+03:00",
+   "slot": "s2",
+   "item": "rates",
+   "media": "18021583568944891"
   }
  ],
  "media_done": [
@@ -730,7 +730,9 @@
   "15RwIzGMNLCEZHhVFaGN2lOC3-rcBpvVA": "2026-11-09T18:52+03:00",
   "1MBOKD1JCD6RMMpaQ4kcLeJqLDJddHRIE": "2026-11-09T18:53+03:00",
   "1PCLFToxPUA0cA-UWVjN40H1gf1KFBgkv": "2026-11-09T22:52+03:00",
-  "1vc_9WMfXr59VwjePpmbidk6UXqLnVTya": "2026-11-10T08:52+03:00"
+  "1vc_9WMfXr59VwjePpmbidk6UXqLnVTya": "2026-11-10T08:52+03:00",
+  "1JC8rsLHg7MNZhBjl0EbnUIo5GKj9ETFA": "2026-11-10T11:01+03:00",
+  "1j8fTsqTFSw4Hw9hqNPDiaKDts2WPpU0a": "2026-11-10T11:01+03:00"
  },
  "vlog_i": 3,
  "card_log": {
@@ -1614,6 +1616,20 @@
    "text_pos": "top",
    "dur": 60.14,
    "v": 4
+  },
+  "1JC8rsLHg7MNZhBjl0EbnUIo5GKj9ETFA": {
+   "text": "VAN",
+   "greeting": "",
+   "other_page": true,
+   "page": "@al1celik",
+   "music": true,
+   "own_boxes": [],
+   "ar": 0.5625,
+   "scene": "نمای هوایی و پهپادی از شهر وان، قلعهٔ وان با دیوارها و مسجد، دریاچهٔ وان و کوه‌های برفی، از غروب تا شب",
+   "place": "قلعهٔ وان",
+   "text_pos": "middle",
+   "dur": 14.93,
+   "v": 4
   }
  },
  "skipped_files": {
@@ -1624,14 +1640,15 @@
   "Ins2916310794_196eaad9414949ea99337ee1a716e7b3.mp4": "@alimunnnn",
   "vanyolunda_4da99c3de66549c2a065b4117450f5e2.jpg": "Vanyolunda",
   "eskivanevi.mp4": "@vanbuyuksehir65",
-  "yelkenlikoyu.mp4": "@muzaffer_ss"
+  "yelkenlikoyu.mp4": "@muzaffer_ss",
+  "Copy of vankalesi1.mp4": "@al1celik"
  },
  "replied_comments": [],
  "s1_g": 3,
  "s10_g": 2,
  "reply_error": {
-  "at": "2026-11-10T08:59+03:00",
-  "error": "Instagram API error 400 on 17957356149032007/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"APw-fqij0c_Or3h3p5-EWWF\"}}"
+  "at": "2026-11-10T11:05+03:00",
+  "error": "Instagram API error 400 on 17957356149032007/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"Adb7EgJ_DVDT-MXqLSmwERH\"}}"
  },
  "smart_times": {
   "at": "2026-11-09T08:54+03:00",
