@@ -3,12 +3,6 @@
  "story": 1,
  "log": [
   {
-   "at": "2026-11-05T11:29+03:00",
-   "slot": "p1",
-   "item": "ai:آبشار مرادیه؛ سفر یک‌روزه از وان با چهار",
-   "media": "18105886043159752"
-  },
-  {
    "at": "2026-11-05T11:57+03:00",
    "slot": "s3",
    "item": "vlog",
@@ -361,6 +355,12 @@
    "slot": "s3",
    "item": "vlog",
    "media": "18118869893047229"
+  },
+  {
+   "at": "2026-11-10T12:57+03:00",
+   "slot": "s4",
+   "item": "s4:کی بریم وان؟",
+   "media": "18080779427428923"
   }
  ],
  "media_done": [
@@ -575,7 +575,8 @@
   "File:65500 Görecek-Muradiye-Van, Turkey - panoramio (2).jpg",
   "File:Du Caucase au Golfe Persique p 357.jpg",
   "File:Göle Nazır Ağaçlık Alan, Van - Edremit.jpg",
-  "File:Turkish Visitors on Akdamar Island - Lake Van - Turkey - 01 (5796817924).jpg"
+  "File:Turkish Visitors on Akdamar Island - Lake Van - Turkey - 01 (5796817924).jpg",
+  "File:050413-VanLake-Turkey-IMG 2740-2.jpg"
  ],
  "last_error": {
   "at": "2026-11-04T17:03+03:00",
@@ -669,7 +670,7 @@
   "x119190"
  ],
  "music_last": {
-  "1DZTJ4ef0yYVG2xdl3IlbrnmWhvTIImvs": "2026-11-09T13:38+03:00",
+  "1DZTJ4ef0yYVG2xdl3IlbrnmWhvTIImvs": "2026-11-10T12:53+03:00",
   "1dkR0sggYnJv6PAPhkKiPNI1Qbu5nbVwi": "2026-11-09T20:52+03:00",
   "1fp4Ah5iQfFhH9Wv8srgJdSKSlru0RDHO": "2026-11-10T11:54+03:00",
   "1QUXCTr3hAjvM090ZbkBDmL190dxM9yXG": "2026-11-09T17:23+03:00",
@@ -752,7 +753,8 @@
    "جاهای دیدنی وان؛ معرفی جاذبه‌ها و تورها",
    "راهنمای کامل سفر به وان برای ایرانی‌ها",
    "خرید در وان: مراکز خرید و خیابان‌های اصل",
-   "تبدیل تومان به لیر در وان: راهنمای صرافی"
+   "تبدیل تومان به لیر در وان: راهنمای صرافی",
+   "بهترین زمان سفر به وان و جاهای دیدنی"
   ],
   "s5": [
    "تور کشتی‌های بزرگ تفریحی دریاچه وان",
@@ -802,7 +804,7 @@
    "مهمانی رقص روی عرشهٔ کشتی در تور کشتی‌ها"
   ]
  },
- "s4_i": 8,
+ "s4_i": 9,
  "s5_i": 3,
  "s8_i": 7,
  "clip_info": {
@@ -1675,8 +1677,8 @@
  "s1_g": 3,
  "s10_g": 2,
  "reply_error": {
-  "at": "2026-11-10T11:57+03:00",
-  "error": "Instagram API error 400 on 17957356149032007/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"AccE4-EgS3lspkhnpm8bvFo\"}}"
+  "at": "2026-11-10T12:57+03:00",
+  "error": "Instagram API error 400 on 17957356149032007/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"An2YpDbI8ePXjrpSpOIkAtU\"}}"
  },
  "smart_times": {
   "at": "2026-11-09T08:54+03:00",
