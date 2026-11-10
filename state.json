@@ -3,12 +3,6 @@
  "story": 1,
  "log": [
   {
-   "at": "2026-11-05T12:56+03:00",
-   "slot": "s4",
-   "item": "s4:وان رو قدم‌به‌قدم بگرد",
-   "media": "17939336646125041"
-  },
-  {
    "at": "2026-11-05T14:25+03:00",
    "slot": "s5",
    "item": "s5:صدای آبشار، طعم چای",
@@ -361,6 +355,12 @@
    "slot": "p1",
    "item": "tour:van_omrumun_milad_65_548698e8fe6d48bab0e",
    "media": "18125821279939134"
+  },
+  {
+   "at": "2026-11-10T14:26+03:00",
+   "slot": "s5",
+   "item": "s5:چای کنار آبشار مرادیه ☕",
+   "media": "17940862716401331"
   }
  ],
  "media_done": [
@@ -700,7 +700,7 @@
   "1BTYvwOgAh6duGg1HaS0o2OwIN5pQA7PF": "2026-11-05T23:02+03:00",
   "1k-KyiRf0yyVTGLj6UMbJZJWLchhJ6vcS": "2026-11-06T08:52+03:00",
   "1ngL9kAa5rvCydUIuQHjnvQOwNC1_dmiz": "2026-11-06T11:01+03:00",
-  "1jaaCnvkMJZiQRnYkl5VMOJwE-V_lUjin": "2026-11-06T14:22+03:00",
+  "1jaaCnvkMJZiQRnYkl5VMOJwE-V_lUjin": "2026-11-10T14:22+03:00",
   "1sjAcrPqOpPKqux_uRgpKOTk65efReAqB": "2026-11-06T15:52+03:00",
   "1lzWgWguX7p5t4WvRNOTNCtqSLY7PoZem": "2026-11-06T18:52+03:00",
   "1Z5JzLIvcIYDkA8fWgDbPLE8_rVFEWp1S": "2026-11-06T19:50+03:00",
@@ -764,7 +764,8 @@
    "تور فستیوال رنگ",
    "تور کشتی‌های بزرگ تفریحی؛ مهمانی کف روی ",
    "حال‌وهوای شاد سفر با تورهای وان گشت",
-   "تور پارک آبی ادرمیت (فصلی، ویژهٔ فصل گرم"
+   "تور پارک آبی ادرمیت (فصلی، ویژهٔ فصل گرم",
+   "تور آبشار مرادیه؛ پل معلق و چایخانه‌های "
   ],
   "s6": [
    "این یا اون؟ غروب وان: قلعه یا ساحل دریاچ",
@@ -806,7 +807,7 @@
   ]
  },
  "s4_i": 9,
- "s5_i": 3,
+ "s5_i": 4,
  "s8_i": 7,
  "clip_info": {
   "1eww9Vvjb_m9JhLIMFLFn8JtiDB8nLddz": {
@@ -1682,8 +1683,8 @@
  "s1_g": 3,
  "s10_g": 2,
  "reply_error": {
-  "at": "2026-11-10T13:39+03:00",
-  "error": "Instagram API error 400 on 17957356149032007/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"ArgeBaPEyJRPxC1fpXVZfbL\"}}"
+  "at": "2026-11-10T14:26+03:00",
+  "error": "Instagram API error 400 on 17957356149032007/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"AZvvJwoEEVAEwoOeiHXfDOm\"}}"
  },
  "smart_times": {
   "at": "2026-11-09T08:54+03:00",
