@@ -3,12 +3,6 @@
  "story": 1,
  "log": [
   {
-   "at": "2026-11-05T14:25+03:00",
-   "slot": "s5",
-   "item": "s5:صدای آبشار، طعم چای",
-   "media": "18108799543970883"
-  },
-  {
    "at": "2026-11-05T15:55+03:00",
    "slot": "s6",
    "item": "s6:آب دریاچهٔ وان، چه مزه‌ایه؟",
@@ -361,6 +355,12 @@
    "slot": "s5",
    "item": "s5:چای کنار آبشار مرادیه ☕",
    "media": "17940862716401331"
+  },
+  {
+   "at": "2026-11-10T15:57+03:00",
+   "slot": "s6",
+   "item": "s6:کیا عاشق آکدامارن؟ 🌸",
+   "media": "18133891492839113"
   }
  ],
  "media_done": [
@@ -733,7 +733,8 @@
   "1PCLFToxPUA0cA-UWVjN40H1gf1KFBgkv": "2026-11-09T22:52+03:00",
   "1vc_9WMfXr59VwjePpmbidk6UXqLnVTya": "2026-11-10T08:52+03:00",
   "1JC8rsLHg7MNZhBjl0EbnUIo5GKj9ETFA": "2026-11-10T11:01+03:00",
-  "1j8fTsqTFSw4Hw9hqNPDiaKDts2WPpU0a": "2026-11-10T11:01+03:00"
+  "1j8fTsqTFSw4Hw9hqNPDiaKDts2WPpU0a": "2026-11-10T11:01+03:00",
+  "1InY4j4XCHXKPNsxs6MrS_jh1TbpoeADV": "2026-11-10T15:53+03:00"
  },
  "vlog_i": 6,
  "card_log": {
@@ -775,7 +776,8 @@
    "سؤال از شما: مقصد جمعهٔ پاییزی در وان",
    "دانستنی قلعهٔ وان و اورارتوها",
    "این یا اون؟ جزیرهٔ آکدامار یا آبشار مراد",
-   "لالهٔ واژگون (اشک مریم) در دامنهٔ بهاری"
+   "لالهٔ واژگون (اشک مریم) در دامنهٔ بهاری",
+   "کیا دوست دارن؟ آکدامار، قایق و شکوفه‌های"
   ],
   "s8": [
    "جزیرهٔ آکدامار",
@@ -1666,6 +1668,20 @@
    "text_pos": "middle",
    "dur": 14.93,
    "v": 4
+  },
+  "1InY4j4XCHXKPNsxs6MrS_jh1TbpoeADV": {
+   "text": "",
+   "greeting": "",
+   "other_page": false,
+   "page": "",
+   "music": true,
+   "own_boxes": [],
+   "ar": 0.5625,
+   "scene": "نمای روز آفتابی از دریاچهٔ وان با شکوفه‌های بادام، قایق سفید، کوه‌های برفی و نرده‌های چوبی؛ حال‌وهوای بهاری و آرام",
+   "place": "جزیرهٔ آکدامار",
+   "text_pos": "",
+   "dur": 26.49,
+   "v": 4
   }
  },
  "skipped_files": {
@@ -1683,8 +1699,8 @@
  "s1_g": 3,
  "s10_g": 2,
  "reply_error": {
-  "at": "2026-11-10T14:26+03:00",
-  "error": "Instagram API error 400 on 17957356149032007/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"AZvvJwoEEVAEwoOeiHXfDOm\"}}"
+  "at": "2026-11-10T15:57+03:00",
+  "error": "Instagram API error 400 on 17957356149032007/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"AmmLO8QAPwtopTXY6VSbaTD\"}}"
  },
  "smart_times": {
   "at": "2026-11-09T08:54+03:00",
