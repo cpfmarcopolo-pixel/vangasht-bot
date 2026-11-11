@@ -3,12 +3,6 @@
  "story": 1,
  "log": [
   {
-   "at": "2026-11-06T11:40+03:00",
-   "slot": "p1",
-   "item": "ai:افسانهٔ هیولای دریاچهٔ وان",
-   "media": "18117210047168516"
-  },
-  {
    "at": "2026-11-06T11:56+03:00",
    "slot": "s3",
    "item": "vlog",
@@ -361,6 +355,12 @@
    "slot": "s2",
    "item": "rates",
    "media": "18036488564893895"
+  },
+  {
+   "at": "2026-11-11T11:56+03:00",
+   "slot": "s3",
+   "item": "vlog",
+   "media": "18035936705907315"
   }
  ],
  "media_done": [
@@ -623,16 +623,16 @@
   "d:1n1txnHN0mye-4vKpEm0ISy3Ts_NDLfiU": 2,
   "d:1bDgVWWnG5aIspEdaPExCcujAepvMjEZU": 2,
   "d:1hSllDF9-sic6ZUoRtqP0Xhf_mREB4Nl4": 2,
-  "d:1CvUTnXD3QUZ8hQK9yL8jFy3j_f1kUx1k": 1,
+  "d:1CvUTnXD3QUZ8hQK9yL8jFy3j_f1kUx1k": 2,
   "d:1vbtxtSE2TV6B6zcn-1iWcb2p6h19RTN9": 5,
   "d:1OwkaSEMVxmoonpwNJeywCs00IWMaK4Oq": 2,
-  "d:1aHbd8D8YhLiNVKeHNxlzDu3bfBdBSBH7": 1,
-  "d:1rb-AxtA9PPnx0zC9mGaTx7eDEW4H0WH6": 1,
-  "d:1cPJWvWZMejX-aqTzAshPrgbklSW4VF9O": 1,
-  "d:1dcPsP9RQqicrmdu36h5876UbzU593oeL": 1,
-  "d:1JqM3TD8KfKzuB2URYZj-yy657DeiSPpV": 1,
-  "d:1k5GS6_triK5tVzWNCtyBMZNbcklTFzV2": 1,
-  "d:14hbpTpCJjkzTK3DobzQAYAhEBmlmpnLu": 1,
+  "d:1aHbd8D8YhLiNVKeHNxlzDu3bfBdBSBH7": 2,
+  "d:1rb-AxtA9PPnx0zC9mGaTx7eDEW4H0WH6": 2,
+  "d:1cPJWvWZMejX-aqTzAshPrgbklSW4VF9O": 2,
+  "d:1dcPsP9RQqicrmdu36h5876UbzU593oeL": 2,
+  "d:1JqM3TD8KfKzuB2URYZj-yy657DeiSPpV": 2,
+  "d:1k5GS6_triK5tVzWNCtyBMZNbcklTFzV2": 2,
+  "d:14hbpTpCJjkzTK3DobzQAYAhEBmlmpnLu": 2,
   "d:1Mq3pzJYiSjS8EY7qHQpGe3IrbQaFqOd0": 1,
   "d:1yYrvnc1bmIVcRMLbzounZqmSX51wBOg8": 1,
   "d:1ymv-JaVU4lZ3OPypfDeIGBn5zjzfUwb6": 1,
@@ -643,34 +643,34 @@
   "d:1n9fLT_yIcGtzNYregRdmjZPqpQ5uZaBm": 1
  },
  "pexels_used": [
-  "x84906",
-  "x11284",
-  "x170912",
-  "x273476",
-  "x4730",
-  "x31550",
-  "x156103",
-  "x119190",
-  "x25",
-  "x7262",
-  "x222349",
-  "x267036",
-  "x50622",
-  "x34971",
-  "x140186",
-  "x67201",
-  "x149938",
-  "x381054",
-  "x236256",
-  "x371424",
-  "x118768",
-  "x173358",
-  "x71747",
   "x2576",
-  "x79899"
+  "x381054",
+  "x25",
+  "x156103",
+  "x67201",
+  "x267036",
+  "x84906",
+  "x119190",
+  "x4730",
+  "x173358",
+  "x7262",
+  "x140186",
+  "x71747",
+  "x273476",
+  "x371424",
+  "x170912",
+  "x118768",
+  "x11284",
+  "x31550",
+  "x34971",
+  "x222349",
+  "x50622",
+  "x79899",
+  "x149938",
+  "x236256"
  ],
  "music_last": {
-  "1DZTJ4ef0yYVG2xdl3IlbrnmWhvTIImvs": "2026-11-10T12:53+03:00",
+  "1DZTJ4ef0yYVG2xdl3IlbrnmWhvTIImvs": "2026-11-11T11:53+03:00",
   "1dkR0sggYnJv6PAPhkKiPNI1Qbu5nbVwi": "2026-11-10T17:24+03:00",
   "1fp4Ah5iQfFhH9Wv8srgJdSKSlru0RDHO": "2026-11-10T20:53+03:00",
   "1QUXCTr3hAjvM090ZbkBDmL190dxM9yXG": "2026-11-10T13:38+03:00",
@@ -739,7 +739,7 @@
   "15iJJ1w1iRiEJHF0wH4XfhR_LGICjoB2F": "2026-11-10T22:52+03:00",
   "1cAkXdYSyZ0jhrJhK1hRJDX9IHdqdq2TK": "2026-11-11T08:52+03:00"
  },
- "vlog_i": 9,
+ "vlog_i": 12,
  "card_log": {
   "s1": [
    "صبح بخیر چهارشنبه؛ پیشنهاد صبحانهٔ وانی",
@@ -1715,6 +1715,20 @@
    "text_pos": "",
    "dur": 21.9,
    "v": 4
+  },
+  "1k5GS6_triK5tVzWNCtyBMZNbcklTFzV2": {
+   "text": "",
+   "greeting": "",
+   "other_page": false,
+   "page": "",
+   "music": false,
+   "own_boxes": [],
+   "ar": 0.75,
+   "scene": "غرفهٔ فروش شکلات و آب‌نبات در یک مرکز خرید با قفسه‌هایی از گنبدهای شفاف پر از شکلات رنگی؛ فضای داخلی، با نور مصنوعی",
+   "place": "",
+   "text_pos": "",
+   "dur": 0,
+   "v": 4
   }
  },
  "skipped_files": {
@@ -1732,8 +1746,8 @@
  "s1_g": 4,
  "s10_g": 3,
  "reply_error": {
-  "at": "2026-11-11T11:04+03:00",
-  "error": "Instagram API error 400 on 17957356149032007/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"AxqPvdRdj51MjmDgzuMMfAY\"}}"
+  "at": "2026-11-11T11:56+03:00",
+  "error": "Instagram API error 400 on 17957356149032007/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"AhF8J26XSWSEFxnSLWtRVhh\"}}"
  },
  "smart_times": {
   "at": "2026-11-09T08:54+03:00",
