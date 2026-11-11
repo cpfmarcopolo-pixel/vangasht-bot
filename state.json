@@ -3,12 +3,6 @@
  "story": 1,
  "log": [
   {
-   "at": "2026-11-06T14:25+03:00",
-   "slot": "s5",
-   "item": "s5:دنیا رنگی می‌شه",
-   "media": "17997116375842259"
-  },
-  {
    "at": "2026-11-06T15:54+03:00",
    "slot": "s6",
    "item": "s6:جمعهٔ پاییزی‌ات، کجا؟",
@@ -361,6 +355,12 @@
    "slot": "p1",
    "item": "tour:VID-20261030-WA0040.mp4",
    "media": "18116511076849184"
+  },
+  {
+   "at": "2026-11-11T14:24+03:00",
+   "slot": "s5",
+   "item": "s5:رنگ بپاش، شاد شو 🎨",
+   "media": "18203573980377006"
   }
  ],
  "media_done": [
@@ -707,7 +707,7 @@
   "1g9MCZ_AqhaYu782AxJIqmG5sn-G0Ofuo": "2026-11-06T22:52+03:00",
   "1JE1Z9R_-cx8at77fjHzv0vJ0XTIEefvd": "2026-11-06T22:52+03:00",
   "1QHmP7rKGvYi139koDxJeQi0_2Gq416Kd": "2026-11-07T08:52+03:00",
-  "1bRN70PucFFSB5FKMy6y98ZLLCbtyyPK3": "2026-11-07T11:22+03:00",
+  "1bRN70PucFFSB5FKMy6y98ZLLCbtyyPK3": "2026-11-11T14:23+03:00",
   "1nDeX7-t_FlJ5cVUeYPWgS4WiCAPQyRK6": "2026-11-07T14:22+03:00",
   "1-4TXJy0f2BNjoVfbKO0nPbkr0wUkXX20": "2026-11-07T15:52+03:00",
   "1IcxcLSfHQiB684bvYcUkBc9KaaRuGIB3": "2026-11-07T18:52+03:00",
@@ -770,7 +770,8 @@
    "تور کشتی‌های بزرگ تفریحی؛ مهمانی کف روی ",
    "حال‌وهوای شاد سفر با تورهای وان گشت",
    "تور پارک آبی ادرمیت (فصلی، ویژهٔ فصل گرم",
-   "تور آبشار مرادیه؛ پل معلق و چایخانه‌های "
+   "تور آبشار مرادیه؛ پل معلق و چایخانه‌های ",
+   "تور فستیوال رنگ"
   ],
   "s6": [
    "این یا اون؟ غروب وان: قلعه یا ساحل دریاچ",
@@ -816,7 +817,7 @@
   ]
  },
  "s4_i": 10,
- "s5_i": 4,
+ "s5_i": 5,
  "s8_i": 8,
  "clip_info": {
   "1eww9Vvjb_m9JhLIMFLFn8JtiDB8nLddz": {
@@ -1752,8 +1753,8 @@
  "s1_g": 4,
  "s10_g": 3,
  "reply_error": {
-  "at": "2026-11-11T13:45+03:00",
-  "error": "Instagram API error 400 on 17957356149032007/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"Aco61eSJZ42KfyWSUTKJi8G\"}}"
+  "at": "2026-11-11T14:24+03:00",
+  "error": "Instagram API error 400 on 17957356149032007/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"AET6Wx2GSl58vhYOhXjUmtJ\"}}"
  },
  "smart_times": {
   "at": "2026-11-09T08:54+03:00",
