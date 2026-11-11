@@ -3,12 +3,6 @@
  "story": 1,
  "log": [
   {
-   "at": "2026-11-06T13:04+03:00",
-   "slot": "s4",
-   "item": "s4:وان را قدم‌به‌قدم ببین 🌊",
-   "media": "18101237597428828"
-  },
-  {
    "at": "2026-11-06T14:25+03:00",
    "slot": "s5",
    "item": "s5:دنیا رنگی می‌شه",
@@ -361,6 +355,12 @@
    "slot": "s4",
    "item": "s4:هتل بگیریم یا سوئیت؟",
    "media": "18118984396811602"
+  },
+  {
+   "at": "2026-11-11T13:45+03:00",
+   "slot": "p1",
+   "item": "tour:VID-20261030-WA0040.mp4",
+   "media": "18116511076849184"
   }
  ],
  "media_done": [
@@ -703,7 +703,7 @@
   "1jaaCnvkMJZiQRnYkl5VMOJwE-V_lUjin": "2026-11-10T14:22+03:00",
   "1sjAcrPqOpPKqux_uRgpKOTk65efReAqB": "2026-11-06T15:52+03:00",
   "1lzWgWguX7p5t4WvRNOTNCtqSLY7PoZem": "2026-11-06T18:52+03:00",
-  "1Z5JzLIvcIYDkA8fWgDbPLE8_rVFEWp1S": "2026-11-06T19:50+03:00",
+  "1Z5JzLIvcIYDkA8fWgDbPLE8_rVFEWp1S": "2026-11-11T13:37+03:00",
   "1g9MCZ_AqhaYu782AxJIqmG5sn-G0Ofuo": "2026-11-06T22:52+03:00",
   "1JE1Z9R_-cx8at77fjHzv0vJ0XTIEefvd": "2026-11-06T22:52+03:00",
   "1QHmP7rKGvYi139koDxJeQi0_2Gq416Kd": "2026-11-07T08:52+03:00",
@@ -811,7 +811,8 @@
    "ویدیوی کامل تور کشتی‌های بزرگ تفریحی؛ غر",
    "مهمانی رقص روی عرشهٔ کشتی در تور کشتی‌ها",
    "ویدیوی رانندگی کنار ساحل دریاچه وان در ی",
-   "ویدیوی کامل یکی از تورهای وان گشت؛ یک رو"
+   "ویدیوی کامل یکی از تورهای وان گشت؛ یک رو",
+   "تور فستیوال رنگ: موسیقی، پودرهای رنگی و "
   ]
  },
  "s4_i": 10,
@@ -881,7 +882,11 @@
    "music": true,
    "own_boxes": [],
    "ar": 0.5625,
-   "v": 3
+   "scene": "منظر هوایی و پانوراما از قلعهٔ وان و شهر وان با کوه‌های برفی و دریاچه، از غروب تا شب با نورپردازی دیوارها",
+   "place": "قلعهٔ وان",
+   "text_pos": "middle",
+   "dur": 14.93,
+   "v": 4
   },
   "19SQ-cP9HvIyx-tbss5pUxCALpRIQFVtf": {
    "text": "جزیره چارپاناک وان",
@@ -1747,8 +1752,8 @@
  "s1_g": 4,
  "s10_g": 3,
  "reply_error": {
-  "at": "2026-11-11T12:57+03:00",
-  "error": "Instagram API error 400 on 17957356149032007/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"A_aaBHhCa7cer8mGwJLkZE9\"}}"
+  "at": "2026-11-11T13:45+03:00",
+  "error": "Instagram API error 400 on 17957356149032007/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"Aco61eSJZ42KfyWSUTKJi8G\"}}"
  },
  "smart_times": {
   "at": "2026-11-09T08:54+03:00",
