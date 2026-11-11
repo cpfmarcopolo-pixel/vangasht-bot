@@ -3,12 +3,6 @@
  "story": 1,
  "log": [
   {
-   "at": "2026-11-06T19:00+03:00",
-   "slot": "s8",
-   "item": "s8:قلعهٔ هوشاپ، سنگ و سکوت",
-   "media": "18116220395144515"
-  },
-  {
    "at": "2026-11-06T19:55+03:00",
    "slot": "p2",
    "item": "tour:VID-20261030-WA0040.mp4",
@@ -361,6 +355,12 @@
    "slot": "s9",
    "item": "todayposts",
    "media": "18106477019198667"
+  },
+  {
+   "at": "2026-11-11T22:56+03:00",
+   "slot": "s10",
+   "item": "s10:شبتون بخیر",
+   "media": "18127704503474755"
   }
  ],
  "media_done": [
@@ -738,7 +738,10 @@
   "1Nj6_9l568xwpScBxa_2qNeFZEJ8mqb0A": "2026-11-10T18:52+03:00",
   "15iJJ1w1iRiEJHF0wH4XfhR_LGICjoB2F": "2026-11-10T22:52+03:00",
   "1cAkXdYSyZ0jhrJhK1hRJDX9IHdqdq2TK": "2026-11-11T08:52+03:00",
-  "1FTig4J3WDRfDhTvrcM6Y66jEYPcJoC1O": "2026-11-11T15:52+03:00"
+  "1FTig4J3WDRfDhTvrcM6Y66jEYPcJoC1O": "2026-11-11T15:52+03:00",
+  "1zqpTylfhH4A73PYhpGr44-x2S--IMP42": "2026-11-11T22:52+03:00",
+  "1s5JghrHlDeRFerCNe-rCHMQV6yOLjm4q": "2026-11-11T22:52+03:00",
+  "17jqoyzWiA1XqxfAzQSvumx8ML0cWDSIo": "2026-11-11T22:52+03:00"
  },
  "vlog_i": 12,
  "card_log": {
@@ -1752,6 +1755,48 @@
    "text_pos": "",
    "dur": 22.22,
    "v": 4
+  },
+  "1zqpTylfhH4A73PYhpGr44-x2S--IMP42": {
+   "text": "زندگی اونقدر طولانی نیست که برای شاد بودن منتظر تموم شدنِ سختی ها باشیم...",
+   "greeting": "",
+   "other_page": true,
+   "page": "Romantiic.Musiic",
+   "music": true,
+   "own_boxes": [],
+   "ar": 0.5625,
+   "scene": "زنی با لباس بلند مشکی و موی بالا بسته، با گیلاس در دست، روی سنگفرش کنار پرچین سبز و یک ماشین سفید در روز می‌خندد و حرکت می‌کند.",
+   "place": "",
+   "text_pos": "middle",
+   "dur": 27.68,
+   "v": 4
+  },
+  "1s5JghrHlDeRFerCNe-rCHMQV6yOLjm4q": {
+   "text": "تا میتونید دیوونه باشید\nدنیا\nجای قشنگی برای عاقل بودن نیست :)",
+   "greeting": "",
+   "other_page": true,
+   "page": "@Romantiic.Musiic",
+   "music": true,
+   "own_boxes": [],
+   "ar": 0.5625,
+   "scene": "چهار زن جوان با لباس شب در فضای باز و شب‌هنگام، زیر ریسه چراغ‌های حبابی کنار دیوار پرچین، جام به دست می‌رقصند و می‌خندند.",
+   "place": "",
+   "text_pos": "middle",
+   "dur": 14.37,
+   "v": 4
+  },
+  "17jqoyzWiA1XqxfAzQSvumx8ML0cWDSIo": {
+   "text": "Rengarenk Memleket 👌",
+   "greeting": "",
+   "other_page": false,
+   "page": "",
+   "music": true,
+   "own_boxes": [],
+   "ar": 0.5625,
+   "scene": "قایق ماهیگیری کوچک با یک مرد ایستاده روی دریاچه‌ای آرام هنگام طلوع یا غروب، با کوه‌های دوردست و آسمان صورتی-نارنجی",
+   "place": "",
+   "text_pos": "top",
+   "dur": 15.05,
+   "v": 4
   }
  },
  "skipped_files": {
@@ -1763,11 +1808,13 @@
   "vanyolunda_4da99c3de66549c2a065b4117450f5e2.jpg": "Vanyolunda",
   "eskivanevi.mp4": "@vanbuyuksehir65",
   "yelkenlikoyu.mp4": "@muzaffer_ss",
-  "Copy of vankalesi1.mp4": "@al1celik"
+  "Copy of vankalesi1.mp4": "@al1celik",
+  "romantiic.musiic_e85c502899254e92973dfd60925835c4.mp4": "Romantiic.Musiic",
+  "romantiic.musiic_4327d7ca89de48188f707699f4b585ee.mp4": "@Romantiic.Musiic"
  },
  "replied_comments": [],
  "s1_g": 4,
- "s10_g": 3,
+ "s10_g": 4,
  "reply_error": {
   "at": "2026-11-11T15:56+03:00",
   "error": "Instagram API error 400 on 17957356149032007/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"AqWeiC9abyiijcSMgoDcNU6\"}}"
