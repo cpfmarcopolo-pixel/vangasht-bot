@@ -40,10 +40,16 @@ jobs:
           python-version: "3.12"
 
       - name: Install browser and fonts
+        timeout-minutes: 20
         run: |
           pip install playwright==1.47.0 pillow pillow-heif
-          python -m playwright install --with-deps chromium
-          sudo apt-get install -y fonts-noto-color-emoji
+          # Ubuntu's download servers are sometimes slow: try 3 times, 6 minutes each, then go on without the extras
+          for i in 1 2 3; do
+            timeout 360 python -m playwright install --with-deps chromium && break
+            echo "browser install attempt $i failed, retrying"; sleep 20
+          done
+          python -m playwright install chromium
+          sudo apt-get -o Acquire::Retries=3 -o Acquire::http::Timeout=30 install -y fonts-noto-color-emoji || echo "emoji font skipped"
 
       - name: Make the image
         env:
