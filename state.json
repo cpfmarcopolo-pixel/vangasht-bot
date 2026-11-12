@@ -3,12 +3,6 @@
  "story": 1,
  "log": [
   {
-   "at": "2026-11-06T20:57+03:00",
-   "slot": "s9",
-   "item": "todayposts",
-   "media": "17955363351292220"
-  },
-  {
    "at": "2026-11-06T22:57+03:00",
    "slot": "s10",
    "item": "s10:",
@@ -361,6 +355,12 @@
    "slot": "s1",
    "item": "s1:صبح بخیر",
    "media": "17917682556494501"
+  },
+  {
+   "at": "2026-11-12T11:06+03:00",
+   "slot": "s2",
+   "item": "rates",
+   "media": "18106687556015755"
   }
  ],
  "media_done": [
@@ -680,7 +680,7 @@
  "rates_last": {
   "1sN04QtH7pRQy0As5B7YNmKUyxxRmmrLW": "2026-11-11T11:01+03:00",
   "16OqrXYzWRF5c20HNKbjBoWNaa_6pT9tp": "2026-11-04T00:15+03:00",
-  "13cti3LWYsXUCr-0K14bJGiYd5GMOfRM_": "2026-11-04T10:50+03:00",
+  "13cti3LWYsXUCr-0K14bJGiYd5GMOfRM_": "2026-11-12T11:01+03:00",
   "1l3THmi6GjqfKpjoZlRy25On7rsx6vdso": "2026-11-04T10:50+03:00",
   "1spub-PVCRgyWNIOKtUQKy8ekCyu8BTpp": "2026-11-04T22:52+03:00",
   "1eww9Vvjb_m9JhLIMFLFn8JtiDB8nLddz": "2026-11-05T01:28+03:00",
@@ -1811,6 +1811,20 @@
    "place": "",
    "text_pos": "bottom",
    "dur": 25.33,
+   "v": 4
+  },
+  "13cti3LWYsXUCr-0K14bJGiYd5GMOfRM_": {
+   "text": "SANAT SOKAĞI VAN",
+   "greeting": "",
+   "other_page": false,
+   "page": "",
+   "music": true,
+   "own_boxes": [],
+   "ar": 0.5625,
+   "scene": "خیابان عابر پیاده و شلوغ «سنت سوکاغی» در شهر وان هنگام غروب، با مردم در حال قدم زدن، چراغ‌های تزئینی و مجسمهٔ گربه",
+   "place": "خیابان هنر (Sanat Sokağı) وان",
+   "text_pos": "top",
+   "dur": 30.7,
    "v": 4
   }
  },
