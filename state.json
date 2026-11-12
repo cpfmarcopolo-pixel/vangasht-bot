@@ -3,12 +3,6 @@
  "story": 1,
  "log": [
   {
-   "at": "2026-11-07T18:54+03:00",
-   "slot": "s8",
-   "item": "s8:پرواز ماهی‌ها بر آبشار 🐟",
-   "media": "18118830338162637"
-  },
-  {
    "at": "2026-11-07T19:54+03:00",
    "slot": "p2",
    "item": "tour:vangezi.mp4",
@@ -361,6 +355,12 @@
    "slot": "s9",
    "item": "todayposts",
    "media": "18212936599366899"
+  },
+  {
+   "at": "2026-11-12T22:55+03:00",
+   "slot": "s10",
+   "item": "s10:شب بخیر",
+   "media": "18001821356847457"
   }
  ],
  "media_done": [
@@ -744,7 +744,8 @@
   "17jqoyzWiA1XqxfAzQSvumx8ML0cWDSIo": "2026-11-11T22:52+03:00",
   "1rKe_1cnIv2MjmoBg8JTIAMzjvbRR9djC": "2026-11-12T08:52+03:00",
   "1F-_Cktt_BJ-eUipHaTo6dlOFOm87KAUB": "2026-11-12T15:52+03:00",
-  "1VZRypfqab_B2w-YW9rYKKRMtDhv93qLV": "2026-11-12T18:53+03:00"
+  "1VZRypfqab_B2w-YW9rYKKRMtDhv93qLV": "2026-11-12T18:53+03:00",
+  "1ffac4Km2vLb-jMiaCy-QVrGpbOYmW8Zf": "2026-11-12T22:52+03:00"
  },
  "vlog_i": 8,
  "card_log": {
@@ -1848,6 +1849,20 @@
    "text_pos": "top",
    "dur": 12.42,
    "v": 4
+  },
+  "1ffac4Km2vLb-jMiaCy-QVrGpbOYmW8Zf": {
+   "text": "",
+   "greeting": "",
+   "other_page": false,
+   "page": "",
+   "music": true,
+   "own_boxes": [],
+   "ar": 0.5625,
+   "scene": "کوچه‌ای شلوغ و پر از کافه در شب، با چتر‌های رنگارنگ آویزان بالای سر، نورهای تزئینی و چند رهگذر",
+   "place": "",
+   "text_pos": "",
+   "dur": 13.16,
+   "v": 4
   }
  },
  "skipped_files": {
@@ -1865,7 +1880,7 @@
  },
  "replied_comments": [],
  "s1_g": 5,
- "s10_g": 4,
+ "s10_g": 5,
  "reply_error": {
   "at": "2026-11-11T15:56+03:00",
   "error": "Instagram API error 400 on 17957356149032007/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"AqWeiC9abyiijcSMgoDcNU6\"}}"
