@@ -3,12 +3,6 @@
  "story": 1,
  "log": [
   {
-   "at": "2026-11-07T12:57+03:00",
-   "slot": "s4",
-   "item": "s4:وان را بی‌دغدغه سفر کن",
-   "media": "18135826573680233"
-  },
-  {
    "at": "2026-11-07T14:28+03:00",
    "slot": "s5",
    "item": "s5:کف و رقص روی آب 🫧",
@@ -361,6 +355,12 @@
    "slot": "s6",
    "item": "s6:کیا قلعه‌گردی دوست دارن؟",
    "media": "18087679913324478"
+  },
+  {
+   "at": "2026-11-12T17:27+03:00",
+   "slot": "s7",
+   "item": "vlog",
+   "media": "18107374706639797"
   }
  ],
  "media_done": [
@@ -609,13 +609,13 @@
   "d:11Do1EatdSuSKZVVwYdLAW9mBmZeCounP": 2,
   "d:12JwOz4uxPQYTMoi8xyBKDpDWPpx2TYf0": 2,
   "d:1MBdeSYRkbiGnZ94EKUv5ABUw7lazMSj1": 2,
-  "d:1poTvlvN-PsJ7tYdIWLLg6Eb55b8kuHr3": 6,
-  "d:1XXPmSKgZefrKBOGiDkECLEdZT6Ya7PgT": 6,
-  "d:12BZ_878euoOPlDXiLpdKo3HJ0SCXWVYU": 6,
-  "d:1bo0YmDNzhEip85Za264BAWb_mft352wX": 6,
-  "d:1-FVfIeiZZjXFJAzJ5gMN5MVC9fpT6_9n": 6,
-  "d:17hKiV-WnBt1mRwctml8gDA-1w8Zc9BOB": 6,
-  "d:1IrRS6actyxKTVFTaMyP0Y5ywOSa5NJ5K": 6,
+  "d:1poTvlvN-PsJ7tYdIWLLg6Eb55b8kuHr3": 7,
+  "d:1XXPmSKgZefrKBOGiDkECLEdZT6Ya7PgT": 7,
+  "d:12BZ_878euoOPlDXiLpdKo3HJ0SCXWVYU": 7,
+  "d:1bo0YmDNzhEip85Za264BAWb_mft352wX": 7,
+  "d:1-FVfIeiZZjXFJAzJ5gMN5MVC9fpT6_9n": 7,
+  "d:17hKiV-WnBt1mRwctml8gDA-1w8Zc9BOB": 7,
+  "d:1IrRS6actyxKTVFTaMyP0Y5ywOSa5NJ5K": 7,
   "d:1IfLfe4mk-IqOIQfMH5GbmHbt6dMofPI4": 2,
   "d:1BAzcC5cJo8RuCDQGRJhvpJkG0ST_4ohZ": 2,
   "d:1tBlkQmkQ2xPHTJAPkhabCvnR5Sr6d-fH": 2,
@@ -624,7 +624,7 @@
   "d:1bDgVWWnG5aIspEdaPExCcujAepvMjEZU": 2,
   "d:1hSllDF9-sic6ZUoRtqP0Xhf_mREB4Nl4": 2,
   "d:1CvUTnXD3QUZ8hQK9yL8jFy3j_f1kUx1k": 2,
-  "d:1vbtxtSE2TV6B6zcn-1iWcb2p6h19RTN9": 5,
+  "d:1vbtxtSE2TV6B6zcn-1iWcb2p6h19RTN9": 6,
   "d:1OwkaSEMVxmoonpwNJeywCs00IWMaK4Oq": 2,
   "d:1aHbd8D8YhLiNVKeHNxlzDu3bfBdBSBH7": 2,
   "d:1rb-AxtA9PPnx0zC9mGaTx7eDEW4H0WH6": 2,
@@ -643,37 +643,37 @@
   "d:1n9fLT_yIcGtzNYregRdmjZPqpQ5uZaBm": 2
  },
  "pexels_used": [
-  "x4730",
-  "x371424",
-  "x140186",
-  "x170912",
-  "x7262",
-  "x25",
-  "x118768",
-  "x84906",
-  "x34971",
-  "x50622",
-  "x273476",
-  "x156103",
-  "x236256",
-  "x173358",
-  "x222349",
-  "x381054",
+  "x119190",
   "x31550",
   "x149938",
-  "x11284",
+  "x84906",
   "x267036",
+  "x140186",
+  "x7262",
+  "x273476",
+  "x4730",
+  "x173358",
   "x71747",
+  "x34971",
+  "x381054",
+  "x371424",
+  "x11284",
+  "x156103",
+  "x2576",
   "x79899",
   "x67201",
-  "x119190",
-  "x2576"
+  "x50622",
+  "x236256",
+  "x25",
+  "x222349",
+  "x118768",
+  "x170912"
  ],
  "music_last": {
   "1DZTJ4ef0yYVG2xdl3IlbrnmWhvTIImvs": "2026-11-12T12:52+03:00",
   "1dkR0sggYnJv6PAPhkKiPNI1Qbu5nbVwi": "2026-11-11T20:52+03:00",
   "1fp4Ah5iQfFhH9Wv8srgJdSKSlru0RDHO": "2026-11-12T11:53+03:00",
-  "1QUXCTr3hAjvM090ZbkBDmL190dxM9yXG": "2026-11-11T12:52+03:00",
+  "1QUXCTr3hAjvM090ZbkBDmL190dxM9yXG": "2026-11-12T17:23+03:00",
   "r_16OqrXYzWRF5c20HNKbjBoWNaa_6pT9tp": "2026-11-04T00:15+03:00",
   "r_1l3THmi6GjqfKpjoZlRy25On7rsx6vdso": "2026-11-04T10:50+03:00"
  },
@@ -745,7 +745,7 @@
   "1rKe_1cnIv2MjmoBg8JTIAMzjvbRR9djC": "2026-11-12T08:52+03:00",
   "1F-_Cktt_BJ-eUipHaTo6dlOFOm87KAUB": "2026-11-12T15:52+03:00"
  },
- "vlog_i": 5,
+ "vlog_i": 8,
  "card_log": {
   "s1": [
    "صبح بخیر چهارشنبه؛ پیشنهاد صبحانهٔ وانی",
@@ -1830,6 +1830,20 @@
    "place": "خیابان هنر (Sanat Sokağı) وان",
    "text_pos": "top",
    "dur": 30.7,
+   "v": 4
+  },
+  "1XXPmSKgZefrKBOGiDkECLEdZT6Ya7PgT": {
+   "text": "AKDAMAR ADASI",
+   "greeting": "",
+   "other_page": false,
+   "page": "",
+   "music": true,
+   "own_boxes": [],
+   "ar": 0.5607476635514018,
+   "scene": "شاخهٔ پرشکوفهٔ بادام در قاب، جزیرهٔ آکدامار با کلیسا و اسکله روی دریاچهٔ فیروزه‌ای وان، کوه برفی؛ روز بهاری",
+   "place": "جزیرهٔ آکدامار",
+   "text_pos": "top",
+   "dur": 12.42,
    "v": 4
   }
  },
