@@ -3,12 +3,6 @@
  "story": 1,
  "log": [
   {
-   "at": "2026-11-08T15:55+03:00",
-   "slot": "s6",
-   "item": "s6:جزیره یا آبشار؟",
-   "media": "18178061638445732"
-  },
-  {
    "at": "2026-11-08T17:26+03:00",
    "slot": "s7",
    "item": "vlog",
@@ -361,6 +355,12 @@
    "slot": "s8",
    "item": "s8:اِرِک؛ وان از بالا 🏔",
    "media": "18346606759280495"
+  },
+  {
+   "at": "2026-11-13T19:41+03:00",
+   "slot": "p2",
+   "item": "tour:Untitled",
+   "media": "17925579705223334"
   }
  ],
  "media_done": [
@@ -679,7 +679,7 @@
  ],
  "music_last": {
   "1DZTJ4ef0yYVG2xdl3IlbrnmWhvTIImvs": "2026-11-13T12:52+03:00",
-  "1dkR0sggYnJv6PAPhkKiPNI1Qbu5nbVwi": "2026-11-12T20:53+03:00",
+  "1dkR0sggYnJv6PAPhkKiPNI1Qbu5nbVwi": "2026-11-13T19:38+03:00",
   "1fp4Ah5iQfFhH9Wv8srgJdSKSlru0RDHO": "2026-11-13T11:53+03:00",
   "1QUXCTr3hAjvM090ZbkBDmL190dxM9yXG": "2026-11-13T17:23+03:00",
   "r_16OqrXYzWRF5c20HNKbjBoWNaa_6pT9tp": "2026-11-04T00:15+03:00",
@@ -692,7 +692,7 @@
   "1l3THmi6GjqfKpjoZlRy25On7rsx6vdso": "2026-11-04T10:50+03:00",
   "1spub-PVCRgyWNIOKtUQKy8ekCyu8BTpp": "2026-11-04T22:52+03:00",
   "1eww9Vvjb_m9JhLIMFLFn8JtiDB8nLddz": "2026-11-05T01:28+03:00",
-  "1i-gDjubpjs_pZodC-V1PWWBqmgaAqgf4": "2026-11-09T13:37+03:00",
+  "1i-gDjubpjs_pZodC-V1PWWBqmgaAqgf4": "2026-11-13T19:37+03:00",
   "1vb6bRaRQ2BChS41iAPHAhyaRWtEfP-kA": "2026-11-05T01:31+03:00",
   "1U1ZO1_RPVlMbxTxTT4UgwViB9lg5-YvT": "2026-11-05T01:32+03:00",
   "1T7kkhCbRPAkU3hkd4BZcudSUVKQgF9Ei": "2026-11-05T01:32+03:00",
@@ -844,7 +844,8 @@
    "تور فستیوال رنگ: موسیقی، پودرهای رنگی و ",
    "کف‌پارتی روی عرشهٔ کشتی‌های تفریحی دریاچ",
    "نگاهی کلی به حال‌وهوای تورهای وان گشت",
-   "جمع شاد و دست‌زدن زیر سایبان‌های قرمز کا"
+   "جمع شاد و دست‌زدن زیر سایبان‌های قرمز کا",
+   "ویدیوی تور کشتی‌های بزرگ تفریحی؛ قایق دو"
   ]
  },
  "s4_i": 1,
@@ -2024,8 +2025,8 @@
  "s1_g": 6,
  "s10_g": 5,
  "reply_error": {
-  "at": "2026-11-13T18:57+03:00",
-  "error": "Instagram API error 400 on 17946876786361148/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"A4Gjhow6_Qt-gwd8qCOGmlB\"}}"
+  "at": "2026-11-13T19:41+03:00",
+  "error": "Instagram API error 400 on 17946876786361148/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"AuHwE3vd4TlrnaK6mE5Mvpp\"}}"
  },
  "smart_times": {
   "at": "2026-11-09T08:54+03:00",
