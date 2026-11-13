@@ -3,12 +3,6 @@
  "story": 1,
  "log": [
   {
-   "at": "2026-11-08T08:57+03:00",
-   "slot": "s1",
-   "item": "s1:صبحتون بخیر",
-   "media": "18499016422109403"
-  },
-  {
    "at": "2026-11-08T11:05+03:00",
    "slot": "s2",
    "item": "rates",
@@ -361,6 +355,12 @@
    "slot": "s3",
    "item": "vlog",
    "media": "18194566042404531"
+  },
+  {
+   "at": "2026-11-13T12:57+03:00",
+   "slot": "s4",
+   "item": "s4:لیر لازمه؟ کارتت رو بیار",
+   "media": "18361295977217458"
   }
  ],
  "media_done": [
@@ -678,7 +678,7 @@
   "x149938"
  ],
  "music_last": {
-  "1DZTJ4ef0yYVG2xdl3IlbrnmWhvTIImvs": "2026-11-12T12:52+03:00",
+  "1DZTJ4ef0yYVG2xdl3IlbrnmWhvTIImvs": "2026-11-13T12:52+03:00",
   "1dkR0sggYnJv6PAPhkKiPNI1Qbu5nbVwi": "2026-11-12T20:53+03:00",
   "1fp4Ah5iQfFhH9Wv8srgJdSKSlru0RDHO": "2026-11-13T11:53+03:00",
   "1QUXCTr3hAjvM090ZbkBDmL190dxM9yXG": "2026-11-12T17:23+03:00",
@@ -777,7 +777,8 @@
    "تبدیل تومان به لیر در وان: راهنمای صرافی",
    "بهترین زمان سفر به وان و جاهای دیدنی",
    "اقامت در وان: هتل یا سوئیت مبله برای خان",
-   "جزیرهٔ آکدامار: کشتی، بلیت و بهترین زمان"
+   "جزیرهٔ آکدامار: کشتی، بلیت و بهترین زمان",
+   "صرافی وان گشت: تبدیل ارز با کارتخوان ایر"
   ],
   "s5": [
    "تور کشتی‌های بزرگ تفریحی دریاچه وان",
@@ -840,7 +841,7 @@
    "نگاهی کلی به حال‌وهوای تورهای وان گشت"
   ]
  },
- "s4_i": 11,
+ "s4_i": 1,
  "s5_i": 1,
  "s8_i": 9,
  "clip_info": {
@@ -2017,8 +2018,8 @@
  "s1_g": 6,
  "s10_g": 5,
  "reply_error": {
-  "at": "2026-11-13T11:57+03:00",
-  "error": "Instagram API error 400 on 17946876786361148/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"AMQPaaX3Sa3W5R3DPs413aH\"}}"
+  "at": "2026-11-13T12:57+03:00",
+  "error": "Instagram API error 400 on 17946876786361148/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"ARp7yTKG4prjdLclAHIyxxw\"}}"
  },
  "smart_times": {
   "at": "2026-11-09T08:54+03:00",
