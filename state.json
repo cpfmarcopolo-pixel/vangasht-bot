@@ -3,12 +3,6 @@
  "story": 1,
  "log": [
   {
-   "at": "2026-11-08T18:55+03:00",
-   "slot": "s8",
-   "item": "s8:خیابان صبحانه؛ بشقاب‌های بی‌شمار 🍯",
-   "media": "18641673868004660"
-  },
-  {
    "at": "2026-11-08T19:55+03:00",
    "slot": "p2",
    "item": "tour:Untitled",
@@ -361,6 +355,12 @@
    "slot": "s9",
    "item": "todayposts",
    "media": "17977656732154908"
+  },
+  {
+   "at": "2026-11-13T22:56+03:00",
+   "slot": "s10",
+   "item": "s10:شبتون آروم",
+   "media": "18094452092214099"
   }
  ],
  "media_done": [
@@ -756,7 +756,8 @@
   "1ffac4Km2vLb-jMiaCy-QVrGpbOYmW8Zf": "2026-11-12T22:52+03:00",
   "1UteFg3L9sQaUETQjnTt6Yxkm1zGkwaQv": "2026-11-13T08:52+03:00",
   "1pBeuy6_ZMonVRDn0mB7PscSPFZ6ALJlS": "2026-11-13T15:52+03:00",
-  "1aSAL6v2hX5ZK-5XQLO9OXxmbeRQ7i9jq": "2026-11-13T18:52+03:00"
+  "1aSAL6v2hX5ZK-5XQLO9OXxmbeRQ7i9jq": "2026-11-13T18:52+03:00",
+  "1IM8F1t-HPmG9v8vpGsYXxWAScZ_Fggr9": "2026-11-13T22:52+03:00"
  },
  "vlog_i": 4,
  "card_log": {
@@ -2023,10 +2024,10 @@
  },
  "replied_comments": [],
  "s1_g": 6,
- "s10_g": 5,
+ "s10_g": 6,
  "reply_error": {
-  "at": "2026-11-13T20:57+03:00",
-  "error": "Instagram API error 400 on 17946876786361148/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"AChudBa2mbsrPG3dj6Mmhuy\"}}"
+  "at": "2026-11-13T22:56+03:00",
+  "error": "Instagram API error 400 on 17946876786361148/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"AT32MniLIp6TTKNrSNN8dj6\"}}"
  },
  "smart_times": {
   "at": "2026-11-09T08:54+03:00",
