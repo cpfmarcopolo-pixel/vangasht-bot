@@ -1,9 +1,10 @@
 {
- "slot": "s6",
+ "slot": "s7",
  "file": null,
  "caption": null,
  "advance": null,
- "item": "s6:این قله اسمش چیه؟",
- "video": "dl/2026-11-13-s6-ig.mp4",
- "done": true
+ "item": "vlog",
+ "video": "dl/2026-11-13-s7-ig.mp4",
+ "reel": false,
+ "done": null
 }
