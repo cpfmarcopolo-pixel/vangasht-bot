@@ -3,12 +3,6 @@
  "story": 1,
  "log": [
   {
-   "at": "2026-11-07T22:54+03:00",
-   "slot": "s10",
-   "item": "s10:شبتون به آرامی دریاچه 🌙",
-   "media": "18030235163869690"
-  },
-  {
    "at": "2026-11-08T08:57+03:00",
    "slot": "s1",
    "item": "s1:صبحتون بخیر",
@@ -361,6 +355,12 @@
    "slot": "s2",
    "item": "rates",
    "media": "18192165352416982"
+  },
+  {
+   "at": "2026-11-13T11:57+03:00",
+   "slot": "s3",
+   "item": "vlog",
+   "media": "18194566042404531"
   }
  ],
  "media_done": [
@@ -640,39 +640,47 @@
   "d:1RLsbDL-U0r1NzKQasCYcdwdAjiJTEcJF": 2,
   "d:1eWpZYx-6f0UCVeNkA6NKGr119tfsli8o": 2,
   "d:1R-TUUlG6O6qXB_IsHz2P9Tz61Aq9ulT3": 2,
-  "d:1n9fLT_yIcGtzNYregRdmjZPqpQ5uZaBm": 2
+  "d:1n9fLT_yIcGtzNYregRdmjZPqpQ5uZaBm": 2,
+  "d:1UrXpU42cUwwZzhH9ooH_XbXEcJcW4Ikn": 1,
+  "d:1J-3DucT50lu11s9wrJPEmduSGIDR8bAg": 1,
+  "d:1rIvKD3WSZDUI_RiYJAWqg9-sqqcXONKw": 1,
+  "d:1o2o6nxkEsIIpQZtKpu11OGerPo-kMNAb": 1,
+  "d:1SCCLUtrH2n5RV6jQ8hZX8hgHBEnXEzxO": 1,
+  "d:1xs-J1CBH0Lecj8TgxcsEzv-eGj0maX6P": 1,
+  "d:1fvjbBybiQ2lD1eALB61s6LXyV5sXHGDN": 1,
+  "d:1-36_no9ByNxjyl11RZHoErZ2yp9TZwbv": 1
  },
  "pexels_used": [
   "x119190",
-  "x31550",
-  "x149938",
-  "x84906",
-  "x267036",
-  "x140186",
-  "x7262",
-  "x273476",
-  "x4730",
   "x173358",
   "x71747",
-  "x34971",
-  "x381054",
-  "x371424",
-  "x11284",
-  "x156103",
   "x2576",
-  "x79899",
+  "x84906",
   "x67201",
-  "x50622",
-  "x236256",
-  "x25",
-  "x222349",
+  "x267036",
   "x118768",
-  "x170912"
+  "x25",
+  "x31550",
+  "x156103",
+  "x34971",
+  "x236256",
+  "x381054",
+  "x50622",
+  "x273476",
+  "x371424",
+  "x140186",
+  "x11284",
+  "x7262",
+  "x222349",
+  "x79899",
+  "x170912",
+  "x4730",
+  "x149938"
  ],
  "music_last": {
   "1DZTJ4ef0yYVG2xdl3IlbrnmWhvTIImvs": "2026-11-12T12:52+03:00",
   "1dkR0sggYnJv6PAPhkKiPNI1Qbu5nbVwi": "2026-11-12T20:53+03:00",
-  "1fp4Ah5iQfFhH9Wv8srgJdSKSlru0RDHO": "2026-11-12T11:53+03:00",
+  "1fp4Ah5iQfFhH9Wv8srgJdSKSlru0RDHO": "2026-11-13T11:53+03:00",
   "1QUXCTr3hAjvM090ZbkBDmL190dxM9yXG": "2026-11-12T17:23+03:00",
   "r_16OqrXYzWRF5c20HNKbjBoWNaa_6pT9tp": "2026-11-04T00:15+03:00",
   "r_1l3THmi6GjqfKpjoZlRy25On7rsx6vdso": "2026-11-04T10:50+03:00"
@@ -748,7 +756,7 @@
   "1ffac4Km2vLb-jMiaCy-QVrGpbOYmW8Zf": "2026-11-12T22:52+03:00",
   "1UteFg3L9sQaUETQjnTt6Yxkm1zGkwaQv": "2026-11-13T08:52+03:00"
  },
- "vlog_i": 8,
+ "vlog_i": 11,
  "card_log": {
   "s1": [
    "صبح بخیر چهارشنبه؛ پیشنهاد صبحانهٔ وانی",
@@ -1878,6 +1886,118 @@
    "text_pos": "",
    "dur": 90.14,
    "v": 4
+  },
+  "1UrXpU42cUwwZzhH9ooH_XbXEcJcW4Ikn": {
+   "text": "",
+   "greeting": "",
+   "other_page": false,
+   "page": "",
+   "music": false,
+   "own_boxes": [],
+   "ar": 1.3333333333333333,
+   "scene": "قفسه‌ی شیشه‌ای فروشگاه شکلات و آبنبات فله‌ای در ترکیه با شکلات‌ها و دراژه‌های رنگارنگ و ملاقه‌ی فلزی، فضای داخلی و روشن",
+   "place": "",
+   "text_pos": "",
+   "dur": 0,
+   "v": 4
+  },
+  "1J-3DucT50lu11s9wrJPEmduSGIDR8bAg": {
+   "text": "",
+   "greeting": "",
+   "other_page": false,
+   "page": "",
+   "music": false,
+   "own_boxes": [],
+   "ar": 1.3333333333333333,
+   "scene": "ویترین پر از آبنبات ژله‌ای و گامی رنگارنگ در یک مغازهٔ شیرینی و خشکبار، در فضای داخلی و روشن",
+   "place": "",
+   "text_pos": "",
+   "dur": 0,
+   "v": 4
+  },
+  "1rIvKD3WSZDUI_RiYJAWqg9-sqqcXONKw": {
+   "text": "",
+   "greeting": "",
+   "other_page": false,
+   "page": "",
+   "music": false,
+   "own_boxes": [],
+   "ar": 1.3333333333333333,
+   "scene": "ویترین بزرگ آب‌نبات و پاستیل در یک مغازهٔ شیرینی‌فروشی؛ پاستیل‌های رنگارنگ قرمز، سبز، آبی، نارنجی، مشکی و سفید با ملاقهٔ فلزی، فضای داخلی و ",
+   "place": "",
+   "text_pos": "",
+   "dur": 0,
+   "v": 4
+  },
+  "1o2o6nxkEsIIpQZtKpu11OGerPo-kMNAb": {
+   "text": "",
+   "greeting": "",
+   "other_page": false,
+   "page": "",
+   "music": false,
+   "own_boxes": [],
+   "ar": 1.3333333333333333,
+   "scene": "قفسهٔ فروشگاه شیرینی و آجیل با شکلات تکه‌ای، آبنبات‌های رنگی و راحت‌الحلقوم سفید، در فضای داخلی و زیر نور مصنوعی",
+   "place": "",
+   "text_pos": "",
+   "dur": 0,
+   "v": 4
+  },
+  "1SCCLUtrH2n5RV6jQ8hZX8hgHBEnXEzxO": {
+   "text": "",
+   "greeting": "",
+   "other_page": false,
+   "page": "",
+   "music": false,
+   "own_boxes": [],
+   "ar": 1.3333333333333333,
+   "scene": "ویترین یک مغازهٔ شیرینی و آجیل با دسته‌های مکعبی لوکوم (راحت‌الحلقوم) سفید، بنفش و زرد در روز",
+   "place": "",
+   "text_pos": "",
+   "dur": 0,
+   "v": 4
+  },
+  "1fvjbBybiQ2lD1eALB61s6LXyV5sXHGDN": {
+   "text": "",
+   "greeting": "",
+   "other_page": false,
+   "page": "",
+   "music": false,
+   "own_boxes": [],
+   "ar": 1.3333333333333333,
+   "scene": "vitrin یک شیرینی‌فروشی ترکیه با سوجوق گردویی و توپ‌های شیرینی در سینی‌های شیشه‌ای، داخل مغازه، بدون آدم",
+   "place": "",
+   "text_pos": "",
+   "dur": 0,
+   "v": 4
+  },
+  "1-36_no9ByNxjyl11RZHoErZ2yp9TZwbv": {
+   "text": "",
+   "greeting": "",
+   "other_page": false,
+   "page": "",
+   "music": false,
+   "own_boxes": [],
+   "ar": 1.3333333333333333,
+   "scene": "ویترین یک شیرینی‌فروشی با ظرف‌های لوکوم و شیرینی‌های سنتی ترکی در رنگ‌های نارنجی و قهوه‌ای، در فضای داخلی و زیر نور مصنوعی",
+   "place": "",
+   "text_pos": "",
+   "dur": 0,
+   "v": 4
+  },
+  "1Kcx8HlqZ4lWoLXIItnHDmJSMEUFuBmug": {
+   "text": "",
+   "greeting": "",
+   "other_page": false,
+   "page": "",
+   "music": false,
+   "own_boxes": [],
+   "ar": 0.75,
+   "scene": "پیاده‌رو و خیابانی در شهر در روز ابری پاییزی با برف روی ماشین‌ها، برگ‌های خشک و درختان",
+   "place": "",
+   "text_pos": "",
+   "dur": 0,
+   "v": 4
   }
  },
  "skipped_files": {
@@ -1897,8 +2017,8 @@
  "s1_g": 6,
  "s10_g": 5,
  "reply_error": {
-  "at": "2026-11-11T15:56+03:00",
-  "error": "Instagram API error 400 on 17957356149032007/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"AqWeiC9abyiijcSMgoDcNU6\"}}"
+  "at": "2026-11-13T11:57+03:00",
+  "error": "Instagram API error 400 on 17946876786361148/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"AMQPaaX3Sa3W5R3DPs413aH\"}}"
  },
  "smart_times": {
   "at": "2026-11-09T08:54+03:00",
