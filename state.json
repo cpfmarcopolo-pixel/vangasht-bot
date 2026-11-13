@@ -3,12 +3,6 @@
  "story": 1,
  "log": [
   {
-   "at": "2026-11-08T11:57+03:00",
-   "slot": "s3",
-   "item": "vlog",
-   "media": "18076845812564746"
-  },
-  {
    "at": "2026-11-08T12:57+03:00",
    "slot": "s4",
    "item": "s4:کجای وان خرید کنیم؟ 🛍",
@@ -361,6 +355,12 @@
    "slot": "s5",
    "item": "s5:ریتم شادی، زیر آفتاب 🎶",
    "media": "18232359235329174"
+  },
+  {
+   "at": "2026-11-13T15:58+03:00",
+   "slot": "s6",
+   "item": "s6:این قله اسمش چیه؟",
+   "media": "17907691623355714"
   }
  ],
  "media_done": [
@@ -754,7 +754,8 @@
   "1F-_Cktt_BJ-eUipHaTo6dlOFOm87KAUB": "2026-11-12T15:52+03:00",
   "1VZRypfqab_B2w-YW9rYKKRMtDhv93qLV": "2026-11-12T18:53+03:00",
   "1ffac4Km2vLb-jMiaCy-QVrGpbOYmW8Zf": "2026-11-12T22:52+03:00",
-  "1UteFg3L9sQaUETQjnTt6Yxkm1zGkwaQv": "2026-11-13T08:52+03:00"
+  "1UteFg3L9sQaUETQjnTt6Yxkm1zGkwaQv": "2026-11-13T08:52+03:00",
+  "1pBeuy6_ZMonVRDn0mB7PscSPFZ6ALJlS": "2026-11-13T15:52+03:00"
  },
  "vlog_i": 11,
  "card_log": {
@@ -805,7 +806,8 @@
    "لالهٔ واژگون (اشک مریم) در دامنهٔ بهاری",
    "کیا دوست دارن؟ آکدامار، قایق و شکوفه‌های",
    "سؤال از شما: حس غروب کنار دریاچه با فرود",
-   "کیا دوست دارن؟ قلعه‌گردی در خوشاب"
+   "کیا دوست دارن؟ قلعه‌گردی در خوشاب",
+   "حدس بزن: نام قلهٔ آتشفشانی کنار دریاچهٔ "
   ],
   "s8": [
    "جزیرهٔ آکدامار",
@@ -2020,8 +2022,8 @@
  "s1_g": 6,
  "s10_g": 5,
  "reply_error": {
-  "at": "2026-11-13T14:29+03:00",
-  "error": "Instagram API error 400 on 17946876786361148/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"Al9cXxsxQoTnUJ4BDpCcemR\"}}"
+  "at": "2026-11-13T15:58+03:00",
+  "error": "Instagram API error 400 on 17946876786361148/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"ABNCkuy5b4gaUNmsewBJBnA\"}}"
  },
  "smart_times": {
   "at": "2026-11-09T08:54+03:00",
