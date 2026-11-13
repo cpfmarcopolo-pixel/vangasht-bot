@@ -3,12 +3,6 @@
  "story": 1,
  "log": [
   {
-   "at": "2026-11-08T14:25+03:00",
-   "slot": "s5",
-   "item": "s5:یه روز آفتابی، پر از شادی 🎶",
-   "media": "18103476032543928"
-  },
-  {
    "at": "2026-11-08T15:55+03:00",
    "slot": "s6",
    "item": "s6:جزیره یا آبشار؟",
@@ -361,6 +355,12 @@
    "slot": "s7",
    "item": "vlog",
    "media": "18102704249553895"
+  },
+  {
+   "at": "2026-11-13T18:56+03:00",
+   "slot": "s8",
+   "item": "s8:اِرِک؛ وان از بالا 🏔",
+   "media": "18346606759280495"
   }
  ],
  "media_done": [
@@ -755,7 +755,8 @@
   "1VZRypfqab_B2w-YW9rYKKRMtDhv93qLV": "2026-11-12T18:53+03:00",
   "1ffac4Km2vLb-jMiaCy-QVrGpbOYmW8Zf": "2026-11-12T22:52+03:00",
   "1UteFg3L9sQaUETQjnTt6Yxkm1zGkwaQv": "2026-11-13T08:52+03:00",
-  "1pBeuy6_ZMonVRDn0mB7PscSPFZ6ALJlS": "2026-11-13T15:52+03:00"
+  "1pBeuy6_ZMonVRDn0mB7PscSPFZ6ALJlS": "2026-11-13T15:52+03:00",
+  "1aSAL6v2hX5ZK-5XQLO9OXxmbeRQ7i9jq": "2026-11-13T18:52+03:00"
  },
  "vlog_i": 4,
  "card_log": {
@@ -818,7 +819,8 @@
    "خیابان صبحانهٔ وان",
    "جزیرهٔ چارپاناک",
    "جاذبهٔ امروز: آبشار مرادیه (نمای هوایی)",
-   "دریاچهٔ ارچک"
+   "دریاچهٔ ارچک",
+   "کوه ارک؛ منظرهٔ شهر و دریاچه از بالا"
   ],
   "s10": [
    "استوری شب بخیر چهارشنبه ۱۳ آبان",
@@ -847,7 +849,7 @@
  },
  "s4_i": 1,
  "s5_i": 2,
- "s8_i": 9,
+ "s8_i": 10,
  "clip_info": {
   "1eww9Vvjb_m9JhLIMFLFn8JtiDB8nLddz": {
    "text": "",
@@ -2022,8 +2024,8 @@
  "s1_g": 6,
  "s10_g": 5,
  "reply_error": {
-  "at": "2026-11-13T17:27+03:00",
-  "error": "Instagram API error 400 on 17946876786361148/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"AgpPn-FkXP62i7gH0VgG6JO\"}}"
+  "at": "2026-11-13T18:57+03:00",
+  "error": "Instagram API error 400 on 17946876786361148/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"A4Gjhow6_Qt-gwd8qCOGmlB\"}}"
  },
  "smart_times": {
   "at": "2026-11-09T08:54+03:00",
