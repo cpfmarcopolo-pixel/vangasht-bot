@@ -3,12 +3,6 @@
  "story": 1,
  "log": [
   {
-   "at": "2026-11-07T20:54+03:00",
-   "slot": "s9",
-   "item": "todayposts",
-   "media": "18119531963327750"
-  },
-  {
    "at": "2026-11-07T22:54+03:00",
    "slot": "s10",
    "item": "s10:شبتون به آرامی دریاچه 🌙",
@@ -361,6 +355,12 @@
    "slot": "s1",
    "item": "s1:صبحتون قشنگ",
    "media": "18122354530976879"
+  },
+  {
+   "at": "2026-11-13T11:03+03:00",
+   "slot": "s2",
+   "item": "rates",
+   "media": "18192165352416982"
   }
  ],
  "media_done": [
@@ -694,7 +694,7 @@
   "1o8hbi7E2vAtMtsMU6a7GeQQhmSEYCClV": "2026-11-05T01:53+03:00",
   "1gwYcT8y4c6oNyO7zRqCKWKLkrKa0fDP8": "2026-11-05T01:54+03:00",
   "1G9DLnYaWoH8yTpJJvcwFRvTOhC9FFrK7": "2026-11-05T08:52+03:00",
-  "1lpZ82SZHRhiU7wmo0kGWV9O587NMeLRz": "2026-11-05T11:01+03:00",
+  "1lpZ82SZHRhiU7wmo0kGWV9O587NMeLRz": "2026-11-13T11:01+03:00",
   "1cFbuOWVaetKLwBJ4q5btcoEE50TfA1c9": "2026-11-09T19:37+03:00",
   "11YaI4p2ZI-qjNXQ4bXRuejBf-UFAXDKR": "2026-11-05T15:53+03:00",
   "1BTYvwOgAh6duGg1HaS0o2OwIN5pQA7PF": "2026-11-05T23:02+03:00",
