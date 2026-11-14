@@ -3,12 +3,6 @@
  "story": 1,
  "log": [
   {
-   "at": "2026-11-09T17:27+03:00",
-   "slot": "s7",
-   "item": "vlog",
-   "media": "18133637551690233"
-  },
-  {
    "at": "2026-11-09T18:57+03:00",
    "slot": "s8",
    "item": "s8:چارپاناک؛ جزیرهٔ آرام دریاچه 🌿",
@@ -361,6 +355,12 @@
    "slot": "p2",
    "item": "tour:granddeniz65_e342f997abed4f64afe7b12b72a",
    "media": "17958634359278362"
+  },
+  {
+   "at": "2026-11-14T20:57+03:00",
+   "slot": "s9",
+   "item": "todayposts",
+   "media": "18001134536824872"
   }
  ],
  "media_done": [
@@ -691,7 +691,7 @@
  "music_last": {
   "1DZTJ4ef0yYVG2xdl3IlbrnmWhvTIImvs": "2026-11-14T11:53+03:00",
   "1dkR0sggYnJv6PAPhkKiPNI1Qbu5nbVwi": "2026-11-14T17:23+03:00",
-  "1fp4Ah5iQfFhH9Wv8srgJdSKSlru0RDHO": "2026-11-13T20:53+03:00",
+  "1fp4Ah5iQfFhH9Wv8srgJdSKSlru0RDHO": "2026-11-14T20:53+03:00",
   "1QUXCTr3hAjvM090ZbkBDmL190dxM9yXG": "2026-11-14T12:52+03:00",
   "r_16OqrXYzWRF5c20HNKbjBoWNaa_6pT9tp": "2026-11-04T00:15+03:00",
   "r_1l3THmi6GjqfKpjoZlRy25On7rsx6vdso": "2026-11-04T10:50+03:00"
@@ -2250,8 +2250,8 @@
  "s1_g": 7,
  "s10_g": 6,
  "reply_error": {
-  "at": "2026-11-14T19:43+03:00",
-  "error": "Instagram API error 400 on 17946876786361148/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"A1eL7k9F9onnEfQTjVKD4iC\"}}"
+  "at": "2026-11-14T20:57+03:00",
+  "error": "Instagram API error 400 on 17946876786361148/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"AC0XJXZHJjwo-pVKZHs1z4A\"}}"
  },
  "smart_times": {
   "at": "2026-11-09T08:54+03:00",
