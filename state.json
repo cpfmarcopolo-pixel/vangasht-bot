@@ -3,12 +3,6 @@
  "story": 1,
  "log": [
   {
-   "at": "2026-11-08T22:57+03:00",
-   "slot": "s10",
-   "item": "s10:شبتون بخیر",
-   "media": "18222093667355692"
-  },
-  {
    "at": "2026-11-09T08:53+03:00",
    "slot": "s1",
    "item": "s1:صبح بخیر",
@@ -361,6 +355,12 @@
    "slot": "s2",
    "item": "rates",
    "media": "18132897370695134"
+  },
+  {
+   "at": "2026-11-14T11:56+03:00",
+   "slot": "s3",
+   "item": "vlog",
+   "media": "18110636699236846"
   }
  ],
  "media_done": [
@@ -641,44 +641,47 @@
   "d:1eWpZYx-6f0UCVeNkA6NKGr119tfsli8o": 2,
   "d:1R-TUUlG6O6qXB_IsHz2P9Tz61Aq9ulT3": 2,
   "d:1n9fLT_yIcGtzNYregRdmjZPqpQ5uZaBm": 2,
-  "d:1UrXpU42cUwwZzhH9ooH_XbXEcJcW4Ikn": 1,
-  "d:1J-3DucT50lu11s9wrJPEmduSGIDR8bAg": 1,
-  "d:1rIvKD3WSZDUI_RiYJAWqg9-sqqcXONKw": 1,
-  "d:1o2o6nxkEsIIpQZtKpu11OGerPo-kMNAb": 1,
-  "d:1SCCLUtrH2n5RV6jQ8hZX8hgHBEnXEzxO": 1,
+  "d:1UrXpU42cUwwZzhH9ooH_XbXEcJcW4Ikn": 2,
+  "d:1J-3DucT50lu11s9wrJPEmduSGIDR8bAg": 2,
+  "d:1rIvKD3WSZDUI_RiYJAWqg9-sqqcXONKw": 2,
+  "d:1o2o6nxkEsIIpQZtKpu11OGerPo-kMNAb": 2,
+  "d:1SCCLUtrH2n5RV6jQ8hZX8hgHBEnXEzxO": 2,
   "d:1xs-J1CBH0Lecj8TgxcsEzv-eGj0maX6P": 1,
   "d:1fvjbBybiQ2lD1eALB61s6LXyV5sXHGDN": 1,
-  "d:1-36_no9ByNxjyl11RZHoErZ2yp9TZwbv": 1
+  "d:1-36_no9ByNxjyl11RZHoErZ2yp9TZwbv": 1,
+  "d:1Kcx8HlqZ4lWoLXIItnHDmJSMEUFuBmug": 1,
+  "d:1rpRCrfb8P1AU0QpFiJ0wqEDdBfee8ZgF": 1,
+  "d:1FCD2paSesZJUrwIWd1d-UuDX7vg8QL93": 1
  },
  "pexels_used": [
-  "x4730",
-  "x381054",
-  "x67201",
-  "x140186",
-  "x236256",
-  "x118768",
-  "x267036",
-  "x119190",
-  "x222349",
-  "x25",
   "x34971",
-  "x79899",
-  "x50622",
-  "x31550",
-  "x371424",
   "x71747",
   "x11284",
-  "x2576",
-  "x173358",
-  "x84906",
-  "x170912",
-  "x7262",
-  "x156103",
+  "x149938",
   "x273476",
-  "x149938"
+  "x371424",
+  "x118768",
+  "x222349",
+  "x156103",
+  "x173358",
+  "x119190",
+  "x140186",
+  "x67201",
+  "x2576",
+  "x50622",
+  "x84906",
+  "x25",
+  "x381054",
+  "x236256",
+  "x4730",
+  "x7262",
+  "x79899",
+  "x31550",
+  "x170912",
+  "x267036"
  ],
  "music_last": {
-  "1DZTJ4ef0yYVG2xdl3IlbrnmWhvTIImvs": "2026-11-13T12:52+03:00",
+  "1DZTJ4ef0yYVG2xdl3IlbrnmWhvTIImvs": "2026-11-14T11:53+03:00",
   "1dkR0sggYnJv6PAPhkKiPNI1Qbu5nbVwi": "2026-11-13T19:38+03:00",
   "1fp4Ah5iQfFhH9Wv8srgJdSKSlru0RDHO": "2026-11-13T20:53+03:00",
   "1QUXCTr3hAjvM090ZbkBDmL190dxM9yXG": "2026-11-13T17:23+03:00",
@@ -761,7 +764,7 @@
   "1QzZho0lf0FzeZNSJRP8O692VbUzZ1dGY": "2026-11-14T08:52+03:00",
   "1ijx7vQykVkWaSYbzq7KCoWQ-U-YCPINQ": "2026-11-14T08:52+03:00"
  },
- "vlog_i": 4,
+ "vlog_i": 7,
  "card_log": {
   "s1": [
    "صبح بخیر چهارشنبه؛ پیشنهاد صبحانهٔ وانی",
@@ -2027,6 +2030,34 @@
    "text_pos": "",
    "dur": 7.68,
    "v": 4
+  },
+  "1rpRCrfb8P1AU0QpFiJ0wqEDdBfee8ZgF": {
+   "text": "",
+   "greeting": "",
+   "other_page": false,
+   "page": "",
+   "music": false,
+   "own_boxes": [],
+   "ar": 0.75,
+   "scene": "نمای بیرونی رستوران «Erkoc Cağ Kebap» در روزی مه‌آلود و برفی، با حیاط سنگ‌فرش خلوت و بوته‌های سبز",
+   "place": "",
+   "text_pos": "",
+   "dur": 0,
+   "v": 4
+  },
+  "1FCD2paSesZJUrwIWd1d-UuDX7vg8QL93": {
+   "text": "",
+   "greeting": "",
+   "other_page": false,
+   "page": "",
+   "music": false,
+   "own_boxes": [],
+   "ar": 0.75,
+   "scene": "نمای بیرونی فروشگاه LC Waikiki Outlet و ساختمان Assistt با پارکینگ و چند ماشین، در روزی ابری",
+   "place": "",
+   "text_pos": "",
+   "dur": 0,
+   "v": 4
   }
  },
  "skipped_files": {
@@ -2047,8 +2078,8 @@
  "s1_g": 7,
  "s10_g": 6,
  "reply_error": {
-  "at": "2026-11-14T11:04+03:00",
-  "error": "Instagram API error 400 on 17946876786361148/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"AlA7BVA6PKlJ1xVraK_XXAL\"}}"
+  "at": "2026-11-14T11:56+03:00",
+  "error": "Instagram API error 400 on 17946876786361148/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"A6NNPrrkBrx4of20ew-MwoP\"}}"
  },
  "smart_times": {
   "at": "2026-11-09T08:54+03:00",
