@@ -3,12 +3,6 @@
  "story": 1,
  "log": [
   {
-   "at": "2026-11-09T13:42+03:00",
-   "slot": "p1",
-   "item": "tour:Untitled",
-   "media": "18160878871511095"
-  },
-  {
    "at": "2026-11-09T14:28+03:00",
    "slot": "s5",
    "item": "s5:یه روز آبیِ تابستونی 🌊",
@@ -361,6 +355,12 @@
    "slot": "s6",
    "item": "s6:اسمش رو چی بذاریم؟ 🐾",
    "media": "17966102238236149"
+  },
+  {
+   "at": "2026-11-14T17:25+03:00",
+   "slot": "s7",
+   "item": "vlog",
+   "media": "17993082230876350"
   }
  ],
  "media_done": [
@@ -651,38 +651,46 @@
   "d:1-36_no9ByNxjyl11RZHoErZ2yp9TZwbv": 1,
   "d:1Kcx8HlqZ4lWoLXIItnHDmJSMEUFuBmug": 1,
   "d:1rpRCrfb8P1AU0QpFiJ0wqEDdBfee8ZgF": 1,
-  "d:1FCD2paSesZJUrwIWd1d-UuDX7vg8QL93": 1
+  "d:1FCD2paSesZJUrwIWd1d-UuDX7vg8QL93": 1,
+  "d:1YvQNtQJOPULl-LifLKiUAbKMKZuS2l9u": 1,
+  "d:1crbiCdwAPWADYc4DYse0UhZNU2Tc0EB0": 1,
+  "d:1CLr_aibcpQfFDSeyFQBYbVnUzscQUaMA": 1,
+  "d:1iC1K7EXndYIK_N2PKUSJD7PR2qu4uV4s": 1,
+  "d:1RHgbbzmZHkSy4xoNR18faypo7d7TAlS9": 1,
+  "d:1YPVL0hAgNCZTKmhoBeNuOPrMG-oF7Ohw": 1,
+  "d:1pPDSkfFzddzZ-qbFV8XmhgJ4j6MscVUA": 1,
+  "d:1Yu_J-DFyQL9AS2lyf9RaexmW4KtgsJP9": 1
  },
  "pexels_used": [
-  "x34971",
-  "x71747",
-  "x11284",
-  "x149938",
-  "x273476",
-  "x371424",
-  "x118768",
-  "x222349",
-  "x156103",
-  "x173358",
-  "x119190",
-  "x140186",
-  "x67201",
-  "x2576",
-  "x50622",
-  "x84906",
-  "x25",
-  "x381054",
-  "x236256",
-  "x4730",
   "x7262",
+  "x25",
+  "x34971",
+  "x119190",
   "x79899",
+  "x156103",
+  "x236256",
   "x31550",
+  "x273476",
+  "x67201",
+  "x84906",
+  "x149938",
   "x170912",
-  "x267036"
+  "x222349",
+  "x4730",
+  "x381054",
+  "x50622",
+  "x71747",
+  "x118768",
+  "x11284",
+  "x371424",
+  "x267036",
+  "x140186",
+  "x173358",
+  "x2576"
  ],
  "music_last": {
   "1DZTJ4ef0yYVG2xdl3IlbrnmWhvTIImvs": "2026-11-14T11:53+03:00",
-  "1dkR0sggYnJv6PAPhkKiPNI1Qbu5nbVwi": "2026-11-13T19:38+03:00",
+  "1dkR0sggYnJv6PAPhkKiPNI1Qbu5nbVwi": "2026-11-14T17:23+03:00",
   "1fp4Ah5iQfFhH9Wv8srgJdSKSlru0RDHO": "2026-11-13T20:53+03:00",
   "1QUXCTr3hAjvM090ZbkBDmL190dxM9yXG": "2026-11-14T12:52+03:00",
   "r_16OqrXYzWRF5c20HNKbjBoWNaa_6pT9tp": "2026-11-04T00:15+03:00",
@@ -766,7 +774,7 @@
   "1SBvTS4RHQzAIe0Zh4IMvKtd6om5uc3G0": "2026-11-14T15:52+03:00",
   "1GXYJQrZXpv1yodSQBkhv7by5x0peCRNu": "2026-11-14T15:52+03:00"
  },
- "vlog_i": 7,
+ "vlog_i": 10,
  "card_log": {
   "s1": [
    "صبح بخیر چهارشنبه؛ پیشنهاد صبحانهٔ وانی",
@@ -2092,6 +2100,132 @@
    "text_pos": "",
    "dur": 8.22,
    "v": 4
+  },
+  "1YvQNtQJOPULl-LifLKiUAbKMKZuS2l9u": {
+   "text": "",
+   "greeting": "",
+   "other_page": false,
+   "page": "",
+   "music": false,
+   "own_boxes": [],
+   "ar": 0.75,
+   "scene": "جادهٔ برفی رو به شهر و دریاچه، با آسمان نارنجی هنگام طلوع یا غروب، از پشت شیشهٔ ماشین؛ حال‌وهوای آرام زمستانی",
+   "place": "",
+   "text_pos": "",
+   "dur": 0,
+   "v": 4
+  },
+  "1crbiCdwAPWADYc4DYse0UhZNU2Tc0EB0": {
+   "text": "",
+   "greeting": "",
+   "other_page": false,
+   "page": "",
+   "music": false,
+   "own_boxes": [],
+   "ar": 0.75,
+   "scene": "مجسمهٔ سفید دو گربه روی یک سکوی گرد کنار ساحل دریاچه، هنگام غروب با آسمان ابری و رنگارنگ",
+   "place": "",
+   "text_pos": "",
+   "dur": 0,
+   "v": 4
+  },
+  "1CLr_aibcpQfFDSeyFQBYbVnUzscQUaMA": {
+   "text": "",
+   "greeting": "",
+   "other_page": false,
+   "page": "",
+   "music": false,
+   "own_boxes": [],
+   "ar": 0.75,
+   "scene": "گورستان تاریخی سنگی با سنگ‌قبرهای کهنه و یک مقبرهٔ گنبدی، چمن سبز و کوه‌های برفی در هوای ابری روز",
+   "place": "",
+   "text_pos": "",
+   "dur": 0,
+   "v": 4
+  },
+  "1iC1K7EXndYIK_N2PKUSJD7PR2qu4uV4s": {
+   "text": "",
+   "greeting": "",
+   "other_page": false,
+   "page": "",
+   "music": false,
+   "own_boxes": [],
+   "ar": 0.75,
+   "scene": "خط راه‌آهن خمیده در روزی ابری و سرد، با خانه‌های شهری، تپه‌ای خشک در پس‌زمینه و دو رهگذر کنار جاده.",
+   "place": "",
+   "text_pos": "",
+   "dur": 0,
+   "v": 4
+  },
+  "1YPVL0hAgNCZTKmhoBeNuOPrMG-oF7Ohw": {
+   "text": "",
+   "greeting": "",
+   "other_page": false,
+   "page": "",
+   "music": false,
+   "own_boxes": [],
+   "ar": 0.75,
+   "scene": "نمای روز از دریاچه وان و شهر کنار آن، با کوه‌های برفی و آسمان ابری، از میان مجسمه قلب قرمز",
+   "place": "",
+   "text_pos": "",
+   "dur": 0,
+   "v": 4
+  },
+  "1pPDSkfFzddzZ-qbFV8XmhgJ4j6MscVUA": {
+   "text": "",
+   "greeting": "",
+   "other_page": false,
+   "page": "",
+   "music": false,
+   "own_boxes": [],
+   "ar": 0.75,
+   "scene": "نمای شب از قلعه‌ای روشن‌شده با نور زرد بر بالای صخره، با کوه‌ها در پس‌زمینه و دریاچه با چند پرنده در پیش‌زمینه؛ فضایی آرام و بدون آدم.",
+   "place": "قلعهٔ وان",
+   "text_pos": "",
+   "dur": 0,
+   "v": 4
+  },
+  "1Yu_J-DFyQL9AS2lyf9RaexmW4KtgsJP9": {
+   "text": "",
+   "greeting": "",
+   "other_page": false,
+   "page": "",
+   "music": false,
+   "own_boxes": [],
+   "ar": 0.75,
+   "scene": "صخره‌ها و دیواره‌های سنگی بلند و تیز در روز آفتابی با آسمان آبی و ابرهای کم‌رنگ، بدون آدم",
+   "place": "",
+   "text_pos": "",
+   "dur": 0,
+   "v": 4
+  },
+  "1TPtbt_nYLIfLHMmfkvcMvcpHSI00JmcS": {
+   "text": "",
+   "greeting": "",
+   "other_page": false,
+   "page": "",
+   "music": false,
+   "own_boxes": [],
+   "ar": 0.75,
+   "scene": "تابلوی «EDREMİT ♥ SEYİRTEPE» روی نقطهٔ دید بالای تپه، با منظرهٔ شهر، دریاچه و کوه‌های برفی زیر آسمان ابری، روز",
+   "place": "ساحل ادرمیت",
+   "text_pos": "",
+   "dur": 0,
+   "v": 4
+  },
+  "1OoRbxYjyTC6WVxfGC8P4Nha-NCz5KKuM": {
+   "text": "",
+   "greeting": "",
+   "other_page": false,
+   "page": "",
+   "music": false,
+   "own_boxes": [],
+   "ar": 0.75,
+   "scene": "نمای روز ابری از بالای تپه به دریاچهٔ وان، شهرکی ساحلی با مسجدی دو مناره و کوهی پوشیده از برف در دوردست",
+   "place": "",
+   "text_pos": "",
+   "dur": 0,
+   "v": 4
   }
  },
  "skipped_files": {
@@ -2113,8 +2247,8 @@
  "s1_g": 7,
  "s10_g": 6,
  "reply_error": {
-  "at": "2026-11-14T15:54+03:00",
-  "error": "Instagram API error 400 on 17946876786361148/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"AykGnRRqQAqqK5a5DjYZn-m\"}}"
+  "at": "2026-11-14T17:25+03:00",
+  "error": "Instagram API error 400 on 17946876786361148/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"AAdP92WFbCCzZTzkJj7-fOs\"}}"
  },
  "smart_times": {
   "at": "2026-11-09T08:54+03:00",
