@@ -3,12 +3,6 @@
  "story": 1,
  "log": [
   {
-   "at": "2026-11-09T12:54+03:00",
-   "slot": "s4",
-   "item": "s4:تومان تا لیر، بی‌دغدغه",
-   "media": "18350597227248834"
-  },
-  {
    "at": "2026-11-09T13:42+03:00",
    "slot": "p1",
    "item": "tour:Untitled",
@@ -361,6 +355,12 @@
    "slot": "s5",
    "item": "s5:رقص روی آب، زیر آفتاب ☀️",
    "media": "18138981412651757"
+  },
+  {
+   "at": "2026-11-14T15:54+03:00",
+   "slot": "s6",
+   "item": "s6:اسمش رو چی بذاریم؟ 🐾",
+   "media": "17966102238236149"
   }
  ],
  "media_done": [
@@ -762,7 +762,9 @@
   "1aSAL6v2hX5ZK-5XQLO9OXxmbeRQ7i9jq": "2026-11-13T18:52+03:00",
   "1IM8F1t-HPmG9v8vpGsYXxWAScZ_Fggr9": "2026-11-13T22:52+03:00",
   "1QzZho0lf0FzeZNSJRP8O692VbUzZ1dGY": "2026-11-14T08:52+03:00",
-  "1ijx7vQykVkWaSYbzq7KCoWQ-U-YCPINQ": "2026-11-14T08:52+03:00"
+  "1ijx7vQykVkWaSYbzq7KCoWQ-U-YCPINQ": "2026-11-14T08:52+03:00",
+  "1SBvTS4RHQzAIe0Zh4IMvKtd6om5uc3G0": "2026-11-14T15:52+03:00",
+  "1GXYJQrZXpv1yodSQBkhv7by5x0peCRNu": "2026-11-14T15:52+03:00"
  },
  "vlog_i": 7,
  "card_log": {
@@ -816,7 +818,8 @@
    "کیا دوست دارن؟ آکدامار، قایق و شکوفه‌های",
    "سؤال از شما: حس غروب کنار دریاچه با فرود",
    "کیا دوست دارن؟ قلعه‌گردی در خوشاب",
-   "حدس بزن: نام قلهٔ آتشفشانی کنار دریاچهٔ "
+   "حدس بزن: نام قلهٔ آتشفشانی کنار دریاچهٔ ",
+   "نام‌گذاری مامان‌گربهٔ سفید و بچه‌هاش در "
   ],
   "s8": [
    "جزیرهٔ آکدامار",
@@ -2061,6 +2064,34 @@
    "text_pos": "",
    "dur": 0,
    "v": 4
+  },
+  "1SBvTS4RHQzAIe0Zh4IMvKtd6om5uc3G0": {
+   "text": "",
+   "greeting": "",
+   "other_page": true,
+   "page": "Keveajans",
+   "music": true,
+   "own_boxes": [],
+   "ar": 0.5625,
+   "scene": "کلیسای سنگی تاریخی با گنبد مخروطی و صلیب، در برف زمستانی و روزی ابری، با کوه‌های صخره‌ای پشت آن؛ بدون آدم",
+   "place": "جزیرهٔ آکدامار",
+   "text_pos": "",
+   "dur": 27.81,
+   "v": 4
+  },
+  "1GXYJQrZXpv1yodSQBkhv7by5x0peCRNu": {
+   "text": "",
+   "greeting": "",
+   "other_page": false,
+   "page": "",
+   "music": true,
+   "own_boxes": [],
+   "ar": 0.5625,
+   "scene": "گربهٔ مادر سفید با چشمان دورنگ، بچه‌گربه‌های سفیدش را در چمن پاییزی و میان برگ‌های رنگی شیر می‌دهد و می‌لیسد؛ روز و آرام.",
+   "place": "",
+   "text_pos": "",
+   "dur": 8.22,
+   "v": 4
   }
  },
  "skipped_files": {
@@ -2075,14 +2106,15 @@
   "Copy of vankalesi1.mp4": "@al1celik",
   "romantiic.musiic_e85c502899254e92973dfd60925835c4.mp4": "Romantiic.Musiic",
   "romantiic.musiic_4327d7ca89de48188f707699f4b585ee.mp4": "@Romantiic.Musiic",
-  "Ins2916310794_ace7114c8b97409fbd73a0366186b518.mp4": "@asya_cappadocia"
+  "Ins2916310794_ace7114c8b97409fbd73a0366186b518.mp4": "@asya_cappadocia",
+  "granddeniz65_07421861a59f49a8a91c87ecbf70516a.mp4": "Keveajans"
  },
  "replied_comments": [],
  "s1_g": 7,
  "s10_g": 6,
  "reply_error": {
-  "at": "2026-11-14T14:27+03:00",
-  "error": "Instagram API error 400 on 17946876786361148/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"AsLXMQdC3Rdmi2LhTcG-NKU\"}}"
+  "at": "2026-11-14T15:54+03:00",
+  "error": "Instagram API error 400 on 17946876786361148/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"AykGnRRqQAqqK5a5DjYZn-m\"}}"
  },
  "smart_times": {
   "at": "2026-11-09T08:54+03:00",
