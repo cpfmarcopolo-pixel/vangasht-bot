@@ -3,12 +3,6 @@
  "story": 1,
  "log": [
   {
-   "at": "2026-11-08T20:57+03:00",
-   "slot": "s9",
-   "item": "todayposts",
-   "media": "17948138196101769"
-  },
-  {
    "at": "2026-11-08T22:57+03:00",
    "slot": "s10",
    "item": "s10:شبتون بخیر",
@@ -361,6 +355,12 @@
    "slot": "s1",
    "item": "s1:صبحتون بخیر",
    "media": "18134880073874093"
+  },
+  {
+   "at": "2026-11-14T11:04+03:00",
+   "slot": "s2",
+   "item": "rates",
+   "media": "18132897370695134"
   }
  ],
  "media_done": [
@@ -707,7 +707,7 @@
   "11YaI4p2ZI-qjNXQ4bXRuejBf-UFAXDKR": "2026-11-05T15:53+03:00",
   "1BTYvwOgAh6duGg1HaS0o2OwIN5pQA7PF": "2026-11-05T23:02+03:00",
   "1k-KyiRf0yyVTGLj6UMbJZJWLchhJ6vcS": "2026-11-06T08:52+03:00",
-  "1ngL9kAa5rvCydUIuQHjnvQOwNC1_dmiz": "2026-11-06T11:01+03:00",
+  "1ngL9kAa5rvCydUIuQHjnvQOwNC1_dmiz": "2026-11-14T11:01+03:00",
   "1jaaCnvkMJZiQRnYkl5VMOJwE-V_lUjin": "2026-11-10T14:22+03:00",
   "1sjAcrPqOpPKqux_uRgpKOTk65efReAqB": "2026-11-06T15:52+03:00",
   "1lzWgWguX7p5t4WvRNOTNCtqSLY7PoZem": "2026-11-06T18:52+03:00",
@@ -1120,7 +1120,11 @@
    "music": true,
    "own_boxes": [],
    "ar": 0.5625,
-   "v": 3
+   "scene": "نمای غروب از یک تراس چوبی با فانوس‌ها بر فراز دریاچه وان، شهر و کوهستان در روز",
+   "place": "",
+   "text_pos": "top",
+   "dur": 18.53,
+   "v": 4
   },
   "1BAzcC5cJo8RuCDQGRJhvpJkG0ST_4ohZ": {
    "text": "",
@@ -2043,8 +2047,8 @@
  "s1_g": 7,
  "s10_g": 6,
  "reply_error": {
-  "at": "2026-11-14T08:57+03:00",
-  "error": "Instagram API error 400 on 17946876786361148/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"AhIXayfC32qlExOBWYi6FI3\"}}"
+  "at": "2026-11-14T11:04+03:00",
+  "error": "Instagram API error 400 on 17946876786361148/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"AlA7BVA6PKlJ1xVraK_XXAL\"}}"
  },
  "smart_times": {
   "at": "2026-11-09T08:54+03:00",
