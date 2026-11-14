@@ -3,12 +3,6 @@
  "story": 1,
  "log": [
   {
-   "at": "2026-11-09T14:28+03:00",
-   "slot": "s5",
-   "item": "s5:یه روز آبیِ تابستونی 🌊",
-   "media": "18440044987181210"
-  },
-  {
    "at": "2026-11-09T15:55+03:00",
    "slot": "s6",
    "item": "s6:اسم این گل رو می‌دونی؟",
@@ -361,6 +355,12 @@
    "slot": "s7",
    "item": "vlog",
    "media": "17993082230876350"
+  },
+  {
+   "at": "2026-11-14T18:54+03:00",
+   "slot": "s8",
+   "item": "s8:خانهٔ گربه‌های چشم‌رنگی 🐈",
+   "media": "18427032232155556"
   }
  ],
  "media_done": [
@@ -772,7 +772,8 @@
   "1QzZho0lf0FzeZNSJRP8O692VbUzZ1dGY": "2026-11-14T08:52+03:00",
   "1ijx7vQykVkWaSYbzq7KCoWQ-U-YCPINQ": "2026-11-14T08:52+03:00",
   "1SBvTS4RHQzAIe0Zh4IMvKtd6om5uc3G0": "2026-11-14T15:52+03:00",
-  "1GXYJQrZXpv1yodSQBkhv7by5x0peCRNu": "2026-11-14T15:52+03:00"
+  "1GXYJQrZXpv1yodSQBkhv7by5x0peCRNu": "2026-11-14T15:52+03:00",
+  "1FXt9lbzHEVYfudpg0QOjwZ7_MLakUklM": "2026-11-14T18:52+03:00"
  },
  "vlog_i": 10,
  "card_log": {
@@ -839,7 +840,8 @@
    "جزیرهٔ چارپاناک",
    "جاذبهٔ امروز: آبشار مرادیه (نمای هوایی)",
    "دریاچهٔ ارچک",
-   "کوه ارک؛ منظرهٔ شهر و دریاچه از بالا"
+   "کوه ارک؛ منظرهٔ شهر و دریاچه از بالا",
+   "خانهٔ گربه‌های وان (دانشگاه یوزونجو ییل)"
   ],
   "s10": [
    "استوری شب بخیر چهارشنبه ۱۳ آبان",
@@ -870,7 +872,7 @@
  },
  "s4_i": 2,
  "s5_i": 3,
- "s8_i": 10,
+ "s8_i": 11,
  "clip_info": {
   "1eww9Vvjb_m9JhLIMFLFn8JtiDB8nLddz": {
    "text": "",
@@ -2247,8 +2249,8 @@
  "s1_g": 7,
  "s10_g": 6,
  "reply_error": {
-  "at": "2026-11-14T17:25+03:00",
-  "error": "Instagram API error 400 on 17946876786361148/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"AAdP92WFbCCzZTzkJj7-fOs\"}}"
+  "at": "2026-11-14T18:54+03:00",
+  "error": "Instagram API error 400 on 17946876786361148/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"A_kM66dmwxx50-67R6JtHO0\"}}"
  },
  "smart_times": {
   "at": "2026-11-09T08:54+03:00",
