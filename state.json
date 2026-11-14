@@ -3,12 +3,6 @@
  "story": 1,
  "log": [
   {
-   "at": "2026-11-09T15:55+03:00",
-   "slot": "s6",
-   "item": "s6:اسم این گل رو می‌دونی؟",
-   "media": "18102739700185364"
-  },
-  {
    "at": "2026-11-09T17:27+03:00",
    "slot": "s7",
    "item": "vlog",
@@ -361,6 +355,12 @@
    "slot": "s8",
    "item": "s8:خانهٔ گربه‌های چشم‌رنگی 🐈",
    "media": "18427032232155556"
+  },
+  {
+   "at": "2026-11-14T19:43+03:00",
+   "slot": "p2",
+   "item": "tour:granddeniz65_e342f997abed4f64afe7b12b72a",
+   "media": "17958634359278362"
   }
  ],
  "media_done": [
@@ -719,7 +719,7 @@
   "1BTYvwOgAh6duGg1HaS0o2OwIN5pQA7PF": "2026-11-05T23:02+03:00",
   "1k-KyiRf0yyVTGLj6UMbJZJWLchhJ6vcS": "2026-11-06T08:52+03:00",
   "1ngL9kAa5rvCydUIuQHjnvQOwNC1_dmiz": "2026-11-14T11:01+03:00",
-  "1jaaCnvkMJZiQRnYkl5VMOJwE-V_lUjin": "2026-11-10T14:22+03:00",
+  "1jaaCnvkMJZiQRnYkl5VMOJwE-V_lUjin": "2026-11-14T19:37+03:00",
   "1sjAcrPqOpPKqux_uRgpKOTk65efReAqB": "2026-11-06T15:52+03:00",
   "1lzWgWguX7p5t4WvRNOTNCtqSLY7PoZem": "2026-11-06T18:52+03:00",
   "1Z5JzLIvcIYDkA8fWgDbPLE8_rVFEWp1S": "2026-11-11T13:37+03:00",
@@ -867,7 +867,8 @@
    "نگاهی کلی به حال‌وهوای تورهای وان گشت",
    "جمع شاد و دست‌زدن زیر سایبان‌های قرمز کا",
    "ویدیوی تور کشتی‌های بزرگ تفریحی؛ قایق دو",
-   "ویدیوی کامل تور کشتی جزیرهٔ آکدامار، از "
+   "ویدیوی کامل تور کشتی جزیرهٔ آکدامار، از ",
+   "ویدیوی کامل تور آبشار مرادیه"
   ]
  },
  "s4_i": 2,
@@ -2249,8 +2250,8 @@
  "s1_g": 7,
  "s10_g": 6,
  "reply_error": {
-  "at": "2026-11-14T18:54+03:00",
-  "error": "Instagram API error 400 on 17946876786361148/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"A_kM66dmwxx50-67R6JtHO0\"}}"
+  "at": "2026-11-14T19:43+03:00",
+  "error": "Instagram API error 400 on 17946876786361148/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"A1eL7k9F9onnEfQTjVKD4iC\"}}"
  },
  "smart_times": {
   "at": "2026-11-09T08:54+03:00",
