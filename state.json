@@ -3,12 +3,6 @@
  "story": 1,
  "log": [
   {
-   "at": "2026-11-09T11:04+03:00",
-   "slot": "s2",
-   "item": "rates",
-   "media": "18213951574362316"
-  },
-  {
    "at": "2026-11-09T11:59+03:00",
    "slot": "s3",
    "item": "vlog",
@@ -361,6 +355,12 @@
    "slot": "s4",
    "item": "s4:خونه‌ای دور از خونه",
    "media": "18056006678816038"
+  },
+  {
+   "at": "2026-11-14T13:40+03:00",
+   "slot": "p1",
+   "item": "tour:VID-20261029-WA0075.mp4",
+   "media": "17995396149063535"
   }
  ],
  "media_done": [
@@ -700,7 +700,7 @@
   "1U1ZO1_RPVlMbxTxTT4UgwViB9lg5-YvT": "2026-11-05T01:32+03:00",
   "1T7kkhCbRPAkU3hkd4BZcudSUVKQgF9Ei": "2026-11-05T01:32+03:00",
   "1nbObj54zW3Uk_pyTcAD8fzF6VmoXf9PK": "2026-11-05T01:50+03:00",
-  "1xxSw_v73UWHsKmVlYum4Uynd34GsMyQO": "2026-11-09T14:22+03:00",
+  "1xxSw_v73UWHsKmVlYum4Uynd34GsMyQO": "2026-11-14T13:37+03:00",
   "1iwmldzc5FeV2O901Psyy0ec-ToCbJhT2": "2026-11-05T01:52+03:00",
   "1o8hbi7E2vAtMtsMU6a7GeQQhmSEYCClV": "2026-11-05T01:53+03:00",
   "1gwYcT8y4c6oNyO7zRqCKWKLkrKa0fDP8": "2026-11-05T01:54+03:00",
@@ -852,7 +852,8 @@
    "کف‌پارتی روی عرشهٔ کشتی‌های تفریحی دریاچ",
    "نگاهی کلی به حال‌وهوای تورهای وان گشت",
    "جمع شاد و دست‌زدن زیر سایبان‌های قرمز کا",
-   "ویدیوی تور کشتی‌های بزرگ تفریحی؛ قایق دو"
+   "ویدیوی تور کشتی‌های بزرگ تفریحی؛ قایق دو",
+   "ویدیوی کامل تور کشتی جزیرهٔ آکدامار، از "
   ]
  },
  "s4_i": 2,
@@ -2079,8 +2080,8 @@
  "s1_g": 7,
  "s10_g": 6,
  "reply_error": {
-  "at": "2026-11-14T12:55+03:00",
-  "error": "Instagram API error 400 on 17946876786361148/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"AM_8xKFZiRMYy_oiv_S8M13\"}}"
+  "at": "2026-11-14T13:40+03:00",
+  "error": "Instagram API error 400 on 17946876786361148/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"AANRL1K6dLFLjG0EnqShpD4\"}}"
  },
  "smart_times": {
   "at": "2026-11-09T08:54+03:00",
