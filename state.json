@@ -3,12 +3,6 @@
  "story": 1,
  "log": [
   {
-   "at": "2026-11-09T08:53+03:00",
-   "slot": "s1",
-   "item": "s1:صبح بخیر",
-   "media": "18119138873151984"
-  },
-  {
    "at": "2026-11-09T11:04+03:00",
    "slot": "s2",
    "item": "rates",
@@ -361,6 +355,12 @@
    "slot": "s3",
    "item": "vlog",
    "media": "18110636699236846"
+  },
+  {
+   "at": "2026-11-14T12:55+03:00",
+   "slot": "s4",
+   "item": "s4:خونه‌ای دور از خونه",
+   "media": "18056006678816038"
   }
  ],
  "media_done": [
@@ -684,7 +684,7 @@
   "1DZTJ4ef0yYVG2xdl3IlbrnmWhvTIImvs": "2026-11-14T11:53+03:00",
   "1dkR0sggYnJv6PAPhkKiPNI1Qbu5nbVwi": "2026-11-13T19:38+03:00",
   "1fp4Ah5iQfFhH9Wv8srgJdSKSlru0RDHO": "2026-11-13T20:53+03:00",
-  "1QUXCTr3hAjvM090ZbkBDmL190dxM9yXG": "2026-11-13T17:23+03:00",
+  "1QUXCTr3hAjvM090ZbkBDmL190dxM9yXG": "2026-11-14T12:52+03:00",
   "r_16OqrXYzWRF5c20HNKbjBoWNaa_6pT9tp": "2026-11-04T00:15+03:00",
   "r_1l3THmi6GjqfKpjoZlRy25On7rsx6vdso": "2026-11-04T10:50+03:00"
  },
@@ -786,7 +786,8 @@
    "بهترین زمان سفر به وان و جاهای دیدنی",
    "اقامت در وان: هتل یا سوئیت مبله برای خان",
    "جزیرهٔ آکدامار: کشتی، بلیت و بهترین زمان",
-   "صرافی وان گشت: تبدیل ارز با کارتخوان ایر"
+   "صرافی وان گشت: تبدیل ارز با کارتخوان ایر",
+   "سوئیت‌های مبلهٔ وان؛ خونهٔ گرم برای آخر "
   ],
   "s5": [
    "تور کشتی‌های بزرگ تفریحی دریاچه وان",
@@ -854,7 +855,7 @@
    "ویدیوی تور کشتی‌های بزرگ تفریحی؛ قایق دو"
   ]
  },
- "s4_i": 1,
+ "s4_i": 2,
  "s5_i": 2,
  "s8_i": 10,
  "clip_info": {
@@ -2078,8 +2079,8 @@
  "s1_g": 7,
  "s10_g": 6,
  "reply_error": {
-  "at": "2026-11-14T11:56+03:00",
-  "error": "Instagram API error 400 on 17946876786361148/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"A6NNPrrkBrx4of20ew-MwoP\"}}"
+  "at": "2026-11-14T12:55+03:00",
+  "error": "Instagram API error 400 on 17946876786361148/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"AM_8xKFZiRMYy_oiv_S8M13\"}}"
  },
  "smart_times": {
   "at": "2026-11-09T08:54+03:00",
