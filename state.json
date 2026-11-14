@@ -3,12 +3,6 @@
  "story": 1,
  "log": [
   {
-   "at": "2026-11-09T18:57+03:00",
-   "slot": "s8",
-   "item": "s8:چارپاناک؛ جزیرهٔ آرام دریاچه 🌿",
-   "media": "18155892655591674"
-  },
-  {
    "at": "2026-11-09T19:40+03:00",
    "slot": "p2",
    "item": "tour:Untitled",
@@ -361,6 +355,12 @@
    "slot": "s9",
    "item": "todayposts",
    "media": "18001134536824872"
+  },
+  {
+   "at": "2026-11-14T22:55+03:00",
+   "slot": "s10",
+   "item": "s10:شبتون بخیر",
+   "media": "18102093572401189"
   }
  ],
  "media_done": [
@@ -773,7 +773,8 @@
   "1ijx7vQykVkWaSYbzq7KCoWQ-U-YCPINQ": "2026-11-14T08:52+03:00",
   "1SBvTS4RHQzAIe0Zh4IMvKtd6om5uc3G0": "2026-11-14T15:52+03:00",
   "1GXYJQrZXpv1yodSQBkhv7by5x0peCRNu": "2026-11-14T15:52+03:00",
-  "1FXt9lbzHEVYfudpg0QOjwZ7_MLakUklM": "2026-11-14T18:52+03:00"
+  "1FXt9lbzHEVYfudpg0QOjwZ7_MLakUklM": "2026-11-14T18:52+03:00",
+  "1YO4NDbC8pHROirCjXj-gmXGHze_lafqC": "2026-11-14T22:52+03:00"
  },
  "vlog_i": 10,
  "card_log": {
@@ -2248,10 +2249,10 @@
  },
  "replied_comments": [],
  "s1_g": 7,
- "s10_g": 6,
+ "s10_g": 7,
  "reply_error": {
-  "at": "2026-11-14T20:57+03:00",
-  "error": "Instagram API error 400 on 17946876786361148/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"AC0XJXZHJjwo-pVKZHs1z4A\"}}"
+  "at": "2026-11-14T22:55+03:00",
+  "error": "Instagram API error 400 on 17946876786361148/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"Au80tsydaGVheXZMVvR4U6Q\"}}"
  },
  "smart_times": {
   "at": "2026-11-09T08:54+03:00",
