@@ -3,12 +3,6 @@
  "story": 1,
  "log": [
   {
-   "at": "2026-11-10T12:57+03:00",
-   "slot": "s4",
-   "item": "s4:کی بریم وان؟",
-   "media": "18080779427428923"
-  },
-  {
    "at": "2026-11-10T13:39+03:00",
    "slot": "p1",
    "item": "tour:van_omrumun_milad_65_548698e8fe6d48bab0e",
@@ -361,6 +355,12 @@
    "slot": "s5",
    "item": "s5:صدای آب، عطر چای 🌊",
    "media": "17911701063575388"
+  },
+  {
+   "at": "2026-11-15T15:59+03:00",
+   "slot": "s6",
+   "item": "s6:بزرگ‌ترین دریاچهٔ ترکیه، همین‌جاست 🌊",
+   "media": "18106732586032791"
   }
  ],
  "media_done": [
@@ -712,7 +712,7 @@
   "1spub-PVCRgyWNIOKtUQKy8ekCyu8BTpp": "2026-11-04T22:52+03:00",
   "1eww9Vvjb_m9JhLIMFLFn8JtiDB8nLddz": "2026-11-05T01:28+03:00",
   "1i-gDjubpjs_pZodC-V1PWWBqmgaAqgf4": "2026-11-13T19:37+03:00",
-  "1vb6bRaRQ2BChS41iAPHAhyaRWtEfP-kA": "2026-11-05T01:31+03:00",
+  "1vb6bRaRQ2BChS41iAPHAhyaRWtEfP-kA": "2026-11-15T15:52+03:00",
   "1U1ZO1_RPVlMbxTxTT4UgwViB9lg5-YvT": "2026-11-05T01:32+03:00",
   "1T7kkhCbRPAkU3hkd4BZcudSUVKQgF9Ei": "2026-11-05T01:32+03:00",
   "1nbObj54zW3Uk_pyTcAD8fzF6VmoXf9PK": "2026-11-05T01:50+03:00",
@@ -840,7 +840,8 @@
    "سؤال از شما: حس غروب کنار دریاچه با فرود",
    "کیا دوست دارن؟ قلعه‌گردی در خوشاب",
    "حدس بزن: نام قلهٔ آتشفشانی کنار دریاچهٔ ",
-   "نام‌گذاری مامان‌گربهٔ سفید و بچه‌هاش در "
+   "نام‌گذاری مامان‌گربهٔ سفید و بچه‌هاش در ",
+   "دانستنی: دریاچهٔ وان بزرگ‌ترین دریاچهٔ ت"
   ],
   "s8": [
    "جزیرهٔ آکدامار",
@@ -2403,8 +2404,8 @@
  "s1_g": 8,
  "s10_g": 7,
  "reply_error": {
-  "at": "2026-11-15T14:27+03:00",
-  "error": "Instagram API error 400 on 17946876786361148/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"A6JqpD8Xf4ai9ZDhAg5JU3l\"}}"
+  "at": "2026-11-15T15:59+03:00",
+  "error": "Instagram API error 400 on 17946876786361148/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"AUzH9LEnQolZmPjys29xeID\"}}"
  },
  "smart_times": {
   "at": "2026-11-15T08:55+03:00",
