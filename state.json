@@ -3,12 +3,6 @@
  "story": 1,
  "log": [
   {
-   "at": "2026-11-10T13:39+03:00",
-   "slot": "p1",
-   "item": "tour:van_omrumun_milad_65_548698e8fe6d48bab0e",
-   "media": "18125821279939134"
-  },
-  {
    "at": "2026-11-10T14:26+03:00",
    "slot": "s5",
    "item": "s5:چای کنار آبشار مرادیه ☕",
@@ -361,6 +355,12 @@
    "slot": "s6",
    "item": "s6:بزرگ‌ترین دریاچهٔ ترکیه، همین‌جاست 🌊",
    "media": "18106732586032791"
+  },
+  {
+   "at": "2026-11-15T17:27+03:00",
+   "slot": "s7",
+   "item": "vlog",
+   "media": "17979962421160533"
   }
  ],
  "media_done": [
@@ -667,38 +667,46 @@
   "d:1wP1pr56azhgnIvF4jfF5MzkYd91TtJ9u": 1,
   "d:1DAAcFJVHLQFHH5APTiJ96P-597lNsoxQ": 1,
   "d:1TFYfcJIDKHiX3llbL7TQchhErtKTraNn": 1,
-  "d:1Et1GhmpPzilx9shDBvGfjvEkY1IpPTpT": 1
+  "d:1Et1GhmpPzilx9shDBvGfjvEkY1IpPTpT": 1,
+  "d:1TPtbt_nYLIfLHMmfkvcMvcpHSI00JmcS": 1,
+  "d:1OoRbxYjyTC6WVxfGC8P4Nha-NCz5KKuM": 1,
+  "d:1LUS2KGebMWKSX95u4c84jngFqn5RI6aS": 1,
+  "d:13bOQqlct_BhSsZk2lqI9ZZ7jNm3VlWfA": 1,
+  "d:1g_4XUI_tnz_zaKnhtzhw_fBRE7rFSzmP": 1,
+  "d:1SMQd59gCOURJXYVPEph8elgWzMnk3kcl": 1,
+  "d:1-tKUE4bwpjwueAMqH2CuNgqXKuK-SoFq": 1,
+  "d:1RV-O6fck5bEk50XFGQqi_LZBMXDkftZJ": 1
  },
  "pexels_used": [
-  "x71747",
-  "x273476",
-  "x7262",
-  "x50622",
-  "x170912",
-  "x4730",
-  "x222349",
-  "x79899",
-  "x149938",
-  "x11284",
-  "x173358",
-  "x119190",
-  "x84906",
-  "x67201",
-  "x371424",
-  "x34971",
-  "x236256",
-  "x2576",
-  "x31550",
-  "x156103",
-  "x267036",
-  "x25",
   "x381054",
+  "x71747",
+  "x84906",
+  "x2576",
+  "x140186",
+  "x173358",
+  "x4730",
+  "x67201",
+  "x31550",
+  "x267036",
+  "x119190",
+  "x149938",
+  "x7262",
+  "x34971",
+  "x273476",
+  "x50622",
   "x118768",
-  "x140186"
+  "x371424",
+  "x156103",
+  "x11284",
+  "x222349",
+  "x25",
+  "x236256",
+  "x79899",
+  "x170912"
  ],
  "music_last": {
   "1DZTJ4ef0yYVG2xdl3IlbrnmWhvTIImvs": "2026-11-15T11:53+03:00",
-  "1dkR0sggYnJv6PAPhkKiPNI1Qbu5nbVwi": "2026-11-14T17:23+03:00",
+  "1dkR0sggYnJv6PAPhkKiPNI1Qbu5nbVwi": "2026-11-15T17:23+03:00",
   "1fp4Ah5iQfFhH9Wv8srgJdSKSlru0RDHO": "2026-11-14T20:53+03:00",
   "1QUXCTr3hAjvM090ZbkBDmL190dxM9yXG": "2026-11-15T12:52+03:00",
   "r_16OqrXYzWRF5c20HNKbjBoWNaa_6pT9tp": "2026-11-04T00:15+03:00",
@@ -785,7 +793,7 @@
   "1YO4NDbC8pHROirCjXj-gmXGHze_lafqC": "2026-11-14T22:52+03:00",
   "1JsfkqlOpP95SN4VUxZfddkFKwVMr3vU-": "2026-11-15T08:52+03:00"
  },
- "vlog_i": 3,
+ "vlog_i": 6,
  "card_log": {
   "s1": [
    "صبح بخیر چهارشنبه؛ پیشنهاد صبحانهٔ وانی",
@@ -2383,6 +2391,104 @@
    "text_pos": "",
    "dur": 0,
    "v": 4
+  },
+  "1LUS2KGebMWKSX95u4c84jngFqn5RI6aS": {
+   "text": "",
+   "greeting": "",
+   "other_page": false,
+   "page": "",
+   "music": false,
+   "own_boxes": [],
+   "ar": 0.75,
+   "scene": "کلیسای سنگی تاریخی آکدامار در روزی ابری، با شکوفه‌های بادام در جلو و چند بازدیدکننده کنار طناب‌کشی",
+   "place": "جزیرهٔ آکدامار",
+   "text_pos": "",
+   "dur": 0,
+   "v": 4
+  },
+  "13bOQqlct_BhSsZk2lqI9ZZ7jNm3VlWfA": {
+   "text": "",
+   "greeting": "",
+   "other_page": false,
+   "page": "",
+   "music": false,
+   "own_boxes": [],
+   "ar": 0.75,
+   "scene": "منظره‌ای روزانه از دریاچه‌ای با آب فیروزه‌ای، شبه‌جزیره‌های سبز، کوه‌های برفی در دوردست و جاده‌ای کنار دشت سبز زیر آسمان آبی",
+   "place": "",
+   "text_pos": "",
+   "dur": 0,
+   "v": 4
+  },
+  "1SMQd59gCOURJXYVPEph8elgWzMnk3kcl": {
+   "text": "",
+   "greeting": "",
+   "other_page": false,
+   "page": "",
+   "music": false,
+   "own_boxes": [],
+   "ar": 0.75,
+   "scene": "فرش‌ها و گلیم‌های رنگارنگ روی چمن زیر آلاچیق چوبی، با قلعه‌ای روی صخره در پس‌زمینه؛ روز آفتابی و آرام",
+   "place": "قلعهٔ وان",
+   "text_pos": "",
+   "dur": 0,
+   "v": 4
+  },
+  "1-tKUE4bwpjwueAMqH2CuNgqXKuK-SoFq": {
+   "text": "",
+   "greeting": "",
+   "other_page": false,
+   "page": "",
+   "music": false,
+   "own_boxes": [],
+   "ar": 0.75,
+   "scene": "بقایای سنگی یک بنای قدیمی با گنبد کوچک بالای تپه‌ای سرسبز، مشرف به دریاچه‌ای آبی، در روزی آفتابی با چند گردشگر",
+   "place": "",
+   "text_pos": "",
+   "dur": 0,
+   "v": 4
+  },
+  "1RV-O6fck5bEk50XFGQqi_LZBMXDkftZJ": {
+   "text": "",
+   "greeting": "",
+   "other_page": false,
+   "page": "",
+   "music": false,
+   "own_boxes": [],
+   "ar": 0.75,
+   "scene": "قایقی کنار ساحل صخره‌ای و برفی دریاچه، با کوه‌های برفی و شهری در دوردست؛ روز ابری و آرام زمستانی.",
+   "place": "",
+   "text_pos": "",
+   "dur": 0,
+   "v": 4
+  },
+  "1mePUmImfWrgYTX5cnwr63_mL6onmnUbt": {
+   "text": "",
+   "greeting": "",
+   "other_page": false,
+   "page": "",
+   "music": false,
+   "own_boxes": [],
+   "ar": 0.75,
+   "scene": "اسکله سنگی قدیمی با تیرک‌های چوبی و یک قایق سفید واژگون کنار دریاچه، با کوه‌های برفی و آسمان ابری در روز",
+   "place": "",
+   "text_pos": "",
+   "dur": 0,
+   "v": 4
+  },
+  "1pKEXyl32R0XgNeOVH_CIhojAv0c8g2CR": {
+   "text": "",
+   "greeting": "",
+   "other_page": false,
+   "page": "",
+   "music": false,
+   "own_boxes": [],
+   "ar": 0.75,
+   "scene": "نمای روز آفتابی از دیوارها و برج‌های سنگی قلعه‌ای بر تپه، با مسجدی کوچک و مناره بالای آن، زیر آسمان آبی صاف",
+   "place": "قلعهٔ وان",
+   "text_pos": "",
+   "dur": 0,
+   "v": 4
   }
  },
  "skipped_files": {
@@ -2404,8 +2510,8 @@
  "s1_g": 8,
  "s10_g": 7,
  "reply_error": {
-  "at": "2026-11-15T15:59+03:00",
-  "error": "Instagram API error 400 on 17946876786361148/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"AUzH9LEnQolZmPjys29xeID\"}}"
+  "at": "2026-11-15T17:27+03:00",
+  "error": "Instagram API error 400 on 17946876786361148/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"AIHGJ7yASxLWaRDa60A6jfE\"}}"
  },
  "smart_times": {
   "at": "2026-11-15T08:55+03:00",
