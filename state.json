@@ -3,12 +3,6 @@
  "story": 1,
  "log": [
   {
-   "at": "2026-11-10T08:59+03:00",
-   "slot": "s1",
-   "item": "s1:صبحتون قشنگ",
-   "media": "18122485570978436"
-  },
-  {
    "at": "2026-11-10T11:05+03:00",
    "slot": "s2",
    "item": "rates",
@@ -361,6 +355,12 @@
    "slot": "s3",
    "item": "vlog",
    "media": "18109528700204190"
+  },
+  {
+   "at": "2026-11-15T12:45+03:00",
+   "slot": "p1",
+   "item": "tour:VID-20261030-WA0040.mp4",
+   "media": "18109542143576301"
   }
  ],
  "media_done": [
@@ -730,7 +730,7 @@
   "1jaaCnvkMJZiQRnYkl5VMOJwE-V_lUjin": "2026-11-14T19:37+03:00",
   "1sjAcrPqOpPKqux_uRgpKOTk65efReAqB": "2026-11-06T15:52+03:00",
   "1lzWgWguX7p5t4WvRNOTNCtqSLY7PoZem": "2026-11-06T18:52+03:00",
-  "1Z5JzLIvcIYDkA8fWgDbPLE8_rVFEWp1S": "2026-11-11T13:37+03:00",
+  "1Z5JzLIvcIYDkA8fWgDbPLE8_rVFEWp1S": "2026-11-15T12:37+03:00",
   "1g9MCZ_AqhaYu782AxJIqmG5sn-G0Ofuo": "2026-11-06T22:52+03:00",
   "1JE1Z9R_-cx8at77fjHzv0vJ0XTIEefvd": "2026-11-06T22:52+03:00",
   "1QHmP7rKGvYi139koDxJeQi0_2Gq416Kd": "2026-11-07T08:52+03:00",
@@ -878,7 +878,8 @@
    "جمع شاد و دست‌زدن زیر سایبان‌های قرمز کا",
    "ویدیوی تور کشتی‌های بزرگ تفریحی؛ قایق دو",
    "ویدیوی کامل تور کشتی جزیرهٔ آکدامار، از ",
-   "ویدیوی کامل تور آبشار مرادیه"
+   "ویدیوی کامل تور آبشار مرادیه",
+   "ویدیوی تور پارک آبی ادرمیت؛ یک روز پرهیج"
   ]
  },
  "s4_i": 2,
@@ -2400,8 +2401,8 @@
  "s1_g": 8,
  "s10_g": 7,
  "reply_error": {
-  "at": "2026-11-15T11:56+03:00",
-  "error": "Instagram API error 400 on 17946876786361148/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"AOJsNoL2lr2I9UsE7FoRbIk\"}}"
+  "at": "2026-11-15T12:45+03:00",
+  "error": "Instagram API error 400 on 17946876786361148/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"Apb3fS7CnnRHEGcswRXfQN6\"}}"
  },
  "smart_times": {
   "at": "2026-11-15T08:55+03:00",
