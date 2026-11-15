@@ -673,6 +673,7 @@ def rates_layer_html(d, v, show):
 <div style="font:700 64px Georgia,serif;direction:ltr">{now.day} {EN_MONTHS[now.month - 1]} {now.year}</div>
 <div style="font-size:52px;font-weight:800;margin-top:10px">{WEEKDAYS[now.weekday()]} {jalali(now.date())}</div>
 <div style="display:inline-block;margin-top:34px;background:#f2ad3d;color:#12222a;text-shadow:none;font-size:40px;font-weight:900;border-radius:20px;padding:10px 34px">نرخ امروز صرافی وان گشت</div></div>
+<div style="visibility:{vis('head')};position:absolute;top:590px;left:40px;right:40px;height:{100 + 142 * rows.count('align-items:center;gap:18px;padding:26px 0')}px;background:rgba(8,28,36,.55);border-radius:36px"></div>
 <div style="position:absolute;top:620px;left:70px;right:70px">
 <div style="visibility:{vis('head')};display:grid;grid-template-columns:1fr 210px 210px;gap:18px;font-size:34px;font-weight:800;opacity:.85"><span></span><span style="text-align:center">خرید ما</span><span style="text-align:center">فروش ما</span></div>
 {rows}</div>
@@ -685,7 +686,7 @@ def rates_assets(st):
     """Background video/photo + song (+ clip info) for the rates story: Drive folder "S2 ..." (or the old "Rates"), each used in turn."""
     return folder_assets("S2", st, full=True)
 
-def layered_video(layers, bg, bg_video, song, st, dst, T, info=None, dim=0.30, hide_at=None, keep_html=None, timings=None):
+def layered_video(layers, bg, bg_video, song, st, dst, T, info=None, dim=0.0, hide_at=None, keep_html=None, timings=None):
     """Story video: background video (looped) or photo (slow zoom), darkened; transparent HTML layers fade in one
     after another; music = `song`, else the Drive "Music" folder, else a soft generated pad."""
     import subprocess
@@ -720,7 +721,8 @@ def layered_video(layers, bg, bg_video, song, st, dst, T, info=None, dim=0.30, h
         base = "[0:v]scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,fps=30,setsar=1,"
     for o in pngs:
         cmd += ["-loop", "1", "-t", str(T), "-i", str(o)]
-    f = (base + f"eq=brightness=-0.06:saturation=1.15,drawbox=x=0:y=0:w=iw:h=ih:color=black@{dim:.2f}:t=fill,fade=in:st=0:d=0.6[b0];")
+    # the video/photo keeps its original light and colours; text stays readable by its own shadow / box
+    f = (base + (f"drawbox=x=0:y=0:w=iw:h=ih:color=black@{dim:.2f}:t=fill," if dim > 0 else "") + "fade=in:st=0:d=0.6[b0];")
     if cov:
         cmd += ["-loop", "1", "-t", str(T), "-i", str(cov)]
         f = f.replace("[b0];", "[b00];") + f"[{1 + len(pngs)}:v]format=rgba[cv];[b00][cv]overlay=0:0[b0];"
@@ -1093,6 +1095,19 @@ def usable(f, info, st):
         sk = st.setdefault("skipped_files", {}); sk[f["name"]] = info.get("page") or "?"
         return False
     return True
+
+def own_videos(code):
+    """All videos in ALL of the user's own folders for `code` (e.g. two folders "P پست ها" and "P 2" are both used)."""
+    key = os.environ.get("GDRIVE_KEY"); out = []
+    for fo in [f for f in drive_subfolders() if folder_code(f["name"]) == code]:
+        try:
+            if fo["id"] not in _LS:
+                _LS[fo["id"]] = drive_list(fo["id"], key)
+            out += [dict(x, _own=True) for x in _LS[fo["id"]] if x["mimeType"].startswith("video/") and int(x.get("size") or 0) < 300_000_000]
+        except Exception as e:
+            print(f"! could not read Drive folder '{fo['name']}':", str(e)[:150])
+    print(f"{code}: {len(out)} video(s) in own folders")
+    return out
 
 def lru_take(files, st):
     """The file used least recently (then the oldest), downloaded -> (local path, drive file) or None."""
@@ -1588,7 +1603,7 @@ def card_layer_html(c, show, v):
     tag = f'<span class="tag" style="font-size:30px;padding:6px 20px;text-shadow:none">{c["tag"]}</span>' if c.get("tag") else ""
     tsize = (56 if c.get("compact") else 70) if len(c["title"]) < 28 else (48 if c.get("compact") else 60)
     title = f'<h1 style="font-size:{tsize}px;font-weight:800;line-height:1.35;margin:{24 if tag else 0}px 0 0;letter-spacing:-.5px">{hl(c, v)}</h1>' if c.get("title") else ""
-    return f"""<div style="position:absolute;inset:0;color:#fff;text-shadow:0 3px 18px rgba(0,0,0,.6)">
+    return f"""<div style="position:absolute;inset:0;color:#fff;text-shadow:0 2px 6px rgba(0,0,0,.75),0 4px 22px rgba(0,0,0,.6)">
 <div style="visibility:{vis('head')};position:absolute;top:230px;left:0;right:0;display:flex;justify-content:center">{brand().replace('right:48px;top:44px', 'position:static')}</div>
 <div style="position:absolute;left:90px;right:90px;top:0;bottom:0;display:flex;flex-direction:column;justify-content:{dict(top='flex-start', bottom='flex-end').get(c.get('pos'), 'center')};text-align:center;padding:{'400px 0 380px' if c.get('pos') == 'top' else '300px 0 380px'}">
 <div style="visibility:{vis('head')}">{date}{tag}{title}{sub}</div>
@@ -1631,7 +1646,7 @@ def greeting_story(code, st, dst):
     T = int(os.environ.get("CARD_SECONDS", "15"))
     if bg_video:
         T = int(max(8, min(59, info.get("dur") or vid_duration(ffmpeg_bin(), bg) or T)))
-    layered_video([html], bg, bg_video, song, st, dst, T, info, dim=0.10, timings=[(0.6, T - 0.8)])
+    layered_video([html], bg, bg_video, song, st, dst, T, info, timings=[(0.6, T - 0.8)])
     print(f"{code} greeting ready:", "(clip already has a greeting)" if has_greet else word)
     return {"title": word}
 
@@ -1695,17 +1710,22 @@ def pick_video(code, st):
 def tour_reel(d, v, st, day, test):
     """Post (p1/p2): ONE whole video from the tours folder (S5), as a Reel; the caption is about the tour in that video."""
     got = None
-    done_p = st.setdefault("p_posted", [])
-    fresh = [f for f in folder_files("P", "visual") if f["mimeType"].startswith("video/") and f.get("_own") and f["id"] not in done_p]
-    if fresh:   # a finished film you made (e.g. with Kling) -> post it next, whole, once
-        f0 = min(fresh, key=lambda x: x["createdTime"])
+    pvids = own_videos("P")
+    plast = st.setdefault("p_last", {})
+    for pid in st.get("p_posted", []):          # films already posted by the older version count as used
+        plast.setdefault(pid, "2026-11-01")
+    st["post_debug"] = {"at": dt.datetime.now(TR).isoformat(timespec="minutes"), "p_videos": [f["name"] for f in pvids][:60]}
+    for f0 in sorted(pvids, key=lambda x: (plast.get(x["id"], ""), x["createdTime"]))[:6]:
         try:
             loc = drive_download(f0)
             info0 = clip_info(loc, True, f0["id"], f0["name"], st)
             if usable(f0, info0, st):
-                got = (loc, f0, info0); done_p.append(f0["id"]); del done_p[:-300]
+                got = (loc, f0, info0)
+                plast[f0["id"]] = dt.datetime.now(TR).isoformat(timespec="minutes")
+                st["post_debug"]["chosen"] = f0["name"]
+                break
         except Exception as e:
-            print("! film from P folder failed:", str(e)[:150])
+            print(f"! P video '{f0['name']}' failed:", str(e)[:150])
     got = got or pick_video("S5", st)
     if not got:
         print("no usable video in the tours folder (S5) -> normal Reel")
@@ -1746,7 +1766,7 @@ def tour_reel(d, v, st, day, test):
           'text-shadow:0 1px 6px rgba(0,0,0,.45)">@vangasht.van</div>'
           '<div style="position:absolute;left:46px;top:150px;color:rgba(255,255,255,.85);font:600 28px Georgia,serif;direction:ltr;'
           'text-shadow:0 1px 6px rgba(0,0,0,.5)">vangasht.com</div>')
-    film = f["id"] in st.get("p_posted", [])   # your own finished film: it has its own titles/subtitles
+    film = f["id"] in st.get("p_last", {})   # a video from the P folder: finished, has its own titles -> no extra title
     book = (f'<div style="position:absolute;left:0;right:0;{"top:330px" if film else "bottom:430px"};display:flex;justify-content:center">'
             '<div style="background:#25d366;color:#fff;border-radius:60px;padding:24px 50px;text-align:center;box-shadow:0 14px 40px rgba(0,0,0,.4)">'
             '<div style="font-size:52px;font-weight:900">📲 جهت رزرو تور</div>'
@@ -1756,7 +1776,7 @@ def tour_reel(d, v, st, day, test):
     head_end = min(5.5, T - 1)
     book_at = max(head_end + 0.8, T - 4.5)
     layers, times = ([book], [(book_at, T - 0.3)]) if film else ([card_layer_html(c, "head", v), book], [(0.8, head_end), (book_at, T - 0.3)])
-    layered_video(layers, src, True, song, st, mp4, T, info, dim=0.0 if film else 0.08, keep_html=wm, timings=times)
+    layered_video(layers, src, True, song, st, mp4, T, info, keep_html=wm, timings=times)
     import subprocess
     subprocess.run([ffmpeg_bin(), "-y", "-ss", "1.5", "-i", str(mp4), "-frames:v", "1", "-q:v", "3", str(OUT / f"{day}-post.jpg")], capture_output=True)
     tags = "#وان #وان_ترکیه #سفر_به_وان #تور_وان #تورهای_وان #گردشگری_وان #ترکیه #VanTurkey #Van #VanGölü #وان_گشت"
