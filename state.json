@@ -3,12 +3,6 @@
  "story": 1,
  "log": [
   {
-   "at": "2026-11-10T18:57+03:00",
-   "slot": "s8",
-   "item": "s8:مرادیهٔ خروشان 💦",
-   "media": "18128525281669076"
-  },
-  {
    "at": "2026-11-10T19:40+03:00",
    "slot": "p2",
    "item": "tour:van.gasht.turkiye_5f536099e6ac4d069b15fe",
@@ -361,6 +355,12 @@
    "slot": "s9",
    "item": "todayposts",
    "media": "18110344721677089"
+  },
+  {
+   "at": "2026-11-15T22:57+03:00",
+   "slot": "s10",
+   "item": "s10:شب بخیر",
+   "media": "18114118871224412"
   }
  ],
  "media_done": [
@@ -792,7 +792,8 @@
   "1FXt9lbzHEVYfudpg0QOjwZ7_MLakUklM": "2026-11-14T18:52+03:00",
   "1YO4NDbC8pHROirCjXj-gmXGHze_lafqC": "2026-11-14T22:52+03:00",
   "1JsfkqlOpP95SN4VUxZfddkFKwVMr3vU-": "2026-11-15T08:52+03:00",
-  "1LiL1RqaKZoeXCNKziKD_rCL8HtMBLzUx": "2026-11-15T18:52+03:00"
+  "1LiL1RqaKZoeXCNKziKD_rCL8HtMBLzUx": "2026-11-15T18:52+03:00",
+  "16SlfxTBhKLCGqUZyd8Fsumws8T6KWE1H": "2026-11-15T22:52+03:00"
  },
  "vlog_i": 6,
  "card_log": {
@@ -2496,6 +2497,20 @@
    "text_pos": "",
    "dur": 0,
    "v": 4
+  },
+  "16SlfxTBhKLCGqUZyd8Fsumws8T6KWE1H": {
+   "text": "",
+   "greeting": "",
+   "other_page": false,
+   "page": "",
+   "music": true,
+   "own_boxes": [],
+   "ar": 0.5625,
+   "scene": "غروب کنار استخر یک کافه‌رستوران با سقف حصیری، آتش در منقل و چای ترکی در استکان کمرکمر؛ فضایی گرم و آرام",
+   "place": "",
+   "text_pos": "",
+   "dur": 17.23,
+   "v": 4
   }
  },
  "skipped_files": {
@@ -2515,10 +2530,10 @@
  },
  "replied_comments": [],
  "s1_g": 8,
- "s10_g": 7,
+ "s10_g": 8,
  "reply_error": {
-  "at": "2026-11-15T20:54+03:00",
-  "error": "Instagram API error 400 on 17946876786361148/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"AIk-5rD0ZkrJYvNlPHxtOBw\"}}"
+  "at": "2026-11-15T22:57+03:00",
+  "error": "Instagram API error 400 on 17946876786361148/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"A93iJjPaHf04lAMMQV11kbx\"}}"
  },
  "smart_times": {
   "at": "2026-11-15T08:55+03:00",
