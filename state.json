@@ -3,12 +3,6 @@
  "story": 1,
  "log": [
   {
-   "at": "2026-11-10T15:57+03:00",
-   "slot": "s6",
-   "item": "s6:کیا عاشق آکدامارن؟ 🌸",
-   "media": "18133891492839113"
-  },
-  {
    "at": "2026-11-10T17:28+03:00",
    "slot": "s7",
    "item": "vlog",
@@ -361,6 +355,12 @@
    "slot": "s8",
    "item": "s8:سوبهان، قلهٔ سپید دریاچه ⛰️",
    "media": "18123331805329303"
+  },
+  {
+   "at": "2026-11-15T19:42+03:00",
+   "slot": "p2",
+   "item": "tour:Untitled",
+   "media": "17944907271383223"
   }
  ],
  "media_done": [
@@ -892,7 +892,8 @@
    "ویدیوی تور کشتی‌های بزرگ تفریحی؛ قایق دو",
    "ویدیوی کامل تور کشتی جزیرهٔ آکدامار، از ",
    "ویدیوی کامل تور آبشار مرادیه",
-   "ویدیوی تور پارک آبی ادرمیت؛ یک روز پرهیج"
+   "ویدیوی تور پارک آبی ادرمیت؛ یک روز پرهیج",
+   "جزیرهٔ چارپاناک، نمای هوایی از دریاچهٔ و"
   ]
  },
  "s4_i": 3,
@@ -976,7 +977,11 @@
    "music": true,
    "own_boxes": [],
    "ar": 0.5625,
-   "v": 3
+   "scene": "نمای هوایی روز از جزیره چارپاناک با چمن سبز، کلیسای قدیمی سنگی، دریاچه وان آبی و اسکله کوچک",
+   "place": "جزیرهٔ چارپاناک",
+   "text_pos": "top",
+   "dur": 28.56,
+   "v": 4
   },
   "1tf-XmRtcFdYa3FhzJI2xYgtmhBjtrhQp": {
    "text": "آبشار مرادیه وان",
@@ -2512,8 +2517,8 @@
  "s1_g": 8,
  "s10_g": 7,
  "reply_error": {
-  "at": "2026-11-15T18:55+03:00",
-  "error": "Instagram API error 400 on 17946876786361148/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"AT-FAzU-dwWvLSwTWxe2Ztq\"}}"
+  "at": "2026-11-15T19:42+03:00",
+  "error": "Instagram API error 400 on 17946876786361148/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"A55v0Il7pv1-wwz6fYj3FEV\"}}"
  },
  "smart_times": {
   "at": "2026-11-15T08:55+03:00",
@@ -2551,5 +2556,53 @@
  "p_posted": [
   "1K2TYZ5nPFIOpNiuLTrUgj8WA-DwLbtcw",
   "1xz05S9ZfHs3KdyXpfrrMX0EpRh1w43CH"
- ]
+ ],
+ "p_last": {
+  "1K2TYZ5nPFIOpNiuLTrUgj8WA-DwLbtcw": "2026-11-01",
+  "1xz05S9ZfHs3KdyXpfrrMX0EpRh1w43CH": "2026-11-01",
+  "19SQ-cP9HvIyx-tbss5pUxCALpRIQFVtf": "2026-11-15T19:37+03:00"
+ },
+ "post_debug": {
+  "at": "2026-11-15T19:37+03:00",
+  "p_videos": [
+   "van_omrumun_milad_65_548698e8fe6d48bab0e8d6911211bc02.mp4",
+   "van.gasht.turkiye_5f536099e6ac4d069b15fe4975810bb5.mp4",
+   "vankalesi1.mp4",
+   "Untitled",
+   "moradiyeselale.mp4",
+   "tersev.mp4",
+   "akdamaradasi5.mp4",
+   "edremit1.mp4",
+   "akdamaradasi5.mp4",
+   "vangezi3.mp4",
+   "Untitled",
+   "edremit4.mp4",
+   "vangezi3.mp4",
+   "vangezi.mp4",
+   "cpfmarco_75707eefbe2446449b6961cc921a80ea.mp4",
+   "bfe3629a7f5144acb2d5d74f3e213c6e.mp4",
+   "seyriadem_0b3959f23d634f2ebeb407f1cd4ca79a.mp4",
+   "miro_fly__eb84261705c64ead891a66979c27fd88.mp4",
+   "vanguzellleri_787787d7a81940eda1683ea6e2f34628.mp4",
+   "celikogluelif_e0dc59e4e99c44df84d452fa43d1a498.mp4",
+   "vandan.kareler_6139b8441f8b4f62a02b3faaab5431b2.mp4",
+   "van_omrumun_milad_65_361b9c7e83d84f38a899c2325e294481.mp4",
+   "van_omrumun_milad_65_e9a0bd10e833496eb9d022d3d0c9bd81.mp4",
+   "van_omrumun_milad_65_a48f05c5415c4cb8b31f1c6cc75f2f61.mp4",
+   "van_omrumun_milad_65_276d2d8b066f4a71a2ff36219ff7f5a1.mp4",
+   "van_omrumun_milad_65_d9b905663be64dfcbbd0107be7142f5a.mp4",
+   "van_omrumun_milad_65_86795e134d214f88aaf6fcaeb64f4bcf.mp4",
+   "van_omrumun_milad_65_ecb42788e3e44067a564ef05161de47a.mp4",
+   "van_omrumun_milad_65_f4d6e4c8f6124b57a8e637dd00aecefb.mp4",
+   "van.gasht.turkiye_b206d3e9339e4c8abaa9b0e11f912329.mp4",
+   "VID_20261105_213159.mp4",
+   "van.gasht.turkiye_5f536099e6ac4d069b15fe4975810bb5.mp4",
+   "kapadokya_rehber_ferhat_b16b2af19fc34ef387f3bb00ab25e0ffموزیک.mp4",
+   "Video from markopoloturizm",
+   "havinsblog_9dc34c007d4443f59fa9673160cf6617.mp4",
+   "bsrklcdndr_47d6b48818eb4bd9a0d10d1cc16a0245.mp4",
+   "vangasht-xerxes-film-voice.mp4"
+  ],
+  "chosen": "Untitled"
+ }
 }
