@@ -3,12 +3,6 @@
  "story": 1,
  "log": [
   {
-   "at": "2026-11-09T22:57+03:00",
-   "slot": "s10",
-   "item": "s10:شب بخیر",
-   "media": "18046736390830582"
-  },
-  {
    "at": "2026-11-10T08:59+03:00",
    "slot": "s1",
    "item": "s1:صبحتون قشنگ",
@@ -361,6 +355,12 @@
    "slot": "s2",
    "item": "rates",
    "media": "18134867755755981"
+  },
+  {
+   "at": "2026-11-15T11:56+03:00",
+   "slot": "s3",
+   "item": "vlog",
+   "media": "18109528700204190"
   }
  ],
  "media_done": [
@@ -659,37 +659,45 @@
   "d:1RHgbbzmZHkSy4xoNR18faypo7d7TAlS9": 1,
   "d:1YPVL0hAgNCZTKmhoBeNuOPrMG-oF7Ohw": 1,
   "d:1pPDSkfFzddzZ-qbFV8XmhgJ4j6MscVUA": 1,
-  "d:1Yu_J-DFyQL9AS2lyf9RaexmW4KtgsJP9": 1
+  "d:1Yu_J-DFyQL9AS2lyf9RaexmW4KtgsJP9": 1,
+  "d:10Yht7_6xTjHgOXNKrvjvxLrgEOruFcXq": 1,
+  "d:1q0MK7A3zkBfb_ldiUIc9oaGnUW42ytcA": 1,
+  "d:1fPQDdnZmAhjxnuGi3I21o39SpxUWQcGN": 1,
+  "d:1mV-FEisDWbkINdz9bofjedu9vKSMfPA0": 1,
+  "d:1wP1pr56azhgnIvF4jfF5MzkYd91TtJ9u": 1,
+  "d:1DAAcFJVHLQFHH5APTiJ96P-597lNsoxQ": 1,
+  "d:1TFYfcJIDKHiX3llbL7TQchhErtKTraNn": 1,
+  "d:1Et1GhmpPzilx9shDBvGfjvEkY1IpPTpT": 1
  },
  "pexels_used": [
-  "x7262",
-  "x25",
-  "x34971",
-  "x119190",
-  "x79899",
-  "x156103",
-  "x236256",
-  "x31550",
-  "x273476",
-  "x67201",
-  "x84906",
-  "x149938",
-  "x170912",
-  "x222349",
-  "x4730",
-  "x381054",
-  "x50622",
   "x71747",
-  "x118768",
+  "x273476",
+  "x7262",
+  "x50622",
+  "x170912",
+  "x4730",
+  "x222349",
+  "x79899",
+  "x149938",
   "x11284",
-  "x371424",
-  "x267036",
-  "x140186",
   "x173358",
-  "x2576"
+  "x119190",
+  "x84906",
+  "x67201",
+  "x371424",
+  "x34971",
+  "x236256",
+  "x2576",
+  "x31550",
+  "x156103",
+  "x267036",
+  "x25",
+  "x381054",
+  "x118768",
+  "x140186"
  ],
  "music_last": {
-  "1DZTJ4ef0yYVG2xdl3IlbrnmWhvTIImvs": "2026-11-14T11:53+03:00",
+  "1DZTJ4ef0yYVG2xdl3IlbrnmWhvTIImvs": "2026-11-15T11:53+03:00",
   "1dkR0sggYnJv6PAPhkKiPNI1Qbu5nbVwi": "2026-11-14T17:23+03:00",
   "1fp4Ah5iQfFhH9Wv8srgJdSKSlru0RDHO": "2026-11-14T20:53+03:00",
   "1QUXCTr3hAjvM090ZbkBDmL190dxM9yXG": "2026-11-14T12:52+03:00",
@@ -777,7 +785,7 @@
   "1YO4NDbC8pHROirCjXj-gmXGHze_lafqC": "2026-11-14T22:52+03:00",
   "1JsfkqlOpP95SN4VUxZfddkFKwVMr3vU-": "2026-11-15T08:52+03:00"
  },
- "vlog_i": 10,
+ "vlog_i": 3,
  "card_log": {
   "s1": [
    "صبح بخیر چهارشنبه؛ پیشنهاد صبحانهٔ وانی",
@@ -2245,6 +2253,132 @@
    "text_pos": "",
    "dur": 50.36,
    "v": 4
+  },
+  "10Yht7_6xTjHgOXNKrvjvxLrgEOruFcXq": {
+   "text": "",
+   "greeting": "",
+   "other_page": false,
+   "page": "",
+   "music": false,
+   "own_boxes": [],
+   "ar": 0.7515657620041754,
+   "scene": "خیابان شلوغ شهری در روزی آفتابی با عابران پیاده، مینی‌بوس زرد و ساختمان بلند شیشه‌ای آبی",
+   "place": "",
+   "text_pos": "",
+   "dur": 0,
+   "v": 4
+  },
+  "1q0MK7A3zkBfb_ldiUIc9oaGnUW42ytcA": {
+   "text": "",
+   "greeting": "",
+   "other_page": false,
+   "page": "",
+   "music": false,
+   "own_boxes": [],
+   "ar": 0.7515657620041754,
+   "scene": "درخت سبز پررنگ در جلوی دریاچه‌ای آبی با یک قایق تفریحی سفید، در یک روز آفتابی و آرام تابستانی",
+   "place": "",
+   "text_pos": "",
+   "dur": 0,
+   "v": 4
+  },
+  "1fPQDdnZmAhjxnuGi3I21o39SpxUWQcGN": {
+   "text": "",
+   "greeting": "",
+   "other_page": false,
+   "page": "",
+   "music": false,
+   "own_boxes": [],
+   "ar": 0.7515657620041754,
+   "scene": "گل‌های لاله‌واژگون نارنجی‌قرمز در دامنهٔ سبز با قله‌های برفی دور، آسمان صاف آبی در روز بهاری",
+   "place": "",
+   "text_pos": "",
+   "dur": 0,
+   "v": 4
+  },
+  "1mV-FEisDWbkINdz9bofjedu9vKSMfPA0": {
+   "text": "",
+   "greeting": "",
+   "other_page": false,
+   "page": "",
+   "music": false,
+   "own_boxes": [],
+   "ar": 0.7515657620041754,
+   "scene": "کوچه‌ای پیاده‌رو در روز آفتابی با چتر‌های رنگارنگ آویزان بالای سر، مغازه‌ها دو طرف و کف‌فرش رنگی",
+   "place": "",
+   "text_pos": "",
+   "dur": 0,
+   "v": 4
+  },
+  "1wP1pr56azhgnIvF4jfF5MzkYd91TtJ9u": {
+   "text": "",
+   "greeting": "",
+   "other_page": false,
+   "page": "",
+   "music": false,
+   "own_boxes": [],
+   "ar": 0.7515657620041754,
+   "scene": "میز مفصل صبحانهٔ ترکی با پنیر، زیتون، تخم‌مرغ، منمن، عسل و نان در فضای باز، در روز",
+   "place": "",
+   "text_pos": "",
+   "dur": 0,
+   "v": 4
+  },
+  "1DAAcFJVHLQFHH5APTiJ96P-597lNsoxQ": {
+   "text": "",
+   "greeting": "",
+   "other_page": false,
+   "page": "",
+   "music": false,
+   "own_boxes": [],
+   "ar": 0.7515657620041754,
+   "scene": "مجسمهٔ بزرگ سفید دو گربهٔ وان روی پایهٔ سنگی در میدانی با چمن و گل‌های construction نارنجی و زرد، در روز آفتابی",
+   "place": "خانهٔ گربه‌های وان",
+   "text_pos": "",
+   "dur": 0,
+   "v": 4
+  },
+  "1TFYfcJIDKHiX3llbL7TQchhErtKTraNn": {
+   "text": "",
+   "greeting": "",
+   "other_page": false,
+   "page": "",
+   "music": false,
+   "own_boxes": [],
+   "ar": 0.7515657620041754,
+   "scene": "گربهٔ سفید پشمالو با چشمان دو رنگ (آبی و عسلی) در روز کنار پنجره‌ای چوبی نشسته و به دوربین نگاه می‌کند.",
+   "place": "",
+   "text_pos": "",
+   "dur": 0,
+   "v": 4
+  },
+  "1Et1GhmpPzilx9shDBvGfjvEkY1IpPTpT": {
+   "text": "",
+   "greeting": "",
+   "other_page": false,
+   "page": "",
+   "music": false,
+   "own_boxes": [],
+   "ar": 0.7515657620041754,
+   "scene": "ساحل سنگ‌ریزه‌ای دریاچه با آب فیروزه‌ای و کوهی برفی در دوردست، در روزی آفتابی و آرام",
+   "place": "",
+   "text_pos": "",
+   "dur": 0,
+   "v": 4
+  },
+  "1WMJt9ZsyomotgQrBPBDMhXwFJHFdVRp_": {
+   "text": "",
+   "greeting": "",
+   "other_page": false,
+   "page": "",
+   "music": false,
+   "own_boxes": [],
+   "ar": 0.7515657620041754,
+   "scene": "یک گربهٔ سفید پشمالو با چشمان آبی و مدال شمارهٔ ۱ دور گردن، روز در فضای باز جلوی حروف بزرگ آبی ایستاده است.",
+   "place": "",
+   "text_pos": "",
+   "dur": 0,
+   "v": 4
   }
  },
  "skipped_files": {
@@ -2266,8 +2400,8 @@
  "s1_g": 8,
  "s10_g": 7,
  "reply_error": {
-  "at": "2026-11-15T11:04+03:00",
-  "error": "Instagram API error 400 on 17946876786361148/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"Ao9dKpZwootAedbxIG3L-Ft\"}}"
+  "at": "2026-11-15T11:56+03:00",
+  "error": "Instagram API error 400 on 17946876786361148/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"AOJsNoL2lr2I9UsE7FoRbIk\"}}"
  },
  "smart_times": {
   "at": "2026-11-15T08:55+03:00",
