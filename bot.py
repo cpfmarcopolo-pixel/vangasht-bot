@@ -1708,14 +1708,18 @@ def pick_video(code, st):
     return None
 
 def tour_reel(d, v, st, day, test):
-    """Post (p1/p2): ONE whole video from the tours folder (S5), as a Reel; the caption is about the tour in that video."""
+    """Post (p1/p2): ONE whole video from the posts folder (P, falls back to S5), as a Reel; the caption is about the tour in that video."""
     got = None
     pvids = own_videos("P")
     plast = st.setdefault("p_last", {})
     for pid in st.get("p_posted", []):          # films already posted by the older version count as used
         plast.setdefault(pid, "2026-11-01")
     st["post_debug"] = {"at": dt.datetime.now(TR).isoformat(timespec="minutes"), "p_videos": [f["name"] for f in pvids][:60]}
-    for f0 in sorted(pvids, key=lambda x: (plast.get(x["id"], ""), x["createdTime"]))[:6]:
+    # never-posted videos first, and among them the NEWEST upload first (so a freshly added film goes out next);
+    # once all are posted, the one posted longest ago comes back
+    order = sorted(pvids, key=lambda x: x["createdTime"], reverse=True)
+    order = sorted(order, key=lambda x: plast.get(x["id"], ""))
+    for f0 in order[:6]:
         try:
             loc = drive_download(f0)
             info0 = clip_info(loc, True, f0["id"], f0["name"], st)
