@@ -3,12 +3,6 @@
  "story": 1,
  "log": [
   {
-   "at": "2026-11-11T13:45+03:00",
-   "slot": "p1",
-   "item": "tour:VID-20261030-WA0040.mp4",
-   "media": "18116511076849184"
-  },
-  {
    "at": "2026-11-11T14:24+03:00",
    "slot": "s5",
    "item": "s5:رنگ بپاش، شاد شو 🎨",
@@ -361,6 +355,12 @@
    "slot": "s6",
    "item": "s6:کنار دریاچه، چای یا قهوه؟",
    "media": "18196086544396693"
+  },
+  {
+   "at": "2026-11-16T18:57+03:00",
+   "slot": "s8",
+   "item": "s8:آکدامار؛ جزیرهٔ عاشقانه",
+   "media": "18163920649506567"
   }
  ],
  "media_done": [
@@ -802,7 +802,10 @@
   "1JsfkqlOpP95SN4VUxZfddkFKwVMr3vU-": "2026-11-15T08:52+03:00",
   "1LiL1RqaKZoeXCNKziKD_rCL8HtMBLzUx": "2026-11-15T18:52+03:00",
   "16SlfxTBhKLCGqUZyd8Fsumws8T6KWE1H": "2026-11-15T22:52+03:00",
-  "1Uc4gZeDAwjlpo60wbGChq7yATmcr7yy8": "2026-11-16T08:52+03:00"
+  "1Uc4gZeDAwjlpo60wbGChq7yATmcr7yy8": "2026-11-16T08:52+03:00",
+  "1Hp5fkRsPQEIf5iNaAN1UKRxpF75wZ6_M": "2026-11-16T18:53+03:00",
+  "12wUQh9nq-J-wPii4WcBFc4KJJ-2Z9dtp": "2026-11-16T18:53+03:00",
+  "1wGPK2SQaZC6E91lBzWTOn4SPH6mdPQg_": "2026-11-16T18:53+03:00"
  },
  "vlog_i": 9,
  "card_log": {
@@ -877,7 +880,8 @@
    "دریاچهٔ ارچک",
    "کوه ارک؛ منظرهٔ شهر و دریاچه از بالا",
    "خانهٔ گربه‌های وان (دانشگاه یوزونجو ییل)",
-   "کوه سوبهان"
+   "کوه سوبهان",
+   "جزیرهٔ آکدامار"
   ],
   "s10": [
    "استوری شب بخیر چهارشنبه ۱۳ آبان",
@@ -912,7 +916,7 @@
  },
  "s4_i": 4,
  "s5_i": 5,
- "s8_i": 12,
+ "s8_i": 1,
  "clip_info": {
   "1eww9Vvjb_m9JhLIMFLFn8JtiDB8nLddz": {
    "text": "",
@@ -2570,6 +2574,34 @@
    "text_pos": "",
    "dur": 0,
    "v": 4
+  },
+  "1Hp5fkRsPQEIf5iNaAN1UKRxpF75wZ6_M": {
+   "text": "ESKİ VAN EVLERİ KALE",
+   "greeting": "",
+   "other_page": true,
+   "page": "@vanbuyuksehir65",
+   "music": true,
+   "own_boxes": [],
+   "ar": 0.5625,
+   "scene": "داخل یک خانهٔ سنتی قدیمی وان با سقف چوبی، فرش‌ها و کلیم‌های رنگی، مبل‌های زمینی و وسایل مسی؛ روز و بدون آدم",
+   "place": "",
+   "text_pos": "top",
+   "dur": 33.34,
+   "v": 4
+  },
+  "12wUQh9nq-J-wPii4WcBFc4KJJ-2Z9dtp": {
+   "text": "",
+   "greeting": "",
+   "other_page": true,
+   "page": "Recep DAĞ Drone Photography & Video (rec",
+   "music": true,
+   "own_boxes": [],
+   "ar": 0.5625,
+   "scene": "میدان هنری با مجسمه‌های برنزی (دختر روی توپ، ویولن‌سل‌نواز، گربهٔ کتاب‌خوان) و پرچم‌های ترکیه، روز آفتابی",
+   "place": "",
+   "text_pos": "",
+   "dur": 56.19,
+   "v": 4
   }
  },
  "skipped_files": {
@@ -2585,14 +2617,15 @@
   "romantiic.musiic_e85c502899254e92973dfd60925835c4.mp4": "Romantiic.Musiic",
   "romantiic.musiic_4327d7ca89de48188f707699f4b585ee.mp4": "@Romantiic.Musiic",
   "Ins2916310794_ace7114c8b97409fbd73a0366186b518.mp4": "@asya_cappadocia",
-  "granddeniz65_07421861a59f49a8a91c87ecbf70516a.mp4": "Keveajans"
+  "granddeniz65_07421861a59f49a8a91c87ecbf70516a.mp4": "Keveajans",
+  "cpfmarco_884d04392c76419fa7031665f87a6735.mp4": "Recep DAĞ Drone Photography & Video (rec"
  },
  "replied_comments": [],
  "s1_g": 9,
  "s10_g": 8,
  "reply_error": {
-  "at": "2026-11-16T15:56+03:00",
-  "error": "Instagram API error 400 on 17946876786361148/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"AuBVLdyJQdIYhazseEnOp63\"}}"
+  "at": "2026-11-16T18:58+03:00",
+  "error": "Instagram API error 400 on 17946876786361148/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"AprzVeFIyKLedDE7hbtZZcm\"}}"
  },
  "smart_times": {
   "at": "2026-11-15T08:55+03:00",
