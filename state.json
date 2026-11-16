@@ -3,12 +3,6 @@
  "story": 1,
  "log": [
   {
-   "at": "2026-11-11T14:24+03:00",
-   "slot": "s5",
-   "item": "s5:رنگ بپاش، شاد شو 🎨",
-   "media": "18203573980377006"
-  },
-  {
    "at": "2026-11-11T15:56+03:00",
    "slot": "s6",
    "item": "s6:غروبِ دریاچه، چه حسی داره؟",
@@ -361,6 +355,12 @@
    "slot": "s8",
    "item": "s8:آکدامار؛ جزیرهٔ عاشقانه",
    "media": "18163920649506567"
+  },
+  {
+   "at": "2026-11-16T19:43+03:00",
+   "slot": "p2",
+   "item": "tour:vangasht-xerxes-film-voice.mp4",
+   "media": "18035150711883814"
   }
  ],
  "media_done": [
@@ -911,7 +911,8 @@
    "ویدیوی کامل تور آبشار مرادیه",
    "ویدیوی تور پارک آبی ادرمیت؛ یک روز پرهیج",
    "جزیرهٔ چارپاناک، نمای هوایی از دریاچهٔ و",
-   "ویدیوی تور آبشار مرادیه: آبشار پرآب، پل "
+   "ویدیوی تور آبشار مرادیه: آبشار پرآب، پل ",
+   "ویدیوی تور کشتی جزیرهٔ آکدامار، از خانهٔ"
   ]
  },
  "s4_i": 4,
@@ -2624,8 +2625,8 @@
  "s1_g": 9,
  "s10_g": 8,
  "reply_error": {
-  "at": "2026-11-16T18:58+03:00",
-  "error": "Instagram API error 400 on 17946876786361148/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"AprzVeFIyKLedDE7hbtZZcm\"}}"
+  "at": "2026-11-16T19:43+03:00",
+  "error": "Instagram API error 400 on 17946876786361148/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"AuX--NcEXYMjm3OR_zNnKe9\"}}"
  },
  "smart_times": {
   "at": "2026-11-15T08:55+03:00",
@@ -2668,10 +2669,11 @@
   "1K2TYZ5nPFIOpNiuLTrUgj8WA-DwLbtcw": "2026-11-01",
   "1xz05S9ZfHs3KdyXpfrrMX0EpRh1w43CH": "2026-11-01",
   "19SQ-cP9HvIyx-tbss5pUxCALpRIQFVtf": "2026-11-15T19:37+03:00",
-  "1tf-XmRtcFdYa3FhzJI2xYgtmhBjtrhQp": "2026-11-16T12:38+03:00"
+  "1tf-XmRtcFdYa3FhzJI2xYgtmhBjtrhQp": "2026-11-16T12:38+03:00",
+  "1eEtnpWQFNRPgr-F1tBgKlqKnK_vwbZvi": "2026-11-16T19:37+03:00"
  },
  "post_debug": {
-  "at": "2026-11-16T12:37+03:00",
+  "at": "2026-11-16T19:37+03:00",
   "p_videos": [
    "van_omrumun_milad_65_548698e8fe6d48bab0e8d6911211bc02.mp4",
    "van.gasht.turkiye_5f536099e6ac4d069b15fe4975810bb5.mp4",
@@ -2711,6 +2713,6 @@
    "bsrklcdndr_47d6b48818eb4bd9a0d10d1cc16a0245.mp4",
    "vangasht-xerxes-film-voice.mp4"
   ],
-  "chosen": "moradiyeselale.mp4"
+  "chosen": "vangasht-xerxes-film-voice.mp4"
  }
 }
