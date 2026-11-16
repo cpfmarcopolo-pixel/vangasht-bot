@@ -3,12 +3,6 @@
  "story": 1,
  "log": [
   {
-   "at": "2026-11-11T11:04+03:00",
-   "slot": "s2",
-   "item": "rates",
-   "media": "18036488564893895"
-  },
-  {
    "at": "2026-11-11T11:56+03:00",
    "slot": "s3",
    "item": "vlog",
@@ -361,6 +355,12 @@
    "slot": "p1",
    "item": "tour:moradiyeselale.mp4",
    "media": "18128338954901204"
+  },
+  {
+   "at": "2026-11-16T12:56+03:00",
+   "slot": "s4",
+   "item": "s4:وان را قدم‌به‌قدم بشناس",
+   "media": "18192991963406615"
   }
  ],
  "media_done": [
@@ -716,7 +716,7 @@
   "1DZTJ4ef0yYVG2xdl3IlbrnmWhvTIImvs": "2026-11-16T11:53+03:00",
   "1dkR0sggYnJv6PAPhkKiPNI1Qbu5nbVwi": "2026-11-15T17:23+03:00",
   "1fp4Ah5iQfFhH9Wv8srgJdSKSlru0RDHO": "2026-11-15T20:53+03:00",
-  "1QUXCTr3hAjvM090ZbkBDmL190dxM9yXG": "2026-11-15T12:52+03:00",
+  "1QUXCTr3hAjvM090ZbkBDmL190dxM9yXG": "2026-11-16T12:53+03:00",
   "r_16OqrXYzWRF5c20HNKbjBoWNaa_6pT9tp": "2026-11-04T00:15+03:00",
   "r_1l3THmi6GjqfKpjoZlRy25On7rsx6vdso": "2026-11-04T10:50+03:00"
  },
@@ -828,7 +828,8 @@
    "جزیرهٔ آکدامار: کشتی، بلیت و بهترین زمان",
    "صرافی وان گشت: تبدیل ارز با کارتخوان ایر",
    "سوئیت‌های مبلهٔ وان؛ خونهٔ گرم برای آخر ",
-   "کارت تخفیف وان گشت؛ ۱۰٪ تخفیف با اسکن QR"
+   "کارت تخفیف وان گشت؛ ۱۰٪ تخفیف با اسکن QR",
+   "معرفی راهنمای سفر به وان در سایت"
   ],
   "s5": [
    "تور کشتی‌های بزرگ تفریحی دریاچه وان",
@@ -907,7 +908,7 @@
    "ویدیوی تور آبشار مرادیه: آبشار پرآب، پل "
   ]
  },
- "s4_i": 3,
+ "s4_i": 4,
  "s5_i": 4,
  "s8_i": 12,
  "clip_info": {
@@ -2588,8 +2589,8 @@
  "s1_g": 9,
  "s10_g": 8,
  "reply_error": {
-  "at": "2026-11-16T12:41+03:00",
-  "error": "Instagram API error 400 on 17946876786361148/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"AP7o2HCaqkPaBVe8Qpio7Hb\"}}"
+  "at": "2026-11-16T12:56+03:00",
+  "error": "Instagram API error 400 on 17946876786361148/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"AdTX87LB_p05bef21UpDJpy\"}}"
  },
  "smart_times": {
   "at": "2026-11-15T08:55+03:00",
