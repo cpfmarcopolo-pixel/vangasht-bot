@@ -3,12 +3,6 @@
  "story": 1,
  "log": [
   {
-   "at": "2026-11-11T08:57+03:00",
-   "slot": "s1",
-   "item": "s1:صبحتون بخیر",
-   "media": "18225678667338556"
-  },
-  {
    "at": "2026-11-11T11:04+03:00",
    "slot": "s2",
    "item": "rates",
@@ -361,6 +355,12 @@
    "slot": "s3",
    "item": "vlog",
    "media": "18123607966945892"
+  },
+  {
+   "at": "2026-11-16T12:41+03:00",
+   "slot": "p1",
+   "item": "tour:moradiyeselale.mp4",
+   "media": "18128338954901204"
   }
  ],
  "media_done": [
@@ -903,7 +903,8 @@
    "ویدیوی کامل تور کشتی جزیرهٔ آکدامار، از ",
    "ویدیوی کامل تور آبشار مرادیه",
    "ویدیوی تور پارک آبی ادرمیت؛ یک روز پرهیج",
-   "جزیرهٔ چارپاناک، نمای هوایی از دریاچهٔ و"
+   "جزیرهٔ چارپاناک، نمای هوایی از دریاچهٔ و",
+   "ویدیوی تور آبشار مرادیه: آبشار پرآب، پل "
   ]
  },
  "s4_i": 3,
@@ -1001,7 +1002,11 @@
    "music": true,
    "own_boxes": [],
    "ar": 0.5625,
-   "v": 3
+   "scene": "نمای هوایی از آبشار پرآب و گل‌آلود مرادیه وان با درختان سبز، پل معلق و گردشگران، در روزی آفتابی و بهاری",
+   "place": "آبشار مرادیه",
+   "text_pos": "bottom",
+   "dur": 9.73,
+   "v": 4
   },
   "1VUYn5DjW6_BERznvNSyLD0Sgdm-aJtDb": {
    "text": "",
@@ -2583,8 +2588,8 @@
  "s1_g": 9,
  "s10_g": 8,
  "reply_error": {
-  "at": "2026-11-16T11:54+03:00",
-  "error": "Instagram API error 400 on 17946876786361148/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"AtUmE2GS_MmoJ3AwIL1cT7z\"}}"
+  "at": "2026-11-16T12:41+03:00",
+  "error": "Instagram API error 400 on 17946876786361148/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"AP7o2HCaqkPaBVe8Qpio7Hb\"}}"
  },
  "smart_times": {
   "at": "2026-11-15T08:55+03:00",
@@ -2626,10 +2631,11 @@
  "p_last": {
   "1K2TYZ5nPFIOpNiuLTrUgj8WA-DwLbtcw": "2026-11-01",
   "1xz05S9ZfHs3KdyXpfrrMX0EpRh1w43CH": "2026-11-01",
-  "19SQ-cP9HvIyx-tbss5pUxCALpRIQFVtf": "2026-11-15T19:37+03:00"
+  "19SQ-cP9HvIyx-tbss5pUxCALpRIQFVtf": "2026-11-15T19:37+03:00",
+  "1tf-XmRtcFdYa3FhzJI2xYgtmhBjtrhQp": "2026-11-16T12:38+03:00"
  },
  "post_debug": {
-  "at": "2026-11-15T19:37+03:00",
+  "at": "2026-11-16T12:37+03:00",
   "p_videos": [
    "van_omrumun_milad_65_548698e8fe6d48bab0e8d6911211bc02.mp4",
    "van.gasht.turkiye_5f536099e6ac4d069b15fe4975810bb5.mp4",
@@ -2669,6 +2675,6 @@
    "bsrklcdndr_47d6b48818eb4bd9a0d10d1cc16a0245.mp4",
    "vangasht-xerxes-film-voice.mp4"
   ],
-  "chosen": "Untitled"
+  "chosen": "moradiyeselale.mp4"
  }
 }
