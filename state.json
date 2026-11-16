@@ -3,12 +3,6 @@
  "story": 1,
  "log": [
   {
-   "at": "2026-11-10T22:55+03:00",
-   "slot": "s10",
-   "item": "s10:شبتون آروم",
-   "media": "18149466478602960"
-  },
-  {
    "at": "2026-11-11T08:57+03:00",
    "slot": "s1",
    "item": "s1:صبحتون بخیر",
@@ -361,6 +355,12 @@
    "slot": "s2",
    "item": "ai:کارت تخفیف ۱۰٪ و اسکن QR در خرید",
    "media": "18078323051598178"
+  },
+  {
+   "at": "2026-11-16T11:54+03:00",
+   "slot": "s3",
+   "item": "vlog",
+   "media": "18123607966945892"
   }
  ],
  "media_done": [
@@ -650,10 +650,10 @@
   "d:1rIvKD3WSZDUI_RiYJAWqg9-sqqcXONKw": 2,
   "d:1o2o6nxkEsIIpQZtKpu11OGerPo-kMNAb": 2,
   "d:1SCCLUtrH2n5RV6jQ8hZX8hgHBEnXEzxO": 2,
-  "d:1xs-J1CBH0Lecj8TgxcsEzv-eGj0maX6P": 1,
-  "d:1fvjbBybiQ2lD1eALB61s6LXyV5sXHGDN": 1,
-  "d:1-36_no9ByNxjyl11RZHoErZ2yp9TZwbv": 1,
-  "d:1Kcx8HlqZ4lWoLXIItnHDmJSMEUFuBmug": 1,
+  "d:1xs-J1CBH0Lecj8TgxcsEzv-eGj0maX6P": 2,
+  "d:1fvjbBybiQ2lD1eALB61s6LXyV5sXHGDN": 2,
+  "d:1-36_no9ByNxjyl11RZHoErZ2yp9TZwbv": 2,
+  "d:1Kcx8HlqZ4lWoLXIItnHDmJSMEUFuBmug": 2,
   "d:1rpRCrfb8P1AU0QpFiJ0wqEDdBfee8ZgF": 1,
   "d:1FCD2paSesZJUrwIWd1d-UuDX7vg8QL93": 1,
   "d:1YvQNtQJOPULl-LifLKiUAbKMKZuS2l9u": 1,
@@ -679,37 +679,41 @@
   "d:1g_4XUI_tnz_zaKnhtzhw_fBRE7rFSzmP": 1,
   "d:1SMQd59gCOURJXYVPEph8elgWzMnk3kcl": 1,
   "d:1-tKUE4bwpjwueAMqH2CuNgqXKuK-SoFq": 1,
-  "d:1RV-O6fck5bEk50XFGQqi_LZBMXDkftZJ": 1
+  "d:1RV-O6fck5bEk50XFGQqi_LZBMXDkftZJ": 1,
+  "d:1WMJt9ZsyomotgQrBPBDMhXwFJHFdVRp_": 1,
+  "d:1nm2pR6sVRiTTyWBoYwnvtN_APOpt_9jx": 1,
+  "d:1Z52qgrjrHI1dTms25GxptH7UzkPhlO3Q": 1,
+  "d:1EPN55-G4G9t78ziYe773YyjcDpH8A7wH": 1
  },
  "pexels_used": [
-  "x381054",
-  "x71747",
-  "x84906",
-  "x2576",
-  "x140186",
-  "x173358",
-  "x4730",
-  "x67201",
-  "x31550",
-  "x267036",
-  "x119190",
-  "x149938",
   "x7262",
   "x34971",
-  "x273476",
-  "x50622",
-  "x118768",
-  "x371424",
   "x156103",
-  "x11284",
+  "x67201",
+  "x4730",
+  "x381054",
+  "x371424",
+  "x149938",
   "x222349",
+  "x267036",
+  "x118768",
+  "x84906",
+  "x140186",
+  "x11284",
   "x25",
-  "x236256",
+  "x31550",
   "x79899",
-  "x170912"
+  "x170912",
+  "x71747",
+  "x273476",
+  "x119190",
+  "x50622",
+  "x173358",
+  "x2576",
+  "x236256"
  ],
  "music_last": {
-  "1DZTJ4ef0yYVG2xdl3IlbrnmWhvTIImvs": "2026-11-15T11:53+03:00",
+  "1DZTJ4ef0yYVG2xdl3IlbrnmWhvTIImvs": "2026-11-16T11:53+03:00",
   "1dkR0sggYnJv6PAPhkKiPNI1Qbu5nbVwi": "2026-11-15T17:23+03:00",
   "1fp4Ah5iQfFhH9Wv8srgJdSKSlru0RDHO": "2026-11-15T20:53+03:00",
   "1QUXCTr3hAjvM090ZbkBDmL190dxM9yXG": "2026-11-15T12:52+03:00",
@@ -800,7 +804,7 @@
   "16SlfxTBhKLCGqUZyd8Fsumws8T6KWE1H": "2026-11-15T22:52+03:00",
   "1Uc4gZeDAwjlpo60wbGChq7yATmcr7yy8": "2026-11-16T08:52+03:00"
  },
- "vlog_i": 6,
+ "vlog_i": 9,
  "card_log": {
   "s1": [
    "صبح بخیر چهارشنبه؛ پیشنهاد صبحانهٔ وانی",
@@ -2530,6 +2534,34 @@
    "text_pos": "bottom",
    "dur": 18.97,
    "v": 4
+  },
+  "1nm2pR6sVRiTTyWBoYwnvtN_APOpt_9jx": {
+   "text": "",
+   "greeting": "",
+   "other_page": false,
+   "page": "",
+   "music": false,
+   "own_boxes": [],
+   "ar": 0.7531380753138075,
+   "scene": "حروف بزرگ سفید «VAN» با لبه‌های قرمز روی ساحل، کنار دریا و زیر آسمان آبی با ابرهای روشن، در روز",
+   "place": "",
+   "text_pos": "",
+   "dur": 0,
+   "v": 4
+  },
+  "1EPN55-G4G9t78ziYe773YyjcDpH8A7wH": {
+   "text": "",
+   "greeting": "",
+   "other_page": false,
+   "page": "",
+   "music": false,
+   "own_boxes": [],
+   "ar": 0.7515657620041754,
+   "scene": "رودخانه یا کانال آبی آرام در روز آفتابی با نرده‌های چوبی در جلو، حاشیهٔ سبز و کوه‌های دوردست، بدون آدم و با حال‌وهوای آرام",
+   "place": "",
+   "text_pos": "",
+   "dur": 0,
+   "v": 4
   }
  },
  "skipped_files": {
@@ -2551,8 +2583,8 @@
  "s1_g": 9,
  "s10_g": 8,
  "reply_error": {
-  "at": "2026-11-16T11:05+03:00",
-  "error": "Instagram API error 400 on 17946876786361148/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"AqebdNJqbGT535dcqViQrZB\"}}"
+  "at": "2026-11-16T11:54+03:00",
+  "error": "Instagram API error 400 on 17946876786361148/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"AtUmE2GS_MmoJ3AwIL1cT7z\"}}"
  },
  "smart_times": {
   "at": "2026-11-15T08:55+03:00",
