@@ -3,12 +3,6 @@
  "story": 1,
  "log": [
   {
-   "at": "2026-11-10T20:56+03:00",
-   "slot": "s9",
-   "item": "todayposts",
-   "media": "18643394101019215"
-  },
-  {
    "at": "2026-11-10T22:55+03:00",
    "slot": "s10",
    "item": "s10:شبتون آروم",
@@ -361,6 +355,12 @@
    "slot": "s1",
    "item": "s1:صبحتون قشنگ",
    "media": "18133708705844196"
+  },
+  {
+   "at": "2026-11-16T11:05+03:00",
+   "slot": "s2",
+   "item": "ai:کارت تخفیف ۱۰٪ و اسکن QR در خرید",
+   "media": "18078323051598178"
   }
  ],
  "media_done": [
@@ -423,6 +423,10 @@
   {
    "day": "2026-11-07",
    "topic": "پیاده‌روی پاییزی لب دریاچه در ادرمیت"
+  },
+  {
+   "day": "2026-11-16",
+   "topic": "کارت تخفیف ۱۰٪ و اسکن QR در خرید"
   }
  ],
  "inspo": {
@@ -2547,8 +2551,8 @@
  "s1_g": 9,
  "s10_g": 8,
  "reply_error": {
-  "at": "2026-11-16T08:57+03:00",
-  "error": "Instagram API error 400 on 17946876786361148/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"A3aCanqhu_Zt0VR_--PL7qN\"}}"
+  "at": "2026-11-16T11:05+03:00",
+  "error": "Instagram API error 400 on 17946876786361148/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"AqebdNJqbGT535dcqViQrZB\"}}"
  },
  "smart_times": {
   "at": "2026-11-15T08:55+03:00",
