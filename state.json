@@ -3,12 +3,6 @@
  "story": 1,
  "log": [
   {
-   "at": "2026-11-12T08:54+03:00",
-   "slot": "s1",
-   "item": "s1:صبح بخیر",
-   "media": "17917682556494501"
-  },
-  {
    "at": "2026-11-12T11:06+03:00",
    "slot": "s2",
    "item": "rates",
@@ -361,6 +355,12 @@
    "slot": "s1",
    "item": "s1:صبحتون بخیر",
    "media": "17916986478509516"
+  },
+  {
+   "at": "2026-11-17T11:07+03:00",
+   "slot": "s2",
+   "item": "ai:کوه آتشفشانی سوفان در شمال دریاچهٔ وان",
+   "media": "18141762166723827"
   }
  ],
  "media_done": [
@@ -427,6 +427,10 @@
   {
    "day": "2026-11-16",
    "topic": "کارت تخفیف ۱۰٪ و اسکن QR در خرید"
+  },
+  {
+   "day": "2026-11-17",
+   "topic": "کوه آتشفشانی سوفان در شمال دریاچهٔ وان"
   }
  ],
  "inspo": {
@@ -580,7 +584,8 @@
   "File:Du Caucase au Golfe Persique p 357.jpg",
   "File:Göle Nazır Ağaçlık Alan, Van - Edremit.jpg",
   "File:Turkish Visitors on Akdamar Island - Lake Van - Turkey - 01 (5796817924).jpg",
-  "File:050413-VanLake-Turkey-IMG 2740-2.jpg"
+  "File:050413-VanLake-Turkey-IMG 2740-2.jpg",
+  "File:Süphan Dağı Van Gölü'nden görünüm.jpg"
  ],
  "last_error": {
   "at": "2026-11-04T17:03+03:00",
