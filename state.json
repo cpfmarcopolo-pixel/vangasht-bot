@@ -3,12 +3,6 @@
  "story": 1,
  "log": [
   {
-   "at": "2026-11-12T11:06+03:00",
-   "slot": "s2",
-   "item": "rates",
-   "media": "18106687556015755"
-  },
-  {
    "at": "2026-11-12T11:58+03:00",
    "slot": "s3",
    "item": "vlog",
@@ -361,6 +355,12 @@
    "slot": "s2",
    "item": "ai:کوه آتشفشانی سوفان در شمال دریاچهٔ وان",
    "media": "18141762166723827"
+  },
+  {
+   "at": "2026-11-17T11:54+03:00",
+   "slot": "s3",
+   "item": "vlog",
+   "media": "18002054685001869"
   }
  ],
  "media_done": [
@@ -659,8 +659,8 @@
   "d:1fvjbBybiQ2lD1eALB61s6LXyV5sXHGDN": 2,
   "d:1-36_no9ByNxjyl11RZHoErZ2yp9TZwbv": 2,
   "d:1Kcx8HlqZ4lWoLXIItnHDmJSMEUFuBmug": 2,
-  "d:1rpRCrfb8P1AU0QpFiJ0wqEDdBfee8ZgF": 1,
-  "d:1FCD2paSesZJUrwIWd1d-UuDX7vg8QL93": 1,
+  "d:1rpRCrfb8P1AU0QpFiJ0wqEDdBfee8ZgF": 2,
+  "d:1FCD2paSesZJUrwIWd1d-UuDX7vg8QL93": 2,
   "d:1YvQNtQJOPULl-LifLKiUAbKMKZuS2l9u": 1,
   "d:1crbiCdwAPWADYc4DYse0UhZNU2Tc0EB0": 1,
   "d:1CLr_aibcpQfFDSeyFQBYbVnUzscQUaMA": 1,
@@ -669,12 +669,12 @@
   "d:1YPVL0hAgNCZTKmhoBeNuOPrMG-oF7Ohw": 1,
   "d:1pPDSkfFzddzZ-qbFV8XmhgJ4j6MscVUA": 1,
   "d:1Yu_J-DFyQL9AS2lyf9RaexmW4KtgsJP9": 1,
-  "d:10Yht7_6xTjHgOXNKrvjvxLrgEOruFcXq": 1,
-  "d:1q0MK7A3zkBfb_ldiUIc9oaGnUW42ytcA": 1,
-  "d:1fPQDdnZmAhjxnuGi3I21o39SpxUWQcGN": 1,
-  "d:1mV-FEisDWbkINdz9bofjedu9vKSMfPA0": 1,
-  "d:1wP1pr56azhgnIvF4jfF5MzkYd91TtJ9u": 1,
-  "d:1DAAcFJVHLQFHH5APTiJ96P-597lNsoxQ": 1,
+  "d:10Yht7_6xTjHgOXNKrvjvxLrgEOruFcXq": 2,
+  "d:1q0MK7A3zkBfb_ldiUIc9oaGnUW42ytcA": 2,
+  "d:1fPQDdnZmAhjxnuGi3I21o39SpxUWQcGN": 2,
+  "d:1mV-FEisDWbkINdz9bofjedu9vKSMfPA0": 2,
+  "d:1wP1pr56azhgnIvF4jfF5MzkYd91TtJ9u": 2,
+  "d:1DAAcFJVHLQFHH5APTiJ96P-597lNsoxQ": 2,
   "d:1TFYfcJIDKHiX3llbL7TQchhErtKTraNn": 1,
   "d:1Et1GhmpPzilx9shDBvGfjvEkY1IpPTpT": 1,
   "d:1TPtbt_nYLIfLHMmfkvcMvcpHSI00JmcS": 1,
@@ -691,36 +691,36 @@
   "d:1EPN55-G4G9t78ziYe773YyjcDpH8A7wH": 1
  },
  "pexels_used": [
-  "x7262",
-  "x34971",
-  "x156103",
-  "x67201",
-  "x4730",
-  "x381054",
-  "x371424",
-  "x149938",
-  "x222349",
-  "x267036",
-  "x118768",
-  "x84906",
-  "x140186",
-  "x11284",
-  "x25",
-  "x31550",
-  "x79899",
   "x170912",
-  "x71747",
   "x273476",
-  "x119190",
-  "x50622",
   "x173358",
   "x2576",
-  "x236256"
+  "x140186",
+  "x236256",
+  "x267036",
+  "x4730",
+  "x118768",
+  "x222349",
+  "x25",
+  "x371424",
+  "x71747",
+  "x156103",
+  "x381054",
+  "x67201",
+  "x84906",
+  "x7262",
+  "x11284",
+  "x50622",
+  "x149938",
+  "x119190",
+  "x31550",
+  "x79899",
+  "x34971"
  ],
  "music_last": {
   "1DZTJ4ef0yYVG2xdl3IlbrnmWhvTIImvs": "2026-11-16T11:53+03:00",
   "1dkR0sggYnJv6PAPhkKiPNI1Qbu5nbVwi": "2026-11-16T20:53+03:00",
-  "1fp4Ah5iQfFhH9Wv8srgJdSKSlru0RDHO": "2026-11-15T20:53+03:00",
+  "1fp4Ah5iQfFhH9Wv8srgJdSKSlru0RDHO": "2026-11-17T11:53+03:00",
   "1QUXCTr3hAjvM090ZbkBDmL190dxM9yXG": "2026-11-16T12:53+03:00",
   "r_16OqrXYzWRF5c20HNKbjBoWNaa_6pT9tp": "2026-11-04T00:15+03:00",
   "r_1l3THmi6GjqfKpjoZlRy25On7rsx6vdso": "2026-11-04T10:50+03:00"
@@ -814,7 +814,7 @@
   "13DGcegtTOuxdtC2xl8gDjSBci5ZpwMN-": "2026-11-16T22:52+03:00",
   "19-EJR4ui_EoCcnscScTSpwZNU9xqshzc": "2026-11-17T08:52+03:00"
  },
- "vlog_i": 9,
+ "vlog_i": 12,
  "card_log": {
   "s1": [
    "صبح بخیر چهارشنبه؛ پیشنهاد صبحانهٔ وانی",
