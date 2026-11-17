@@ -3,12 +3,6 @@
  "story": 1,
  "log": [
   {
-   "at": "2026-11-12T19:46+03:00",
-   "slot": "p2",
-   "item": "tour:vangezi4.mp4",
-   "media": "18118390586127625"
-  },
-  {
    "at": "2026-11-12T20:55+03:00",
    "slot": "s9",
    "item": "todayposts",
@@ -361,6 +355,12 @@
    "slot": "p2",
    "item": "tour:havinsblog_9dc34c007d4443f59fa9673160cf6",
    "media": "18287665285293293"
+  },
+  {
+   "at": "2026-11-17T21:23+03:00",
+   "slot": "s9",
+   "item": "todayposts",
+   "media": "17928643311201315"
   }
  ],
  "media_done": [
@@ -728,7 +728,7 @@
  ],
  "music_last": {
   "1DZTJ4ef0yYVG2xdl3IlbrnmWhvTIImvs": "2026-11-17T12:53+03:00",
-  "1dkR0sggYnJv6PAPhkKiPNI1Qbu5nbVwi": "2026-11-16T20:53+03:00",
+  "1dkR0sggYnJv6PAPhkKiPNI1Qbu5nbVwi": "2026-11-17T21:19+03:00",
   "1fp4Ah5iQfFhH9Wv8srgJdSKSlru0RDHO": "2026-11-17T11:53+03:00",
   "1QUXCTr3hAjvM090ZbkBDmL190dxM9yXG": "2026-11-17T17:23+03:00",
   "r_16OqrXYzWRF5c20HNKbjBoWNaa_6pT9tp": "2026-11-04T00:15+03:00",
