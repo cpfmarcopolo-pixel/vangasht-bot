@@ -3,12 +3,6 @@
  "story": 1,
  "log": [
   {
-   "at": "2026-11-13T11:03+03:00",
-   "slot": "s2",
-   "item": "rates",
-   "media": "18192165352416982"
-  },
-  {
    "at": "2026-11-13T11:57+03:00",
    "slot": "s3",
    "item": "vlog",
@@ -361,6 +355,12 @@
    "slot": "s2",
    "item": "ai:صرافی با کارتخوان ایرانی در وان",
    "media": "18118090685035836"
+  },
+  {
+   "at": "2026-11-18T11:55+03:00",
+   "slot": "s3",
+   "item": "vlog",
+   "media": "17998481970025634"
   }
  ],
  "media_done": [
@@ -615,8 +615,8 @@
   "d:1U4b38i-CWnvbYV90cb4pvKVeu4BrBpcW": 1,
   "d:1TrbCtioLxNR4SIYkuSrpLX6WbLekSpZC": 1,
   "d:1pKXqHr-pFpT2umWIUbvJlIu3tz6F44pz": 1,
-  "d:1LR0XlpRZVEn8Gwq1MYy8z4d2cgvW4KyU": 2,
-  "d:1kY1bjgXULEdctAGLRxoJj6kMk4dlLDzS": 2,
+  "d:1LR0XlpRZVEn8Gwq1MYy8z4d2cgvW4KyU": 3,
+  "d:1kY1bjgXULEdctAGLRxoJj6kMk4dlLDzS": 3,
   "d:195nbdcfUJEZfu4ni2e9rtll4JyBI6ldO": 2,
   "d:1ptmUjOp_HfgBOSsEbBl2Cf7Lrs0Z42zg": 2,
   "d:1PwHVAY7MeGcEkDET3fZYMWzfWzvZJfMz": 2,
@@ -680,8 +680,8 @@
   "d:1mV-FEisDWbkINdz9bofjedu9vKSMfPA0": 2,
   "d:1wP1pr56azhgnIvF4jfF5MzkYd91TtJ9u": 2,
   "d:1DAAcFJVHLQFHH5APTiJ96P-597lNsoxQ": 2,
-  "d:1TFYfcJIDKHiX3llbL7TQchhErtKTraNn": 1,
-  "d:1Et1GhmpPzilx9shDBvGfjvEkY1IpPTpT": 1,
+  "d:1TFYfcJIDKHiX3llbL7TQchhErtKTraNn": 2,
+  "d:1Et1GhmpPzilx9shDBvGfjvEkY1IpPTpT": 2,
   "d:1TPtbt_nYLIfLHMmfkvcMvcpHSI00JmcS": 1,
   "d:1OoRbxYjyTC6WVxfGC8P4Nha-NCz5KKuM": 1,
   "d:1LUS2KGebMWKSX95u4c84jngFqn5RI6aS": 1,
@@ -690,10 +690,10 @@
   "d:1SMQd59gCOURJXYVPEph8elgWzMnk3kcl": 1,
   "d:1-tKUE4bwpjwueAMqH2CuNgqXKuK-SoFq": 1,
   "d:1RV-O6fck5bEk50XFGQqi_LZBMXDkftZJ": 1,
-  "d:1WMJt9ZsyomotgQrBPBDMhXwFJHFdVRp_": 1,
-  "d:1nm2pR6sVRiTTyWBoYwnvtN_APOpt_9jx": 1,
-  "d:1Z52qgrjrHI1dTms25GxptH7UzkPhlO3Q": 1,
-  "d:1EPN55-G4G9t78ziYe773YyjcDpH8A7wH": 1,
+  "d:1WMJt9ZsyomotgQrBPBDMhXwFJHFdVRp_": 2,
+  "d:1nm2pR6sVRiTTyWBoYwnvtN_APOpt_9jx": 2,
+  "d:1Z52qgrjrHI1dTms25GxptH7UzkPhlO3Q": 2,
+  "d:1EPN55-G4G9t78ziYe773YyjcDpH8A7wH": 2,
   "d:1mePUmImfWrgYTX5cnwr63_mL6onmnUbt": 1,
   "d:1pKEXyl32R0XgNeOVH_CIhojAv0c8g2CR": 1,
   "d:1y6K-Z3UuGYVaJ3Kdt2v5aak02JA5FeoU": 1,
@@ -704,36 +704,36 @@
   "d:1dbyKP3Vs56MgEPZBVkdJykLuzuQLPLe8": 1
  },
  "pexels_used": [
-  "x79899",
-  "x170912",
-  "x381054",
-  "x31550",
-  "x118768",
-  "x4730",
-  "x173358",
-  "x11284",
-  "x267036",
-  "x84906",
-  "x71747",
-  "x222349",
-  "x34971",
-  "x140186",
-  "x67201",
   "x7262",
-  "x50622",
-  "x25",
-  "x273476",
-  "x371424",
-  "x156103",
-  "x236256",
   "x2576",
+  "x149938",
+  "x11284",
+  "x25",
+  "x118768",
+  "x371424",
+  "x71747",
+  "x170912",
+  "x50622",
+  "x140186",
+  "x173358",
+  "x267036",
+  "x34971",
+  "x79899",
+  "x273476",
+  "x84906",
+  "x236256",
+  "x222349",
+  "x31550",
+  "x67201",
+  "x381054",
+  "x4730",
   "x119190",
-  "x149938"
+  "x156103"
  ],
  "music_last": {
   "1DZTJ4ef0yYVG2xdl3IlbrnmWhvTIImvs": "2026-11-17T12:53+03:00",
   "1dkR0sggYnJv6PAPhkKiPNI1Qbu5nbVwi": "2026-11-17T21:19+03:00",
-  "1fp4Ah5iQfFhH9Wv8srgJdSKSlru0RDHO": "2026-11-17T11:53+03:00",
+  "1fp4Ah5iQfFhH9Wv8srgJdSKSlru0RDHO": "2026-11-18T11:53+03:00",
   "1QUXCTr3hAjvM090ZbkBDmL190dxM9yXG": "2026-11-17T17:23+03:00",
   "r_16OqrXYzWRF5c20HNKbjBoWNaa_6pT9tp": "2026-11-04T00:15+03:00",
   "r_1l3THmi6GjqfKpjoZlRy25On7rsx6vdso": "2026-11-04T10:50+03:00"
@@ -830,7 +830,7 @@
   "1yT1fPUG-P7dPl8slZHLKMAUEGqX3_m-e": "2026-11-17T22:53+03:00",
   "1BwIXCTLQP9BVbHvW1o6Ajw30jaTHz3UK": "2026-11-18T08:52+03:00"
  },
- "vlog_i": 5,
+ "vlog_i": 8,
  "card_log": {
   "s1": [
    "صبح بخیر چهارشنبه؛ پیشنهاد صبحانهٔ وانی",
@@ -2783,6 +2783,20 @@
    "place": "",
    "text_pos": "",
    "dur": 22.03,
+   "v": 4
+  },
+  "1Z52qgrjrHI1dTms25GxptH7UzkPhlO3Q": {
+   "text": "",
+   "greeting": "",
+   "other_page": false,
+   "page": "",
+   "music": false,
+   "own_boxes": [],
+   "ar": 0.7515657620041754,
+   "scene": "سکوی شیشه‌ای و چوبی کنار دریا با تابلوی بزرگ «EDREMIT» در روز ابری و آرام، بدون آدم",
+   "place": "ساحل ادرمیت",
+   "text_pos": "",
+   "dur": 0,
    "v": 4
   }
  },
