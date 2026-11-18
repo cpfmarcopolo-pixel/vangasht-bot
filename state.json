@@ -3,12 +3,6 @@
  "story": 1,
  "log": [
   {
-   "at": "2026-11-13T14:29+03:00",
-   "slot": "s5",
-   "item": "s5:ریتم شادی، زیر آفتاب 🎶",
-   "media": "18232359235329174"
-  },
-  {
    "at": "2026-11-13T15:58+03:00",
    "slot": "s6",
    "item": "s6:این قله اسمش چیه؟",
@@ -361,6 +355,12 @@
    "slot": "s5",
    "item": "s5:آکدامار، قصه‌ای وسط آب 🌊",
    "media": "18124594556315993"
+  },
+  {
+   "at": "2026-11-18T15:55+03:00",
+   "slot": "s6",
+   "item": "s6:ماهی‌ای که برعکس آب می‌پرد",
+   "media": "18184547560440491"
   }
  ],
  "media_done": [
@@ -763,7 +763,7 @@
   "1k-KyiRf0yyVTGLj6UMbJZJWLchhJ6vcS": "2026-11-06T08:52+03:00",
   "1ngL9kAa5rvCydUIuQHjnvQOwNC1_dmiz": "2026-11-14T11:01+03:00",
   "1jaaCnvkMJZiQRnYkl5VMOJwE-V_lUjin": "2026-11-14T19:37+03:00",
-  "1sjAcrPqOpPKqux_uRgpKOTk65efReAqB": "2026-11-06T15:52+03:00",
+  "1sjAcrPqOpPKqux_uRgpKOTk65efReAqB": "2026-11-18T15:52+03:00",
   "1lzWgWguX7p5t4WvRNOTNCtqSLY7PoZem": "2026-11-06T18:52+03:00",
   "1Z5JzLIvcIYDkA8fWgDbPLE8_rVFEWp1S": "2026-11-15T12:37+03:00",
   "1g9MCZ_AqhaYu782AxJIqmG5sn-G0Ofuo": "2026-11-06T22:52+03:00",
@@ -895,7 +895,8 @@
    "نام‌گذاری مامان‌گربهٔ سفید و بچه‌هاش در ",
    "دانستنی: دریاچهٔ وان بزرگ‌ترین دریاچهٔ ت",
    "این یا اون؟ چای یا قهوه کنار دریاچه",
-   "کیا دوست دارن؟ صبحانهٔ وانی"
+   "کیا دوست دارن؟ صبحانهٔ وانی",
+   "دانستنی: ماهی مروارید وان و مهاجرت بهاری"
   ],
   "s8": [
    "جزیرهٔ آکدامار",
@@ -1348,7 +1349,11 @@
    "music": true,
    "own_boxes": [],
    "ar": 0.8,
-   "v": 3
+   "scene": "آبشار خروشان با ماهی‌های در حال پرش به سمت بالا، گل‌های ارغوانی یاس بنفش، سبزه و مرغ دریایی در روزی بهاری",
+   "place": "",
+   "text_pos": "",
+   "dur": 13.21,
+   "v": 4
   },
   "1poTvlvN-PsJ7tYdIWLLg6Eb55b8kuHr3": {
    "text": "VAN SAHİL",
@@ -2823,8 +2828,8 @@
  "s1_g": 11,
  "s10_g": 10,
  "reply_error": {
-  "at": "2026-11-18T14:27+03:00",
-  "error": "Instagram API error 400 on 18114778199613303/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"A5jMRJmWfSOz_SqKIWQ0DVs\"}}"
+  "at": "2026-11-18T15:55+03:00",
+  "error": "Instagram API error 400 on 18114778199613303/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"AzME87Q10ZDGN3EJSqAR_WN\"}}"
  },
  "smart_times": {
   "at": "2026-11-15T08:55+03:00",
