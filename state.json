@@ -3,12 +3,6 @@
  "story": 1,
  "log": [
   {
-   "at": "2026-11-13T12:57+03:00",
-   "slot": "s4",
-   "item": "s4:لیر لازمه؟ کارتت رو بیار",
-   "media": "18361295977217458"
-  },
-  {
    "at": "2026-11-13T13:39+03:00",
    "slot": "p1",
    "item": "tour:Untitled",
@@ -361,6 +355,12 @@
    "slot": "p1",
    "item": "tour:Video from markopoloturizm",
    "media": "18004671291041914"
+  },
+  {
+   "at": "2026-11-18T12:56+03:00",
+   "slot": "s4",
+   "item": "s4:راه وان، قدم‌به‌قدم",
+   "media": "17950324224075565"
   }
  ],
  "media_done": [
@@ -590,7 +590,8 @@
   "File:Turkish Visitors on Akdamar Island - Lake Van - Turkey - 01 (5796817924).jpg",
   "File:050413-VanLake-Turkey-IMG 2740-2.jpg",
   "File:Süphan Dağı Van Gölü'nden görünüm.jpg",
-  "File:00 1388 Akdamar Church.jpg"
+  "File:00 1388 Akdamar Church.jpg",
+  "File:Gevaş, isola di akdamar, 02.jpg"
  ],
  "last_error": {
   "at": "2026-11-04T17:03+03:00",
@@ -731,7 +732,7 @@
   "x156103"
  ],
  "music_last": {
-  "1DZTJ4ef0yYVG2xdl3IlbrnmWhvTIImvs": "2026-11-17T12:53+03:00",
+  "1DZTJ4ef0yYVG2xdl3IlbrnmWhvTIImvs": "2026-11-18T12:53+03:00",
   "1dkR0sggYnJv6PAPhkKiPNI1Qbu5nbVwi": "2026-11-17T21:19+03:00",
   "1fp4Ah5iQfFhH9Wv8srgJdSKSlru0RDHO": "2026-11-18T11:53+03:00",
   "1QUXCTr3hAjvM090ZbkBDmL190dxM9yXG": "2026-11-17T17:23+03:00",
@@ -856,7 +857,8 @@
    "سوئیت‌های مبلهٔ وان؛ خونهٔ گرم برای آخر ",
    "کارت تخفیف وان گشت؛ ۱۰٪ تخفیف با اسکن QR",
    "معرفی راهنمای سفر به وان در سایت",
-   "جاهای دیدنی وان: معرفی جاذبه‌ها و تورها "
+   "جاهای دیدنی وان: معرفی جاذبه‌ها و تورها ",
+   "راهنمای کامل سفر به وان برای ایرانی‌ها"
   ],
   "s5": [
    "تور کشتی‌های بزرگ تفریحی دریاچه وان",
@@ -942,7 +944,7 @@
    "ویدیوی گشت وان گشت؛ حال‌وهوای سفر پاییزی"
   ]
  },
- "s4_i": 5,
+ "s4_i": 6,
  "s5_i": 1,
  "s8_i": 2,
  "clip_info": {
