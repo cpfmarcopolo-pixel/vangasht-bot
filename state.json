@@ -3,12 +3,6 @@
  "story": 1,
  "log": [
   {
-   "at": "2026-11-13T20:57+03:00",
-   "slot": "s9",
-   "item": "todayposts",
-   "media": "17977656732154908"
-  },
-  {
    "at": "2026-11-13T22:56+03:00",
    "slot": "s10",
    "item": "s10:شبتون آروم",
@@ -361,6 +355,12 @@
    "slot": "s9",
    "item": "todayposts",
    "media": "17934260613167355"
+  },
+  {
+   "at": "2026-11-18T22:56+03:00",
+   "slot": "s10",
+   "item": "s10:شب بخیر",
+   "media": "18118804559048199"
   }
  ],
  "media_done": [
@@ -838,7 +838,9 @@
   "1eyfS_uYEJXqjH70ntQDZpcSjqXpK18Qx": "2026-11-17T18:53+03:00",
   "1yT1fPUG-P7dPl8slZHLKMAUEGqX3_m-e": "2026-11-17T22:53+03:00",
   "1BwIXCTLQP9BVbHvW1o6Ajw30jaTHz3UK": "2026-11-18T08:52+03:00",
-  "1kO5xNn3ByJTVmsO-5e1UQCQc2UfAKUdZ": "2026-11-18T18:56+03:00"
+  "1kO5xNn3ByJTVmsO-5e1UQCQc2UfAKUdZ": "2026-11-18T18:56+03:00",
+  "1X2ZSiF1qFkRykwkkT2XGjOAwC4ZB-ZY7": "2026-11-18T22:52+03:00",
+  "1_B8WogBjKsHa_a9G_eTuT9CN-kLJAvfd": "2026-11-18T22:53+03:00"
  },
  "vlog_i": 11,
  "card_log": {
@@ -2928,6 +2930,34 @@
    "text_pos": "",
    "dur": 63.09,
    "v": 4
+  },
+  "1X2ZSiF1qFkRykwkkT2XGjOAwC4ZB-ZY7": {
+   "text": "Van/ Edremit",
+   "greeting": "",
+   "other_page": true,
+   "page": "@muzaffer_ss",
+   "music": true,
+   "own_boxes": [],
+   "ar": 0.5625,
+   "scene": "نمای هوایی از مسیر پیاده‌روی و دوچرخه‌سواری کنار دریاچه وان در ادرمیت هنگام غروب، با مردم در پارک و بندرگاه",
+   "place": "ساحل ادرمیت",
+   "text_pos": "top",
+   "dur": 78.18,
+   "v": 4
+  },
+  "1_B8WogBjKsHa_a9G_eTuT9CN-kLJAvfd": {
+   "text": "",
+   "greeting": "",
+   "other_page": false,
+   "page": "",
+   "music": true,
+   "own_boxes": [],
+   "ar": 0.5625,
+   "scene": "غروب آفتاب نارنجی روی دریاچه با کوه‌های دوردست، یک نیمکت خالی و سنگ‌های ساحل، بدون آدم",
+   "place": "",
+   "text_pos": "",
+   "dur": 37.43,
+   "v": 4
   }
  },
  "skipped_files": {
@@ -2944,14 +2974,15 @@
   "romantiic.musiic_4327d7ca89de48188f707699f4b585ee.mp4": "@Romantiic.Musiic",
   "Ins2916310794_ace7114c8b97409fbd73a0366186b518.mp4": "@asya_cappadocia",
   "granddeniz65_07421861a59f49a8a91c87ecbf70516a.mp4": "Keveajans",
-  "cpfmarco_884d04392c76419fa7031665f87a6735.mp4": "Recep DAĞ Drone Photography & Video (rec"
+  "cpfmarco_884d04392c76419fa7031665f87a6735.mp4": "Recep DAĞ Drone Photography & Video (rec",
+  "Ins2916310794_d6c1801330ba4476b8d2ec5fe666c5f4.mp4": "@muzaffer_ss"
  },
  "replied_comments": [],
  "s1_g": 11,
- "s10_g": 10,
+ "s10_g": 11,
  "reply_error": {
-  "at": "2026-11-18T20:56+03:00",
-  "error": "Instagram API error 400 on 18114778199613303/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"AGbvpXSjyVdXBG1h9Md_Lqi\"}}"
+  "at": "2026-11-18T22:56+03:00",
+  "error": "Instagram API error 400 on 18114778199613303/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"AmzoHYhp6fYpuqFT-HbWS8D\"}}"
  },
  "smart_times": {
   "at": "2026-11-15T08:55+03:00",
