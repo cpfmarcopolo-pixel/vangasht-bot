@@ -3,12 +3,6 @@
  "story": 1,
  "log": [
   {
-   "at": "2026-11-13T17:27+03:00",
-   "slot": "s7",
-   "item": "vlog",
-   "media": "18102704249553895"
-  },
-  {
    "at": "2026-11-13T18:56+03:00",
    "slot": "s8",
    "item": "s8:اِرِک؛ وان از بالا 🏔",
@@ -361,6 +355,12 @@
    "slot": "s7",
    "item": "vlog",
    "media": "18178881214451770"
+  },
+  {
+   "at": "2026-11-18T19:00+03:00",
+   "slot": "s8",
+   "item": "s8:ادرمیت، قاب آبیِ دریاچه 🌊",
+   "media": "18135038233769394"
   }
  ],
  "media_done": [
@@ -837,7 +837,8 @@
   "19-EJR4ui_EoCcnscScTSpwZNU9xqshzc": "2026-11-17T08:52+03:00",
   "1eyfS_uYEJXqjH70ntQDZpcSjqXpK18Qx": "2026-11-17T18:53+03:00",
   "1yT1fPUG-P7dPl8slZHLKMAUEGqX3_m-e": "2026-11-17T22:53+03:00",
-  "1BwIXCTLQP9BVbHvW1o6Ajw30jaTHz3UK": "2026-11-18T08:52+03:00"
+  "1BwIXCTLQP9BVbHvW1o6Ajw30jaTHz3UK": "2026-11-18T08:52+03:00",
+  "1kO5xNn3ByJTVmsO-5e1UQCQc2UfAKUdZ": "2026-11-18T18:56+03:00"
  },
  "vlog_i": 11,
  "card_log": {
@@ -920,7 +921,8 @@
    "خانهٔ گربه‌های وان (دانشگاه یوزونجو ییل)",
    "کوه سوبهان",
    "جزیرهٔ آکدامار",
-   "قلعهٔ وان (توشپا)، ارگ صخره‌ای و کتیبهٔ "
+   "قلعهٔ وان (توشپا)، ارگ صخره‌ای و کتیبهٔ ",
+   "ساحل ادرمیت؛ تراس چوبی رو به دریاچه"
   ],
   "s10": [
    "استوری شب بخیر چهارشنبه ۱۳ آبان",
@@ -956,7 +958,7 @@
  },
  "s4_i": 6,
  "s5_i": 2,
- "s8_i": 2,
+ "s8_i": 3,
  "clip_info": {
   "1eww9Vvjb_m9JhLIMFLFn8JtiDB8nLddz": {
    "text": "",
@@ -2898,6 +2900,20 @@
    "text_pos": "",
    "dur": 0,
    "v": 4
+  },
+  "1kO5xNn3ByJTVmsO-5e1UQCQc2UfAKUdZ": {
+   "text": "",
+   "greeting": "",
+   "other_page": false,
+   "page": "",
+   "music": true,
+   "own_boxes": [],
+   "ar": 0.5625,
+   "scene": "نمای روز آفتابی از تراس چوبی مشرف به دریاچه وان در ادرمیت، با شهر، کوه‌های برفی و آسمان آبی",
+   "place": "ساحل ادرمیت",
+   "text_pos": "",
+   "dur": 83.43,
+   "v": 4
   }
  },
  "skipped_files": {
@@ -2920,8 +2936,8 @@
  "s1_g": 11,
  "s10_g": 10,
  "reply_error": {
-  "at": "2026-11-18T17:31+03:00",
-  "error": "Instagram API error 400 on 18114778199613303/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"AhCJKVAPbBaRIcX4Tm2cZhF\"}}"
+  "at": "2026-11-18T19:00+03:00",
+  "error": "Instagram API error 400 on 18114778199613303/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"AXkkirOAPZJOaXcLMZZv7Im\"}}"
  },
  "smart_times": {
   "at": "2026-11-15T08:55+03:00",
