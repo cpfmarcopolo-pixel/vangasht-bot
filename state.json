@@ -3,12 +3,6 @@
  "story": 1,
  "log": [
   {
-   "at": "2026-11-13T15:58+03:00",
-   "slot": "s6",
-   "item": "s6:این قله اسمش چیه؟",
-   "media": "17907691623355714"
-  },
-  {
    "at": "2026-11-13T17:27+03:00",
    "slot": "s7",
    "item": "vlog",
@@ -361,6 +355,12 @@
    "slot": "s6",
    "item": "s6:ماهی‌ای که برعکس آب می‌پرد",
    "media": "18184547560440491"
+  },
+  {
+   "at": "2026-11-18T17:31+03:00",
+   "slot": "s7",
+   "item": "vlog",
+   "media": "18178881214451770"
   }
  ],
  "media_done": [
@@ -702,40 +702,48 @@
   "d:1VbyElVmizVxZOSyXL2bgr4pmS8pGrcfE": 1,
   "d:1mGU7tqOZF_vmenTXYjpy8hpBFkl4yPjx": 1,
   "d:1zGXY4mK98Gy8LIq2KSkeJvBTKGhiJ3YH": 1,
-  "d:1dbyKP3Vs56MgEPZBVkdJykLuzuQLPLe8": 1
+  "d:1dbyKP3Vs56MgEPZBVkdJykLuzuQLPLe8": 1,
+  "d:1BewiyAb9nj6Y_x6wX9k9XwEpnK8Xc3HU": 1,
+  "d:1hvd7HShvrdRqQnL2EO4SVFgkhQDXE6d9": 1,
+  "d:1ug2ydOE4K09vhRFmKzuUNcNDRiKxmLFn": 1,
+  "d:1GliFPQPzZTJ_aEFuuQnXmW5UsER_GuxE": 1,
+  "d:1E5iF2nr3lDK5DT-8RWEirvilnwgGulAx": 1,
+  "d:1buAwYyN1F4AzK4muqRxPIMuTE8Z7Z5nu": 1,
+  "d:1zP_WaSVbyfnwkc0DEA6dHOIRT1BS6Anh": 1,
+  "d:1_zSmMoyMGFlQBGMALSCYipZEVVU3_fM7": 1
  },
  "pexels_used": [
-  "x7262",
-  "x2576",
-  "x149938",
-  "x11284",
-  "x25",
-  "x118768",
-  "x371424",
-  "x71747",
-  "x170912",
-  "x50622",
-  "x140186",
-  "x173358",
-  "x267036",
-  "x34971",
-  "x79899",
-  "x273476",
   "x84906",
-  "x236256",
-  "x222349",
-  "x31550",
-  "x67201",
-  "x381054",
-  "x4730",
+  "x273476",
+  "x11284",
+  "x140186",
+  "x7262",
+  "x71747",
   "x119190",
-  "x156103"
+  "x31550",
+  "x149938",
+  "x2576",
+  "x173358",
+  "x34971",
+  "x67201",
+  "x156103",
+  "x371424",
+  "x4730",
+  "x170912",
+  "x118768",
+  "x267036",
+  "x381054",
+  "x222349",
+  "x79899",
+  "x25",
+  "x236256",
+  "x50622"
  ],
  "music_last": {
   "1DZTJ4ef0yYVG2xdl3IlbrnmWhvTIImvs": "2026-11-18T12:53+03:00",
   "1dkR0sggYnJv6PAPhkKiPNI1Qbu5nbVwi": "2026-11-17T21:19+03:00",
   "1fp4Ah5iQfFhH9Wv8srgJdSKSlru0RDHO": "2026-11-18T11:53+03:00",
-  "1QUXCTr3hAjvM090ZbkBDmL190dxM9yXG": "2026-11-17T17:23+03:00",
+  "1QUXCTr3hAjvM090ZbkBDmL190dxM9yXG": "2026-11-18T17:27+03:00",
   "r_16OqrXYzWRF5c20HNKbjBoWNaa_6pT9tp": "2026-11-04T00:15+03:00",
   "r_1l3THmi6GjqfKpjoZlRy25On7rsx6vdso": "2026-11-04T10:50+03:00"
  },
@@ -831,7 +839,7 @@
   "1yT1fPUG-P7dPl8slZHLKMAUEGqX3_m-e": "2026-11-17T22:53+03:00",
   "1BwIXCTLQP9BVbHvW1o6Ajw30jaTHz3UK": "2026-11-18T08:52+03:00"
  },
- "vlog_i": 8,
+ "vlog_i": 11,
  "card_log": {
   "s1": [
    "صبح بخیر چهارشنبه؛ پیشنهاد صبحانهٔ وانی",
@@ -2806,6 +2814,90 @@
    "text_pos": "",
    "dur": 0,
    "v": 4
+  },
+  "1GliFPQPzZTJ_aEFuuQnXmW5UsER_GuxE": {
+   "text": "",
+   "greeting": "",
+   "other_page": false,
+   "page": "",
+   "music": false,
+   "own_boxes": [],
+   "ar": 0.75,
+   "scene": "خیابانی خیس و بارانی در شهر، کنار یک مرکز خرید بزرگ، با تاکسی زرد و مخروط‌های نارنجی؛ روز، هوای ابری و خلوت",
+   "place": "",
+   "text_pos": "",
+   "dur": 0,
+   "v": 4
+  },
+  "1E5iF2nr3lDK5DT-8RWEirvilnwgGulAx": {
+   "text": "",
+   "greeting": "",
+   "other_page": false,
+   "page": "",
+   "music": false,
+   "own_boxes": [],
+   "ar": 0.75,
+   "scene": "میدان شهر وان در روزی بارانی و ابری؛ نیمکت‌های سنگی خیس، نقاشی دیواری آبی با گربهٔ سفید و یک نفر با چتر، بدون ازدحام.",
+   "place": "میدان شهر وان (Van Kent Meydanı)",
+   "text_pos": "",
+   "dur": 0,
+   "v": 4
+  },
+  "1zP_WaSVbyfnwkc0DEA6dHOIRT1BS6Anh": {
+   "text": "",
+   "greeting": "",
+   "other_page": false,
+   "page": "",
+   "music": false,
+   "own_boxes": [],
+   "ar": 0.75,
+   "scene": "خیابانی خلوت و خیس در شهر در روز ابری، با ساختمان‌های تجاری، مغازه‌های بسته و چند تاکسی زرد در دوردست",
+   "place": "",
+   "text_pos": "",
+   "dur": 0,
+   "v": 4
+  },
+  "1_zSmMoyMGFlQBGMALSCYipZEVVU3_fM7": {
+   "text": "",
+   "greeting": "",
+   "other_page": false,
+   "page": "",
+   "music": false,
+   "own_boxes": [],
+   "ar": 0.75,
+   "scene": "نقاشی دیواری بزرگ از مسجد و بناهای تاریخی کنار دریاچه روی دیوار آبی یک ساختمان در شهر، در روزی آفتابی با آسمان صاف",
+   "place": "",
+   "text_pos": "",
+   "dur": 0,
+   "v": 4
+  },
+  "1dJNml14ZPtp6CRymng7ztfWT_OB0ReuO": {
+   "text": "VAN",
+   "greeting": "",
+   "other_page": false,
+   "page": "",
+   "music": false,
+   "own_boxes": [],
+   "ar": 0.75,
+   "scene": "میدانی خیس و بارانی در شهر وان با تابلوی VANmall، نقاشی دیواری مسجد روی ساختمان و درختچه‌ها؛ روز و هوای ابری، بدون آدم.",
+   "place": "",
+   "text_pos": "top",
+   "dur": 0,
+   "v": 4
+  },
+  "1mm9NaaqAu3Mb-ZI9vCf7cncO-2IUjYp9": {
+   "text": "",
+   "greeting": "",
+   "other_page": false,
+   "page": "",
+   "music": false,
+   "own_boxes": [],
+   "ar": 0.75,
+   "scene": "پیاده‌راه با ستون‌های سفید رومی و کف‌پوش شبیه کلاویه‌های پیانو در یک خیابان شهری، روزی سرد و ابری با کمی برف",
+   "place": "",
+   "text_pos": "",
+   "dur": 0,
+   "v": 4
   }
  },
  "skipped_files": {
@@ -2828,8 +2920,8 @@
  "s1_g": 11,
  "s10_g": 10,
  "reply_error": {
-  "at": "2026-11-18T15:55+03:00",
-  "error": "Instagram API error 400 on 18114778199613303/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"AzME87Q10ZDGN3EJSqAR_WN\"}}"
+  "at": "2026-11-18T17:31+03:00",
+  "error": "Instagram API error 400 on 18114778199613303/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"AhCJKVAPbBaRIcX4Tm2cZhF\"}}"
  },
  "smart_times": {
   "at": "2026-11-15T08:55+03:00",
