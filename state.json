@@ -3,12 +3,6 @@
  "story": 1,
  "log": [
   {
-   "at": "2026-11-14T19:43+03:00",
-   "slot": "p2",
-   "item": "tour:granddeniz65_e342f997abed4f64afe7b12b72a",
-   "media": "17958634359278362"
-  },
-  {
    "at": "2026-11-14T20:57+03:00",
    "slot": "s9",
    "item": "todayposts",
@@ -361,6 +355,12 @@
    "slot": "p2",
    "item": "tour:VID_20261105_213159.mp4",
    "media": "18033674114863228"
+  },
+  {
+   "at": "2026-11-19T20:58+03:00",
+   "slot": "s9",
+   "item": "todayposts",
+   "media": "17960961663271290"
   }
  ],
  "media_done": [
@@ -747,7 +747,7 @@
   "1DZTJ4ef0yYVG2xdl3IlbrnmWhvTIImvs": "2026-11-19T17:24+03:00",
   "1dkR0sggYnJv6PAPhkKiPNI1Qbu5nbVwi": "2026-11-18T20:53+03:00",
   "1fp4Ah5iQfFhH9Wv8srgJdSKSlru0RDHO": "2026-11-19T11:53+03:00",
-  "1QUXCTr3hAjvM090ZbkBDmL190dxM9yXG": "2026-11-18T17:27+03:00",
+  "1QUXCTr3hAjvM090ZbkBDmL190dxM9yXG": "2026-11-19T20:53+03:00",
   "r_16OqrXYzWRF5c20HNKbjBoWNaa_6pT9tp": "2026-11-04T00:15+03:00",
   "r_1l3THmi6GjqfKpjoZlRy25On7rsx6vdso": "2026-11-04T10:50+03:00"
  },
@@ -3034,8 +3034,8 @@
  "s1_g": 12,
  "s10_g": 11,
  "reply_error": {
-  "at": "2026-11-19T19:43+03:00",
-  "error": "Instagram API error 400 on 17897276169504822/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"A7-mcFWYDlU4dxJWHeNDkzo\"}}"
+  "at": "2026-11-19T20:58+03:00",
+  "error": "Instagram API error 400 on 17897276169504822/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"APlHgX4fBJIqtejhiels94S\"}}"
  },
  "smart_times": {
   "at": "2026-11-15T08:55+03:00",
