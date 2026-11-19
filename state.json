@@ -3,12 +3,6 @@
  "story": 1,
  "log": [
   {
-   "at": "2026-11-14T20:57+03:00",
-   "slot": "s9",
-   "item": "todayposts",
-   "media": "18001134536824872"
-  },
-  {
    "at": "2026-11-14T22:55+03:00",
    "slot": "s10",
    "item": "s10:شبتون بخیر",
@@ -361,6 +355,12 @@
    "slot": "s9",
    "item": "todayposts",
    "media": "17960961663271290"
+  },
+  {
+   "at": "2026-11-19T22:55+03:00",
+   "slot": "s10",
+   "item": "s10:شبتون آروم",
+   "media": "18063245354643553"
   }
  ],
  "media_done": [
@@ -847,7 +847,8 @@
   "1_B8WogBjKsHa_a9G_eTuT9CN-kLJAvfd": "2026-11-18T22:53+03:00",
   "1_k37EJfm8n8bIBr_m8X20Iv87XbiRpWy": "2026-11-19T08:52+03:00",
   "1_tJmlHtsBCVEk7aE1wISAFsyoMubFEXA": "2026-11-19T12:57+03:00",
-  "1XeSaSq1TP4XMwZGFozQWilX4LIlAeWK8": "2026-11-19T18:52+03:00"
+  "1XeSaSq1TP4XMwZGFozQWilX4LIlAeWK8": "2026-11-19T18:52+03:00",
+  "1xc74OJNApbE5fqZrkfiw3OHdshVlePei": "2026-11-19T22:52+03:00"
  },
  "vlog_i": 7,
  "card_log": {
@@ -3011,6 +3012,20 @@
    "text_pos": "middle",
    "dur": 22.52,
    "v": 4
+  },
+  "1xc74OJNApbE5fqZrkfiw3OHdshVlePei": {
+   "text": "",
+   "greeting": "",
+   "other_page": false,
+   "page": "",
+   "music": true,
+   "own_boxes": [],
+   "ar": 0.5625,
+   "scene": "خیابانی شلوغ در شب با نورهای رنگی و تار، ماشین‌ها، تابلوهای نئون و طاق چراغ‌های تزئینی «گنچلیک سوکاغی» با عابران پیاده",
+   "place": "",
+   "text_pos": "",
+   "dur": 8.66,
+   "v": 4
   }
  },
  "skipped_files": {
@@ -3032,10 +3047,10 @@
  },
  "replied_comments": [],
  "s1_g": 12,
- "s10_g": 11,
+ "s10_g": 12,
  "reply_error": {
-  "at": "2026-11-19T20:58+03:00",
-  "error": "Instagram API error 400 on 17897276169504822/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"APlHgX4fBJIqtejhiels94S\"}}"
+  "at": "2026-11-19T22:56+03:00",
+  "error": "Instagram API error 400 on 17897276169504822/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"AH00UA1RXxvbeXa8M6FTq5L\"}}"
  },
  "smart_times": {
   "at": "2026-11-15T08:55+03:00",
