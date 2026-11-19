@@ -3,12 +3,6 @@
  "story": 1,
  "log": [
   {
-   "at": "2026-11-14T17:25+03:00",
-   "slot": "s7",
-   "item": "vlog",
-   "media": "17993082230876350"
-  },
-  {
    "at": "2026-11-14T18:54+03:00",
    "slot": "s8",
    "item": "s8:خانهٔ گربه‌های چشم‌رنگی 🐈",
@@ -361,6 +355,12 @@
    "slot": "s7",
    "item": "vlog",
    "media": "18125542370283172"
+  },
+  {
+   "at": "2026-11-19T18:58+03:00",
+   "slot": "s8",
+   "item": "s8:حمام ترکی، فقط ویژهٔ بانوان 🧖‍♀️",
+   "media": "17928882120442610"
   }
  ],
  "media_done": [
@@ -846,7 +846,8 @@
   "1X2ZSiF1qFkRykwkkT2XGjOAwC4ZB-ZY7": "2026-11-18T22:52+03:00",
   "1_B8WogBjKsHa_a9G_eTuT9CN-kLJAvfd": "2026-11-18T22:53+03:00",
   "1_k37EJfm8n8bIBr_m8X20Iv87XbiRpWy": "2026-11-19T08:52+03:00",
-  "1_tJmlHtsBCVEk7aE1wISAFsyoMubFEXA": "2026-11-19T12:57+03:00"
+  "1_tJmlHtsBCVEk7aE1wISAFsyoMubFEXA": "2026-11-19T12:57+03:00",
+  "1XeSaSq1TP4XMwZGFozQWilX4LIlAeWK8": "2026-11-19T18:52+03:00"
  },
  "vlog_i": 7,
  "card_log": {
@@ -933,7 +934,8 @@
    "کوه سوبهان",
    "جزیرهٔ آکدامار",
    "قلعهٔ وان (توشپا)، ارگ صخره‌ای و کتیبهٔ ",
-   "ساحل ادرمیت؛ تراس چوبی رو به دریاچه"
+   "ساحل ادرمیت؛ تراس چوبی رو به دریاچه",
+   "حمام ترکی ویژهٔ بانوان در وان"
   ],
   "s10": [
    "استوری شب بخیر چهارشنبه ۱۳ آبان",
@@ -969,7 +971,7 @@
  },
  "s4_i": 7,
  "s5_i": 3,
- "s8_i": 3,
+ "s8_i": 4,
  "clip_info": {
   "1eww9Vvjb_m9JhLIMFLFn8JtiDB8nLddz": {
    "text": "",
@@ -2981,6 +2983,20 @@
    "text_pos": "bottom",
    "dur": 40.29,
    "v": 4
+  },
+  "1XeSaSq1TP4XMwZGFozQWilX4LIlAeWK8": {
+   "text": "Van'da Kadınlara Özel Hamam 🧖‍♀️🫧",
+   "greeting": "",
+   "other_page": false,
+   "page": "",
+   "music": true,
+   "own_boxes": [],
+   "ar": 0.5625,
+   "scene": "داخل یک حمام ترکی ویژهٔ بانوان در وان؛ استخر، بخار، بار ویتامین، خیابان و زنی با پیشبند قرمز کنار سنگ‌آب، روز",
+   "place": "",
+   "text_pos": "middle",
+   "dur": 59.84,
+   "v": 4
   }
  },
  "skipped_files": {
@@ -3004,8 +3020,8 @@
  "s1_g": 12,
  "s10_g": 11,
  "reply_error": {
-  "at": "2026-11-19T17:29+03:00",
-  "error": "Instagram API error 400 on 17897276169504822/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"AZ0nRhXPCLInK54vyzjmhP0\"}}"
+  "at": "2026-11-19T18:59+03:00",
+  "error": "Instagram API error 400 on 17897276169504822/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"AjaZ9hbRRjdSWuWzgrucrUX\"}}"
  },
  "smart_times": {
   "at": "2026-11-15T08:55+03:00",
