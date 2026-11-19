@@ -3,12 +3,6 @@
  "story": 1,
  "log": [
   {
-   "at": "2026-11-14T11:04+03:00",
-   "slot": "s2",
-   "item": "rates",
-   "media": "18132897370695134"
-  },
-  {
    "at": "2026-11-14T11:56+03:00",
    "slot": "s3",
    "item": "vlog",
@@ -361,6 +355,12 @@
    "slot": "s2",
    "item": "rates",
    "media": "18111009560348890"
+  },
+  {
+   "at": "2026-11-19T11:55+03:00",
+   "slot": "s3",
+   "item": "vlog",
+   "media": "17956257132285488"
   }
  ],
  "media_done": [
@@ -618,12 +618,12 @@
   "d:1pKXqHr-pFpT2umWIUbvJlIu3tz6F44pz": 1,
   "d:1LR0XlpRZVEn8Gwq1MYy8z4d2cgvW4KyU": 3,
   "d:1kY1bjgXULEdctAGLRxoJj6kMk4dlLDzS": 3,
-  "d:195nbdcfUJEZfu4ni2e9rtll4JyBI6ldO": 2,
-  "d:1ptmUjOp_HfgBOSsEbBl2Cf7Lrs0Z42zg": 2,
-  "d:1PwHVAY7MeGcEkDET3fZYMWzfWzvZJfMz": 2,
-  "d:11Do1EatdSuSKZVVwYdLAW9mBmZeCounP": 2,
-  "d:12JwOz4uxPQYTMoi8xyBKDpDWPpx2TYf0": 2,
-  "d:1MBdeSYRkbiGnZ94EKUv5ABUw7lazMSj1": 2,
+  "d:195nbdcfUJEZfu4ni2e9rtll4JyBI6ldO": 3,
+  "d:1ptmUjOp_HfgBOSsEbBl2Cf7Lrs0Z42zg": 3,
+  "d:1PwHVAY7MeGcEkDET3fZYMWzfWzvZJfMz": 3,
+  "d:11Do1EatdSuSKZVVwYdLAW9mBmZeCounP": 3,
+  "d:12JwOz4uxPQYTMoi8xyBKDpDWPpx2TYf0": 3,
+  "d:1MBdeSYRkbiGnZ94EKUv5ABUw7lazMSj1": 3,
   "d:1poTvlvN-PsJ7tYdIWLLg6Eb55b8kuHr3": 8,
   "d:1XXPmSKgZefrKBOGiDkECLEdZT6Ya7PgT": 8,
   "d:12BZ_878euoOPlDXiLpdKo3HJ0SCXWVYU": 8,
@@ -631,7 +631,7 @@
   "d:1-FVfIeiZZjXFJAzJ5gMN5MVC9fpT6_9n": 8,
   "d:17hKiV-WnBt1mRwctml8gDA-1w8Zc9BOB": 8,
   "d:1IrRS6actyxKTVFTaMyP0Y5ywOSa5NJ5K": 8,
-  "d:1IfLfe4mk-IqOIQfMH5GbmHbt6dMofPI4": 2,
+  "d:1IfLfe4mk-IqOIQfMH5GbmHbt6dMofPI4": 3,
   "d:1BAzcC5cJo8RuCDQGRJhvpJkG0ST_4ohZ": 2,
   "d:1tBlkQmkQ2xPHTJAPkhabCvnR5Sr6d-fH": 2,
   "d:1mb12MD-aoGWdPKlTrEVG1joZOPPE_i4Y": 2,
@@ -640,7 +640,7 @@
   "d:1hSllDF9-sic6ZUoRtqP0Xhf_mREB4Nl4": 2,
   "d:1CvUTnXD3QUZ8hQK9yL8jFy3j_f1kUx1k": 2,
   "d:1vbtxtSE2TV6B6zcn-1iWcb2p6h19RTN9": 7,
-  "d:1OwkaSEMVxmoonpwNJeywCs00IWMaK4Oq": 2,
+  "d:1OwkaSEMVxmoonpwNJeywCs00IWMaK4Oq": 3,
   "d:1aHbd8D8YhLiNVKeHNxlzDu3bfBdBSBH7": 2,
   "d:1rb-AxtA9PPnx0zC9mGaTx7eDEW4H0WH6": 2,
   "d:1cPJWvWZMejX-aqTzAshPrgbklSW4VF9O": 2,
@@ -713,36 +713,36 @@
   "d:1_zSmMoyMGFlQBGMALSCYipZEVVU3_fM7": 1
  },
  "pexels_used": [
-  "x84906",
-  "x273476",
+  "x222349",
+  "x119190",
   "x11284",
+  "x118768",
+  "x50622",
+  "x236256",
+  "x173358",
+  "x267036",
+  "x170912",
+  "x79899",
+  "x273476",
+  "x156103",
+  "x149938",
+  "x4730",
   "x140186",
+  "x84906",
+  "x34971",
+  "x25",
+  "x2576",
+  "x67201",
   "x7262",
   "x71747",
-  "x119190",
   "x31550",
-  "x149938",
-  "x2576",
-  "x173358",
-  "x34971",
-  "x67201",
-  "x156103",
-  "x371424",
-  "x4730",
-  "x170912",
-  "x118768",
-  "x267036",
   "x381054",
-  "x222349",
-  "x79899",
-  "x25",
-  "x236256",
-  "x50622"
+  "x371424"
  ],
  "music_last": {
   "1DZTJ4ef0yYVG2xdl3IlbrnmWhvTIImvs": "2026-11-18T12:53+03:00",
   "1dkR0sggYnJv6PAPhkKiPNI1Qbu5nbVwi": "2026-11-18T20:53+03:00",
-  "1fp4Ah5iQfFhH9Wv8srgJdSKSlru0RDHO": "2026-11-18T11:53+03:00",
+  "1fp4Ah5iQfFhH9Wv8srgJdSKSlru0RDHO": "2026-11-19T11:53+03:00",
   "1QUXCTr3hAjvM090ZbkBDmL190dxM9yXG": "2026-11-18T17:27+03:00",
   "r_16OqrXYzWRF5c20HNKbjBoWNaa_6pT9tp": "2026-11-04T00:15+03:00",
   "r_1l3THmi6GjqfKpjoZlRy25On7rsx6vdso": "2026-11-04T10:50+03:00"
@@ -843,7 +843,7 @@
   "1_B8WogBjKsHa_a9G_eTuT9CN-kLJAvfd": "2026-11-18T22:53+03:00",
   "1_k37EJfm8n8bIBr_m8X20Iv87XbiRpWy": "2026-11-19T08:52+03:00"
  },
- "vlog_i": 11,
+ "vlog_i": 4,
  "card_log": {
   "s1": [
    "صبح بخیر چهارشنبه؛ پیشنهاد صبحانهٔ وانی",
@@ -2996,8 +2996,8 @@
  "s1_g": 12,
  "s10_g": 11,
  "reply_error": {
-  "at": "2026-11-19T11:06+03:00",
-  "error": "Instagram API error 400 on 17897276169504822/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"AxDgACXAEvhFNWgv6ZSrLIF\"}}"
+  "at": "2026-11-19T11:56+03:00",
+  "error": "Instagram API error 400 on 17897276169504822/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"Aw9z3Q4bw6ro0OwB7YZqI5P\"}}"
  },
  "smart_times": {
   "at": "2026-11-15T08:55+03:00",
