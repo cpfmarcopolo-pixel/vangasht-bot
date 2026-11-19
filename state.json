@@ -3,12 +3,6 @@
  "story": 1,
  "log": [
   {
-   "at": "2026-11-14T18:54+03:00",
-   "slot": "s8",
-   "item": "s8:خانهٔ گربه‌های چشم‌رنگی 🐈",
-   "media": "18427032232155556"
-  },
-  {
    "at": "2026-11-14T19:43+03:00",
    "slot": "p2",
    "item": "tour:granddeniz65_e342f997abed4f64afe7b12b72a",
@@ -361,6 +355,12 @@
    "slot": "s8",
    "item": "s8:حمام ترکی، فقط ویژهٔ بانوان 🧖‍♀️",
    "media": "17928882120442610"
+  },
+  {
+   "at": "2026-11-19T19:43+03:00",
+   "slot": "p2",
+   "item": "tour:VID_20261105_213159.mp4",
+   "media": "18033674114863228"
   }
  ],
  "media_done": [
@@ -947,7 +947,6 @@
    "استوری شب بخیر شنبه ۱۶ آبان (شب‌های پایی"
   ],
   "post": [
-   "ویدیوی کامل تور کشتی‌های بزرگ تفریحی؛ غر",
    "مهمانی رقص روی عرشهٔ کشتی در تور کشتی‌ها",
    "ویدیوی رانندگی کنار ساحل دریاچه وان در ی",
    "ویدیوی کامل یکی از تورهای وان گشت؛ یک رو",
@@ -966,7 +965,8 @@
    "ویدیوی تور وان گشت؛ وان بدون استرس برنام",
    "ویدیوی گشت وان گشت؛ حال‌وهوای سفر پاییزی",
    "لحظهٔ سفال‌گری زوج مسافر در کارگاه غارما",
-   "ویدیوی کامل تور کشتی‌های بزرگ تفریحی روی"
+   "ویدیوی کامل تور کشتی‌های بزرگ تفریحی روی",
+   "حال‌وهوای شبانهٔ شهر وان؛ شیرینی، خرید و"
   ]
  },
  "s4_i": 7,
@@ -2997,6 +2997,20 @@
    "text_pos": "middle",
    "dur": 59.84,
    "v": 4
+  },
+  "1Fjawf5vAszK-VDEr_TYFhqHUP1joaOYo": {
+   "text": "📌ترکیه(وان)",
+   "greeting": "",
+   "other_page": false,
+   "page": "",
+   "music": true,
+   "own_boxes": [],
+   "ar": 0.5625,
+   "scene": "ویترین شیرینی‌های بقلوا، خیابان شبانهٔ شلوغ، طلافروشی، رستوران بوفه و کوچهٔ چترهای رنگی در ترکیه (وان)",
+   "place": "",
+   "text_pos": "middle",
+   "dur": 22.52,
+   "v": 4
   }
  },
  "skipped_files": {
@@ -3020,8 +3034,8 @@
  "s1_g": 12,
  "s10_g": 11,
  "reply_error": {
-  "at": "2026-11-19T18:59+03:00",
-  "error": "Instagram API error 400 on 17897276169504822/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"AjaZ9hbRRjdSWuWzgrucrUX\"}}"
+  "at": "2026-11-19T19:43+03:00",
+  "error": "Instagram API error 400 on 17897276169504822/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"A7-mcFWYDlU4dxJWHeNDkzo\"}}"
  },
  "smart_times": {
   "at": "2026-11-15T08:55+03:00",
@@ -3070,10 +3084,11 @@
   "1Mz_3iOaCWJZseYFNo_zSEuPx6dIqhMRo": "2026-11-17T19:37+03:00",
   "1F9WMAxKDp7721_ejeIc8OLPbTlzbL-Nx": "2026-11-18T12:37+03:00",
   "15A5VAMH4wsnmWNIRgO5Tlhk1froHBgfp": "2026-11-18T19:37+03:00",
-  "19GWAFKtZ5KEsjuu5XNgDgTfRzAp1Xnlc": "2026-11-19T12:42+03:00"
+  "19GWAFKtZ5KEsjuu5XNgDgTfRzAp1Xnlc": "2026-11-19T12:42+03:00",
+  "1Fjawf5vAszK-VDEr_TYFhqHUP1joaOYo": "2026-11-19T19:37+03:00"
  },
  "post_debug": {
-  "at": "2026-11-19T12:41+03:00",
+  "at": "2026-11-19T19:37+03:00",
   "p_videos": [
    "van_omrumun_milad_65_548698e8fe6d48bab0e8d6911211bc02.mp4",
    "van.gasht.turkiye_5f536099e6ac4d069b15fe4975810bb5.mp4",
@@ -3113,6 +3128,6 @@
    "bsrklcdndr_47d6b48818eb4bd9a0d10d1cc16a0245.mp4",
    "vangasht-xerxes-film-voice.mp4"
   ],
-  "chosen": "van.gasht.turkiye_5f536099e6ac4d069b15fe4975810bb5.mp4"
+  "chosen": "VID_20261105_213159.mp4"
  }
 }
