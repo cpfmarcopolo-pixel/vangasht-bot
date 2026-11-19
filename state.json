@@ -3,12 +3,6 @@
  "story": 1,
  "log": [
   {
-   "at": "2026-11-14T14:27+03:00",
-   "slot": "s5",
-   "item": "s5:رقص روی آب، زیر آفتاب ☀️",
-   "media": "18138981412651757"
-  },
-  {
    "at": "2026-11-14T15:54+03:00",
    "slot": "s6",
    "item": "s6:اسمش رو چی بذاریم؟ 🐾",
@@ -361,6 +355,12 @@
    "slot": "s5",
    "item": "s5:دل‌خوشی زیر سایبان‌های قرمز 🎶",
    "media": "18115889939614825"
+  },
+  {
+   "at": "2026-11-19T15:54+03:00",
+   "slot": "s6",
+   "item": "s6:پاییز وان، چه رنگیه؟ 🍂",
+   "media": "18102179105432808"
   }
  ],
  "media_done": [
@@ -779,7 +779,7 @@
   "1QHmP7rKGvYi139koDxJeQi0_2Gq416Kd": "2026-11-07T08:52+03:00",
   "1bRN70PucFFSB5FKMy6y98ZLLCbtyyPK3": "2026-11-15T14:22+03:00",
   "1nDeX7-t_FlJ5cVUeYPWgS4WiCAPQyRK6": "2026-11-16T14:22+03:00",
-  "1-4TXJy0f2BNjoVfbKO0nPbkr0wUkXX20": "2026-11-07T15:52+03:00",
+  "1-4TXJy0f2BNjoVfbKO0nPbkr0wUkXX20": "2026-11-19T15:52+03:00",
   "1IcxcLSfHQiB684bvYcUkBc9KaaRuGIB3": "2026-11-07T18:52+03:00",
   "1sPp-9i-pKWuCblYPGHmCtgqr0mXP140x": "2026-11-07T18:52+03:00",
   "1Yy3dDwE5eHIzFq4INlVOtIOunUl-Y_Mr": "2026-11-17T14:23+03:00",
@@ -911,7 +911,8 @@
    "دانستنی: دریاچهٔ وان بزرگ‌ترین دریاچهٔ ت",
    "این یا اون؟ چای یا قهوه کنار دریاچه",
    "کیا دوست دارن؟ صبحانهٔ وانی",
-   "دانستنی: ماهی مروارید وان و مهاجرت بهاری"
+   "دانستنی: ماهی مروارید وان و مهاجرت بهاری",
+   "سؤال از شما: پاییز وان چه رنگیه؟"
   ],
   "s8": [
    "جزیرهٔ آکدامار",
@@ -2999,8 +3000,8 @@
  "s1_g": 12,
  "s10_g": 11,
  "reply_error": {
-  "at": "2026-11-19T14:26+03:00",
-  "error": "Instagram API error 400 on 17897276169504822/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"AJIIqVh7SlUglPTXh4IEZCD\"}}"
+  "at": "2026-11-19T15:55+03:00",
+  "error": "Instagram API error 400 on 17897276169504822/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"ApU-qLyK1_0SnEoD8IYCFKu\"}}"
  },
  "smart_times": {
   "at": "2026-11-15T08:55+03:00",
