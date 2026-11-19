@@ -3,12 +3,6 @@
  "story": 1,
  "log": [
   {
-   "at": "2026-11-14T12:55+03:00",
-   "slot": "s4",
-   "item": "s4:خونه‌ای دور از خونه",
-   "media": "18056006678816038"
-  },
-  {
    "at": "2026-11-14T13:40+03:00",
    "slot": "p1",
    "item": "tour:VID-20261029-WA0075.mp4",
@@ -361,6 +355,12 @@
    "slot": "p1",
    "item": "tour:van.gasht.turkiye_5f536099e6ac4d069b15fe",
    "media": "17909820738356100"
+  },
+  {
+   "at": "2026-11-19T13:00+03:00",
+   "slot": "s4",
+   "item": "s4:خرید وان، بی‌سرگردانی",
+   "media": "18120176318072139"
   }
  ],
  "media_done": [
@@ -841,7 +841,8 @@
   "1kO5xNn3ByJTVmsO-5e1UQCQc2UfAKUdZ": "2026-11-18T18:56+03:00",
   "1X2ZSiF1qFkRykwkkT2XGjOAwC4ZB-ZY7": "2026-11-18T22:52+03:00",
   "1_B8WogBjKsHa_a9G_eTuT9CN-kLJAvfd": "2026-11-18T22:53+03:00",
-  "1_k37EJfm8n8bIBr_m8X20Iv87XbiRpWy": "2026-11-19T08:52+03:00"
+  "1_k37EJfm8n8bIBr_m8X20Iv87XbiRpWy": "2026-11-19T08:52+03:00",
+  "1_tJmlHtsBCVEk7aE1wISAFsyoMubFEXA": "2026-11-19T12:57+03:00"
  },
  "vlog_i": 4,
  "card_log": {
@@ -870,7 +871,8 @@
    "کارت تخفیف وان گشت؛ ۱۰٪ تخفیف با اسکن QR",
    "معرفی راهنمای سفر به وان در سایت",
    "جاهای دیدنی وان: معرفی جاذبه‌ها و تورها ",
-   "راهنمای کامل سفر به وان برای ایرانی‌ها"
+   "راهنمای کامل سفر به وان برای ایرانی‌ها",
+   "خرید در وان: مراکز خرید و خیابان‌های اصل"
   ],
   "s5": [
    "تور کشتی‌های بزرگ تفریحی دریاچه وان",
@@ -959,7 +961,7 @@
    "ویدیوی کامل تور کشتی‌های بزرگ تفریحی روی"
   ]
  },
- "s4_i": 6,
+ "s4_i": 7,
  "s5_i": 2,
  "s8_i": 3,
  "clip_info": {
@@ -2996,8 +2998,8 @@
  "s1_g": 12,
  "s10_g": 11,
  "reply_error": {
-  "at": "2026-11-19T12:44+03:00",
-  "error": "Instagram API error 400 on 17897276169504822/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"Aog7eMA0TqmflO5GJ-MeoeG\"}}"
+  "at": "2026-11-19T13:00+03:00",
+  "error": "Instagram API error 400 on 17897276169504822/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"Am913BL9I9OZ7OtEXBDW23D\"}}"
  },
  "smart_times": {
   "at": "2026-11-15T08:55+03:00",
