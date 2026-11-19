@@ -3,12 +3,6 @@
  "story": 1,
  "log": [
   {
-   "at": "2026-11-14T11:56+03:00",
-   "slot": "s3",
-   "item": "vlog",
-   "media": "18110636699236846"
-  },
-  {
    "at": "2026-11-14T12:55+03:00",
    "slot": "s4",
    "item": "s4:خونه‌ای دور از خونه",
@@ -361,6 +355,12 @@
    "slot": "s3",
    "item": "vlog",
    "media": "17956257132285488"
+  },
+  {
+   "at": "2026-11-19T12:44+03:00",
+   "slot": "p1",
+   "item": "tour:van.gasht.turkiye_5f536099e6ac4d069b15fe",
+   "media": "17909820738356100"
   }
  ],
  "media_done": [
@@ -937,7 +937,6 @@
    "استوری شب بخیر شنبه ۱۶ آبان (شب‌های پایی"
   ],
   "post": [
-   "لحظه‌ای شاد از تورهای وان گشت: موزیک زند",
    "ویدیوی کامل تور کشتی‌های بزرگ تفریحی؛ غر",
    "مهمانی رقص روی عرشهٔ کشتی در تور کشتی‌ها",
    "ویدیوی رانندگی کنار ساحل دریاچه وان در ی",
@@ -956,7 +955,8 @@
    "ویدیوی آبشار مرادیه در روز مه‌آلود و برف",
    "ویدیوی تور وان گشت؛ وان بدون استرس برنام",
    "ویدیوی گشت وان گشت؛ حال‌وهوای سفر پاییزی",
-   "لحظهٔ سفال‌گری زوج مسافر در کارگاه غارما"
+   "لحظهٔ سفال‌گری زوج مسافر در کارگاه غارما",
+   "ویدیوی کامل تور کشتی‌های بزرگ تفریحی روی"
   ]
  },
  "s4_i": 6,
@@ -2996,8 +2996,8 @@
  "s1_g": 12,
  "s10_g": 11,
  "reply_error": {
-  "at": "2026-11-19T11:56+03:00",
-  "error": "Instagram API error 400 on 17897276169504822/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"Aw9z3Q4bw6ro0OwB7YZqI5P\"}}"
+  "at": "2026-11-19T12:44+03:00",
+  "error": "Instagram API error 400 on 17897276169504822/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"Aog7eMA0TqmflO5GJ-MeoeG\"}}"
  },
  "smart_times": {
   "at": "2026-11-15T08:55+03:00",
@@ -3045,10 +3045,11 @@
   "1Mi67dJ_4cM5Wmxc1GuAWykKXi5CLHS1L": "2026-11-17T12:38+03:00",
   "1Mz_3iOaCWJZseYFNo_zSEuPx6dIqhMRo": "2026-11-17T19:37+03:00",
   "1F9WMAxKDp7721_ejeIc8OLPbTlzbL-Nx": "2026-11-18T12:37+03:00",
-  "15A5VAMH4wsnmWNIRgO5Tlhk1froHBgfp": "2026-11-18T19:37+03:00"
+  "15A5VAMH4wsnmWNIRgO5Tlhk1froHBgfp": "2026-11-18T19:37+03:00",
+  "19GWAFKtZ5KEsjuu5XNgDgTfRzAp1Xnlc": "2026-11-19T12:42+03:00"
  },
  "post_debug": {
-  "at": "2026-11-18T19:37+03:00",
+  "at": "2026-11-19T12:41+03:00",
   "p_videos": [
    "van_omrumun_milad_65_548698e8fe6d48bab0e8d6911211bc02.mp4",
    "van.gasht.turkiye_5f536099e6ac4d069b15fe4975810bb5.mp4",
@@ -3088,6 +3089,6 @@
    "bsrklcdndr_47d6b48818eb4bd9a0d10d1cc16a0245.mp4",
    "vangasht-xerxes-film-voice.mp4"
   ],
-  "chosen": "kapadokya_rehber_ferhat_b16b2af19fc34ef387f3bb00ab25e0ffموزیک.mp4"
+  "chosen": "van.gasht.turkiye_5f536099e6ac4d069b15fe4975810bb5.mp4"
  }
 }
