@@ -3,12 +3,6 @@
  "story": 1,
  "log": [
   {
-   "at": "2026-11-15T12:45+03:00",
-   "slot": "p1",
-   "item": "tour:VID-20261030-WA0040.mp4",
-   "media": "18109542143576301"
-  },
-  {
    "at": "2026-11-15T12:54+03:00",
    "slot": "s4",
    "item": "s4:خریدت یه امتیاز هم داره",
@@ -361,6 +355,12 @@
    "slot": "p1",
    "item": "tour:van.gasht.turkiye_b206d3e9339e4c8abaa9b0",
    "media": "18137782912706992"
+  },
+  {
+   "at": "2026-11-20T12:58+03:00",
+   "slot": "s4",
+   "item": "s4:لیر بگیر، بی‌دغدغه",
+   "media": "18083239427736436"
   }
  ],
  "media_done": [
@@ -846,7 +846,7 @@
   "1X2ZSiF1qFkRykwkkT2XGjOAwC4ZB-ZY7": "2026-11-18T22:52+03:00",
   "1_B8WogBjKsHa_a9G_eTuT9CN-kLJAvfd": "2026-11-18T22:53+03:00",
   "1_k37EJfm8n8bIBr_m8X20Iv87XbiRpWy": "2026-11-19T08:52+03:00",
-  "1_tJmlHtsBCVEk7aE1wISAFsyoMubFEXA": "2026-11-19T12:57+03:00",
+  "1_tJmlHtsBCVEk7aE1wISAFsyoMubFEXA": "2026-11-20T12:53+03:00",
   "1XeSaSq1TP4XMwZGFozQWilX4LIlAeWK8": "2026-11-19T18:52+03:00",
   "1xc74OJNApbE5fqZrkfiw3OHdshVlePei": "2026-11-19T22:52+03:00",
   "1XBt5JsIzL4E_KDoqqa3KTmkjlJA84OQ7": "2026-11-20T08:53+03:00"
@@ -879,7 +879,8 @@
    "معرفی راهنمای سفر به وان در سایت",
    "جاهای دیدنی وان: معرفی جاذبه‌ها و تورها ",
    "راهنمای کامل سفر به وان برای ایرانی‌ها",
-   "خرید در وان: مراکز خرید و خیابان‌های اصل"
+   "خرید در وان: مراکز خرید و خیابان‌های اصل",
+   "تبدیل تومان به لیر در وان: راهنمای صرافی"
   ],
   "s5": [
    "تور کشتی‌های بزرگ تفریحی دریاچه وان",
@@ -971,7 +972,7 @@
    "ویدیوی تور وان گشت؛ وان با هماهنگی فارسی"
   ]
  },
- "s4_i": 7,
+ "s4_i": 8,
  "s5_i": 3,
  "s8_i": 4,
  "clip_info": {
@@ -3064,8 +3065,8 @@
  "s1_g": 13,
  "s10_g": 12,
  "reply_error": {
-  "at": "2026-11-20T12:41+03:00",
-  "error": "Instagram API error 400 on 17897276169504822/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"AQmYom_b1FItK0sNGgtY_2I\"}}"
+  "at": "2026-11-20T12:58+03:00",
+  "error": "Instagram API error 400 on 17897276169504822/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"A_7q7Y6tp6TcOa0RIXYFhu0\"}}"
  },
  "smart_times": {
   "at": "2026-11-15T08:55+03:00",
