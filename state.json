@@ -3,12 +3,6 @@
  "story": 1,
  "log": [
   {
-   "at": "2026-11-15T12:54+03:00",
-   "slot": "s4",
-   "item": "s4:خریدت یه امتیاز هم داره",
-   "media": "18203976040386410"
-  },
-  {
    "at": "2026-11-15T14:27+03:00",
    "slot": "s5",
    "item": "s5:صدای آب، عطر چای 🌊",
@@ -361,6 +355,12 @@
    "slot": "s4",
    "item": "s4:لیر بگیر، بی‌دغدغه",
    "media": "18083239427736436"
+  },
+  {
+   "at": "2026-11-20T14:26+03:00",
+   "slot": "s5",
+   "item": "s5:آفتاب، ساز، چتر قرمز 🎸",
+   "media": "18072127871788234"
   }
  ],
  "media_done": [
@@ -795,7 +795,7 @@
   "15enA_QM7wwUuYBTWBcUgI3-tcjgY8mG1": "2026-11-19T14:23+03:00",
   "11v-zlnAP32dT7cZe8Ix3quLeWsaKyA7Z": "2026-11-08T15:52+03:00",
   "1xIAb8pNzW6LDi0fNgkvPBjS5_LSvVWtp": "2026-11-08T18:52+03:00",
-  "1fc_rRqd1re4CGcq8e-gN3p60wmYgdqsT": "2026-11-13T14:24+03:00",
+  "1fc_rRqd1re4CGcq8e-gN3p60wmYgdqsT": "2026-11-20T14:22+03:00",
   "1sPW3_yStAJDQonT2FUch5LoOPXNUPGl3": "2026-11-08T22:52+03:00",
   "1rUPb0ausPn3yzaZOVQES1DSiLz31BvD2": "2026-11-09T08:52+03:00",
   "1VDE-24ix0DYRvyc0ZVKjz-kz0C18zmeh": "2026-11-19T11:01+03:00",
@@ -900,7 +900,8 @@
    "گشت کشتی‌های بزرگ دریاچهٔ وان با حال‌وهو",
    "آبشار مرادیه از نگاه پهپاد",
    "تور کشتی جزیرهٔ آکدامار",
-   "کافهٔ فضای باز، ساز و شادی زیر سایبان‌ها"
+   "کافهٔ فضای باز، ساز و شادی زیر سایبان‌ها",
+   "گیتار و کلارینت در پارک سرسبز، حال‌وهوای"
   ],
   "s6": [
    "این یا اون؟ غروب وان: قلعه یا ساحل دریاچ",
@@ -973,7 +974,7 @@
   ]
  },
  "s4_i": 8,
- "s5_i": 3,
+ "s5_i": 4,
  "s8_i": 4,
  "clip_info": {
   "1eww9Vvjb_m9JhLIMFLFn8JtiDB8nLddz": {
@@ -3065,8 +3066,8 @@
  "s1_g": 13,
  "s10_g": 12,
  "reply_error": {
-  "at": "2026-11-20T12:58+03:00",
-  "error": "Instagram API error 400 on 17897276169504822/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"A_7q7Y6tp6TcOa0RIXYFhu0\"}}"
+  "at": "2026-11-20T14:26+03:00",
+  "error": "Instagram API error 400 on 17897276169504822/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"AFu-ufvzs-qdAf0VSjm8jQK\"}}"
  },
  "smart_times": {
   "at": "2026-11-15T08:55+03:00",
