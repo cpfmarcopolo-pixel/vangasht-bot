@@ -3,12 +3,6 @@
  "story": 1,
  "log": [
   {
-   "at": "2026-11-15T15:59+03:00",
-   "slot": "s6",
-   "item": "s6:بزرگ‌ترین دریاچهٔ ترکیه، همین‌جاست 🌊",
-   "media": "18106732586032791"
-  },
-  {
    "at": "2026-11-15T17:27+03:00",
    "slot": "s7",
    "item": "vlog",
@@ -361,6 +355,12 @@
    "slot": "s6",
    "item": "s6:گربهٔ وان عاشق آبه 🐱",
    "media": "17894024040457458"
+  },
+  {
+   "at": "2026-11-20T17:25+03:00",
+   "slot": "s7",
+   "item": "vlog",
+   "media": "18121398655965746"
   }
  ],
  "media_done": [
@@ -671,10 +671,10 @@
   "d:1crbiCdwAPWADYc4DYse0UhZNU2Tc0EB0": 2,
   "d:1CLr_aibcpQfFDSeyFQBYbVnUzscQUaMA": 2,
   "d:1iC1K7EXndYIK_N2PKUSJD7PR2qu4uV4s": 2,
-  "d:1RHgbbzmZHkSy4xoNR18faypo7d7TAlS9": 1,
-  "d:1YPVL0hAgNCZTKmhoBeNuOPrMG-oF7Ohw": 1,
-  "d:1pPDSkfFzddzZ-qbFV8XmhgJ4j6MscVUA": 1,
-  "d:1Yu_J-DFyQL9AS2lyf9RaexmW4KtgsJP9": 1,
+  "d:1RHgbbzmZHkSy4xoNR18faypo7d7TAlS9": 2,
+  "d:1YPVL0hAgNCZTKmhoBeNuOPrMG-oF7Ohw": 2,
+  "d:1pPDSkfFzddzZ-qbFV8XmhgJ4j6MscVUA": 2,
+  "d:1Yu_J-DFyQL9AS2lyf9RaexmW4KtgsJP9": 2,
   "d:10Yht7_6xTjHgOXNKrvjvxLrgEOruFcXq": 2,
   "d:1q0MK7A3zkBfb_ldiUIc9oaGnUW42ytcA": 2,
   "d:1fPQDdnZmAhjxnuGi3I21o39SpxUWQcGN": 2,
@@ -683,10 +683,10 @@
   "d:1DAAcFJVHLQFHH5APTiJ96P-597lNsoxQ": 2,
   "d:1TFYfcJIDKHiX3llbL7TQchhErtKTraNn": 2,
   "d:1Et1GhmpPzilx9shDBvGfjvEkY1IpPTpT": 2,
-  "d:1TPtbt_nYLIfLHMmfkvcMvcpHSI00JmcS": 1,
-  "d:1OoRbxYjyTC6WVxfGC8P4Nha-NCz5KKuM": 1,
-  "d:1LUS2KGebMWKSX95u4c84jngFqn5RI6aS": 1,
-  "d:13bOQqlct_BhSsZk2lqI9ZZ7jNm3VlWfA": 1,
+  "d:1TPtbt_nYLIfLHMmfkvcMvcpHSI00JmcS": 2,
+  "d:1OoRbxYjyTC6WVxfGC8P4Nha-NCz5KKuM": 2,
+  "d:1LUS2KGebMWKSX95u4c84jngFqn5RI6aS": 2,
+  "d:13bOQqlct_BhSsZk2lqI9ZZ7jNm3VlWfA": 2,
   "d:1g_4XUI_tnz_zaKnhtzhw_fBRE7rFSzmP": 1,
   "d:1SMQd59gCOURJXYVPEph8elgWzMnk3kcl": 1,
   "d:1-tKUE4bwpjwueAMqH2CuNgqXKuK-SoFq": 1,
@@ -717,36 +717,36 @@
   "d:1RRRSI3VhtoC6qUIQ8jJ5ClHvF0XWybi9": 1
  },
  "pexels_used": [
-  "x170912",
-  "x4730",
-  "x31550",
-  "x236256",
-  "x118768",
-  "x149938",
-  "x371424",
-  "x273476",
-  "x119190",
-  "x11284",
-  "x34971",
-  "x222349",
-  "x156103",
-  "x71747",
-  "x2576",
-  "x267036",
   "x50622",
-  "x7262",
-  "x84906",
-  "x381054",
-  "x140186",
+  "x236256",
   "x25",
-  "x79899",
+  "x7262",
   "x173358",
-  "x67201"
+  "x149938",
+  "x156103",
+  "x267036",
+  "x79899",
+  "x31550",
+  "x71747",
+  "x67201",
+  "x222349",
+  "x119190",
+  "x2576",
+  "x34971",
+  "x371424",
+  "x84906",
+  "x273476",
+  "x118768",
+  "x4730",
+  "x140186",
+  "x381054",
+  "x170912",
+  "x11284"
  ],
  "music_last": {
   "1DZTJ4ef0yYVG2xdl3IlbrnmWhvTIImvs": "2026-11-19T17:24+03:00",
   "1dkR0sggYnJv6PAPhkKiPNI1Qbu5nbVwi": "2026-11-20T11:53+03:00",
-  "1fp4Ah5iQfFhH9Wv8srgJdSKSlru0RDHO": "2026-11-19T11:53+03:00",
+  "1fp4Ah5iQfFhH9Wv8srgJdSKSlru0RDHO": "2026-11-20T17:23+03:00",
   "1QUXCTr3hAjvM090ZbkBDmL190dxM9yXG": "2026-11-19T20:53+03:00",
   "r_16OqrXYzWRF5c20HNKbjBoWNaa_6pT9tp": "2026-11-04T00:15+03:00",
   "r_1l3THmi6GjqfKpjoZlRy25On7rsx6vdso": "2026-11-04T10:50+03:00"
@@ -851,7 +851,7 @@
   "1xc74OJNApbE5fqZrkfiw3OHdshVlePei": "2026-11-19T22:52+03:00",
   "1XBt5JsIzL4E_KDoqqa3KTmkjlJA84OQ7": "2026-11-20T08:53+03:00"
  },
- "vlog_i": 10,
+ "vlog_i": 3,
  "card_log": {
   "s1": [
    "صبح بخیر چهارشنبه؛ پیشنهاد صبحانهٔ وانی",
@@ -3067,8 +3067,8 @@
  "s1_g": 13,
  "s10_g": 12,
  "reply_error": {
-  "at": "2026-11-20T15:54+03:00",
-  "error": "Instagram API error 400 on 17897276169504822/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"AHNaOo3gtVtuDi4QlmjVUza\"}}"
+  "at": "2026-11-20T17:25+03:00",
+  "error": "Instagram API error 400 on 17897276169504822/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"Ah3w8K7WDTvAiYKCih5bSwx\"}}"
  },
  "smart_times": {
   "at": "2026-11-15T08:55+03:00",
