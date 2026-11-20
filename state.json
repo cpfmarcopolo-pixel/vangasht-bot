@@ -3,12 +3,6 @@
  "story": 1,
  "log": [
   {
-   "at": "2026-11-15T14:27+03:00",
-   "slot": "s5",
-   "item": "s5:صدای آب، عطر چای 🌊",
-   "media": "17911701063575388"
-  },
-  {
    "at": "2026-11-15T15:59+03:00",
    "slot": "s6",
    "item": "s6:بزرگ‌ترین دریاچهٔ ترکیه، همین‌جاست 🌊",
@@ -361,6 +355,12 @@
    "slot": "s5",
    "item": "s5:آفتاب، ساز، چتر قرمز 🎸",
    "media": "18072127871788234"
+  },
+  {
+   "at": "2026-11-20T15:54+03:00",
+   "slot": "s6",
+   "item": "s6:گربهٔ وان عاشق آبه 🐱",
+   "media": "17894024040457458"
   }
  ],
  "media_done": [
@@ -793,7 +793,7 @@
   "1eK3PtbuoL0e93x7mvCSaawdpmP_0T_If": "2026-11-15T11:01+03:00",
   "19pQrJrvnsddjJXra_8iZYUDx2XuVgm74": "2026-11-18T14:23+03:00",
   "15enA_QM7wwUuYBTWBcUgI3-tcjgY8mG1": "2026-11-19T14:23+03:00",
-  "11v-zlnAP32dT7cZe8Ix3quLeWsaKyA7Z": "2026-11-08T15:52+03:00",
+  "11v-zlnAP32dT7cZe8Ix3quLeWsaKyA7Z": "2026-11-20T15:52+03:00",
   "1xIAb8pNzW6LDi0fNgkvPBjS5_LSvVWtp": "2026-11-08T18:52+03:00",
   "1fc_rRqd1re4CGcq8e-gN3p60wmYgdqsT": "2026-11-20T14:22+03:00",
   "1sPW3_yStAJDQonT2FUch5LoOPXNUPGl3": "2026-11-08T22:52+03:00",
@@ -921,7 +921,8 @@
    "این یا اون؟ چای یا قهوه کنار دریاچه",
    "کیا دوست دارن؟ صبحانهٔ وانی",
    "دانستنی: ماهی مروارید وان و مهاجرت بهاری",
-   "سؤال از شما: پاییز وان چه رنگیه؟"
+   "سؤال از شما: پاییز وان چه رنگیه؟",
+   "دانستنی: گربهٔ وان، چشم‌های دورنگ و علاق"
   ],
   "s8": [
    "جزیرهٔ آکدامار",
@@ -3066,8 +3067,8 @@
  "s1_g": 13,
  "s10_g": 12,
  "reply_error": {
-  "at": "2026-11-20T14:26+03:00",
-  "error": "Instagram API error 400 on 17897276169504822/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"AFu-ufvzs-qdAf0VSjm8jQK\"}}"
+  "at": "2026-11-20T15:54+03:00",
+  "error": "Instagram API error 400 on 17897276169504822/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"AHNaOo3gtVtuDi4QlmjVUza\"}}"
  },
  "smart_times": {
   "at": "2026-11-15T08:55+03:00",
