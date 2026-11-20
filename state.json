@@ -3,12 +3,6 @@
  "story": 1,
  "log": [
   {
-   "at": "2026-11-15T19:42+03:00",
-   "slot": "p2",
-   "item": "tour:Untitled",
-   "media": "17944907271383223"
-  },
-  {
    "at": "2026-11-15T20:54+03:00",
    "slot": "s9",
    "item": "todayposts",
@@ -361,6 +355,12 @@
    "slot": "p2",
    "item": "tour:van_omrumun_milad_65_f4d6e4c8f6124b57a8e",
    "media": "17965033299214780"
+  },
+  {
+   "at": "2026-11-20T21:03+03:00",
+   "slot": "s9",
+   "item": "todayposts",
+   "media": "18118727570604343"
   }
  ],
  "media_done": [
@@ -744,7 +744,7 @@
   "x11284"
  ],
  "music_last": {
-  "1DZTJ4ef0yYVG2xdl3IlbrnmWhvTIImvs": "2026-11-19T17:24+03:00",
+  "1DZTJ4ef0yYVG2xdl3IlbrnmWhvTIImvs": "2026-11-20T21:00+03:00",
   "1dkR0sggYnJv6PAPhkKiPNI1Qbu5nbVwi": "2026-11-20T11:53+03:00",
   "1fp4Ah5iQfFhH9Wv8srgJdSKSlru0RDHO": "2026-11-20T17:23+03:00",
   "1QUXCTr3hAjvM090ZbkBDmL190dxM9yXG": "2026-11-19T20:53+03:00",
@@ -3082,8 +3082,8 @@
  "s1_g": 13,
  "s10_g": 12,
  "reply_error": {
-  "at": "2026-11-20T19:43+03:00",
-  "error": "Instagram API error 400 on 17897276169504822/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"AtFpzxetCMOo7Ft4fGV3S3g\"}}"
+  "at": "2026-11-20T21:03+03:00",
+  "error": "Instagram API error 400 on 17897276169504822/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"A9x8ZA3HdjmPnNJXbdgmlb0\"}}"
  },
  "smart_times": {
   "at": "2026-11-15T08:55+03:00",
