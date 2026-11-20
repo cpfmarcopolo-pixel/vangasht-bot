@@ -3,12 +3,6 @@
  "story": 1,
  "log": [
   {
-   "at": "2026-11-15T17:27+03:00",
-   "slot": "s7",
-   "item": "vlog",
-   "media": "17979962421160533"
-  },
-  {
    "at": "2026-11-15T18:55+03:00",
    "slot": "s8",
    "item": "s8:سوبهان، قلهٔ سپید دریاچه ⛰️",
@@ -361,6 +355,12 @@
    "slot": "s7",
    "item": "vlog",
    "media": "18121398655965746"
+  },
+  {
+   "at": "2026-11-20T18:58+03:00",
+   "slot": "s8",
+   "item": "s8:خانهٔ گربه‌های سفید وان 🐱",
+   "media": "18122827372976237"
   }
  ],
  "media_done": [
@@ -760,7 +760,7 @@
   "1eww9Vvjb_m9JhLIMFLFn8JtiDB8nLddz": "2026-11-05T01:28+03:00",
   "1i-gDjubpjs_pZodC-V1PWWBqmgaAqgf4": "2026-11-13T19:37+03:00",
   "1vb6bRaRQ2BChS41iAPHAhyaRWtEfP-kA": "2026-11-15T15:52+03:00",
-  "1U1ZO1_RPVlMbxTxTT4UgwViB9lg5-YvT": "2026-11-05T01:32+03:00",
+  "1U1ZO1_RPVlMbxTxTT4UgwViB9lg5-YvT": "2026-11-20T18:53+03:00",
   "1T7kkhCbRPAkU3hkd4BZcudSUVKQgF9Ei": "2026-11-05T01:32+03:00",
   "1nbObj54zW3Uk_pyTcAD8fzF6VmoXf9PK": "2026-11-05T01:50+03:00",
   "1xxSw_v73UWHsKmVlYum4Uynd34GsMyQO": "2026-11-14T13:37+03:00",
@@ -940,7 +940,8 @@
    "جزیرهٔ آکدامار",
    "قلعهٔ وان (توشپا)، ارگ صخره‌ای و کتیبهٔ ",
    "ساحل ادرمیت؛ تراس چوبی رو به دریاچه",
-   "حمام ترکی ویژهٔ بانوان در وان"
+   "حمام ترکی ویژهٔ بانوان در وان",
+   "خانهٔ گربهٔ وان"
   ],
   "s10": [
    "استوری شب بخیر چهارشنبه ۱۳ آبان",
@@ -976,7 +977,7 @@
  },
  "s4_i": 8,
  "s5_i": 4,
- "s8_i": 4,
+ "s8_i": 5,
  "clip_info": {
   "1eww9Vvjb_m9JhLIMFLFn8JtiDB8nLddz": {
    "text": "",
@@ -3067,8 +3068,8 @@
  "s1_g": 13,
  "s10_g": 12,
  "reply_error": {
-  "at": "2026-11-20T17:25+03:00",
-  "error": "Instagram API error 400 on 17897276169504822/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"Ah3w8K7WDTvAiYKCih5bSwx\"}}"
+  "at": "2026-11-20T18:58+03:00",
+  "error": "Instagram API error 400 on 17897276169504822/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"A3UVk3bzebH3p3ThYQVNFjs\"}}"
  },
  "smart_times": {
   "at": "2026-11-15T08:55+03:00",
