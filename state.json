@@ -3,12 +3,6 @@
  "story": 1,
  "log": [
   {
-   "at": "2026-11-16T19:43+03:00",
-   "slot": "p2",
-   "item": "tour:vangasht-xerxes-film-voice.mp4",
-   "media": "18035150711883814"
-  },
-  {
    "at": "2026-11-16T20:57+03:00",
    "slot": "s9",
    "item": "todayposts",
@@ -361,6 +355,12 @@
    "slot": "p2",
    "item": "tour:van_omrumun_milad_65_86795e134d214f88aaf",
    "media": "18110284700259059"
+  },
+  {
+   "at": "2026-11-21T18:57+03:00",
+   "slot": "s8",
+   "item": "s8:آکدامار، جزیره‌ای میان آبی و صورتی 🌸",
+   "media": "18012521678780753"
   }
  ],
  "media_done": [
@@ -769,7 +769,7 @@
   "1nbObj54zW3Uk_pyTcAD8fzF6VmoXf9PK": "2026-11-05T01:50+03:00",
   "1xxSw_v73UWHsKmVlYum4Uynd34GsMyQO": "2026-11-14T13:37+03:00",
   "1iwmldzc5FeV2O901Psyy0ec-ToCbJhT2": "2026-11-16T15:52+03:00",
-  "1o8hbi7E2vAtMtsMU6a7GeQQhmSEYCClV": "2026-11-05T01:53+03:00",
+  "1o8hbi7E2vAtMtsMU6a7GeQQhmSEYCClV": "2026-11-21T18:52+03:00",
   "1gwYcT8y4c6oNyO7zRqCKWKLkrKa0fDP8": "2026-11-05T01:54+03:00",
   "1G9DLnYaWoH8yTpJJvcwFRvTOhC9FFrK7": "2026-11-05T08:52+03:00",
   "1lpZ82SZHRhiU7wmo0kGWV9O587NMeLRz": "2026-11-13T11:01+03:00",
@@ -950,7 +950,8 @@
    "قلعهٔ وان (توشپا)، ارگ صخره‌ای و کتیبهٔ ",
    "ساحل ادرمیت؛ تراس چوبی رو به دریاچه",
    "حمام ترکی ویژهٔ بانوان در وان",
-   "خانهٔ گربهٔ وان"
+   "خانهٔ گربهٔ وان",
+   "جاذبهٔ امروز: جزیرهٔ آکدامار"
   ],
   "s10": [
    "استوری شب بخیر چهارشنبه ۱۳ آبان",
@@ -986,7 +987,7 @@
  },
  "s4_i": 9,
  "s5_i": 5,
- "s8_i": 5,
+ "s8_i": 6,
  "clip_info": {
   "1eww9Vvjb_m9JhLIMFLFn8JtiDB8nLddz": {
    "text": "",
@@ -1017,7 +1018,11 @@
    "music": true,
    "own_boxes": [],
    "ar": 0.5625,
-   "v": 3
+   "scene": "جزیره آکدامار با کلیسای تاریخی، شکوفه‌های صورتی بادام، دریاچه وان و کوه برفی در روزی آفتابی بهاری",
+   "place": "جزیره آکدامار",
+   "text_pos": "top",
+   "dur": 20.53,
+   "v": 4
   },
   "1gwYcT8y4c6oNyO7zRqCKWKLkrKa0fDP8": {
    "text": "",
@@ -3105,8 +3110,8 @@
  "s1_g": 14,
  "s10_g": 13,
  "reply_error": {
-  "at": "2026-11-21T18:42+03:00",
-  "error": "Instagram API error 400 on 17897276169504822/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"A4u1U1fynX9OV-Gh_R1GQfk\"}}"
+  "at": "2026-11-21T18:57+03:00",
+  "error": "Instagram API error 400 on 17897276169504822/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"At5x9ObbAXoN7T-6lzDb2dH\"}}"
  },
  "smart_times": {
   "at": "2026-11-21T08:58+03:00",
