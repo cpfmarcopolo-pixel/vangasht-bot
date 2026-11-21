@@ -3,12 +3,6 @@
  "story": 1,
  "log": [
   {
-   "at": "2026-11-16T20:57+03:00",
-   "slot": "s9",
-   "item": "todayposts",
-   "media": "18100809590420075"
-  },
-  {
    "at": "2026-11-16T22:57+03:00",
    "slot": "s10",
    "item": "s10:شبتون آروم",
@@ -361,6 +355,12 @@
    "slot": "s8",
    "item": "s8:آکدامار، جزیره‌ای میان آبی و صورتی 🌸",
    "media": "18012521678780753"
+  },
+  {
+   "at": "2026-11-21T20:57+03:00",
+   "slot": "s9",
+   "item": "todayposts",
+   "media": "18130493410855660"
   }
  ],
  "media_done": [
@@ -748,7 +748,7 @@
   "x267036"
  ],
  "music_last": {
-  "1DZTJ4ef0yYVG2xdl3IlbrnmWhvTIImvs": "2026-11-20T21:00+03:00",
+  "1DZTJ4ef0yYVG2xdl3IlbrnmWhvTIImvs": "2026-11-21T20:53+03:00",
   "1dkR0sggYnJv6PAPhkKiPNI1Qbu5nbVwi": "2026-11-21T14:22+03:00",
   "1fp4Ah5iQfFhH9Wv8srgJdSKSlru0RDHO": "2026-11-21T17:23+03:00",
   "1QUXCTr3hAjvM090ZbkBDmL190dxM9yXG": "2026-11-21T11:53+03:00",
@@ -3110,8 +3110,8 @@
  "s1_g": 14,
  "s10_g": 13,
  "reply_error": {
-  "at": "2026-11-21T18:57+03:00",
-  "error": "Instagram API error 400 on 17897276169504822/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"At5x9ObbAXoN7T-6lzDb2dH\"}}"
+  "at": "2026-11-21T20:57+03:00",
+  "error": "Instagram API error 400 on 17897276169504822/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"AMj41BuhMPARM7zMPBl6P_L\"}}"
  },
  "smart_times": {
   "at": "2026-11-21T08:58+03:00",
