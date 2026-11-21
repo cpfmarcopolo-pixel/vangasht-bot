@@ -3,12 +3,6 @@
  "story": 1,
  "log": [
   {
-   "at": "2026-11-16T11:54+03:00",
-   "slot": "s3",
-   "item": "vlog",
-   "media": "18123607966945892"
-  },
-  {
    "at": "2026-11-16T12:41+03:00",
    "slot": "p1",
    "item": "tour:moradiyeselale.mp4",
@@ -361,6 +355,12 @@
    "slot": "s3",
    "item": "vlog",
    "media": "17927048511440878"
+  },
+  {
+   "at": "2026-11-21T12:42+03:00",
+   "slot": "p1",
+   "item": "tour:van_omrumun_milad_65_ecb42788e3e44067a56",
+   "media": "18109734415985449"
   }
  ],
  "media_done": [
@@ -959,7 +959,6 @@
    "استوری شب بخیر شنبه ۱۶ آبان (شب‌های پایی"
   ],
   "post": [
-   "ویدیوی کامل یکی از تورهای وان گشت؛ یک رو",
    "تور فستیوال رنگ: موسیقی، پودرهای رنگی و ",
    "کف‌پارتی روی عرشهٔ کشتی‌های تفریحی دریاچ",
    "نگاهی کلی به حال‌وهوای تورهای وان گشت",
@@ -978,7 +977,8 @@
    "ویدیوی کامل تور کشتی‌های بزرگ تفریحی روی",
    "حال‌وهوای شبانهٔ شهر وان؛ شیرینی، خرید و",
    "ویدیوی تور وان گشت؛ وان با هماهنگی فارسی",
-   "ویدیوی گورپینار؛ شهرکی آرام با رودخانهٔ "
+   "ویدیوی گورپینار؛ شهرکی آرام با رودخانهٔ ",
+   "ویدیوی شبانهٔ نمای شهر و خلیج وان از تپه"
   ]
  },
  "s4_i": 8,
@@ -3065,6 +3065,20 @@
    "text_pos": "",
    "dur": 29.79,
    "v": 4
+  },
+  "11_cZJiWStGYmOVRr4Sp0EzDLshE1PyNm": {
+   "text": "Van Toprakkale 65",
+   "greeting": "",
+   "other_page": false,
+   "page": "",
+   "music": true,
+   "own_boxes": [],
+   "ar": 0.5625,
+   "scene": "شب، نمای شهر و خلیج با چراغ‌های روشن از تپه‌ای صخره‌ای؛ درِ بازِ ماشین با نور آبی داخل آن",
+   "place": "",
+   "text_pos": "top",
+   "dur": 31.65,
+   "v": 4
   }
  },
  "skipped_files": {
@@ -3088,8 +3102,8 @@
  "s1_g": 14,
  "s10_g": 13,
  "reply_error": {
-  "at": "2026-11-21T11:55+03:00",
-  "error": "Instagram API error 400 on 17897276169504822/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"AIBdIaNdiFndzWNKjehPOln\"}}"
+  "at": "2026-11-21T12:42+03:00",
+  "error": "Instagram API error 400 on 17897276169504822/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"AhrkEXC-_2B_MSzSd_2GVC5\"}}"
  },
  "smart_times": {
   "at": "2026-11-21T08:58+03:00",
@@ -3141,10 +3155,11 @@
   "19GWAFKtZ5KEsjuu5XNgDgTfRzAp1Xnlc": "2026-11-19T12:42+03:00",
   "1Fjawf5vAszK-VDEr_TYFhqHUP1joaOYo": "2026-11-19T19:37+03:00",
   "1Im8uZq8LUL6NLd3GYqh3j7uBKwhNIQci": "2026-11-20T12:37+03:00",
-  "1W_dvyI4Fd2U6nZSkR-nbG24pzYdtPoqw": "2026-11-20T19:38+03:00"
+  "1W_dvyI4Fd2U6nZSkR-nbG24pzYdtPoqw": "2026-11-20T19:38+03:00",
+  "11_cZJiWStGYmOVRr4Sp0EzDLshE1PyNm": "2026-11-21T12:38+03:00"
  },
  "post_debug": {
-  "at": "2026-11-20T19:38+03:00",
+  "at": "2026-11-21T12:37+03:00",
   "p_videos": [
    "van_omrumun_milad_65_548698e8fe6d48bab0e8d6911211bc02.mp4",
    "van.gasht.turkiye_5f536099e6ac4d069b15fe4975810bb5.mp4",
@@ -3184,6 +3199,6 @@
    "bsrklcdndr_47d6b48818eb4bd9a0d10d1cc16a0245.mp4",
    "vangasht-xerxes-film-voice.mp4"
   ],
-  "chosen": "van_omrumun_milad_65_f4d6e4c8f6124b57a8e637dd00aecefb.mp4"
+  "chosen": "van_omrumun_milad_65_ecb42788e3e44067a564ef05161de47a.mp4"
  }
 }
