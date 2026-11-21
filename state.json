@@ -3,12 +3,6 @@
  "story": 1,
  "log": [
   {
-   "at": "2026-11-16T08:57+03:00",
-   "slot": "s1",
-   "item": "s1:صبحتون قشنگ",
-   "media": "18133708705844196"
-  },
-  {
    "at": "2026-11-16T11:05+03:00",
    "slot": "s2",
    "item": "ai:کارت تخفیف ۱۰٪ و اسکن QR در خرید",
@@ -361,6 +355,12 @@
    "slot": "s1",
    "item": "s1:صبح بخیر",
    "media": "18143520358551488"
+  },
+  {
+   "at": "2026-11-21T11:06+03:00",
+   "slot": "s2",
+   "item": "ai:کوهستان‌های اطراف وان در شنبهٔ پاییزی (ا",
+   "media": "18139936759707773"
   }
  ],
  "media_done": [
@@ -435,6 +435,10 @@
   {
    "day": "2026-11-18",
    "topic": "صرافی با کارتخوان ایرانی در وان"
+  },
+  {
+   "day": "2026-11-21",
+   "topic": "کوهستان‌های اطراف وان در شنبهٔ پاییزی (ا"
   }
  ],
  "inspo": {
@@ -3084,8 +3088,8 @@
  "s1_g": 14,
  "s10_g": 13,
  "reply_error": {
-  "at": "2026-11-21T08:58+03:00",
-  "error": "Instagram API error 400 on 17897276169504822/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"AV6WhPdLlH9gSQwVcNboAtH\"}}"
+  "at": "2026-11-21T11:06+03:00",
+  "error": "Instagram API error 400 on 17897276169504822/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"AMvBCDX4jZGCvvqnH9SN1hg\"}}"
  },
  "smart_times": {
   "at": "2026-11-21T08:58+03:00",
