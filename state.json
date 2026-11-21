@@ -3,12 +3,6 @@
  "story": 1,
  "log": [
   {
-   "at": "2026-11-16T14:29+03:00",
-   "slot": "s5",
-   "item": "s5:کف و آفتاب روی آب 🫧",
-   "media": "18118359836118816"
-  },
-  {
    "at": "2026-11-16T15:56+03:00",
    "slot": "s6",
    "item": "s6:کنار دریاچه، چای یا قهوه؟",
@@ -361,6 +355,12 @@
    "slot": "s5",
    "item": "s5:شب، روی آب‌های نیلگون",
    "media": "17945618697381328"
+  },
+  {
+   "at": "2026-11-21T15:55+03:00",
+   "slot": "s6",
+   "item": "s6:چرا این گل سر به زیره؟",
+   "media": "17878415721586829"
   }
  ],
  "media_done": [
@@ -803,8 +803,8 @@
   "1sPW3_yStAJDQonT2FUch5LoOPXNUPGl3": "2026-11-08T22:52+03:00",
   "1rUPb0ausPn3yzaZOVQES1DSiLz31BvD2": "2026-11-09T08:52+03:00",
   "1VDE-24ix0DYRvyc0ZVKjz-kz0C18zmeh": "2026-11-19T11:01+03:00",
-  "1PQslevjXRiiap_U-hkD09ZoF7HjB0Xn_": "2026-11-09T15:52+03:00",
-  "10WuWZaGcRSVxR8xZEVighb58b_f4O1iG": "2026-11-09T15:52+03:00",
+  "1PQslevjXRiiap_U-hkD09ZoF7HjB0Xn_": "2026-11-21T15:53+03:00",
+  "10WuWZaGcRSVxR8xZEVighb58b_f4O1iG": "2026-11-21T15:53+03:00",
   "1TlrjJvqGOTR44RyUlNV-q8RZrDqf9rhr": "2026-11-09T18:52+03:00",
   "15RwIzGMNLCEZHhVFaGN2lOC3-rcBpvVA": "2026-11-09T18:52+03:00",
   "1MBOKD1JCD6RMMpaQ4kcLeJqLDJddHRIE": "2026-11-09T18:53+03:00",
@@ -930,7 +930,8 @@
    "کیا دوست دارن؟ صبحانهٔ وانی",
    "دانستنی: ماهی مروارید وان و مهاجرت بهاری",
    "سؤال از شما: پاییز وان چه رنگیه؟",
-   "دانستنی: گربهٔ وان، چشم‌های دورنگ و علاق"
+   "دانستنی: گربهٔ وان، چشم‌های دورنگ و علاق",
+   "حدس بزن: چرا لالهٔ واژگون سر به زیره (قا"
   ],
   "s8": [
    "جزیرهٔ آکدامار",
@@ -3104,8 +3105,8 @@
  "s1_g": 14,
  "s10_g": 13,
  "reply_error": {
-  "at": "2026-11-21T14:27+03:00",
-  "error": "Instagram API error 400 on 17897276169504822/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"AXFp3FMKLgan_f4aSF8AGVH\"}}"
+  "at": "2026-11-21T15:56+03:00",
+  "error": "Instagram API error 400 on 17897276169504822/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"AFDKkfXDvzKQbohyYERJO8l\"}}"
  },
  "smart_times": {
   "at": "2026-11-21T08:58+03:00",
