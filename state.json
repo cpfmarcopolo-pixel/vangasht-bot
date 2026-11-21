@@ -3,12 +3,6 @@
  "story": 1,
  "log": [
   {
-   "at": "2026-11-16T22:57+03:00",
-   "slot": "s10",
-   "item": "s10:شبتون آروم",
-   "media": "17921637345464599"
-  },
-  {
    "at": "2026-11-17T08:57+03:00",
    "slot": "s1",
    "item": "s1:صبحتون بخیر",
@@ -361,6 +355,12 @@
    "slot": "s9",
    "item": "todayposts",
    "media": "18130493410855660"
+  },
+  {
+   "at": "2026-11-21T22:57+03:00",
+   "slot": "s10",
+   "item": "s10:شب بخیر",
+   "media": "18091803767280564"
   }
  ],
  "media_done": [
@@ -855,7 +855,8 @@
   "1xc74OJNApbE5fqZrkfiw3OHdshVlePei": "2026-11-19T22:52+03:00",
   "1XBt5JsIzL4E_KDoqqa3KTmkjlJA84OQ7": "2026-11-20T08:53+03:00",
   "1divJRPmZlrXkIgT9njRHgbkuoUcRaBcr": "2026-11-20T22:52+03:00",
-  "1oa2JVUBclcdnUep7lpXZtB9Lx-GrOwQz": "2026-11-21T08:52+03:00"
+  "1oa2JVUBclcdnUep7lpXZtB9Lx-GrOwQz": "2026-11-21T08:52+03:00",
+  "1R_9KOxhGqaqOx0xiozuOssY9KRuaRjda": "2026-11-21T22:52+03:00"
  },
  "vlog_i": 9,
  "card_log": {
@@ -3087,6 +3088,20 @@
    "text_pos": "top",
    "dur": 31.65,
    "v": 4
+  },
+  "1R_9KOxhGqaqOx0xiozuOssY9KRuaRjda": {
+   "text": "",
+   "greeting": "",
+   "other_page": false,
+   "page": "",
+   "music": true,
+   "own_boxes": [],
+   "ar": 0.5625,
+   "scene": "نمای هوایی شبانه از بزرگراه و طاق نورانی آبی با نوشتهٔ VAN، با چراغ‌های شهر و ماشین‌هایی که در جاده می‌روند",
+   "place": "",
+   "text_pos": "",
+   "dur": 44.07,
+   "v": 4
   }
  },
  "skipped_files": {
@@ -3108,10 +3123,10 @@
  },
  "replied_comments": [],
  "s1_g": 14,
- "s10_g": 13,
+ "s10_g": 14,
  "reply_error": {
-  "at": "2026-11-21T20:57+03:00",
-  "error": "Instagram API error 400 on 17897276169504822/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"AMj41BuhMPARM7zMPBl6P_L\"}}"
+  "at": "2026-11-21T22:57+03:00",
+  "error": "Instagram API error 400 on 17897276169504822/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"Adv0d4MuY2pH_9v1O9hKCa5\"}}"
  },
  "smart_times": {
   "at": "2026-11-21T08:58+03:00",
