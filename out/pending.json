@@ -1,8 +1,10 @@
 {
- "slot": "s2",
- "file": "2026-11-21-s2.jpg",
+ "slot": "s3",
+ "file": null,
  "caption": null,
  "advance": null,
- "item": "ai:کوهستان‌های اطراف وان در شنبهٔ پاییزی (ا",
- "done": true
+ "item": "vlog",
+ "video": "dl/2026-11-21-s3-ig.mp4",
+ "reel": false,
+ "done": null
 }
