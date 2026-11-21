@@ -3,12 +3,6 @@
  "story": 1,
  "log": [
   {
-   "at": "2026-11-16T12:41+03:00",
-   "slot": "p1",
-   "item": "tour:moradiyeselale.mp4",
-   "media": "18128338954901204"
-  },
-  {
    "at": "2026-11-16T12:56+03:00",
    "slot": "s4",
    "item": "s4:وان را قدم‌به‌قدم بشناس",
@@ -361,6 +355,12 @@
    "slot": "p1",
    "item": "tour:van_omrumun_milad_65_ecb42788e3e44067a56",
    "media": "18109734415985449"
+  },
+  {
+   "at": "2026-11-21T12:57+03:00",
+   "slot": "s4",
+   "item": "s4:وان رو کِی ببینیم؟",
+   "media": "18112611098266457"
   }
  ],
  "media_done": [
@@ -850,7 +850,7 @@
   "1X2ZSiF1qFkRykwkkT2XGjOAwC4ZB-ZY7": "2026-11-18T22:52+03:00",
   "1_B8WogBjKsHa_a9G_eTuT9CN-kLJAvfd": "2026-11-18T22:53+03:00",
   "1_k37EJfm8n8bIBr_m8X20Iv87XbiRpWy": "2026-11-19T08:52+03:00",
-  "1_tJmlHtsBCVEk7aE1wISAFsyoMubFEXA": "2026-11-20T12:53+03:00",
+  "1_tJmlHtsBCVEk7aE1wISAFsyoMubFEXA": "2026-11-21T12:53+03:00",
   "1XeSaSq1TP4XMwZGFozQWilX4LIlAeWK8": "2026-11-19T18:52+03:00",
   "1xc74OJNApbE5fqZrkfiw3OHdshVlePei": "2026-11-19T22:52+03:00",
   "1XBt5JsIzL4E_KDoqqa3KTmkjlJA84OQ7": "2026-11-20T08:53+03:00",
@@ -886,7 +886,8 @@
    "جاهای دیدنی وان: معرفی جاذبه‌ها و تورها ",
    "راهنمای کامل سفر به وان برای ایرانی‌ها",
    "خرید در وان: مراکز خرید و خیابان‌های اصل",
-   "تبدیل تومان به لیر در وان: راهنمای صرافی"
+   "تبدیل تومان به لیر در وان: راهنمای صرافی",
+   "بهترین زمان سفر به وان و جاهای دیدنی (مع"
   ],
   "s5": [
    "تور کشتی‌های بزرگ تفریحی دریاچه وان",
@@ -981,7 +982,7 @@
    "ویدیوی شبانهٔ نمای شهر و خلیج وان از تپه"
   ]
  },
- "s4_i": 8,
+ "s4_i": 9,
  "s5_i": 4,
  "s8_i": 5,
  "clip_info": {
@@ -3102,8 +3103,8 @@
  "s1_g": 14,
  "s10_g": 13,
  "reply_error": {
-  "at": "2026-11-21T12:42+03:00",
-  "error": "Instagram API error 400 on 17897276169504822/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"AhrkEXC-_2B_MSzSd_2GVC5\"}}"
+  "at": "2026-11-21T12:57+03:00",
+  "error": "Instagram API error 400 on 17897276169504822/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"AwswpOG8cFjHbGYvEHRGeE-\"}}"
  },
  "smart_times": {
   "at": "2026-11-21T08:58+03:00",
