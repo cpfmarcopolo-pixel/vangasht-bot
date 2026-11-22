@@ -3,12 +3,6 @@
  "story": 1,
  "log": [
   {
-   "at": "2026-11-17T18:57+03:00",
-   "slot": "s8",
-   "item": "s8:قلعهٔ وان، پایتخت اورارتو 🏰",
-   "media": "17957398845316993"
-  },
-  {
    "at": "2026-11-17T19:39+03:00",
    "slot": "p2",
    "item": "tour:havinsblog_9dc34c007d4443f59fa9673160cf6",
@@ -361,6 +355,12 @@
    "slot": "s7",
    "item": "vlog",
    "media": "18091812494698217"
+  },
+  {
+   "at": "2026-11-22T18:42+03:00",
+   "slot": "p2",
+   "item": "tour:van_omrumun_milad_65_276d2d8b066f4a71a2f",
+   "media": "18132900844879560"
   }
  ],
  "media_done": [
@@ -969,7 +969,6 @@
    "استوری شب بخیر شنبه ۱۶ آبان (شب‌های پایی"
   ],
   "post": [
-   "نگاهی کلی به حال‌وهوای تورهای وان گشت",
    "جمع شاد و دست‌زدن زیر سایبان‌های قرمز کا",
    "ویدیوی تور کشتی‌های بزرگ تفریحی؛ قایق دو",
    "ویدیوی کامل تور کشتی جزیرهٔ آکدامار، از ",
@@ -988,7 +987,8 @@
    "ویدیوی گورپینار؛ شهرکی آرام با رودخانهٔ ",
    "ویدیوی شبانهٔ نمای شهر و خلیج وان از تپه",
    "ویدیوی تور فستیوال رنگ؛ موسیقی، پودرهای ",
-   "حال‌وهوای گشت‌های وان گشت؛ برنامه‌ریزی ب"
+   "حال‌وهوای گشت‌های وان گشت؛ برنامه‌ریزی ب",
+   "میز ناهار ماهی در یک کافه‌رستوران آفتابی"
   ]
  },
  "s4_i": 10,
@@ -3121,6 +3121,20 @@
    "text_pos": "",
    "dur": 0,
    "v": 4
+  },
+  "1bnWEwNsgqDRScVa984f2R3Ay9pnl34zm": {
+   "text": "",
+   "greeting": "",
+   "other_page": false,
+   "page": "",
+   "music": true,
+   "own_boxes": [],
+   "ar": 0.5616224648985959,
+   "scene": "میز صبحانه یا ناهار ماهی در یک کافه‌رستوران در روز آفتابی: ماهی سرخ‌شده، سوپ ماست، سالاد، نان لواش و دسر خانگی با چای",
+   "place": "",
+   "text_pos": "",
+   "dur": 24.05,
+   "v": 4
   }
  },
  "skipped_files": {
@@ -3144,8 +3158,8 @@
  "s1_g": 15,
  "s10_g": 14,
  "reply_error": {
-  "at": "2026-11-22T17:27+03:00",
-  "error": "Instagram API error 400 on 17897276169504822/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"AYaFgoSJtyfSPdZ615Y5ThR\"}}"
+  "at": "2026-11-22T18:42+03:00",
+  "error": "Instagram API error 400 on 17897276169504822/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"ADk1U8s1wqYirmcX43_uHEE\"}}"
  },
  "smart_times": {
   "at": "2026-11-21T08:58+03:00",
@@ -3200,10 +3214,11 @@
   "1W_dvyI4Fd2U6nZSkR-nbG24pzYdtPoqw": "2026-11-20T19:38+03:00",
   "11_cZJiWStGYmOVRr4Sp0EzDLshE1PyNm": "2026-11-21T12:38+03:00",
   "1ieYEPKO4U9qiaZc_ukDEDV0e6QFKkuBD": "2026-11-21T18:38+03:00",
-  "11VyEXSBvYsG17wWzYOFwF1UbcI9gMymC": "2026-11-22T12:38+03:00"
+  "11VyEXSBvYsG17wWzYOFwF1UbcI9gMymC": "2026-11-22T12:38+03:00",
+  "1bnWEwNsgqDRScVa984f2R3Ay9pnl34zm": "2026-11-22T18:37+03:00"
  },
  "post_debug": {
-  "at": "2026-11-22T12:37+03:00",
+  "at": "2026-11-22T18:37+03:00",
   "p_videos": [
    "van_omrumun_milad_65_548698e8fe6d48bab0e8d6911211bc02.mp4",
    "van.gasht.turkiye_5f536099e6ac4d069b15fe4975810bb5.mp4",
@@ -3243,6 +3258,6 @@
    "bsrklcdndr_47d6b48818eb4bd9a0d10d1cc16a0245.mp4",
    "vangasht-xerxes-film-voice.mp4"
   ],
-  "chosen": "van_omrumun_milad_65_d9b905663be64dfcbbd0107be7142f5a.mp4"
+  "chosen": "van_omrumun_milad_65_276d2d8b066f4a71a2ff36219ff7f5a1.mp4"
  }
 }
