@@ -3,12 +3,6 @@
  "story": 1,
  "log": [
   {
-   "at": "2026-11-17T11:07+03:00",
-   "slot": "s2",
-   "item": "ai:کوه آتشفشانی سوفان در شمال دریاچهٔ وان",
-   "media": "18141762166723827"
-  },
-  {
    "at": "2026-11-17T11:54+03:00",
    "slot": "s3",
    "item": "vlog",
@@ -361,6 +355,12 @@
    "slot": "s1",
    "item": "s1:صبحتون قشنگ",
    "media": "18132449287846540"
+  },
+  {
+   "at": "2026-11-22T11:03+03:00",
+   "slot": "s2",
+   "item": "ai:شروع آرام هفته در وان با چای و قدم‌زدن د",
+   "media": "18456772681132523"
   }
  ],
  "media_done": [
@@ -439,6 +439,10 @@
   {
    "day": "2026-11-21",
    "topic": "کوهستان‌های اطراف وان در شنبهٔ پاییزی (ا"
+  },
+  {
+   "day": "2026-11-22",
+   "topic": "شروع آرام هفته در وان با چای و قدم‌زدن د"
   }
  ],
  "inspo": {
@@ -3126,8 +3130,8 @@
  "s1_g": 15,
  "s10_g": 14,
  "reply_error": {
-  "at": "2026-11-22T08:56+03:00",
-  "error": "Instagram API error 400 on 17897276169504822/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"ASU5tbke8E5RyShdX05e53V\"}}"
+  "at": "2026-11-22T11:03+03:00",
+  "error": "Instagram API error 400 on 17897276169504822/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"Ac6sekEFcFTsZCpQLJgZx2v\"}}"
  },
  "smart_times": {
   "at": "2026-11-21T08:58+03:00",
