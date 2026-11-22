@@ -3,12 +3,6 @@
  "story": 1,
  "log": [
   {
-   "at": "2026-11-17T19:39+03:00",
-   "slot": "p2",
-   "item": "tour:havinsblog_9dc34c007d4443f59fa9673160cf6",
-   "media": "18287665285293293"
-  },
-  {
    "at": "2026-11-17T21:23+03:00",
    "slot": "s9",
    "item": "todayposts",
@@ -361,6 +355,12 @@
    "slot": "p2",
    "item": "tour:van_omrumun_milad_65_276d2d8b066f4a71a2f",
    "media": "18132900844879560"
+  },
+  {
+   "at": "2026-11-22T18:57+03:00",
+   "slot": "s8",
+   "item": "s8:ادرمیت، ساحلِ آرامِ دریاچه 🌊",
+   "media": "17978529543172037"
   }
  ],
  "media_done": [
@@ -784,7 +784,7 @@
   "1ngL9kAa5rvCydUIuQHjnvQOwNC1_dmiz": "2026-11-14T11:01+03:00",
   "1jaaCnvkMJZiQRnYkl5VMOJwE-V_lUjin": "2026-11-14T19:37+03:00",
   "1sjAcrPqOpPKqux_uRgpKOTk65efReAqB": "2026-11-18T15:52+03:00",
-  "1lzWgWguX7p5t4WvRNOTNCtqSLY7PoZem": "2026-11-06T18:52+03:00",
+  "1lzWgWguX7p5t4WvRNOTNCtqSLY7PoZem": "2026-11-22T18:52+03:00",
   "1Z5JzLIvcIYDkA8fWgDbPLE8_rVFEWp1S": "2026-11-15T12:37+03:00",
   "1g9MCZ_AqhaYu782AxJIqmG5sn-G0Ofuo": "2026-11-06T22:52+03:00",
   "1JE1Z9R_-cx8at77fjHzv0vJ0XTIEefvd": "2026-11-06T22:52+03:00",
@@ -957,7 +957,8 @@
    "ساحل ادرمیت؛ تراس چوبی رو به دریاچه",
    "حمام ترکی ویژهٔ بانوان در وان",
    "خانهٔ گربهٔ وان",
-   "جاذبهٔ امروز: جزیرهٔ آکدامار"
+   "جاذبهٔ امروز: جزیرهٔ آکدامار",
+   "ساحل ادرمیت"
   ],
   "s10": [
    "استوری شب بخیر چهارشنبه ۱۳ آبان",
@@ -993,7 +994,7 @@
  },
  "s4_i": 10,
  "s5_i": 1,
- "s8_i": 6,
+ "s8_i": 7,
  "clip_info": {
   "1eww9Vvjb_m9JhLIMFLFn8JtiDB8nLddz": {
    "text": "",
@@ -3158,8 +3159,8 @@
  "s1_g": 15,
  "s10_g": 14,
  "reply_error": {
-  "at": "2026-11-22T18:42+03:00",
-  "error": "Instagram API error 400 on 17897276169504822/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"ADk1U8s1wqYirmcX43_uHEE\"}}"
+  "at": "2026-11-22T18:57+03:00",
+  "error": "Instagram API error 400 on 17897276169504822/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"ALh9B3Qk7RZ5UpI8RQsRDNc\"}}"
  },
  "smart_times": {
   "at": "2026-11-21T08:58+03:00",
