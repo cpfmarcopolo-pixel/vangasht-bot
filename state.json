@@ -3,12 +3,6 @@
  "story": 1,
  "log": [
   {
-   "at": "2026-11-17T22:58+03:00",
-   "slot": "s10",
-   "item": "s10:شبتون بخیر",
-   "media": "18649943284000015"
-  },
-  {
    "at": "2026-11-18T08:54+03:00",
    "slot": "s1",
    "item": "s1:صبح بخیر",
@@ -361,6 +355,12 @@
    "slot": "s9",
    "item": "todayposts",
    "media": "18152578888562064"
+  },
+  {
+   "at": "2026-11-22T22:57+03:00",
+   "slot": "s10",
+   "item": "s10:شبتون آروم",
+   "media": "18171923965479627"
   }
  ],
  "media_done": [
@@ -861,7 +861,9 @@
   "1divJRPmZlrXkIgT9njRHgbkuoUcRaBcr": "2026-11-20T22:52+03:00",
   "1oa2JVUBclcdnUep7lpXZtB9Lx-GrOwQz": "2026-11-21T08:52+03:00",
   "1R_9KOxhGqaqOx0xiozuOssY9KRuaRjda": "2026-11-21T22:52+03:00",
-  "1rdaqYajmUFC4HVReppZtat5eAQkES0M4": "2026-11-22T08:52+03:00"
+  "1rdaqYajmUFC4HVReppZtat5eAQkES0M4": "2026-11-22T08:52+03:00",
+  "1n-GtBl_AyPPQOynQdOGtDDEtKMCMrik8": "2026-11-22T22:52+03:00",
+  "166E3DvVaZ7xpzrv5MfNGwR3naC-LM6et": "2026-11-22T22:52+03:00"
  },
  "vlog_i": 5,
  "card_log": {
@@ -3136,6 +3138,20 @@
    "text_pos": "",
    "dur": 24.05,
    "v": 4
+  },
+  "1n-GtBl_AyPPQOynQdOGtDDEtKMCMrik8": {
+   "text": "",
+   "greeting": "",
+   "other_page": true,
+   "page": "@zeus_rentacar, @lezgin.delen",
+   "music": true,
+   "own_boxes": [],
+   "ar": 0.5625,
+   "scene": "نمای هوایی شبانگاهی از دیوارهای نورانی قلعه بر صخره، با شهر روشن و آسمان ابری آبی در پس‌زمینه",
+   "place": "قلعهٔ وان",
+   "text_pos": "",
+   "dur": 17.39,
+   "v": 4
   }
  },
  "skipped_files": {
@@ -3153,11 +3169,12 @@
   "Ins2916310794_ace7114c8b97409fbd73a0366186b518.mp4": "@asya_cappadocia",
   "granddeniz65_07421861a59f49a8a91c87ecbf70516a.mp4": "Keveajans",
   "cpfmarco_884d04392c76419fa7031665f87a6735.mp4": "Recep DAĞ Drone Photography & Video (rec",
-  "Ins2916310794_d6c1801330ba4476b8d2ec5fe666c5f4.mp4": "@muzaffer_ss"
+  "Ins2916310794_d6c1801330ba4476b8d2ec5fe666c5f4.mp4": "@muzaffer_ss",
+  "vankalesi2.mp4": "@zeus_rentacar, @lezgin.delen"
  },
  "replied_comments": [],
  "s1_g": 15,
- "s10_g": 14,
+ "s10_g": 15,
  "reply_error": {
   "at": "2026-11-22T18:57+03:00",
   "error": "Instagram API error 400 on 17897276169504822/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"ALh9B3Qk7RZ5UpI8RQsRDNc\"}}"
