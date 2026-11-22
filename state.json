@@ -3,12 +3,6 @@
  "story": 1,
  "log": [
   {
-   "at": "2026-11-17T11:54+03:00",
-   "slot": "s3",
-   "item": "vlog",
-   "media": "18002054685001869"
-  },
-  {
    "at": "2026-11-17T12:41+03:00",
    "slot": "p1",
    "item": "tour:bsrklcdndr_47d6b48818eb4bd9a0d10d1cc16a0",
@@ -361,6 +355,12 @@
    "slot": "s2",
    "item": "ai:شروع آرام هفته در وان با چای و قدم‌زدن د",
    "media": "18456772681132523"
+  },
+  {
+   "at": "2026-11-22T11:56+03:00",
+   "slot": "s3",
+   "item": "vlog",
+   "media": "18159415957518250"
   }
  ],
  "media_done": [
@@ -658,14 +658,14 @@
   "d:14hbpTpCJjkzTK3DobzQAYAhEBmlmpnLu": 3,
   "d:1Mq3pzJYiSjS8EY7qHQpGe3IrbQaFqOd0": 3,
   "d:1yYrvnc1bmIVcRMLbzounZqmSX51wBOg8": 3,
-  "d:1ymv-JaVU4lZ3OPypfDeIGBn5zjzfUwb6": 2,
-  "d:1-I8xHLrQQMYLvbC9g0CWLeORt6TQlIHs": 2,
-  "d:1RLsbDL-U0r1NzKQasCYcdwdAjiJTEcJF": 2,
-  "d:1eWpZYx-6f0UCVeNkA6NKGr119tfsli8o": 2,
-  "d:1R-TUUlG6O6qXB_IsHz2P9Tz61Aq9ulT3": 2,
-  "d:1n9fLT_yIcGtzNYregRdmjZPqpQ5uZaBm": 2,
-  "d:1UrXpU42cUwwZzhH9ooH_XbXEcJcW4Ikn": 2,
-  "d:1J-3DucT50lu11s9wrJPEmduSGIDR8bAg": 2,
+  "d:1ymv-JaVU4lZ3OPypfDeIGBn5zjzfUwb6": 3,
+  "d:1-I8xHLrQQMYLvbC9g0CWLeORt6TQlIHs": 3,
+  "d:1RLsbDL-U0r1NzKQasCYcdwdAjiJTEcJF": 3,
+  "d:1eWpZYx-6f0UCVeNkA6NKGr119tfsli8o": 3,
+  "d:1R-TUUlG6O6qXB_IsHz2P9Tz61Aq9ulT3": 3,
+  "d:1n9fLT_yIcGtzNYregRdmjZPqpQ5uZaBm": 3,
+  "d:1UrXpU42cUwwZzhH9ooH_XbXEcJcW4Ikn": 3,
+  "d:1J-3DucT50lu11s9wrJPEmduSGIDR8bAg": 3,
   "d:1rIvKD3WSZDUI_RiYJAWqg9-sqqcXONKw": 2,
   "d:1o2o6nxkEsIIpQZtKpu11OGerPo-kMNAb": 2,
   "d:1SCCLUtrH2n5RV6jQ8hZX8hgHBEnXEzxO": 2,
@@ -725,37 +725,37 @@
   "d:1RRRSI3VhtoC6qUIQ8jJ5ClHvF0XWybi9": 1
  },
  "pexels_used": [
-  "x71747",
-  "x84906",
-  "x25",
-  "x119190",
-  "x31550",
-  "x50622",
   "x2576",
-  "x67201",
-  "x4730",
-  "x273476",
+  "x11284",
+  "x140186",
+  "x119190",
   "x222349",
-  "x236256",
-  "x34971",
-  "x173358",
   "x79899",
   "x7262",
-  "x140186",
-  "x156103",
-  "x118768",
-  "x149938",
-  "x11284",
-  "x381054",
-  "x170912",
+  "x25",
+  "x273476",
+  "x173358",
+  "x267036",
   "x371424",
-  "x267036"
+  "x84906",
+  "x156103",
+  "x34971",
+  "x381054",
+  "x149938",
+  "x170912",
+  "x67201",
+  "x31550",
+  "x50622",
+  "x236256",
+  "x71747",
+  "x4730",
+  "x118768"
  ],
  "music_last": {
   "1DZTJ4ef0yYVG2xdl3IlbrnmWhvTIImvs": "2026-11-21T20:53+03:00",
   "1dkR0sggYnJv6PAPhkKiPNI1Qbu5nbVwi": "2026-11-21T14:22+03:00",
   "1fp4Ah5iQfFhH9Wv8srgJdSKSlru0RDHO": "2026-11-21T17:23+03:00",
-  "1QUXCTr3hAjvM090ZbkBDmL190dxM9yXG": "2026-11-21T11:53+03:00",
+  "1QUXCTr3hAjvM090ZbkBDmL190dxM9yXG": "2026-11-22T11:53+03:00",
   "r_16OqrXYzWRF5c20HNKbjBoWNaa_6pT9tp": "2026-11-04T00:15+03:00",
   "r_1l3THmi6GjqfKpjoZlRy25On7rsx6vdso": "2026-11-04T10:50+03:00"
  },
@@ -863,7 +863,7 @@
   "1R_9KOxhGqaqOx0xiozuOssY9KRuaRjda": "2026-11-21T22:52+03:00",
   "1rdaqYajmUFC4HVReppZtat5eAQkES0M4": "2026-11-22T08:52+03:00"
  },
- "vlog_i": 9,
+ "vlog_i": 12,
  "card_log": {
   "s1": [
    "صبح بخیر چهارشنبه؛ پیشنهاد صبحانهٔ وانی",
@@ -3130,8 +3130,8 @@
  "s1_g": 15,
  "s10_g": 14,
  "reply_error": {
-  "at": "2026-11-22T11:03+03:00",
-  "error": "Instagram API error 400 on 17897276169504822/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"Ac6sekEFcFTsZCpQLJgZx2v\"}}"
+  "at": "2026-11-22T11:56+03:00",
+  "error": "Instagram API error 400 on 17897276169504822/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"AtEw_nuIziaV1En55iFByRv\"}}"
  },
  "smart_times": {
   "at": "2026-11-21T08:58+03:00",
