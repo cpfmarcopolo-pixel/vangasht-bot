@@ -3,12 +3,6 @@
  "story": 1,
  "log": [
   {
-   "at": "2026-11-17T17:26+03:00",
-   "slot": "s7",
-   "item": "vlog",
-   "media": "18120871744807929"
-  },
-  {
    "at": "2026-11-17T18:57+03:00",
    "slot": "s8",
    "item": "s8:قلعهٔ وان، پایتخت اورارتو 🏰",
@@ -361,6 +355,12 @@
    "slot": "s6",
    "item": "s6:این جزیره بیش از هزارساله",
    "media": "18038589677666833"
+  },
+  {
+   "at": "2026-11-22T17:27+03:00",
+   "slot": "s7",
+   "item": "vlog",
+   "media": "18091812494698217"
   }
  ],
  "media_done": [
@@ -707,14 +707,14 @@
   "d:1pKEXyl32R0XgNeOVH_CIhojAv0c8g2CR": 2,
   "d:1y6K-Z3UuGYVaJ3Kdt2v5aak02JA5FeoU": 2,
   "d:14Vf6BA1cScJINaXlmdilwB6K0WQefZ_U": 2,
-  "d:1VbyElVmizVxZOSyXL2bgr4pmS8pGrcfE": 1,
-  "d:1mGU7tqOZF_vmenTXYjpy8hpBFkl4yPjx": 1,
-  "d:1zGXY4mK98Gy8LIq2KSkeJvBTKGhiJ3YH": 1,
-  "d:1dbyKP3Vs56MgEPZBVkdJykLuzuQLPLe8": 1,
-  "d:1BewiyAb9nj6Y_x6wX9k9XwEpnK8Xc3HU": 1,
-  "d:1hvd7HShvrdRqQnL2EO4SVFgkhQDXE6d9": 1,
-  "d:1ug2ydOE4K09vhRFmKzuUNcNDRiKxmLFn": 1,
-  "d:1GliFPQPzZTJ_aEFuuQnXmW5UsER_GuxE": 1,
+  "d:1VbyElVmizVxZOSyXL2bgr4pmS8pGrcfE": 2,
+  "d:1mGU7tqOZF_vmenTXYjpy8hpBFkl4yPjx": 2,
+  "d:1zGXY4mK98Gy8LIq2KSkeJvBTKGhiJ3YH": 2,
+  "d:1dbyKP3Vs56MgEPZBVkdJykLuzuQLPLe8": 2,
+  "d:1BewiyAb9nj6Y_x6wX9k9XwEpnK8Xc3HU": 2,
+  "d:1hvd7HShvrdRqQnL2EO4SVFgkhQDXE6d9": 2,
+  "d:1ug2ydOE4K09vhRFmKzuUNcNDRiKxmLFn": 2,
+  "d:1GliFPQPzZTJ_aEFuuQnXmW5UsER_GuxE": 2,
   "d:1E5iF2nr3lDK5DT-8RWEirvilnwgGulAx": 1,
   "d:1buAwYyN1F4AzK4muqRxPIMuTE8Z7Z5nu": 1,
   "d:1zP_WaSVbyfnwkc0DEA6dHOIRT1BS6Anh": 1,
@@ -725,35 +725,35 @@
   "d:1RRRSI3VhtoC6qUIQ8jJ5ClHvF0XWybi9": 1
  },
  "pexels_used": [
-  "x2576",
-  "x11284",
-  "x140186",
-  "x119190",
-  "x222349",
-  "x79899",
-  "x7262",
-  "x25",
-  "x273476",
-  "x173358",
-  "x267036",
-  "x371424",
-  "x84906",
-  "x156103",
-  "x34971",
-  "x381054",
-  "x149938",
-  "x170912",
+  "x118768",
   "x67201",
-  "x31550",
+  "x11284",
   "x50622",
   "x236256",
-  "x71747",
   "x4730",
-  "x118768"
+  "x173358",
+  "x156103",
+  "x149938",
+  "x71747",
+  "x7262",
+  "x170912",
+  "x25",
+  "x2576",
+  "x34971",
+  "x84906",
+  "x273476",
+  "x31550",
+  "x140186",
+  "x79899",
+  "x119190",
+  "x267036",
+  "x222349",
+  "x381054",
+  "x371424"
  ],
  "music_last": {
   "1DZTJ4ef0yYVG2xdl3IlbrnmWhvTIImvs": "2026-11-21T20:53+03:00",
-  "1dkR0sggYnJv6PAPhkKiPNI1Qbu5nbVwi": "2026-11-21T14:22+03:00",
+  "1dkR0sggYnJv6PAPhkKiPNI1Qbu5nbVwi": "2026-11-22T17:23+03:00",
   "1fp4Ah5iQfFhH9Wv8srgJdSKSlru0RDHO": "2026-11-21T17:23+03:00",
   "1QUXCTr3hAjvM090ZbkBDmL190dxM9yXG": "2026-11-22T11:53+03:00",
   "r_16OqrXYzWRF5c20HNKbjBoWNaa_6pT9tp": "2026-11-04T00:15+03:00",
@@ -863,7 +863,7 @@
   "1R_9KOxhGqaqOx0xiozuOssY9KRuaRjda": "2026-11-21T22:52+03:00",
   "1rdaqYajmUFC4HVReppZtat5eAQkES0M4": "2026-11-22T08:52+03:00"
  },
- "vlog_i": 12,
+ "vlog_i": 5,
  "card_log": {
   "s1": [
    "صبح بخیر چهارشنبه؛ پیشنهاد صبحانهٔ وانی",
@@ -3107,6 +3107,20 @@
    "text_pos": "",
    "dur": 44.07,
    "v": 4
+  },
+  "1ug2ydOE4K09vhRFmKzuUNcNDRiKxmLFn": {
+   "text": "",
+   "greeting": "",
+   "other_page": false,
+   "page": "",
+   "music": false,
+   "own_boxes": [],
+   "ar": 0.75,
+   "scene": "خیابان و پیاده‌روی خیس و بارانی در روز، با درختان بی‌برگ و یک مرکز خرید بزرگ در پس‌زمینه؛ فضایی ساکت و سرد بدون آدم",
+   "place": "",
+   "text_pos": "",
+   "dur": 0,
+   "v": 4
   }
  },
  "skipped_files": {
@@ -3130,8 +3144,8 @@
  "s1_g": 15,
  "s10_g": 14,
  "reply_error": {
-  "at": "2026-11-22T15:55+03:00",
-  "error": "Instagram API error 400 on 17897276169504822/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"AmHmpaTKvv9IzAMvc5oJpiz\"}}"
+  "at": "2026-11-22T17:27+03:00",
+  "error": "Instagram API error 400 on 17897276169504822/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"AYaFgoSJtyfSPdZ615Y5ThR\"}}"
  },
  "smart_times": {
   "at": "2026-11-21T08:58+03:00",
