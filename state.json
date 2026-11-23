@@ -3,12 +3,6 @@
  "story": 1,
  "log": [
   {
-   "at": "2026-11-18T19:42+03:00",
-   "slot": "p2",
-   "item": "tour:kapadokya_rehber_ferhat_b16b2af19fc34ef3",
-   "media": "18120509264086750"
-  },
-  {
    "at": "2026-11-18T20:56+03:00",
    "slot": "s9",
    "item": "todayposts",
@@ -361,6 +355,12 @@
    "slot": "p2",
    "item": "tour:van_omrumun_milad_65_e9a0bd10e833496eb9d",
    "media": "17970716580234886"
+  },
+  {
+   "at": "2026-11-23T18:57+03:00",
+   "slot": "s8",
+   "item": "s8:آبشار مرادیه، رقص ماهی‌ها 🐟",
+   "media": "18232745095336067"
   }
  ],
  "media_done": [
@@ -792,8 +792,8 @@
   "1bRN70PucFFSB5FKMy6y98ZLLCbtyyPK3": "2026-11-15T14:22+03:00",
   "1nDeX7-t_FlJ5cVUeYPWgS4WiCAPQyRK6": "2026-11-16T14:22+03:00",
   "1-4TXJy0f2BNjoVfbKO0nPbkr0wUkXX20": "2026-11-19T15:52+03:00",
-  "1IcxcLSfHQiB684bvYcUkBc9KaaRuGIB3": "2026-11-07T18:52+03:00",
-  "1sPp-9i-pKWuCblYPGHmCtgqr0mXP140x": "2026-11-07T18:52+03:00",
+  "1IcxcLSfHQiB684bvYcUkBc9KaaRuGIB3": "2026-11-23T18:53+03:00",
+  "1sPp-9i-pKWuCblYPGHmCtgqr0mXP140x": "2026-11-23T18:53+03:00",
   "1Yy3dDwE5eHIzFq4INlVOtIOunUl-Y_Mr": "2026-11-17T14:23+03:00",
   "17NLbxH1YE108G2mpAfNTBgSW-BK157qB": "2026-11-17T14:23+03:00",
   "1JdNZ1_m7HAT-UsnYmmJwKBdTsVC_f4Ml": "2026-11-07T22:52+03:00",
@@ -961,7 +961,8 @@
    "حمام ترکی ویژهٔ بانوان در وان",
    "خانهٔ گربهٔ وان",
    "جاذبهٔ امروز: جزیرهٔ آکدامار",
-   "ساحل ادرمیت"
+   "ساحل ادرمیت",
+   "آبشار مرادیه؛ ماهی‌های بالاپرندهٔ بهاری"
   ],
   "s10": [
    "استوری شب بخیر چهارشنبه ۱۳ آبان",
@@ -997,7 +998,7 @@
  },
  "s4_i": 11,
  "s5_i": 2,
- "s8_i": 7,
+ "s8_i": 8,
  "clip_info": {
   "1eww9Vvjb_m9JhLIMFLFn8JtiDB8nLddz": {
    "text": "",
