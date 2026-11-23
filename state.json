@@ -3,12 +3,6 @@
  "story": 1,
  "log": [
   {
-   "at": "2026-11-18T11:02+03:00",
-   "slot": "s2",
-   "item": "ai:صرافی با کارتخوان ایرانی در وان",
-   "media": "18118090685035836"
-  },
-  {
    "at": "2026-11-18T11:55+03:00",
    "slot": "s3",
    "item": "vlog",
@@ -361,6 +355,12 @@
    "slot": "s1",
    "item": "s1:صبحتون بخیر",
    "media": "18097105904680238"
+  },
+  {
+   "at": "2026-11-23T11:06+03:00",
+   "slot": "s2",
+   "item": "rates",
+   "media": "17918590797514893"
   }
  ],
  "media_done": [
@@ -760,7 +760,7 @@
   "r_1l3THmi6GjqfKpjoZlRy25On7rsx6vdso": "2026-11-04T10:50+03:00"
  },
  "rates_last": {
-  "1sN04QtH7pRQy0As5B7YNmKUyxxRmmrLW": "2026-11-11T11:01+03:00",
+  "1sN04QtH7pRQy0As5B7YNmKUyxxRmmrLW": "2026-11-23T11:01+03:00",
   "16OqrXYzWRF5c20HNKbjBoWNaa_6pT9tp": "2026-11-04T00:15+03:00",
   "13cti3LWYsXUCr-0K14bJGiYd5GMOfRM_": "2026-11-12T11:01+03:00",
   "1l3THmi6GjqfKpjoZlRy25On7rsx6vdso": "2026-11-04T10:50+03:00",
