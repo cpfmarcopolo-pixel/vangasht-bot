@@ -3,12 +3,6 @@
  "story": 1,
  "log": [
   {
-   "at": "2026-11-18T12:43+03:00",
-   "slot": "p1",
-   "item": "tour:Video from markopoloturizm",
-   "media": "18004671291041914"
-  },
-  {
    "at": "2026-11-18T12:56+03:00",
    "slot": "s4",
    "item": "s4:راه وان، قدم‌به‌قدم",
@@ -361,6 +355,12 @@
    "slot": "s3",
    "item": "vlog",
    "media": "18116731469138609"
+  },
+  {
+   "at": "2026-11-23T12:41+03:00",
+   "slot": "p1",
+   "item": "tour:van_omrumun_milad_65_a48f05c5415c4cb8b31",
+   "media": "17917549071472025"
   }
  ],
  "media_done": [
@@ -973,7 +973,6 @@
    "استوری شب بخیر شنبه ۱۶ آبان (شب‌های پایی"
   ],
   "post": [
-   "جمع شاد و دست‌زدن زیر سایبان‌های قرمز کا",
    "ویدیوی تور کشتی‌های بزرگ تفریحی؛ قایق دو",
    "ویدیوی کامل تور کشتی جزیرهٔ آکدامار، از ",
    "ویدیوی کامل تور آبشار مرادیه",
@@ -992,7 +991,8 @@
    "ویدیوی شبانهٔ نمای شهر و خلیج وان از تپه",
    "ویدیوی تور فستیوال رنگ؛ موسیقی، پودرهای ",
    "حال‌وهوای گشت‌های وان گشت؛ برنامه‌ریزی ب",
-   "میز ناهار ماهی در یک کافه‌رستوران آفتابی"
+   "میز ناهار ماهی در یک کافه‌رستوران آفتابی",
+   "ویدیوی تور کشتی جزیرهٔ آکدامار؛ آب فیروز"
   ]
  },
  "s4_i": 10,
@@ -3167,6 +3167,20 @@
    "text_pos": "",
    "dur": 10.28,
    "v": 4
+  },
+  "1Dfm61YPfa0oTuK9aPzWxaM8zQuia2SeN": {
+   "text": "İnköy 🌊 Gevaş",
+   "greeting": "",
+   "other_page": false,
+   "page": "",
+   "music": true,
+   "own_boxes": [],
+   "ar": 0.5625,
+   "scene": "ساحل سنگریزه‌ای و آب شفاف فیروزه‌ای با قایق گردشی کنار کوه‌ها در روزی آفتابی، چند نفر زیر درختان",
+   "place": "",
+   "text_pos": "top",
+   "dur": 37.89,
+   "v": 4
   }
  },
  "skipped_files": {
@@ -3248,10 +3262,11 @@
   "11_cZJiWStGYmOVRr4Sp0EzDLshE1PyNm": "2026-11-21T12:38+03:00",
   "1ieYEPKO4U9qiaZc_ukDEDV0e6QFKkuBD": "2026-11-21T18:38+03:00",
   "11VyEXSBvYsG17wWzYOFwF1UbcI9gMymC": "2026-11-22T12:38+03:00",
-  "1bnWEwNsgqDRScVa984f2R3Ay9pnl34zm": "2026-11-22T18:37+03:00"
+  "1bnWEwNsgqDRScVa984f2R3Ay9pnl34zm": "2026-11-22T18:37+03:00",
+  "1Dfm61YPfa0oTuK9aPzWxaM8zQuia2SeN": "2026-11-23T12:37+03:00"
  },
  "post_debug": {
-  "at": "2026-11-22T18:37+03:00",
+  "at": "2026-11-23T12:37+03:00",
   "p_videos": [
    "van_omrumun_milad_65_548698e8fe6d48bab0e8d6911211bc02.mp4",
    "van.gasht.turkiye_5f536099e6ac4d069b15fe4975810bb5.mp4",
@@ -3291,6 +3306,6 @@
    "bsrklcdndr_47d6b48818eb4bd9a0d10d1cc16a0245.mp4",
    "vangasht-xerxes-film-voice.mp4"
   ],
-  "chosen": "van_omrumun_milad_65_276d2d8b066f4a71a2ff36219ff7f5a1.mp4"
+  "chosen": "van_omrumun_milad_65_a48f05c5415c4cb8b31f1c6cc75f2f61.mp4"
  }
 }
