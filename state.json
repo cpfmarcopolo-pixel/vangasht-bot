@@ -3,12 +3,6 @@
  "story": 1,
  "log": [
   {
-   "at": "2026-11-19T20:58+03:00",
-   "slot": "s9",
-   "item": "todayposts",
-   "media": "17960961663271290"
-  },
-  {
    "at": "2026-11-19T22:55+03:00",
    "slot": "s10",
    "item": "s10:شبتون آروم",
@@ -361,6 +355,12 @@
    "slot": "s8",
    "item": "s8:تکه‌ای سبز روی آبیِ دریاچه",
    "media": "18131879419645231"
+  },
+  {
+   "at": "2026-11-24T20:57+03:00",
+   "slot": "s9",
+   "item": "todayposts",
+   "media": "17960153196281700"
   }
  ],
  "media_done": [
@@ -754,7 +754,7 @@
  "music_last": {
   "1DZTJ4ef0yYVG2xdl3IlbrnmWhvTIImvs": "2026-11-24T11:53+03:00",
   "1dkR0sggYnJv6PAPhkKiPNI1Qbu5nbVwi": "2026-11-24T17:23+03:00",
-  "1fp4Ah5iQfFhH9Wv8srgJdSKSlru0RDHO": "2026-11-23T20:53+03:00",
+  "1fp4Ah5iQfFhH9Wv8srgJdSKSlru0RDHO": "2026-11-24T20:53+03:00",
   "1QUXCTr3hAjvM090ZbkBDmL190dxM9yXG": "2026-11-24T12:53+03:00",
   "r_16OqrXYzWRF5c20HNKbjBoWNaa_6pT9tp": "2026-11-04T00:15+03:00",
   "r_1l3THmi6GjqfKpjoZlRy25On7rsx6vdso": "2026-11-04T10:50+03:00"
