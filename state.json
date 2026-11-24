@@ -3,12 +3,6 @@
  "story": 1,
  "log": [
   {
-   "at": "2026-11-19T19:43+03:00",
-   "slot": "p2",
-   "item": "tour:VID_20261105_213159.mp4",
-   "media": "18033674114863228"
-  },
-  {
    "at": "2026-11-19T20:58+03:00",
    "slot": "s9",
    "item": "todayposts",
@@ -361,6 +355,12 @@
    "slot": "p2",
    "item": "tour:vandan.kareler_6139b8441f8b4f62a02b3faaa",
    "media": "17916935529495169"
+  },
+  {
+   "at": "2026-11-24T18:58+03:00",
+   "slot": "s8",
+   "item": "s8:تکه‌ای سبز روی آبیِ دریاچه",
+   "media": "18131879419645231"
   }
  ],
  "media_done": [
@@ -802,16 +802,16 @@
   "19pQrJrvnsddjJXra_8iZYUDx2XuVgm74": "2026-11-18T14:23+03:00",
   "15enA_QM7wwUuYBTWBcUgI3-tcjgY8mG1": "2026-11-19T14:23+03:00",
   "11v-zlnAP32dT7cZe8Ix3quLeWsaKyA7Z": "2026-11-20T15:52+03:00",
-  "1xIAb8pNzW6LDi0fNgkvPBjS5_LSvVWtp": "2026-11-08T18:52+03:00",
+  "1xIAb8pNzW6LDi0fNgkvPBjS5_LSvVWtp": "2026-11-24T18:52+03:00",
   "1fc_rRqd1re4CGcq8e-gN3p60wmYgdqsT": "2026-11-20T14:22+03:00",
   "1sPW3_yStAJDQonT2FUch5LoOPXNUPGl3": "2026-11-08T22:52+03:00",
   "1rUPb0ausPn3yzaZOVQES1DSiLz31BvD2": "2026-11-09T08:52+03:00",
   "1VDE-24ix0DYRvyc0ZVKjz-kz0C18zmeh": "2026-11-19T11:01+03:00",
   "1PQslevjXRiiap_U-hkD09ZoF7HjB0Xn_": "2026-11-21T15:53+03:00",
   "10WuWZaGcRSVxR8xZEVighb58b_f4O1iG": "2026-11-21T15:53+03:00",
-  "1TlrjJvqGOTR44RyUlNV-q8RZrDqf9rhr": "2026-11-09T18:52+03:00",
-  "15RwIzGMNLCEZHhVFaGN2lOC3-rcBpvVA": "2026-11-09T18:52+03:00",
-  "1MBOKD1JCD6RMMpaQ4kcLeJqLDJddHRIE": "2026-11-09T18:53+03:00",
+  "1TlrjJvqGOTR44RyUlNV-q8RZrDqf9rhr": "2026-11-24T18:53+03:00",
+  "15RwIzGMNLCEZHhVFaGN2lOC3-rcBpvVA": "2026-11-24T18:53+03:00",
+  "1MBOKD1JCD6RMMpaQ4kcLeJqLDJddHRIE": "2026-11-24T18:53+03:00",
   "1PCLFToxPUA0cA-UWVjN40H1gf1KFBgkv": "2026-11-09T22:52+03:00",
   "1vc_9WMfXr59VwjePpmbidk6UXqLnVTya": "2026-11-10T08:52+03:00",
   "1JC8rsLHg7MNZhBjl0EbnUIo5GKj9ETFA": "2026-11-20T11:01+03:00",
@@ -945,7 +945,6 @@
    "سؤال از شما: اولین توقف تو شب‌های وان"
   ],
   "s8": [
-   "جزیرهٔ آکدامار",
    "قلعهٔ وان (توشپا)",
    "آبشار مرادیه",
    "قلعهٔ هوشاپ",
@@ -964,7 +963,8 @@
    "خانهٔ گربهٔ وان",
    "جاذبهٔ امروز: جزیرهٔ آکدامار",
    "ساحل ادرمیت",
-   "آبشار مرادیه؛ ماهی‌های بالاپرندهٔ بهاری"
+   "آبشار مرادیه؛ ماهی‌های بالاپرندهٔ بهاری",
+   "جزیرهٔ چارپاناک"
   ],
   "s10": [
    "استوری شب بخیر چهارشنبه ۱۳ آبان",
@@ -1000,7 +1000,7 @@
  },
  "s4_i": 1,
  "s5_i": 3,
- "s8_i": 8,
+ "s8_i": 9,
  "clip_info": {
   "1eww9Vvjb_m9JhLIMFLFn8JtiDB8nLddz": {
    "text": "",
@@ -3240,6 +3240,20 @@
    "text_pos": "",
    "dur": 0,
    "v": 4
+  },
+  "1xIAb8pNzW6LDi0fNgkvPBjS5_LSvVWtp": {
+   "text": "",
+   "greeting": "",
+   "other_page": true,
+   "page": "@mert_usluu",
+   "music": true,
+   "own_boxes": [],
+   "ar": 0.5625,
+   "scene": "نمای هوایی از جزیره‌ای سرسبز با خرابه‌های سنگی قدیمی، دریاچه‌ای آبی و دسته‌های مرغ دریایی در روز",
+   "place": "جزیرهٔ آکدامار",
+   "text_pos": "",
+   "dur": 15.9,
+   "v": 4
   }
  },
  "skipped_files": {
@@ -3258,7 +3272,8 @@
   "granddeniz65_07421861a59f49a8a91c87ecbf70516a.mp4": "Keveajans",
   "cpfmarco_884d04392c76419fa7031665f87a6735.mp4": "Recep DAĞ Drone Photography & Video (rec",
   "Ins2916310794_d6c1801330ba4476b8d2ec5fe666c5f4.mp4": "@muzaffer_ss",
-  "vankalesi2.mp4": "@zeus_rentacar, @lezgin.delen"
+  "vankalesi2.mp4": "@zeus_rentacar, @lezgin.delen",
+  "adiradasi.mp4": "@mert_usluu"
  },
  "replied_comments": [],
  "s1_g": 17,
