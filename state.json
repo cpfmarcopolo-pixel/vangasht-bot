@@ -3,12 +3,6 @@
  "story": 1,
  "log": [
   {
-   "at": "2026-11-19T22:55+03:00",
-   "slot": "s10",
-   "item": "s10:شبتون آروم",
-   "media": "18063245354643553"
-  },
-  {
    "at": "2026-11-20T08:55+03:00",
    "slot": "s1",
    "item": "s1:صبحتون بخیر",
@@ -361,6 +355,12 @@
    "slot": "s9",
    "item": "todayposts",
    "media": "17960153196281700"
+  },
+  {
+   "at": "2026-11-24T22:55+03:00",
+   "slot": "s10",
+   "item": "s10:شب بخیر",
+   "media": "18170407309422373"
   }
  ],
  "media_done": [
@@ -866,7 +866,8 @@
   "166E3DvVaZ7xpzrv5MfNGwR3naC-LM6et": "2026-11-22T22:52+03:00",
   "1V8E99LjFFQ9_MGTbDNYtFVRm5U6n2gQ-": "2026-11-23T08:52+03:00",
   "11XwSNUmkRuo1Cj_QWTyiizmXw6QZG_QX": "2026-11-23T22:52+03:00",
-  "1UOSn_f1qW5oiwYfYhB6WqQqr1DPwsFOe": "2026-11-24T08:52+03:00"
+  "1UOSn_f1qW5oiwYfYhB6WqQqr1DPwsFOe": "2026-11-24T08:52+03:00",
+  "1UcvoU-HPJIeKEm8FuH8GU8fO1QtU1dqP": "2026-11-24T22:53+03:00"
  },
  "vlog_i": 7,
  "card_log": {
@@ -3254,6 +3255,20 @@
    "text_pos": "",
    "dur": 15.9,
    "v": 4
+  },
+  "1UcvoU-HPJIeKEm8FuH8GU8fO1QtU1dqP": {
+   "text": "",
+   "greeting": "",
+   "other_page": false,
+   "page": "",
+   "music": true,
+   "own_boxes": [],
+   "ar": 0.5616224648985959,
+   "scene": "نمای هوایی شبانه از جاده‌ای کنار دریاچه با ماه کامل، چراغ‌های شهر و بازتاب نور روی آب",
+   "place": "",
+   "text_pos": "",
+   "dur": 16.4,
+   "v": 4
   }
  },
  "skipped_files": {
@@ -3277,7 +3292,7 @@
  },
  "replied_comments": [],
  "s1_g": 17,
- "s10_g": 16,
+ "s10_g": 17,
  "reply_error": {
   "at": "2026-11-22T18:57+03:00",
   "error": "Instagram API error 400 on 17897276169504822/replies: {\"error\":{\"message\":\"(#100) Missing Permission\",\"code\":100,\"type\":\"OAuthException\",\"fbtrace_id\":\"ALh9B3Qk7RZ5UpI8RQsRDNc\"}}"
