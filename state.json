@@ -3,12 +3,6 @@
  "story": 1,
  "log": [
   {
-   "at": "2026-11-20T12:41+03:00",
-   "slot": "p1",
-   "item": "tour:van.gasht.turkiye_b206d3e9339e4c8abaa9b0",
-   "media": "18137782912706992"
-  },
-  {
    "at": "2026-11-20T12:58+03:00",
    "slot": "s4",
    "item": "s4:لیر بگیر، بی‌دغدغه",
@@ -361,6 +355,12 @@
    "slot": "s3",
    "item": "vlog",
    "media": "18034784369685813"
+  },
+  {
+   "at": "2026-11-25T12:45+03:00",
+   "slot": "p1",
+   "item": "tour:celikogluelif_e0dc59e4e99c44df84d452fa43",
+   "media": "18143801815619954"
   }
  ],
  "media_done": [
@@ -978,7 +978,6 @@
    "استوری شب بخیر شنبه ۱۶ آبان (شب‌های پایی"
   ],
   "post": [
-   "ویدیوی تور پارک آبی ادرمیت؛ یک روز پرهیج",
    "جزیرهٔ چارپاناک، نمای هوایی از دریاچهٔ و",
    "ویدیوی تور آبشار مرادیه: آبشار پرآب، پل ",
    "ویدیوی تور کشتی جزیرهٔ آکدامار، از خانهٔ",
@@ -997,7 +996,8 @@
    "ویدیوی تور کشتی جزیرهٔ آکدامار؛ آب فیروز",
    "ویدیوی تور آبشار مرادیه؛ آبشار پرآب و پل",
    "ویدیوی جزیرهٔ چارپاناک؛ لانهٔ مرغ‌های در",
-   "ویدیوی کامل یکی از تورهای وان گشت؛ بدون "
+   "ویدیوی کامل یکی از تورهای وان گشت؛ بدون ",
+   "ویدیوی بازار روس‌ها در وان؛ پیاده‌روی در"
   ]
  },
  "s4_i": 1,
@@ -3284,6 +3284,20 @@
    "text_pos": "bottom",
    "dur": 23.8,
    "v": 4
+  },
+  "1soe592POsPjSE537yXJDoqtfePwePvnE": {
+   "text": "VAN RUS PAZARI",
+   "greeting": "",
+   "other_page": false,
+   "page": "",
+   "music": true,
+   "own_boxes": [],
+   "ar": 0.5625,
+   "scene": "بازار روس‌ها در وان در روزی ابری؛ خیابان سنگ‌فرش با سایبان‌ها و سپس ظروف چینی و سرامیک و سوغاتی‌های مغازه‌ها.",
+   "place": "",
+   "text_pos": "middle",
+   "dur": 80.78,
+   "v": 4
   }
  },
  "skipped_files": {
@@ -3370,10 +3384,11 @@
   "1Dfm61YPfa0oTuK9aPzWxaM8zQuia2SeN": "2026-11-23T12:37+03:00",
   "1K0ww_AS88b6f0G_2c0RRdETHx7pmn_dT": "2026-11-23T18:38+03:00",
   "1UN6Ow1TsbZhvqltFGDKkeHNbAcd2hpHO": "2026-11-24T12:37+03:00",
-  "1DI7jPZdXOQGrlleaMk_BVolOUXuTglSE": "2026-11-24T18:37+03:00"
+  "1DI7jPZdXOQGrlleaMk_BVolOUXuTglSE": "2026-11-24T18:37+03:00",
+  "1soe592POsPjSE537yXJDoqtfePwePvnE": "2026-11-25T12:38+03:00"
  },
  "post_debug": {
-  "at": "2026-11-24T18:37+03:00",
+  "at": "2026-11-25T12:37+03:00",
   "p_videos": [
    "van_omrumun_milad_65_548698e8fe6d48bab0e8d6911211bc02.mp4",
    "van.gasht.turkiye_5f536099e6ac4d069b15fe4975810bb5.mp4",
@@ -3413,6 +3428,6 @@
    "bsrklcdndr_47d6b48818eb4bd9a0d10d1cc16a0245.mp4",
    "vangasht-xerxes-film-voice.mp4"
   ],
-  "chosen": "vandan.kareler_6139b8441f8b4f62a02b3faaab5431b2.mp4"
+  "chosen": "celikogluelif_e0dc59e4e99c44df84d452fa43d1a498.mp4"
  }
 }
