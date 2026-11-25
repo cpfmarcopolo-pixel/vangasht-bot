@@ -3,12 +3,6 @@
  "story": 1,
  "log": [
   {
-   "at": "2026-11-20T11:04+03:00",
-   "slot": "s2",
-   "item": "rates",
-   "media": "18102109352424013"
-  },
-  {
    "at": "2026-11-20T11:54+03:00",
    "slot": "s3",
    "item": "vlog",
@@ -361,6 +355,12 @@
    "slot": "s1",
    "item": "s1:صبحتون قشنگ",
    "media": "18082354457735146"
+  },
+  {
+   "at": "2026-11-25T11:06+03:00",
+   "slot": "s2",
+   "item": "rates",
+   "media": "18076571459491227"
   }
  ],
  "media_done": [
@@ -776,7 +776,7 @@
   "1o8hbi7E2vAtMtsMU6a7GeQQhmSEYCClV": "2026-11-21T18:52+03:00",
   "1gwYcT8y4c6oNyO7zRqCKWKLkrKa0fDP8": "2026-11-05T01:54+03:00",
   "1G9DLnYaWoH8yTpJJvcwFRvTOhC9FFrK7": "2026-11-05T08:52+03:00",
-  "1lpZ82SZHRhiU7wmo0kGWV9O587NMeLRz": "2026-11-13T11:01+03:00",
+  "1lpZ82SZHRhiU7wmo0kGWV9O587NMeLRz": "2026-11-25T11:01+03:00",
   "1cFbuOWVaetKLwBJ4q5btcoEE50TfA1c9": "2026-11-23T14:23+03:00",
   "11YaI4p2ZI-qjNXQ4bXRuejBf-UFAXDKR": "2026-11-17T15:52+03:00",
   "1BTYvwOgAh6duGg1HaS0o2OwIN5pQA7PF": "2026-11-05T23:02+03:00",
