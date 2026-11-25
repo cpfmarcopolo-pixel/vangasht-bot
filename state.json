@@ -3,12 +3,6 @@
  "story": 1,
  "log": [
   {
-   "at": "2026-11-20T18:58+03:00",
-   "slot": "s8",
-   "item": "s8:خانهٔ گربه‌های سفید وان 🐱",
-   "media": "18122827372976237"
-  },
-  {
    "at": "2026-11-20T19:42+03:00",
    "slot": "p2",
    "item": "tour:van_omrumun_milad_65_f4d6e4c8f6124b57a8e",
@@ -361,6 +355,12 @@
    "slot": "s7",
    "item": "vlog",
    "media": "17981979189127862"
+  },
+  {
+   "at": "2026-11-25T18:39+03:00",
+   "slot": "p2",
+   "item": "tour:vanguzellleri_787787d7a81940eda1683ea6e2",
+   "media": "18142536472625195"
   }
  ],
  "media_done": [
@@ -754,7 +754,7 @@
  "music_last": {
   "1DZTJ4ef0yYVG2xdl3IlbrnmWhvTIImvs": "2026-11-25T11:53+03:00",
   "1dkR0sggYnJv6PAPhkKiPNI1Qbu5nbVwi": "2026-11-25T17:23+03:00",
-  "1fp4Ah5iQfFhH9Wv8srgJdSKSlru0RDHO": "2026-11-24T20:53+03:00",
+  "1fp4Ah5iQfFhH9Wv8srgJdSKSlru0RDHO": "2026-11-25T18:38+03:00",
   "1QUXCTr3hAjvM090ZbkBDmL190dxM9yXG": "2026-11-25T12:53+03:00",
   "r_16OqrXYzWRF5c20HNKbjBoWNaa_6pT9tp": "2026-11-04T00:15+03:00",
   "r_1l3THmi6GjqfKpjoZlRy25On7rsx6vdso": "2026-11-04T10:50+03:00"
@@ -978,7 +978,6 @@
    "استوری شب بخیر شنبه ۱۶ آبان (شب‌های پایی"
   ],
   "post": [
-   "جزیرهٔ چارپاناک، نمای هوایی از دریاچهٔ و",
    "ویدیوی تور آبشار مرادیه: آبشار پرآب، پل ",
    "ویدیوی تور کشتی جزیرهٔ آکدامار، از خانهٔ",
    "ویدیوی آبشار مرادیه در روز مه‌آلود و برف",
@@ -997,7 +996,8 @@
    "ویدیوی تور آبشار مرادیه؛ آبشار پرآب و پل",
    "ویدیوی جزیرهٔ چارپاناک؛ لانهٔ مرغ‌های در",
    "ویدیوی کامل یکی از تورهای وان گشت؛ بدون ",
-   "ویدیوی بازار روس‌ها در وان؛ پیاده‌روی در"
+   "ویدیوی بازار روس‌ها در وان؛ پیاده‌روی در",
+   "ویدیوی مجسمهٔ ماهی اینجی (کفال) در ساحل "
   ]
  },
  "s4_i": 2,
@@ -3298,6 +3298,20 @@
    "text_pos": "middle",
    "dur": 80.78,
    "v": 4
+  },
+  "1pMbsfI5K8ykPObWc6mMTzmdGUBVJlD6x": {
+   "text": "",
+   "greeting": "",
+   "other_page": false,
+   "page": "",
+   "music": false,
+   "own_boxes": [],
+   "ar": 0.75,
+   "scene": "مجسمهٔ بزرگ ماهی اینجی (کفال) کنار ساحل دریاچهٔ وان با پیاده‌روی آجری، نیمکت‌ها و آلاچیق‌ها، در هوای آرام و صاف صبح",
+   "place": "مجسمهٔ ماهی اینجی کفالی (ساحل دریاچهٔ وان)",
+   "text_pos": "",
+   "dur": 29.47,
+   "v": 4
   }
  },
  "skipped_files": {
@@ -3385,10 +3399,11 @@
   "1K0ww_AS88b6f0G_2c0RRdETHx7pmn_dT": "2026-11-23T18:38+03:00",
   "1UN6Ow1TsbZhvqltFGDKkeHNbAcd2hpHO": "2026-11-24T12:37+03:00",
   "1DI7jPZdXOQGrlleaMk_BVolOUXuTglSE": "2026-11-24T18:37+03:00",
-  "1soe592POsPjSE537yXJDoqtfePwePvnE": "2026-11-25T12:38+03:00"
+  "1soe592POsPjSE537yXJDoqtfePwePvnE": "2026-11-25T12:38+03:00",
+  "1pMbsfI5K8ykPObWc6mMTzmdGUBVJlD6x": "2026-11-25T18:38+03:00"
  },
  "post_debug": {
-  "at": "2026-11-25T12:37+03:00",
+  "at": "2026-11-25T18:37+03:00",
   "p_videos": [
    "van_omrumun_milad_65_548698e8fe6d48bab0e8d6911211bc02.mp4",
    "van.gasht.turkiye_5f536099e6ac4d069b15fe4975810bb5.mp4",
@@ -3428,6 +3443,6 @@
    "bsrklcdndr_47d6b48818eb4bd9a0d10d1cc16a0245.mp4",
    "vangasht-xerxes-film-voice.mp4"
   ],
-  "chosen": "celikogluelif_e0dc59e4e99c44df84d452fa43d1a498.mp4"
+  "chosen": "vanguzellleri_787787d7a81940eda1683ea6e2f34628.mp4"
  }
 }
