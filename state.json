@@ -3,12 +3,6 @@
  "story": 1,
  "log": [
   {
-   "at": "2026-11-21T11:06+03:00",
-   "slot": "s2",
-   "item": "ai:کوهستان‌های اطراف وان در شنبهٔ پاییزی (ا",
-   "media": "18139936759707773"
-  },
-  {
    "at": "2026-11-21T11:55+03:00",
    "slot": "s3",
    "item": "vlog",
@@ -361,6 +355,12 @@
    "slot": "s1",
    "item": "s1:صبحتون بخیر",
    "media": "18109942643249103"
+  },
+  {
+   "at": "2026-11-26T11:04+03:00",
+   "slot": "s2",
+   "item": "rates",
+   "media": "18027428255947889"
   }
  ],
  "media_done": [
@@ -781,7 +781,7 @@
   "11YaI4p2ZI-qjNXQ4bXRuejBf-UFAXDKR": "2026-11-17T15:52+03:00",
   "1BTYvwOgAh6duGg1HaS0o2OwIN5pQA7PF": "2026-11-05T23:02+03:00",
   "1k-KyiRf0yyVTGLj6UMbJZJWLchhJ6vcS": "2026-11-06T08:52+03:00",
-  "1ngL9kAa5rvCydUIuQHjnvQOwNC1_dmiz": "2026-11-14T11:01+03:00",
+  "1ngL9kAa5rvCydUIuQHjnvQOwNC1_dmiz": "2026-11-26T11:01+03:00",
   "1jaaCnvkMJZiQRnYkl5VMOJwE-V_lUjin": "2026-11-24T14:22+03:00",
   "1sjAcrPqOpPKqux_uRgpKOTk65efReAqB": "2026-11-18T15:52+03:00",
   "1lzWgWguX7p5t4WvRNOTNCtqSLY7PoZem": "2026-11-22T18:52+03:00",
