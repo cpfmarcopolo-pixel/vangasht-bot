@@ -3,12 +3,6 @@
  "story": 1,
  "log": [
   {
-   "at": "2026-11-22T20:55+03:00",
-   "slot": "s9",
-   "item": "todayposts",
-   "media": "18152578888562064"
-  },
-  {
    "at": "2026-11-22T22:57+03:00",
    "slot": "s10",
    "item": "s10:شبتون آروم",
@@ -361,6 +355,12 @@
    "slot": "p2",
    "item": "tour:cpfmarco_75707eefbe2446449b6961cc921a80e",
    "media": "18038236448855919"
+  },
+  {
+   "at": "2026-11-27T20:55+03:00",
+   "slot": "s9",
+   "item": "todayposts",
+   "media": "18111914840578632"
   }
  ],
  "media_done": [
@@ -768,7 +768,7 @@
   "x34971"
  ],
  "music_last": {
-  "1DZTJ4ef0yYVG2xdl3IlbrnmWhvTIImvs": "2026-11-26T20:53+03:00",
+  "1DZTJ4ef0yYVG2xdl3IlbrnmWhvTIImvs": "2026-11-27T20:53+03:00",
   "1dkR0sggYnJv6PAPhkKiPNI1Qbu5nbVwi": "2026-11-27T12:53+03:00",
   "1fp4Ah5iQfFhH9Wv8srgJdSKSlru0RDHO": "2026-11-27T17:23+03:00",
   "1QUXCTr3hAjvM090ZbkBDmL190dxM9yXG": "2026-11-27T11:53+03:00",
