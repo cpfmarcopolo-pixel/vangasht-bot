@@ -3,12 +3,6 @@
  "story": 1,
  "log": [
   {
-   "at": "2026-11-22T17:27+03:00",
-   "slot": "s7",
-   "item": "vlog",
-   "media": "18091812494698217"
-  },
-  {
    "at": "2026-11-22T18:42+03:00",
    "slot": "p2",
    "item": "tour:van_omrumun_milad_65_276d2d8b066f4a71a2f",
@@ -361,6 +355,12 @@
    "slot": "s6",
    "item": "s6:چرا آب دریاچه لغزنده‌ست؟",
    "media": "18114826385235010"
+  },
+  {
+   "at": "2026-11-27T17:27+03:00",
+   "slot": "s7",
+   "item": "vlog",
+   "media": "18071916671782093"
   }
  ],
  "media_done": [
@@ -707,8 +707,8 @@
   "d:1EPN55-G4G9t78ziYe773YyjcDpH8A7wH": 3,
   "d:1mePUmImfWrgYTX5cnwr63_mL6onmnUbt": 3,
   "d:1pKEXyl32R0XgNeOVH_CIhojAv0c8g2CR": 3,
-  "d:1y6K-Z3UuGYVaJ3Kdt2v5aak02JA5FeoU": 2,
-  "d:14Vf6BA1cScJINaXlmdilwB6K0WQefZ_U": 2,
+  "d:1y6K-Z3UuGYVaJ3Kdt2v5aak02JA5FeoU": 3,
+  "d:14Vf6BA1cScJINaXlmdilwB6K0WQefZ_U": 3,
   "d:1VbyElVmizVxZOSyXL2bgr4pmS8pGrcfE": 2,
   "d:1mGU7tqOZF_vmenTXYjpy8hpBFkl4yPjx": 2,
   "d:1zGXY4mK98Gy8LIq2KSkeJvBTKGhiJ3YH": 2,
@@ -733,44 +733,44 @@
   "d:111Oc5TIdiXCIo49Ogo3HJmp-KWHi9h01": 2,
   "d:1AYuyHl9vicHg84Jx1VuvlXs8eJD2gtVP": 2,
   "d:1QSbvETkTHk0SwjLBZgH1uzy5q3jMl4Pm": 2,
-  "d:1kKLqjKHcVxZlmWoMS1NXs42bqXMSo9u3": 1,
-  "d:1E0MGaPnMeV0TWbQYcfTA2ooOI4cXaMzO": 1,
-  "d:1Xyu2gMwNrtsblYdDUD3EtWxWC-blBSpp": 1,
-  "d:1t68rAzmW6BBebqhGBaFEBmeIcWHhs3kd": 1,
-  "d:1sOYeGk8T7gPqV2Bmk3KmjNHHB9ngY92K": 1,
-  "d:1Lj01z_9LlQ6Es-tWqTdO7PHUwIEdPL95": 1
+  "d:1kKLqjKHcVxZlmWoMS1NXs42bqXMSo9u3": 2,
+  "d:1E0MGaPnMeV0TWbQYcfTA2ooOI4cXaMzO": 2,
+  "d:1Xyu2gMwNrtsblYdDUD3EtWxWC-blBSpp": 2,
+  "d:1t68rAzmW6BBebqhGBaFEBmeIcWHhs3kd": 2,
+  "d:1sOYeGk8T7gPqV2Bmk3KmjNHHB9ngY92K": 2,
+  "d:1Lj01z_9LlQ6Es-tWqTdO7PHUwIEdPL95": 2
  },
  "pexels_used": [
+  "x71747",
+  "x381054",
+  "x267036",
   "x222349",
+  "x173358",
   "x2576",
-  "x84906",
-  "x170912",
-  "x34971",
-  "x149938",
+  "x371424",
+  "x156103",
+  "x79899",
+  "x7262",
+  "x118768",
   "x31550",
   "x4730",
-  "x7262",
-  "x236256",
   "x25",
-  "x71747",
-  "x173358",
-  "x381054",
-  "x156103",
-  "x118768",
-  "x267036",
   "x273476",
-  "x371424",
-  "x50622",
   "x67201",
-  "x79899",
+  "x236256",
+  "x50622",
+  "x84906",
+  "x170912",
   "x140186",
   "x11284",
-  "x119190"
+  "x119190",
+  "x149938",
+  "x34971"
  ],
  "music_last": {
   "1DZTJ4ef0yYVG2xdl3IlbrnmWhvTIImvs": "2026-11-26T20:53+03:00",
   "1dkR0sggYnJv6PAPhkKiPNI1Qbu5nbVwi": "2026-11-27T12:53+03:00",
-  "1fp4Ah5iQfFhH9Wv8srgJdSKSlru0RDHO": "2026-11-26T17:23+03:00",
+  "1fp4Ah5iQfFhH9Wv8srgJdSKSlru0RDHO": "2026-11-27T17:23+03:00",
   "1QUXCTr3hAjvM090ZbkBDmL190dxM9yXG": "2026-11-27T11:53+03:00",
   "r_16OqrXYzWRF5c20HNKbjBoWNaa_6pT9tp": "2026-11-04T00:15+03:00",
   "r_1l3THmi6GjqfKpjoZlRy25On7rsx6vdso": "2026-11-04T10:50+03:00"
@@ -890,7 +890,7 @@
   "1MaeJUPFLjS7dTteFX0KI_kIEz94_hKQy": "2026-11-26T22:53+03:00",
   "1PYFYrwUtX26kTesTdFbf4lsKfAR98xv-": "2026-11-27T08:52+03:00"
  },
- "vlog_i": 12,
+ "vlog_i": 5,
  "card_log": {
   "s1": [
    "صبح بخیر چهارشنبه؛ پیشنهاد صبحانهٔ وانی",
