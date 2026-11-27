@@ -1,9 +1,10 @@
 {
- "slot": "s6",
+ "slot": "s7",
  "file": null,
  "caption": null,
  "advance": null,
- "item": "s6:چرا آب دریاچه لغزنده‌ست؟",
- "video": "dl/2026-11-27-s6-ig.mp4",
- "done": true
+ "item": "vlog",
+ "video": "dl/2026-11-27-s7-ig.mp4",
+ "reel": false,
+ "done": null
 }
