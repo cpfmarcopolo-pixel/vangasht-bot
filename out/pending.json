@@ -1,8 +1,10 @@
 {
- "slot": "s2",
- "file": "2026-11-28-s2.jpg",
+ "slot": "s3",
+ "file": null,
  "caption": null,
  "advance": null,
- "item": "ai:سه سؤال مهم قبل از رزرو سوئیت مبله در وا",
- "done": true
+ "item": "vlog",
+ "video": "dl/2026-11-28-s3-ig.mp4",
+ "reel": false,
+ "done": null
 }
